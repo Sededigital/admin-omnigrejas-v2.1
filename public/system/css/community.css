@@ -1,0 +1,831 @@
+/**
+ * Community Page Styles
+ * Estilos específicos para a página de comunidade das alianças
+ */
+
+/* Layout geral */
+.community-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+/* Cards com sombra elegante */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.95);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px 15px 0 0 !important;
+    border: none;
+    padding: 20px;
+}
+
+/* Navegação por abas */
+.nav-pills .nav-link {
+    border-radius: 10px;
+    margin: 0 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-pills .nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.nav-pills .nav-link.active {
+    background: white;
+    color: #667eea;
+    border-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Lista lateral de alianças */
+.alliance-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 5px 0;
+    padding: 15px;
+}
+
+.alliance-item:hover {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+    color: white !important;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.alliance-item.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+}
+
+.alliance-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Área de chat */
+.chat-messages, .private-messages {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed;
+    border-radius: 15px;
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Mensagens privadas */
+.private-message-wrapper {
+    display: flex;
+    margin-bottom: 20px;
+    animation: slideIn 0.4s ease-out;
+}
+
+.message-own-wrapper {
+    justify-content: flex-end;
+}
+
+.message-other-wrapper {
+    justify-content: flex-start;
+}
+
+.private-message-bubble {
+    max-width: 70%;
+    position: relative;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.message-own {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px 20px 5px 20px;
+    margin-left: auto;
+    position: relative;
+}
+
+.message-own::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid #764ba2;
+    border-bottom: 10px solid transparent;
+}
+
+.message-other {
+    background: white;
+    color: #333;
+    border-radius: 20px 20px 20px 5px;
+    border: 1px solid #e9ecef;
+    position: relative;
+}
+
+.message-other::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-right: 10px solid white;
+    border-bottom: 10px solid transparent;
+}
+
+.message-content {
+    word-wrap: break-word;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.message-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 8px;
+    gap: 6px;
+    min-height: 16px;
+}
+
+.message-time {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.message-status {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+}
+
+.message-status i {
+    font-size: 10px;
+}
+
+.message-sender {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input de mensagem */
+.form-control {
+    border-radius: 25px;
+    border: 2px solid #e9ecef;
+    padding: 12px 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transform: scale(1.02);
+}
+
+.btn-primary {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+}
+
+.btn-primary:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+}
+
+/* Scroll suave */
+.chat-messages, .private-messages {
+    scroll-behavior: smooth;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .alliance-item {
+        padding: 12px;
+        margin: 3px 0;
+    }
+
+    .private-message-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+    }
+
+    .chat-messages, .private-messages {
+        padding: 15px;
+        max-height: 400px;
+    }
+
+    .nav-pills .nav-link {
+        margin: 0 2px;
+        padding: 10px 15px;
+        font-size: 0.875rem;
+    }
+}
+
+/* Estilos para scrollbar */
+.chat-messages::-webkit-scrollbar,
+.private-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track,
+.private-messages::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb,
+.private-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover,
+.private-messages::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Badges */
+.badge {
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 5px 10px;
+}
+
+/* Estados vazios */
+.text-center .fa-4x {
+    color: rgba(102,126,234,0.2);
+}
+
+.message-own-wrapper {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.message-other-wrapper {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.alliance-message-bubble {
+    max-width: 70%;
+    position: relative;
+    margin-bottom: 4px;
+    border-radius: 18px;
+    padding: 10px 14px;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.alliance-message-bubble.message-own {
+    background: #dcf8c6;
+    color: #303030;
+    border-radius: 12px 12px 4px 12px;
+    margin-left: auto;
+    position: relative;
+}
+
+.alliance-message-bubble.message-own::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid #dcf8c6;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+}
+
+.alliance-message-bubble.message-other {
+    background: white;
+    color: #303030;
+    border-radius: 12px 12px 12px 4px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.alliance-message-bubble.message-other::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-right: 8px solid white;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+}
+
+.alliance-message-bubble .message-content {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: block;
+}
+
+.alliance-message-bubble .message-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 6px;
+    gap: 6px;
+    min-height: 16px;
+}
+
+.alliance-message-bubble .message-time {
+    font-size: 11px;
+    color: #8e8e93;
+    font-weight: 500;
+    margin: 0;
+}
+
+.alliance-message-bubble .message-status {
+    font-size: 11px;
+    color: #8e8e93;
+    display: flex;
+    align-items: center;
+}
+
+.alliance-message-bubble .message-status i {
+    font-size: 10px;
+}
+
+.alliance-message-bubble .message-sender {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #007aff;
+    opacity: 0.9;
+    display: block;
+    line-height: 1.2;
+}
+
+/* Animação de entrada das mensagens */
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Hover effects */
+.alliance-message-bubble:hover {
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2), 0 2px 6px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+.alliance-message-bubble.message-own:hover {
+    background: #c3e88d;
+    box-shadow: 0 3px 12px rgba(0,123,255,0.2), 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.alliance-message-bubble.message-own:hover::after {
+    border-left-color: #c3e88d;
+    border-top-color: #c3e88d;
+}
+
+.alliance-message-bubble.message-other:hover {
+    background: #f8f9fa;
+    border-color: #d0d0d0;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2), 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.alliance-message-bubble.message-other:hover::after {
+    border-right-color: #f8f9fa;
+    border-top-color: #f8f9fa;
+}
+
+/* Efeitos de foco para acessibilidade */
+.alliance-message-bubble:focus {
+    outline: 2px solid #007aff;
+    outline-offset: 2px;
+}
+
+/* Animação de entrada aprimorada */
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Efeito ripple para interatividade */
+.alliance-message-bubble {
+    position: relative;
+    overflow: hidden;
+}
+
+.alliance-message-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
+}
+
+.alliance-message-bubble:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Efeito de pressão para feedback tátil */
+.alliance-message-bubble:active {
+    transform: translateY(0) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Indicador de mensagem recente */
+.alliance-message-wrapper.recent-message {
+    animation: recentPulse 2s ease-in-out;
+}
+
+@keyframes recentPulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+    50% { box-shadow: 0 0 0 4px rgba(0, 123, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+/* Estilo para mensagens com mídia (se houver) */
+.alliance-message-bubble.has-media {
+    padding: 6px 8px;
+}
+
+.alliance-message-bubble.has-media .message-content {
+    margin-bottom: 8px;
+}
+
+/* Melhor organização do layout das mensagens */
+.alliance-message-wrapper .message-sender {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.alliance-message-wrapper.message-own-wrapper .message-sender {
+    text-align: right;
+    margin-right: 12px;
+}
+
+/* WhatsApp Style Messages - FORÇADO */
+.whatsapp-message {
+    margin-bottom: 10px !important;
+    padding: 0 15px !important;
+    clear: both !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.whatsapp-message.own {
+    text-align: right !important;
+}
+
+.whatsapp-message.other {
+    text-align: left !important;
+}
+
+.sender-name {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #007aff !important;
+    margin-bottom: 2px !important;
+    opacity: 0.9 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.message-bubble {
+    display: inline-block !important;
+    max-width: 70% !important;
+    padding: 8px 12px !important;
+    border-radius: 18px !important;
+    position: relative !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.whatsapp-message.own .message-bubble {
+    background-color: #dcf8c6 !important;
+    color: #303030 !important;
+    border-radius: 18px 18px 4px 18px !important;
+}
+
+.whatsapp-message.own .message-bubble::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    right: -8px !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 8px solid #dcf8c6 !important;
+    border-bottom: 8px solid transparent !important;
+    border-top: 8px solid transparent !important;
+}
+
+.whatsapp-message.other .message-bubble {
+    background-color: white !important;
+    color: #303030 !important;
+    border-radius: 18px 18px 18px 4px !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.whatsapp-message.other .message-bubble::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: -8px !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-right: 8px solid white !important;
+    border-bottom: 8px solid transparent !important;
+    border-top: 8px solid transparent !important;
+}
+
+.message-text {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.message-info {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    margin-top: 4px !important;
+    gap: 4px !important;
+    visibility: visible !important;
+}
+
+.time {
+    font-size: 11px !important;
+    color: #8e8e93 !important;
+    font-weight: 500 !important;
+    visibility: visible !important;
+}
+
+.status {
+    font-size: 11px !important;
+    color: #4fc3f7 !important;
+    visibility: visible !important;
+}
+
+.status i {
+    font-size: 10px !important;
+    visibility: visible !important;
+}
+
+/* Melhor formatação do conteúdo das mensagens */
+.alliance-message-bubble .message-content p {
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+
+.alliance-message-bubble .message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.alliance-message-bubble .message-content a {
+    color: #007aff;
+    text-decoration: underline;
+}
+
+.alliance-message-bubble .message-content strong,
+.alliance-message-bubble .message-content b {
+    font-weight: 600;
+}
+
+.alliance-message-bubble .message-content em,
+.alliance-message-bubble .message-content i {
+    font-style: italic;
+}
+
+.alliance-message-bubble .message-content code {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 12px;
+}
+
+.alliance-message-bubble.message-own .message-content code {
+    background: rgba(0,0,0,0.2);
+}
+
+/* Quebra de linha automática */
+.alliance-message-bubble .message-content {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Melhor espaçamento entre mensagens consecutivas do mesmo usuário */
+.alliance-message-wrapper + .alliance-message-wrapper.message-own-wrapper .alliance-message-wrapper.message-own-wrapper {
+    margin-top: 2px;
+}
+
+.alliance-message-wrapper + .alliance-message-wrapper.message-other-wrapper .alliance-message-wrapper.message-other-wrapper {
+    margin-top: 2px;
+}
+
+/* Indicadores de data */
+.message-date-separator {
+    text-align: center;
+    margin: 16px 0;
+    position: relative;
+}
+
+.message-date-separator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.message-date-separator span {
+    background: white;
+    color: #8e8e93;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Scroll específico para mensagens da aliança */
+.chat-messages {
+    scroll-behavior: smooth;
+    height: calc(100vh - 450px);
+    min-height: 300px;
+    overflow-y: auto;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Responsividade para mensagens da aliança */
+@media (max-width: 768px) {
+    .alliance-message-bubble {
+        max-width: 85%;
+        padding: 10px 14px;
+    }
+
+    .chat-messages {
+        padding: 15px;
+        max-height: 350px;
+    }
+}
+.meeting-item {
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.meeting-item:hover {
+    background-color: #f8f9fa !important;
+    border-left-color: #0d6efd;
+}
+
+.meeting-card {
+    transition: all 0.2s ease;
+    border: 1px solid #dee2e6;
+}
+
+.meeting-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #0d6efd;
+}
+
+.meeting-info-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.meeting-info-item:last-child {
+    border-bottom: none;
+}
+
+.meeting-time {
+    min-width: 60px;
+    padding: 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.meeting-day-group {
+    border-left: 4px solid #0d6efd;
+    padding-left: 15px;
+    margin-left: 10px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.hover-bg-light:hover {
+    background-color: #f8f9fa !important;
+}
+
+.meeting-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+}

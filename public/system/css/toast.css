@@ -1,0 +1,213 @@
+/* Enhanced Toast Animations and Styles */
+
+/* Toast Container */
+.toast-container {
+    pointer-events: none;
+    z-index: 1055;
+}
+
+.toast-container .toast {
+    pointer-events: auto;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+/* Progress Bar Styling */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.toast-progress-bar {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: inherit;
+    animation: progressShrink linear forwards;
+    transform-origin: left;
+}
+
+@keyframes progressShrink {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* Enhanced slide-in animation with bounce */
+.toast-container .toast.toast-slide-in {
+    transform: translateX(120%);
+    opacity: 0;
+    animation: slideInBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes slideInBounce {
+    0% {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-5%);
+        opacity: 0.9;
+    }
+    80% {
+        transform: translateX(2%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast-container .toast.toast-visible {
+    animation: none;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Enhanced slide-out animation */
+.toast-container .toast.toast-slide-out {
+    animation: slideOutSmooth 0.3s ease-in forwards;
+}
+
+@keyframes slideOutSmooth {
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+/* Toast content styling */
+.toast .toast-body {
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.toast .toast-icon {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    animation: iconPulse 0.6s ease-out;
+}
+
+.toast .toast-message {
+    flex: 1;
+}
+
+.toast .toast-close-btn {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    padding: 0.25rem;
+}
+
+.toast .toast-close-btn:hover {
+    opacity: 1;
+}
+
+/* Icon pulse animation */
+@keyframes iconPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+/* Toast type specific styling */
+.toast.bg-success {
+    background: linear-gradient(135deg, #28a745, #20c997) !important;
+    border-left: 4px solid #1e7e34;
+}
+
+.toast.bg-danger {
+    background: linear-gradient(135deg, #dc3545, #fd7e14) !important;
+    border-left: 4px solid #bd2130;
+}
+
+.toast.bg-warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14) !important;
+    border-left: 4px solid #d39e00;
+}
+
+.toast.bg-info {
+    background: linear-gradient(135deg, #17a2b8, #6f42c1) !important;
+    border-left: 4px solid #117a8b;
+}
+
+/* Native Date Input Enhancements */
+
+/* Native Date Input Styles */
+input[type="date"] {
+    position: relative;
+}
+
+/* Ensure date picker works in form-floating */
+.form-floating input[type="date"] {
+    height: calc(3.5rem + 2px);
+    padding: 1rem 0.75rem;
+}
+
+/* Focus styles for date fields */
+input[type="date"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Mobile-specific date input adjustments */
+@media (max-width: 768px) {
+    input[type="date"] {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    /* Ensure date picker indicator is visible and clickable */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 1;
+        background: none;
+    }
+
+    /* Remove spin buttons that might interfere */
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .toast-container {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .toast-container .toast {
+        margin-bottom: 0.25rem;
+    }
+
+    .toast-progress {
+        height: 2px;
+    }
+}

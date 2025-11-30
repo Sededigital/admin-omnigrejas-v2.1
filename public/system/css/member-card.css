@@ -1,0 +1,523 @@
+/* ========================================
+   CARTÃO DE MEMBRO - ESTILOS
+   ======================================== */
+
+/* Variáveis CSS dinâmicas para cores configuráveis */
+:root {
+    --card-header-bg: #667eea;
+    --card-header-text: #ffffff;
+    --card-text-primary: #333333;
+    --card-text-secondary: #666666;
+    --card-accent: #667eea;
+    --card-status-active: #28a745;
+    --card-status-inactive: #dc3545;
+    --card-status-lost: #fd7e14;
+    --card-status-damaged: #6f42c1;
+    --card-status-renewed: #20c997;
+    --card-status-cancelled: #6c757d;
+}
+
+.member-card-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-card {
+    width: 100%;
+    max-width: 322px; /* Largura de cartão de crédito */
+    height: 203px; /* Altura de cartão de crédito */
+    background: white !important;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+/* ========================================
+   CABEÇALHO DO CARTÃO
+   ======================================== */
+
+.card-header-section {
+    background: var(--card-header-bg); /* Fallback sólido para impressão */
+    background: linear-gradient(135deg, var(--card-header-bg) 0%, var(--card-accent) 100%);
+    color: var(--card-header-text) !important;
+    padding: 10px;
+    position: relative;
+    height: 60px;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+.church-info {
+    display: flex;
+    align-items: center;
+}
+
+.church-logo {
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.church-details h3 {
+    margin: 0 0 2px 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.church-details p {
+    margin: 0;
+    font-size: 10px;
+    opacity: 0.9;
+}
+
+.card-type {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.card-type-label {
+    background: rgba(255,255,255,0.2);
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   CORPO DO CARTÃO
+   ======================================== */
+
+.card-body-section {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    height: 85px;
+}
+
+.member-photo-section {
+    flex-shrink: 0;
+}
+
+.member-photo {
+    width: 55px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid var(--card-accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+.member-photo-placeholder {
+    width: 55px;
+    height: 68px;
+    background: var(--card-accent); /* Fallback sólido para impressão */
+    background: linear-gradient(135deg, var(--card-accent) 0%, var(--card-header-bg) 100%);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--card-header-text) !important;
+    font-size: 20px;
+    border: 2px solid var(--card-accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+.member-info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.member-name h2 {
+    margin: 25px 0 2px 0;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--card-text-primary);
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+}
+
+.member-role {
+    margin: 0 0 8px 0;
+    font-size: 10px;
+    color: var(--card-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.member-details {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: px;
+}
+
+.detail-row {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0;
+}
+
+.detail-row .label {
+    font-weight: 600;
+    color: var(--card-text-secondary);
+    font-size: 8px;
+}
+
+.detail-row .value {
+    font-weight: 500;
+    color: var(--card-text-primary);
+    font-size: 8px;
+}
+
+.detail-row .value.status-ativo {
+    color: var(--card-status-active);
+}
+
+.detail-row .value.status-inativo {
+    color: var(--card-status-inactive);
+}
+
+.detail-row .value.status-perdido {
+    color: var(--card-status-lost);
+}
+
+.detail-row .value.status-danificado {
+    color: var(--card-status-damaged);
+}
+
+.detail-row .value.status-renovado {
+    color: var(--card-status-renewed);
+}
+
+.detail-row .value.status-cancelado {
+    color: var(--card-status-cancelled);
+}
+
+/* ========================================
+   RODAPÉ DO CARTÃO
+   ======================================== */
+
+.card-footer-section {
+    background: #f8f9fa !important;
+    padding: 8px;
+    border-top: 1px solid var(--card-accent);
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+.qr-signature-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qr-code {
+    flex-shrink: 0;
+}
+
+.qr-code svg {
+    width: 35px;
+    height: 35px;
+}
+
+.signature {
+    flex: 1;
+}
+
+.signature-label {
+    margin: 0 0 2px 0;
+    font-size: 6px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.signature-value {
+    margin: 0;
+    font-size: 8px;
+    font-weight: 500;
+    color: #333;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.card-notice {
+    text-align: right;
+    flex: 1;
+}
+
+.notice-text {
+    margin: 0;
+    font-size: 6px;
+    color: #666;
+    line-height: 1.2;
+}
+
+.notice-text i {
+    color: var(--card-accent);
+    margin-right: 2px;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .member-card-container {
+        padding: 10px;
+    }
+
+    .member-card {
+        max-width: 280px;
+        height: 176px;
+    }
+
+    .card-header-section {
+        padding: 8px;
+        height: 50px;
+    }
+
+    .church-logo {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .church-details h3 {
+        font-size: 10px;
+    }
+
+    .church-details p {
+        font-size: 8px;
+    }
+
+    .card-body-section {
+        padding: 8px;
+        height: 70px;
+    }
+
+    .member-photo,
+    .member-photo-placeholder {
+        width: 50px;
+        height: 62px;
+    }
+
+    .member-name h2 {
+        font-size: 12px;
+    }
+
+    .member-role {
+        font-size: 8px;
+    }
+
+    .detail-row .label,
+    .detail-row .value {
+        font-size: 7px;
+    }
+
+    .card-footer-section {
+        padding: 6px;
+        height: 48px;
+    }
+
+    .qr-code svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .signature-label {
+        font-size: 5px;
+    }
+
+    .signature-value {
+        font-size: 7px;
+    }
+
+    .notice-text {
+        font-size: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-card {
+        max-width: 240px;
+        height: 151px;
+        border-radius: 8px;
+    }
+
+    .card-header-section {
+        height: 42px;
+    }
+
+    .card-body-section {
+        height: 60px;
+    }
+
+    .card-footer-section {
+        height: 40px;
+    }
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+.member-card {
+    animation: cardSlideIn 0.5s ease-out;
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.church-logo {
+    transition: transform 0.3s ease;
+}
+
+.church-logo:hover {
+    transform: scale(1.1);
+}
+
+.member-photo {
+    transition: transform 0.3s ease;
+}
+
+.member-photo:hover {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   IMPRESSÃO
+   ======================================== */
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .member-card-container {
+        background: white !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        page-break-inside: avoid !important;
+    }
+
+    .member-card {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        border: 1px solid #333 !important;
+        max-width: 322px !important;
+        height: 203px !important;
+        page-break-inside: avoid !important;
+        margin: 0 auto !important;
+        background: white !important;
+        border-radius: 10px !important;
+    }
+
+    .card-header-section {
+        background: var(--card-header-bg) !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .church-logo {
+        background: rgba(255,255,255,0.2) !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    .member-photo,
+    .member-photo-placeholder {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .card-footer-section {
+        background: #f8f9fa !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    .card-notice {
+        border-top: 1px solid #333 !important;
+    }
+
+    /* Garantir que textos sejam legíveis */
+    .member-name h2,
+    .member-role,
+    .detail-row .label,
+    .detail-row .value,
+    .signature-label,
+    .signature-value,
+    .notice-text {
+        color: #000 !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    /* Esconder elementos que não devem ser impressos */
+    .modal-footer,
+    .btn,
+    .dropdown,
+    .card-body {
+        display: none !important;
+    }
+
+    /* Ajustar página para centralizar o cartão */
+    @page {
+        size: auto;
+        margin: 10mm;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
