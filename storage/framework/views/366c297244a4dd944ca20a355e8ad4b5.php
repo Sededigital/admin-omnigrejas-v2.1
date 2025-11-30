@@ -1,0 +1,410 @@
+<div class="container-fluid py-5">
+    <!-- Hero Section -->
+    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+        <div class="card-body p-5">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-credit-card me-3"></i>
+                        Pagamento de Assinatura
+                    </h1>
+                    <p class="lead mb-4">
+                        Complete seu <strong><?php echo e($acaoFormatada); ?></strong> do pacote <strong><?php echo e($pacote->nome); ?></strong>.
+                        Envie o comprovativo de pagamento para ativar sua assinatura.
+                    </p>
+
+                    <div class="row g-4">
+                        <div class="col-auto text-center">
+                            <div class="h4 mb-1"><?php echo e(number_format($valorTotal, 2, ',', '.')); ?> AOA</div>
+                            <div class="small opacity-75">Valor Total</div>
+                        </div>
+                        <div class="col-auto text-center border-start border-white border-opacity-25 ps-4">
+                            <div class="h4 mb-1">
+                                <!--[if BLOCK]><![endif]--><?php if($duracaoMeses === 'vitalicio'): ?>
+                                    Vitalício
+                                <?php else: ?>
+                                    <?php echo e($duracaoMeses); ?> <?php echo e($duracaoMeses == 1 ? 'mês' : 'meses'); ?>
+
+                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+                            <div class="small opacity-75">Duração</div>
+                        </div>
+                        <div class="col-auto text-center border-start border-white border-opacity-25 ps-4">
+                            <div class="h4 mb-1"><?php echo e(number_format($valorMensal, 2, ',', '.')); ?> AOA/Mês</div>
+                            <div class="small opacity-75">Valor Mensal (média)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block text-end">
+                    <!-- Ícone maior para a seção -->
+                    <i class="fas fa-sack-dollar fa-5x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensagens de Validação -->
+    <!--[if BLOCK]><![endif]--><?php if($mensagensValidacao): ?>
+        <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $mensagensValidacao; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="alert alert-<?php echo e($msg['tipo']); ?> alert-dismissible fade show mb-4" role="alert">
+                <div class="d-flex align-items-start">
+                    <div class="flex-shrink-0 me-3">
+                        <!--[if BLOCK]><![endif]--><?php if($msg['tipo'] === 'warning'): ?>
+                            <i class="fas fa-exclamation-triangle fa-2x"></i>
+                        <?php elseif($msg['tipo'] === 'info'): ?>
+                            <i class="fas fa-info-circle fa-2x"></i>
+                        <?php elseif($msg['tipo'] === 'success'): ?>
+                            <i class="fas fa-check-circle fa-2x"></i>
+                        <?php else: ?>
+                            <i class="fas fa-bell fa-2x"></i>
+                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    </div>
+                    <div class="flex-grow-1">
+                        <h6 class="alert-heading mb-2"><?php echo e($msg['titulo']); ?></h6>
+                        <p class="mb-2"><?php echo e($msg['mensagem']); ?></p>
+
+                        <!-- Informações da Assinatura Atual -->
+                        <!-- Informações da Assinatura Atual (Aprimorado) -->
+                        <!--[if BLOCK]><![endif]--><?php if(isset($msg['assinatura_info']) && $msg['assinatura_info']): ?>
+                            <div class="mt-4 p-4 alert alert-warning border-0 rounded-3 shadow-sm">
+                                <h5 class="mb-3 text-warning-emphasis">
+                                    <i class="fas fa-history me-2"></i> Detalhes da Assinatura Vigente
+                                </h5>
+                                
+                                <p class="mb-1">
+                                    <span class="text-muted small">Pacote:</span>
+                                    <strong class="text-dark d-block"><?php echo e($msg['assinatura_info']['pacote_nome']); ?></strong>
+                                </p>
+
+                                <p class="mb-1">
+                                    <span class="text-muted small">Valor Mensal:</span>
+                                    <strong class="text-dark d-block"><?php echo e($msg['assinatura_info']['pacote_preco']); ?>/mês</strong>
+                                </p>
+
+                                <!--[if BLOCK]><![endif]--><?php if($msg['assinatura_info']['data_fim']): ?>
+                                <p class="mb-1">
+                                    <span class="text-muted small">Válida até:</span>
+                                    <strong class="text-dark d-block"><?php echo e($msg['assinatura_info']['data_fim']); ?></strong>
+                                </p>
+                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                                
+                                <div class="mt-3 pt-3 border-top border-warning-subtle">
+                                    <span class="text-muted small me-3">Status:</span>
+                                    <span class="badge fs-6 bg-<?php echo e($msg['assinatura_info']['status'] === 'Ativa' ? 'success' : 'danger'); ?>">
+                                        <?php echo e($msg['assinatura_info']['status']); ?>
+
+                                    </span>
+                                </div>
+                            </div>
+                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+
+                        <!--[if BLOCK]><![endif]--><?php if(isset($msg['acao_sugerida'])): ?>
+                            <small class="text-muted">
+                                Ação sugerida: <strong>
+                                    <!--[if BLOCK]><![endif]--><?php switch($msg['acao_sugerida']):
+                                        case ('nova_assinatura'): ?>
+                                            Nova Assinatura
+                                            <?php break; ?>
+                                        <?php case ('renovar'): ?>
+                                            Renovar Assinatura
+                                            <?php break; ?>
+                                        <?php case ('upgrade'): ?>
+                                            Fazer Upgrade
+                                            <?php break; ?>
+                                        <?php default: ?>
+                                            <?php echo e(ucfirst($msg['acao_sugerida'])); ?>
+
+                                    <?php endswitch; ?><!--[if ENDBLOCK]><![endif]-->
+                                </strong>
+                            </small>
+                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+    <!-- Formulário Principal e Resumo -->
+    <div class="row justify-content-center">
+        <!-- Coluna do Formulário -->
+        <div class="col-lg-7 mb-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body p-4 p-md-5">
+                    <h3 class="section-header text-primary fw-bold mb-4">
+                        <i class="fas fa-edit me-2"></i> Detalhes do Pagamento
+                    </h3>
+
+                    <form wire:submit="submitPagamento">
+
+                        <!-- Seleção de Igreja (se múltiplas) -->
+                        <!--[if BLOCK]><![endif]--><?php if($igrejasDisponiveis->count() > 1): ?>
+                            <div class="mb-4">
+                                <label for="igrejaSelecionada" class="form-label fw-semibold">Igreja para Assinatura</label>
+                                <div class="position-relative">
+                                    <select id="igrejaSelecionada" class="form-select" wire:model.live="igrejaSelecionada" >
+                                        <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $igrejasDisponiveis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $igrejaDisp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($igrejaDisp['id']); ?>">
+                                                <?php echo e($igrejaDisp['nome']); ?>
+
+                                                <!--[if BLOCK]><![endif]--><?php if($igrejaDisp['sigla']): ?>
+                                                    (<?php echo e($igrejaDisp['sigla']); ?>)
+                                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                                                - <?php echo e($igrejaDisp['categoria']); ?>
+
+                                            </option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                                    </select>
+                                    <div wire:loading wire:target="igrejaSelecionada" class="position-absolute top-50 end-0 translate-middle-y me-5">
+                                        <i class="fas fa-spinner fa-spin text-primary" role="status">
+                                            <span class="visually-hidden">Carregando...</span>
+                                        </i>
+                                    </div>
+                                </div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['igrejaSelecionada'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="text-danger small mt-1"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+                        <!-- Duração da Assinatura -->
+                        <div class="mb-4">
+                            <label for="duracao" class="form-label fw-semibold">Duração da Assinatura</label>
+                            <select id="duracao" class="form-select" wire:model.live="duracaoMeses" >
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $duracaoOpcoes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valor => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($valor); ?>"><?php echo e($label); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                            </select>
+                        </div>
+
+                        <!-- Seleção do Método de Pagamento -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold mb-3">Método de Pagamento</label>
+                            <div class="row g-3">
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $metodosPagamento; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $codigo => $metodo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <!-- Opção de Pagamento -->
+                                    <div class="col-sm-6">
+                                        <div class="card card-payment-option  <?php $__errorArgs = ['metodoPagamento'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> <?php echo e($metodoPagamento === $codigo ? 'selected' : ''); ?>"
+                                             wire:click="$set('metodoPagamento', '<?php echo e($codigo); ?>')">
+                                            <div class="card-body py-3 text-center">
+                                                <i class="fas <?php echo e($metodo['icone']); ?> fa-3x <?php echo e($metodo['cor']); ?> mb-3"></i>
+                                                <p class="mb-0 fw-semibold"><?php echo e($metodo['nome']); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+                            <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['metodoPagamento'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-danger small mt-1"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                        </div>
+
+                        <!-- Dados da Referência / Conta Bancária (Visível quando método requer referência) -->
+                        <!--[if BLOCK]><![endif]--><?php if($metodoPagamento && $metodosPagamento[$metodoPagamento]['requer_referencia']): ?>
+                            <div id="payment-details-<?php echo e($metodoPagamento); ?>" class="alert alert-primary p-4 mb-4">
+                                <h5 class="fw-bold text-primary"><i class="fas fa-money-check-alt me-2"></i> Dados para <?php echo e($metodosPagamento[$metodoPagamento]['nome']); ?></h5>
+                                <p class="mb-1"><strong>Banco:</strong> BAI</p>
+                                <p class="mb-1"><strong>
+                                    <!--[if BLOCK]><![endif]--><?php if($metodosPagamento[$metodoPagamento]['nome'] == 'multicaixa_express'): ?>
+                                    Nº Multicaixa Express:</strong> 940467779
+                                    <?php else: ?>
+                                    Nº da conta:</strong> 087687548675453
+                                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                                </p>
+                                <p class="mb-1"><strong>IBAN:</strong> AO06.0051.0000.2569.5685.1016.7</p>
+                                <p class="mb-0"><strong>Titular:</strong> SEDE DIGITAL PRESTAÇÃO DE SERVIÇOS (SU) LDA</p>
+                                <small class="d-block mt-2">Por favor, transfira o valor exato de <strong><?php echo e(number_format($valorTotal, 2, ',', '.')); ?> AOA</strong>.</small>
+                            </div>
+                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+                        <!-- Campo de Referência/Comprovativo -->
+                        <!--[if BLOCK]><![endif]--><?php if($referencia): ?>
+                            <div class="mb-4">
+                                <label for="referencia" class="form-label fw-semibold">Referência do Pagamento</label>
+                                <input type="text" id="referencia" class="form-control bg-white text-dark" wire:model.live="referencia" value="<?php echo e($referencia); ?>" readonly style="background-color: white !important; color: #212529 !important;">
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Esta referência foi gerada automaticamente. Use-a na sua transferência bancária.
+                                </div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['referencia'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="text-danger small mt-1"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+                        <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+                        <!-- Upload do Comprovativo -->
+                        <div class="mb-4">
+                            <label for="comprovativo" class="form-label fw-semibold">Comprovativo de Pagamento <span class="text-danger">*</span></label>
+                            <div class="position-relative">
+                                <input type="file" id="comprovativo" class="form-control <?php $__errorArgs = ['comprovativo'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" wire:model="comprovativo" accept="image/*, application/pdf" wire:loading.attr="disabled" wire:target="comprovativo">
+                                <div class="position-absolute top-50 end-0 translate-middle-y pe-3" wire:loading wire:target="comprovativo">
+                                    <i class="fas fa-spinner fa-spin text-primary" role="status" aria-hidden="true"></i>
+                                    <span class="visually-hidden">Carregando...</span>
+                                </div>
+                            </div>
+                            <div class="form-text">
+                                Anexe o talão da transferência ou captura de tela do pagamento. Máx. 5MB.
+                            </div>
+                            <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['comprovativo'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-danger small mt-1"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+
+                            <!-- Preview do arquivo -->
+                            <!--[if BLOCK]><![endif]--><?php if($comprovativo): ?>
+                                <div class="mt-3 p-3 bg-light rounded">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-file me-3 text-primary"></i>
+                                        <div>
+                                            <div class="fw-bold"><?php echo e($comprovativo->getClientOriginalName()); ?></div>
+                                            <small class="text-muted">
+                                                <?php echo e(number_format($comprovativo->getSize() / 1024, 1)); ?> KB •
+                                                <?php echo e(strtoupper($comprovativo->getClientOriginalExtension())); ?>
+
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                        </div>
+
+                        <!-- Observações -->
+                        <div class="mb-4">
+                            <label for="observacoes" class="form-label fw-semibold">Observações (Opcional)</label>
+                            <textarea id="observacoes" class="form-control" rows="3" wire:model="observacoes" placeholder="Adicione qualquer nota importante..." wire:loading.attr="disabled" wire:target="submitPagamento"></textarea>
+                            <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['observacoes'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="text-danger small mt-1"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                        </div>
+
+                        <!-- Botão de Envio -->
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-primary btn-glow"
+                                    wire:loading.attr="disabled"
+                                    wire:target="submitPagamento,comprovativo">
+                                <span wire:loading.remove wire:target="submitPagamento">
+                                    <i class="fas fa-paper-plane me-2"></i> Enviar Comprovativo e Concluir
+                                </span>
+                                <span wire:loading wire:target="submitPagamento">
+                                    <i class="fas fa-spinner fa-spin me-2"></i> Processando...
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna do Resumo (Sticky) -->
+        <div class="col-lg-5 mb-4">
+            <div class="card shadow-sm border-0 sticky-top" style="top: 20px;">
+                <div class="card-body p-4 p-md-5">
+                    <h4 class="section-header text-success fw-bold mb-4">
+                        <i class="fas fa-receipt me-2"></i> Resumo da Assinatura
+                    </h4>
+                    <div class="card-summary">
+                        <div class="card-summary-item">
+                            <span class="fw-medium">Pacote Selecionado:</span>
+                            <span class="text-end fw-bold text-dark"><?php echo e($pacote->nome); ?></span>
+                        </div>
+                        <div class="card-summary-item">
+                            <span class="fw-medium">Tipo de Transação:</span>
+                            <span class="text-end text-success fw-semibold"><?php echo e($acaoFormatada); ?></span>
+                        </div>
+                        <div class="card-summary-item">
+                            <span class="fw-medium">Duração:</span>
+                            <span class="text-end">
+                                <!--[if BLOCK]><![endif]--><?php if($duracaoMeses === 'vitalicio'): ?>
+                                    Vitalício
+                                <?php else: ?>
+                                    <?php echo e($duracaoMeses); ?> <?php echo e($duracaoMeses == 1 ? 'mês' : 'meses'); ?>
+
+                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                            </span>
+                        </div>
+                        <div class="card-summary-item">
+                            <span class="fw-medium">Preço Base Mensal:</span>
+                            <span class="text-end"><?php echo e(number_format($valorMensal, 2, ',', '.')); ?> AOA</span>
+                        </div>
+                        <div class="card-summary-item">
+                            <span class="fw-medium">Desconto por Duração:</span>
+                            <span class="text-end text-danger">
+                                <!--[if BLOCK]><![endif]--><?php if($duracaoMeses === 'vitalicio'): ?>
+                                    50%
+                                <?php elseif($duracaoMeses == 12): ?>
+                                    20%
+                                <?php elseif($duracaoMeses == 6): ?>
+                                    10%
+                                <?php elseif($duracaoMeses == 3): ?>
+                                    5%
+                                <?php else: ?>
+                                    0%
+                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+                            </span>
+                        </div>
+                        <div class="card-summary-item card-summary-total">
+                            <span class="fw-bold">TOTAL A PAGAR:</span>
+                            <span class="fw-bold"><?php echo e(number_format($valorTotal, 2, ',', '.')); ?> AOA</span>
+                        </div>
+                        <div class="text-center mt-3">
+                            <small class="text-muted">A validade da sua assinatura será atualizada após a confirmação do pagamento.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php /**PATH C:\laragon\www\admin-omnigrejas-v2.1\resources\views/subscription/payment-page.blade.php ENDPATH**/ ?>

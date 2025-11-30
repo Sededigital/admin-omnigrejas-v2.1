@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Gerencial Padrão</title>
+    <style>
+        /* 1. Reset e Configurações Básicas (Manter o estilo formal de documento) */
+        body {
+            font-family: 'Times New Roman', serif; /* Fonte clássica/oficial */
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #111;
+            margin: 0;
+            padding: 15px;
+            position: relative; 
+        }
+
+        /* 2. Layouts Estruturais */
+        .header-content, .signatures {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        .header-main-center {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center;
+        }
+        .header-col, .signature-box {
+            display: table-cell;
+            vertical-align: top;
+        }
+        .data-section {
+            margin-bottom: 20px;
+            padding: 8px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .two-columns {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        .col {
+            display: table-cell;
+            width: 50%;
+            padding: 0 10px;
+            vertical-align: top;
+        }
+
+        /* 3. Estilização do Cabeçalho e Título */
+        .header {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 15px; 
+            position: relative; 
+        }
+        
+        /* Contêiner para o Número do Documento no canto extremo superior direito */
+        .doc-number-container {
+            position: absolute;
+            top: -10px; 
+            right: 0;
+            width: 200px; 
+            text-align: right;
+            line-height: 1;
+        }
+
+        .company-info h1 {
+            color: #111;
+            font-size: 16pt;
+            margin: 5pt 0 3pt 0; 
+            font-weight: bold;
+        }
+        .company-info p {
+            margin: 0;
+            color: #333;
+            font-size: 10pt;
+        }
+        .document-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #000;
+            margin: 15px 0 8px 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .document-subtitle {
+            text-align: center;
+            margin-bottom: 10px; 
+            font-weight: normal;
+            font-size: 11pt;
+            font-style: italic;
+            color: #444;
+        }
+
+        /* Estilo para o Logo (Circular e sem borda) */
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: none;
+            border-radius: 50%; 
+            margin: 0 auto; 
+            display: block;
+        }
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            border: none;
+            border-radius: 50%; 
+            background-color: #f2f2f2; 
+            text-align: center;
+            line-height: 80px;
+            font-size: 10pt;
+            font-weight: bold;
+            margin: 0 auto; 
+            display: block;
+            border: 1px solid #aaa;
+        }
+
+        /* 4. Estilização dos Campos de Dados */
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #000;
+            border-bottom: 1px dashed #666;
+            padding-bottom: 3px; 
+            text-transform: uppercase;
+        }
+        .data-field {
+            margin-bottom: 5px; 
+            display: block;
+        }
+        .data-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 140px; /* Aumentado para acomodar labels maiores de relatório */
+            color: #333;
+        }
+        .data-value {
+            border-bottom: 1px dotted #888;
+            padding-bottom: 1px;
+            display: inline-block;
+            min-width: 150px;
+            /* Garante que o texto seja exibido em maiúsculas se necessário, mas aqui deixamos normal */
+        }
+        .data-value strong {
+            font-weight: bold;
+        }
+
+        /* 5. Nota Importante/Conclusiva (o "box" cinza) */
+        .important-note {
+            background-color: #f2f2f2;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 25px 0 15px 0; 
+            font-size: 10pt;
+            line-height: 1.4; 
+            color: #333;
+        }
+
+        /* 6. Tabela de Dados (Para métricas e apêndices) */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 6px 8px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #f7f7f7;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+
+        /* 7. Assinaturas */
+        .signature-section {
+            margin-top: 60px; /* Reduzido o espaço para 60px para não forçar nova página */
+            padding-top: 5px; 
+        }
+        .signatures {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        .signature-box {
+            text-align: center;
+            width: 50%; /* Apenas duas colunas para relatórios */
+            padding: 0 10px; 
+            display: table-cell;
+            vertical-align: top;
+        }
+        .signature-line {
+            border-bottom: 1px solid #000;
+            width: 90%;
+            margin: 30px auto 3px auto; 
+            display: block;
+        }
+        .signature-label {
+            font-size: 10pt;
+            color: #111;
+            margin-top: 3px; 
+            line-height: 1.2; 
+        }
+        .signature-label strong {
+            font-size: 11pt;
+        }
+
+        /* 8. Rodapé */
+        .footer {
+            text-align: center;
+            font-size: 8pt;
+            color: #555;
+            padding-top: 5px; 
+            margin-top: 15px; 
+            border-top: 1px solid #eee;
+        }
+
+        /* 9. Configuração de Impressão (A4) - Essencial para PDFs */
+        @page {
+            size: A4;
+            margin: 10mm; /* Margem de 1cm em todos os lados */
+        }
+        
+        .styled-hr {
+            border: none;
+            height: 1px;
+            background-color: #d1d5db;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Contêiner para o Número do Documento no Canto Superior Direito -->
+    <div class="doc-number-container">
+        <p style="font-size: 9pt; color: #777; margin: 0;">
+            ID do Relatório: 2024.Q3.M09 / GERAL-147
+        </p>
+    </div>
+
+    <!-- Cabeçalho com Logo e Informações da Empresa/Departamento - Centralizados -->
+    <div class="header">
+        <div class="header-main-center">
+            <!-- Logo Placeholder para manter o estilo circular -->
+            <div class="logo-placeholder">LOGO</div>
+            
+            <div class="company-info">
+                <h1>NOME DA ORGANIZAÇÃO / EMPRESA S/A</h1>
+                <p>DEPARTAMENTO DE ANÁLISE E ESTRATÉGIA</p>
+                <p>CNPJ: 00.000.000/0001-00 | Contato: (11) 9999-0000</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Título do Documento -->
+    <div class="document-title">
+        RELATÓRIO GERENCIAL MENSAL
+    </div>
+
+    <!-- Período de Referência -->
+    <div class="document-subtitle">
+        Referência: Setembro de 2024
+    </div>
+
+    <!-- Seção 1: Sumário Executivo (Mantendo o estilo Data Section) -->
+    <div class="data-section">
+        <div class="section-title">
+            1. SUMÁRIO EXECUTIVO
+        </div>
+        <p style="margin: 0 10px; font-size: 11pt; text-align: justify;">
+            O desempenho do trimestre permaneceu estável, com um crescimento de 
+            **4.2%** na receita bruta em relação ao mês anterior. O principal desafio 
+            identificado foi a **queda de 12%** na satisfação do cliente na Região Sul. 
+            As recomendações focam em realocar recursos de marketing para otimizar 
+            a retenção e iniciar um projeto de melhoria da qualidade do suporte na região afetada.
+        </p>
+    </div>
+
+    <!-- Seção 2: Métricas Chave (2 Colunas para dados rápidos) -->
+    <div class="data-section">
+        <div class="section-title">
+            2. METRICAS DE DESEMPENHO E RESULTADOS
+        </div>
+
+        <div class="two-columns">
+            <!-- Coluna 1: Receita -->
+            <div class="col">
+                <div class="data-field">
+                    <span class="data-label">Receita Bruta Total:</span>
+                    <span class="data-value">AOA 1.540.000,00</span>
+                </div>
+                <div class="data-field">
+                    <span class="data-label">Crescimento Mês a Mês:</span>
+                    <span class="data-value"><strong>+4.2%</strong></span>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Custos e Lucro -->
+            <div class="col">
+                <div class="data-field">
+                    <span class="data-label">Custo Operacional:</span>
+                    <span class="data-value">AOA 980.000,00</span>
+                </div>
+                <div class="data-field">
+                    <span class="data-label">Margem Líquida:</span>
+                    <span class="data-value">36% (Meta: 35%)</span>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="styled-hr">
+
+        <!-- Detalhe da Seção (Tópico que requer tabela) -->
+        <div class="section-title" style="border: none; padding-bottom: 0; margin-top: 10px;">
+            2.1. Desempenho por Segmento
+        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Segmento</th>
+                    <th>Receita (Mês)</th>
+                    <th>Variação Anual</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Varejo A</td>
+                    <td>AOA 750.000</td>
+                    <td>+15%</td>
+                    <td>Alto Crescimento</td>
+                </tr>
+                <tr>
+                    <td>Serviços B</td>
+                    <td>AOA 500.000</td>
+                    <td>-2%</td>
+                    <td>Estável</td>
+                </tr>
+                <tr>
+                    <td>Corporativo C</td>
+                    <td>AOA 290.000</td>
+                    <td>+5%</td>
+                    <td>Em Aceleração</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Seção 3: Recomendações (Usa a formatação de lista do campo de dados) -->
+    <div class="data-section">
+        <div class="section-title">
+            3. RECOMENDAÇÕES E PRÓXIMOS PASSOS
+        </div>
+
+        <div class="col" style="width: 100%; padding: 0;">
+            <div class="data-field">
+                <span class="data-label">Ação 1 - Marketing:</span>
+                <span class="data-value">Redirecionar 30% do orçamento de publicidade para campanhas de retenção.</span>
+            </div>
+            <div class="data-field">
+                <span class="data-label">Ação 2 - Vendas:</span>
+                <span class="data-value">Revisar a política de bônus para a equipe de vendas B, que apresentou queda.</span>
+            </div>
+            <div class="data-field">
+                <span class="data-label">Ação 3 - Suporte:</span>
+                <span class="data-value">Implementar o novo sistema de tickets de suporte até o dia 15/10.</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Nota Importante/Análise Conclusiva -->
+    <div class="important-note">
+        <strong>ANÁLISE CONCLUSIVA:</strong>
+        Apesar dos resultados positivos na receita, a sustentabilidade futura exige atenção à qualidade e retenção, especialmente no segmento B. As ações recomendadas no ponto 3 são cruciais para mitigar riscos e garantir a continuidade do crescimento.
+    </div>
+    
+    <hr class="styled-hr">
+
+    <!-- Seção de Assinaturas (2 Colunas para Elaborador e Aprovador) -->
+    <div class="signature-section">
+        <div class="signatures">
+            <!-- Coluna 1: Elaborador -->
+            <div class="signature-box">
+                <span class="signature-line"></span>
+                <div class="signature-label">
+                    <strong style="text-transform: uppercase;">[Nome do Analista]</strong><br>
+                    Analista de Dados Pleno<br>
+                    Departamento de Análise
+                </div>
+            </div>
+
+            <!-- Coluna 2: Aprovador/Gerente -->
+            <div class="signature-box">
+                <span class="signature-line"></span>
+                <div class="signature-label">
+                    <strong style="text-transform: uppercase;">[Nome do Gerente]</strong><br>
+                    Gerente Financeiro/Executivo<br>
+                    Assinatura de Aprovação
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <p>Documento gerado pelo Sistema de Relatórios em <span id="dataGeracao"></span></p>
+        <p>Este é um documento interno. Qualquer distribuição externa requer aprovação prévia.</p>
+    </div>
+
+    <script>
+        // Preenche a data de geração no rodapé usando JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            const now = new Date();
+            const dateString = now.toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('dataGeracao').textContent = dateString;
+        });
+    </script>
+</body>
+</html>
