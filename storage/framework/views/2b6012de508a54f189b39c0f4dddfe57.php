@@ -1,6 +1,6 @@
 <div>
 
-<div class="hero-section text-center border-0 shadow-lg  mb-5">
+<div class="hero-section text-center py-5 mb-5">
     <div class="container">
         <div class="hero-icon mx-auto mb-4">
             <i class="fas fa-rocket fa-3x text-white"></i>

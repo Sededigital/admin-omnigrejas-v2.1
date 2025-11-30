@@ -3,18 +3,14 @@
 namespace App\Livewire\Church\Billing;
 
 use Livewire\Component;
-use Livewire\Attributes\Title;
-use App\Models\Billings\Modulo;
-use App\Models\Billings\Pacote;
-use Livewire\Attributes\Layout;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Billings\AssinaturaAtual;
-use App\Models\Billings\PacotePermissao;
 use App\Models\Billings\AssinaturaHistorico;
 use App\Models\Billings\AssinaturaPagamento;
+use App\Models\Billings\Pacote;
+use App\Models\Billings\Modulo;
+use App\Models\Billings\PacotePermissao;
+use Illuminate\Support\Facades\Auth;
 
-#[Title('Assinaturas | Omnigrejas Admin')]
-#[Layout('components.layouts.app')]
 class Subscription extends Component
 {
     public $igreja;
@@ -93,7 +89,7 @@ class Subscription extends Component
         // Lógica para renovar assinatura
         $this->dispatch('toast', [
             'type' => 'info',
-            'message' => 'Funcionalidade de renovação em desenvolvimento. Entre em contato com o suporte ou administração'
+            'message' => 'Funcionalidade de renovação em desenvolvimento.'
         ]);
     }
 
@@ -102,16 +98,7 @@ class Subscription extends Component
         // Lógica para cancelar assinatura
         $this->dispatch('toast', [
             'type' => 'warning',
-            'message' => 'Entre em contato com o suporte para cancelar sua assinatura. Entre em contato com o suporte ou administração'
-        ]);
-    }
-
-    public function imprimirAssinatura()
-    {
-        // Lógica para imprimir assinatura
-        $this->dispatch('toast', [
-            'type' => 'info',
-            'message' => 'Funcionalidade de impressão em desenvolvimento. Entre em contato com o suporte ou administração'
+            'message' => 'Entre em contato com o suporte para cancelar sua assinatura.'
         ]);
     }
 
@@ -120,7 +107,7 @@ class Subscription extends Component
         // Lógica para atualizar método de pagamento
         $this->dispatch('toast', [
             'type' => 'info',
-            'message' => 'Funcionalidade de atualização de pagamento em desenvolvimento. Entre em contato com o suporte ou administração'
+            'message' => 'Funcionalidade de atualização de pagamento em desenvolvimento.'
         ]);
     }
 

@@ -40,6 +40,8 @@
     36 => 'Termwind\\Laravel\\TermwindServiceProvider',
     37 => 'Propaganistas\\LaravelPhone\\PhoneServiceProvider',
     38 => 'App\\Providers\\RBACServiceProvider',
+    39 => 'App\\Providers\\AppServiceProvider',
+    40 => 'App\\Providers\\FortifyServiceProvider',
   ),
   'eager' => 
   array (
@@ -67,6 +69,8 @@
     21 => 'Termwind\\Laravel\\TermwindServiceProvider',
     22 => 'Propaganistas\\LaravelPhone\\PhoneServiceProvider',
     23 => 'App\\Providers\\RBACServiceProvider',
+    24 => 'App\\Providers\\AppServiceProvider',
+    25 => 'App\\Providers\\FortifyServiceProvider',
   ),
   'deferred' => 
   array (

@@ -291,17 +291,17 @@
                          
                          <div class="d-flex justify-content-between text-start mb-2">
                              <small class="text-muted">Início:</small>
-                             <span class="fw-semibold text-primary"><?php echo e($assinaturaAtual->data_inicio->format('d/m/Y')); ?></span>
+                             <span class="fw-semibold"><?php echo e($assinaturaAtual->data_inicio->format('d/m/Y')); ?></span>
                          </div>
                          <!--[if BLOCK]><![endif]--><?php if(!$assinaturaAtual->vitalicio): ?>
                          <div class="d-flex justify-content-between text-start mb-2">
                              <small class="text-muted">Expira:</small>
-                             <span class="fw-semibold text-danger"><?php echo e($assinaturaAtual->data_fim->format('d/m/Y')); ?></span>
+                             <span class="fw-semibold"><?php echo e($assinaturaAtual->data_fim->format('d/m/Y')); ?></span>
                          </div>
                          <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                          <div class="d-flex justify-content-between text-start">
                              <small class="text-muted">Tipo:</small>
-                             <span class="fw-semibold <?php if($assinaturaAtual->vitalicio): ?> text-success <?php else: ?> text-dark <?php endif; ?>"><?php echo e($assinaturaAtual->vitalicio ? 'Vitalícia' : 'Periódica'); ?></span>
+                             <span class="fw-semibold"><?php echo e($assinaturaAtual->vitalicio ? 'Vitalícia' : 'Periódica'); ?></span>
                          </div>
                     </div>
                 </div>
@@ -337,7 +337,7 @@
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="#" wire:click.prevent="imprimirAssinatura" class="action-tile bg-success-subtle border-success-dark text-success-dark">
+                                <a href="#" onclick="window.print()" class="action-tile bg-success-subtle border-success-dark text-success-dark">
                                     <i class="fas fa-print fa-2x mb-2"></i>
                                     <span class="d-block fw-bold">Imprimir</span>
                                     <small>Gerar relatório</small>

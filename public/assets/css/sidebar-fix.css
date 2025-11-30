@@ -1,0 +1,109 @@
+/* SOBRESCREVER TRANSIÇÕES PROBLEMÁTICAS DO HOPE UI */
+
+/* Desabilitar todas as transições em links */
+a, a:hover, a:focus, a:active, a:visited {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar transições no body */
+body {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar transições em elementos do sidebar */
+.sidebar, .sidebar * {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar transições em nav-links */
+.nav-link, .nav-link:hover, .nav-link:focus, .nav-link:active {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar transições em nav-items */
+.nav-item, .nav-item:hover, .nav-item:focus, .nav-item:active {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar transições em dropdowns */
+.dropdown, .dropdown-menu, .dropdown-item {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar transições em collapse */
+.collapse, .collapsing {
+    transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -moz-transition: none !important;
+}
+
+/* Desabilitar animações CSS */
+*, *::before, *::after {
+    animation: none !important;
+    -webkit-animation: none !important;
+    -o-animation: none !important;
+    -moz-animation: none !important;
+}
+
+/* Desabilitar transformações */
+.sidebar .nav-link {
+    transform: none !important;
+    -webkit-transform: none !important;
+    -o-transform: none !important;
+    -moz-transform: none !important;
+}
+
+/* Forçar layout estável */
+.sidebar {
+    will-change: auto !important;
+    contain: layout style paint !important;
+}
+
+.sidebar * {
+    will-change: auto !important;
+    contain: layout style paint !important;
+}
+
+/* Desabilitar hover effects problemáticos */
+.nav-link:hover {
+    background: transparent !important;
+    color: inherit !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Desabilitar focus effects */
+.nav-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Garantir que o texto não se mova */
+.sidebar .nav-link span,
+.sidebar .nav-link i,
+.sidebar .nav-link svg {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transform: none !important;
+    transition: none !important;
+}

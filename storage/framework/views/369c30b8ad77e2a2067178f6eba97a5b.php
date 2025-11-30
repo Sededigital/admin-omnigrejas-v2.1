@@ -179,7 +179,7 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                         <i class="fas fa-key me-2"></i>Código de Acesso
                     </h6>
 
-                        <button type="button"  class="btn-close btn-close-dark" data-bs-dismiss="modal"></button>
+                        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal"></button>
 
                 </div>
                 <form wire:submit.prevent="validateAccessCode" id="access-code-form">
