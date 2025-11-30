@@ -276,10 +276,10 @@ Route::middleware(['auth', \App\Http\Middleware\VerifyCsrfToken::class])->group(
                 Route::get('/church', \App\Livewire\Church\Only\AdminChurch::class)->name('church');
                 Route::get('/admin-church/{churchId?}', \App\Livewire\Users\AdminChurch::class)->name('admin-church');
             });
-        
-        
+
+
         });
-   
+
 
          //**PREFIX CHURCHES  */
         Route::prefix('churches/')->name('churches.')->group(function(){
@@ -310,7 +310,7 @@ Route::middleware(['auth', \App\Http\Middleware\VerifyCsrfToken::class])->group(
             Route::get('private-chat', PrivateChat::class)->name('chat.private-chat');
             Route::get('chat/private', PrivateChat::class)->name('private-chat-nav');
 
-            
+
             //* COURSE OF CHURCH
             Route::prefix('church-courses')->name('courses.')->group(function(){
                 Route::get('courses', Courses::class)->name('courses');
@@ -324,7 +324,7 @@ Route::middleware(['auth', \App\Http\Middleware\VerifyCsrfToken::class])->group(
              Route::get('church-reports', Reports::class)->name('reports');
              Route::get('church-statistics', Statistics::class)->name('statistics');
 
-          
+
             //* MARCKETPLACE OF CHURCH
             Route::prefix('church-marketplace')->name('marketplace.')->group(function(){
                 Route::get('products', Products::class)->name('products');
@@ -363,7 +363,7 @@ Route::middleware(['auth', \App\Http\Middleware\VerifyCsrfToken::class])->group(
 
         });
 
-     
+
 
 
     });
@@ -378,6 +378,11 @@ Route::middleware(['auth', \App\Http\Middleware\VerifyCsrfToken::class])->group(
 });
 
 
+
+//** ERROR ROUTES */
+Route::get('/403', function () {
+    return response()->view('error.403', [], 403);
+})->name('403');
 
 //** GLOBAL FALLBACK ROUTE - Redirect to e-commerce home for any non-existent route */
 Route::fallback(function () {

@@ -4,10 +4,14 @@ namespace App\Livewire\Users;
 
 use App\Models\User;
 use Livewire\Component;
-use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
 
+#[Title('Dashboard | Usuários')]
+#[Layout('components.layouts.app')]
 class Users extends Component
 {
     use WithPagination;

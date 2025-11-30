@@ -26,15 +26,13 @@ function getTimeRemaining(endtime) {
   
     function updateClock() {
         const t = getTimeRemaining(endtime)
-  
+
         daysSpan.innerHTML = t.days
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2)
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2)
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2)
-        
-        if (t.total <= 0) {
-            clearInterval(timeinterval)
-        }
+
+        // Removido: contador continua mesmo após zero
     }
   
     updateClock()
@@ -43,7 +41,11 @@ function getTimeRemaining(endtime) {
   
   let time = document.querySelector('.countdown').getAttribute('data-date')
   if (time == undefined) {
-    time = Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000
+    // Definir uma data futura de pelo menos 1 dia e 4 horas
+    const now = new Date()
+    now.setDate(now.getDate() + 1) // +1 dia
+    now.setHours(now.getHours() + 4) // +4 horas
+    time = now.toISOString()
   }
   const deadline = new Date(time)
   initializeClock('.countdown', deadline)

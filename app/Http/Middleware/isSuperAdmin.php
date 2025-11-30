@@ -16,11 +16,10 @@ class isSuperAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || !Auth::user()->isSuperAdmin()) {
+        if (!Auth::check() || (!Auth::user()->isSuperAdmin() && !Auth::user()->isRoot())) {
             return redirect()->route('403');
         }
 
-        return $next($request);
         return $next($request);
     }
 }
