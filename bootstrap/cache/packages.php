@@ -117,4 +117,11 @@
       0 => 'Propaganistas\\LaravelPhone\\PhoneServiceProvider',
     ),
   ),
+  'sweetalert2/laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'SweetAlert2\\Laravel\\ServiceProvider',
+    ),
+  ),
 );

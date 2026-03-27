@@ -2,12 +2,15 @@
 
 namespace App\Livewire\Ecommerce;
 
-use Livewire\Component;
+use App\Models\Billings\PagamentoAssinaturaIgreja;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
+use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Billings\PagamentoAssinaturaIgreja;
+use SweetAlert2\Laravel\Traits\WithSweetAlert;
+use App\Helpers\SupabaseHelper;
 
 
 #[Title('Status dos Pagamentos - OmnIgrejas E-commerce')]
@@ -15,6 +18,7 @@ use App\Models\Billings\PagamentoAssinaturaIgreja;
 class PaymentAssignatureChurche extends Component
 {
     use WithPagination;
+    use WithSweetAlert;
 
     // Filtros e busca
     public $search = '';
@@ -178,6 +182,159 @@ class PaymentAssignatureChurche extends Component
             'valor_total_geral' => $pagamentos->sum('valor'),
         ];
     }
+
+    public function verDetalhesPagamento($pagamentoId)
+    {
+        $pagamento = PagamentoAssinaturaIgreja::find($pagamentoId);
+
+        if (!$pagamento) {
+            return;
+        }
+
+        // Determinar cor do status
+        $statusColorMap = [
+            'confirmado' => 'success',
+            'pendente' => 'warning',
+            'rejeitado' => 'danger',
+            'expirado' => 'secondary',
+        ];
+        $statusColor = $statusColorMap[$pagamento->status] ?? 'secondary';
+
+        $this->swalFire([
+            'title' => '<i class="fas fa-receipt text-info me-2"></i>Detalhes do Pagamento',
+            'html' => '
+                <div class="text-center">
+                    <div class="card border-0 bg-light mb-0">
+                        <div class="card-body p-4">
+                            <!-- Pacote e Valor -->
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <i class="fas fa-box text-info fa-2x mb-2"></i>
+                                        <h6 class="text-info fw-bold mb-1">Pacote</h6>
+                                        <p class="mb-0 fw-semibold">' . htmlspecialchars($pagamento->pacote_nome ?: $pagamento->pacote->nome) . '</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <i class="fas fa-money-bill-wave text-success fa-2x mb-2"></i>
+                                        <h6 class="text-success fw-bold mb-1">Valor</h6>
+                                        <p class="mb-0 fw-bold text-success">' . $pagamento->getValorFormatado() . '</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Método e Status -->
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <i class="fas fa-credit-card text-info fa-2x mb-2"></i>
+                                        <h6 class="text-info fw-bold mb-1">Método</h6>
+                                        <p class="mb-0">' . $pagamento->getMetodoFormatado() . '</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <i class="fas fa-info-circle text-' . $statusColor . ' fa-2x mb-2"></i>
+                                        <h6 class="text-' . $statusColor . ' fw-bold mb-1">Status</h6>
+                                        <span class="badge bg-' . $statusColor . ' fs-6 px-3 py-2">' . $pagamento->getStatusFormatado() . '</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Referência -->
+                            <div class="text-center">
+                                <i class="fas fa-hashtag text-muted fa-lg mb-2"></i>
+                                <h6 class="text-muted fw-bold mb-2">Referência</h6>
+                                <div class="bg-white rounded p-2 border">
+                                    <code class="text-dark small">' . htmlspecialchars($pagamento->referencia) . '</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ',
+            'showConfirmButton' => false,
+            'showCancelButton' => true,
+            'cancelButtonText' => '<i class="fas fa-times me-2"></i>Fechar',
+            'customClass' => [
+                'popup' => 'swal-wide-modal',
+                'cancelButton' => 'btn btn-secondary'
+            ],
+            'buttonsStyling' => false,
+            'showClass' => [
+                'popup' => 'animate__animated animate__fadeInDown animate__faster'
+            ],
+            'hideClass' => [
+                'popup' => 'animate__animated animate__fadeOutUp animate__faster'
+            ]
+        ]);
+    }
+
+
+    public function verComprovativo($pagamentoId)
+    {
+        $pagamento = PagamentoAssinaturaIgreja::find($pagamentoId);
+
+        if (!$pagamento || !$pagamento->temComprovativo()) {
+            return;
+        }
+
+        $tipo = $pagamento->comprovativo_tipo;
+        $isPdf = str_contains($tipo, 'pdf');
+
+        $caminhoRelativo = parse_url($pagamento->comprovativo_url, PHP_URL_PATH);
+        $caminhoRelativo = ltrim(str_replace('/storage/', '', $caminhoRelativo), '/');
+
+
+        if (SupabaseHelper::supabaseAtivo()) {
+            // Online Supabase
+            $url = Storage::disk('supabase')->url($pagamento->comprovativo_url);
+        } else {
+
+         if (SupabaseHelper::supabaseAtivo()) {
+                $url = Storage::disk('supabase')->url($caminhoRelativo);
+            } else {
+                $arquivoFisico = storage_path('app/public/' . $caminhoRelativo);
+                if (!file_exists($arquivoFisico)) {
+                    return $this->swalFire([
+                        'title' => 'Erro',
+                        'text' => 'Arquivo não encontrado.',
+                        'icon' => 'error'
+                    ]);
+                }
+                $url = rtrim(env('APP_URL'), '/') . '/storage/' . $caminhoRelativo;
+            }
+              
+        }
+
+        $html = '<div class="text-center">';
+
+        if ($isPdf) {
+            $html .= '<iframe src="' . htmlspecialchars($url) . '" width="100%" height="400px" style="border: none; border-radius: 8px;"></iframe>';
+        } else {
+            $html .= '<img src="' . htmlspecialchars($url) . '" class="img-fluid rounded shadow" style="max-height: 400px;" alt="Comprovativo">';
+        }
+
+        $html .= '</div>';
+
+        $this->swalFire([
+            'title' => '<i class="fas fa-file text-info me-2"></i>Comprovativo',
+            'html' => $html,
+            'showConfirmButton' => false,
+            'showCloseButton' => true,
+            'customClass' => [
+                'popup' => 'swal-wide-modal'
+            ],
+            'showClass' => [
+                'popup' => 'animate__animated animate__zoomIn animate__faster'
+            ],
+            'hideClass' => [
+                'popup' => 'animate__animated animate__zoomOut animate__faster'
+            ]
+        ]);
+    }
+
 
     public function render()
     {

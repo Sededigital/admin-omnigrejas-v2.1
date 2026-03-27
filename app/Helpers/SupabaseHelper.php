@@ -90,14 +90,65 @@ class SupabaseHelper
     /**
      * Obtém URL pública do arquivo no Supabase
      */
-    public static function obterUrl(string $caminhoArquivo): string
+    public static function obterUrl(string $caminhoArquivo, ?string $disk = null): string
     {
         if (!$caminhoArquivo) {
             return '';
         }
 
-        return Storage::disk('supabase')->url($caminhoArquivo);
+        // Mantém compatibilidade total
+        $disk = $disk ?? 'supabase';
+
+        return Storage::disk($disk)->url($caminhoArquivo);
     }
+
+    public static function supabaseAtivo(): bool
+    {
+        try {
+            // Tenta listar algo simples no bucket como teste de conexão
+            Storage::disk('supabase')->exists('');
+            return true;
+        } catch (\Exception $e) {
+            Log::warning('Supabase indisponível', ['erro' => $e->getMessage()]);
+            return false;
+        }
+    }
+
+    private static function uploadComFallback(string $caminho, $content): array
+    {
+        if (self::supabaseAtivo()) {
+            try {
+                Storage::disk('supabase')->put($caminho, $content);
+
+                // Verifica se realmente foi salvo
+                if (Storage::disk('supabase')->exists($caminho)) {
+                    return [
+                        'disk' => 'supabase',
+                        'caminho' => $caminho
+                    ];
+                }
+
+                throw new \Exception('Arquivo não apareceu no Supabase');
+            } catch (\Throwable $e) {
+                Log::warning('Falha no upload Supabase, salvando local', [
+                    'erro' => $e->getMessage(),
+                    'caminho' => $caminho
+                ]);
+            }
+        } else {
+            Log::info('Supabase offline, salvando local', ['caminho' => $caminho]);
+        }
+
+        // Fallback offline
+        Storage::disk('offline')->put($caminho, $content);
+
+        return [
+            'disk' => 'offline',
+            'caminho' => $caminho
+        ];
+    }
+
+
 
     /**
      * Verifica se arquivo existe no Supabase
@@ -1213,34 +1264,27 @@ class SupabaseHelper
             throw new \Exception('Arquivo não fornecido');
         }
 
-        // Validar arquivo de comprovativo
         $validacao = self::validarComprovativoAssinatura($arquivo);
         if (!$validacao['valido']) {
             throw new \Exception($validacao['erro']);
         }
 
-        // Gerar caminho para comprovativos
         $caminhoBase = self::gerarCaminhoAssinaturaComprovativos($igrejaNome, $pacoteNome);
 
-        // Gerar nome único para o comprovativo
         $extensao = strtolower($arquivo->getClientOriginalExtension());
         $nomeArquivo = 'comprovativo_' . time() . '_' . uniqid() . '.' . $extensao;
 
-        // Caminho completo
         $caminhoCompleto = $caminhoBase . $nomeArquivo;
 
-        // Fazer upload
         $content = $arquivo->get();
-        $path = Storage::disk('supabase')->put($caminhoCompleto, $content);
 
-        if (!$path) {
-            throw new \Exception('Falha ao fazer upload do comprovativo para o Supabase');
-        }
+        // 🚀 Aqui está o poder
+        $upload = self::uploadComFallback($caminhoCompleto, $content);
 
-        // Retornar informações do arquivo
         return [
-            'url' => self::obterUrl($caminhoCompleto),
-            'caminho_completo' => $caminhoCompleto,
+            'url' => self::obterUrl($upload['caminho'], $upload['disk']),
+            'disk' => $upload['disk'],
+            'caminho_completo' => $upload['caminho'],
             'nome_original' => $arquivo->getClientOriginalName(),
             'nome_arquivo' => $nomeArquivo,
             'tamanho_bytes' => $arquivo->getSize(),

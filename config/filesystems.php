@@ -75,6 +75,12 @@ return [
             'use_path_style_endpoint' => true,
             'verify' => env('APP_ENV') === 'production', // Desabilitar verificação SSL em desenvolvimento
         ],
+        'offline' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
 
     ],
 

@@ -305,8 +305,8 @@ class PaymentPage extends Component
         ]);
 
         try {
-            
-            
+
+
 
             // Verificar se a igreja selecionada permite a ação
             $this->validarAcaoParaIgrejaSelecionada();
@@ -314,7 +314,7 @@ class PaymentPage extends Component
             // Upload do arquivo para Supabase
             $comprovativoPath = $this->uploadComprovativo();
 
-           
+
 
             // Criar registro de pagamento
             $pagamento = PagamentoAssinaturaIgreja::create([
@@ -336,7 +336,7 @@ class PaymentPage extends Component
                 'created_by' => Auth::id(),
             ]);
 
-          
+
             // Armazenar temporariamente para o SweetAlert2
             $pagamentoTemp = $pagamento;
 
@@ -344,7 +344,7 @@ class PaymentPage extends Component
             $this->reset(['metodoPagamento', 'referencia', 'comprovativo', 'observacoes']);
 
             $referencia = Str::limit($pagamentoTemp->referencia, 15, '/');
-            
+
             // Disparar evento para SweetAlert2
             $this->dispatch('pagamento-sucesso', [
                 'referencia' => $referencia,
@@ -371,6 +371,7 @@ class PaymentPage extends Component
 
     private function uploadComprovativo()
     {
+      
         if (!$this->comprovativo) {
             throw new \Exception('Arquivo de comprovativo não encontrado.');
         }

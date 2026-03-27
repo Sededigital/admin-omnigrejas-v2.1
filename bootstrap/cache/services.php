@@ -39,9 +39,10 @@
     35 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     36 => 'Termwind\\Laravel\\TermwindServiceProvider',
     37 => 'Propaganistas\\LaravelPhone\\PhoneServiceProvider',
-    38 => 'App\\Providers\\RBACServiceProvider',
-    39 => 'App\\Providers\\AppServiceProvider',
-    40 => 'App\\Providers\\FortifyServiceProvider',
+    38 => 'SweetAlert2\\Laravel\\ServiceProvider',
+    39 => 'App\\Providers\\RBACServiceProvider',
+    40 => 'App\\Providers\\AppServiceProvider',
+    41 => 'App\\Providers\\FortifyServiceProvider',
   ),
   'eager' => 
   array (
@@ -68,9 +69,10 @@
     20 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     21 => 'Termwind\\Laravel\\TermwindServiceProvider',
     22 => 'Propaganistas\\LaravelPhone\\PhoneServiceProvider',
-    23 => 'App\\Providers\\RBACServiceProvider',
-    24 => 'App\\Providers\\AppServiceProvider',
-    25 => 'App\\Providers\\FortifyServiceProvider',
+    23 => 'SweetAlert2\\Laravel\\ServiceProvider',
+    24 => 'App\\Providers\\RBACServiceProvider',
+    25 => 'App\\Providers\\AppServiceProvider',
+    26 => 'App\\Providers\\FortifyServiceProvider',
   ),
   'deferred' => 
   array (

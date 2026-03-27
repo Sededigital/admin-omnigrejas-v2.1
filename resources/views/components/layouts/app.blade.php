@@ -76,6 +76,8 @@
 
         <!-- Toast Styles -->
         <link rel="stylesheet" href="{{ asset('system/css/toast.css') }}">
+        
+        @include('sweetalert2::index')
 
         @livewireScripts
         @stack('scripts')

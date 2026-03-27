@@ -78,6 +78,8 @@
 
         <!-- Toast Styles -->
         <link rel="stylesheet" href="<?php echo e(asset('system/css/toast.css')); ?>">
+        
+        <?php echo $__env->make('sweetalert2::index', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
         <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::scripts(); ?>
 

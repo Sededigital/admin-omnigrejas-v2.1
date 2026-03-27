@@ -1,4 +1,4 @@
-<div class="container-fluid py-5">
+<div class="container-fluid py-1">
     <!-- Hero Section -->
     <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
@@ -69,7 +69,7 @@
                                 <h5 class="mb-3 text-warning-emphasis">
                                     <i class="fas fa-history me-2"></i> Detalhes da Assinatura Vigente
                                 </h5>
-                                
+
                                 <p class="mb-1">
                                     <span class="text-muted small">Pacote:</span>
                                     <strong class="text-dark d-block">{{ $msg['assinatura_info']['pacote_nome'] }}</strong>
@@ -86,7 +86,7 @@
                                     <strong class="text-dark d-block">{{ $msg['assinatura_info']['data_fim'] }}</strong>
                                 </p>
                                 @endif
-                                
+
                                 <div class="mt-3 pt-3 border-top border-warning-subtle">
                                     <span class="text-muted small me-3">Status:</span>
                                     <span class="badge fs-6 bg-{{ $msg['assinatura_info']['status'] === 'Ativa' ? 'success' : 'danger' }}">
@@ -293,7 +293,7 @@
 
         <!-- Coluna do Resumo (Sticky) -->
         <div class="col-lg-5 mb-4">
-            <div class="card shadow-sm border-0 sticky-top" style="top: 20px;">
+            <div class="card shadow-sm border-0 " style="top: 20px;">
                 <div class="card-body p-4 p-md-5">
                     <h4 class="section-header text-success fw-bold mb-4">
                         <i class="fas fa-receipt me-2"></i> Resumo da Assinatura

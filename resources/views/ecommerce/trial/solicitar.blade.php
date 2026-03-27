@@ -43,7 +43,7 @@
 
                     <div class="alert alert-info border-0">
                         <i class="fas fa-info-circle me-2"></i>
-                        <strong>Próximos passos:</strong> Nossa equipe irá analisar sua solicitação e você receberá um email com a decisão em até 24 horas.
+                        <strong>Próximos passos:</strong> Nossa equipe irá analisar sua solicitação e você receberá um email ou mensagem de telemóvel com a decisão em até 24 horas.
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                                     class="form-control form-control-lg @error('email') is-invalid @enderror"
                                     autocomplete="new-password"
                                     placeholder="seu@email.com"
-                                    
+
                                 >
                                 @error('email')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -125,7 +125,7 @@
                                     class="form-control form-control-lg @error('password') is-invalid @enderror"
                                     autocomplete="new-password"
                                     placeholder="Mínimo 8 caracteres"
-                                    
+
                                 >
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -144,7 +144,7 @@
                                     class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror"
                                     autocomplete="new-password"
                                     placeholder="Digite a senha novamente"
-                                    
+
                                 >
                                 @error('password_confirmation')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -163,7 +163,7 @@
                                     class="form-control form-control-lg @error('igreja_nome') is-invalid @enderror"
                                     autocomplete="new-password"
                                     placeholder="Nome da sua igreja"
-                                    
+
                                 >
                                 @error('igreja_nome')
                                     <div class="invalid-feedback">{{ $message }}</div>

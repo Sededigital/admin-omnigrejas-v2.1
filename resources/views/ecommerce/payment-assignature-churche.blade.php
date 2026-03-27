@@ -153,16 +153,16 @@
                                             <br><small class="text-muted">{{ $pagamento->getDataConfirmacaoFormatada() }}</small>
                                         @endif
                                     </td>
-                                 
+
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-outline-primary"
-                                                onclick="verDetalhesPagamento({{ $pagamento->id }}, '{{ $pagamento->referencia }}', '{{ $pagamento->pacote_nome ?: $pagamento->pacote->nome }}', '{{ $pagamento->getValorFormatado() }}', '{{ $pagamento->getMetodoFormatado() }}', '{{ $pagamento->getStatusFormatado() }}')"
+                                                wire:click="verDetalhesPagamento('{{ $pagamento->id }}')"
                                                 title="Ver detalhes">
                                             <i class="fas fa-eye"></i>
                                         </button>
                                         @if($pagamento->temComprovativo())
                                             <button class="btn btn-sm btn-outline-secondary ms-1"
-                                                    onclick="verComprovativo('{{ $pagamento->comprovativo_url }}', '{{ $pagamento->comprovativo_tipo }}')"
+                                                    wire:click="verComprovativo('{{ $pagamento->id }}')"
                                                     title="Ver comprovativo">
                                                 <i class="fas fa-file-{{ $pagamento->getComprovativoIcone() === 'fas fa-file-pdf' ? 'pdf' : 'image' }}"></i>
                                             </button>
@@ -190,111 +190,6 @@
                 </div>
             @endif
         </div>
-    
+
     </div>
-    
-      
-    
 </div>
-
-<script>
-    // Função para ver detalhes do pagamento via SweetAlert2
-    function verDetalhesPagamento(id, referencia, pacote, valor, metodo, status) {
-        Swal.fire({
-            title: '<i class="fas fa-receipt text-info me-2"></i>Detalhes do Pagamento',
-            html: `
-                <div class="text-center">
-                    <div class="card border-0 bg-light mb-0">
-                        <div class="card-body p-4">
-                            <!-- Pacote e Valor -->
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <div class="text-center">
-                                        <i class="fas fa-box text-info fa-2x mb-2"></i>
-                                        <h6 class="text-info fw-bold mb-1">Pacote</h6>
-                                        <p class="mb-0 fw-semibold">${pacote}</p>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="text-center">
-                                        <i class="fas fa-money-bill-wave text-success fa-2x mb-2"></i>
-                                        <h6 class="text-success fw-bold mb-1">Valor</h6>
-                                        <p class="mb-0 fw-bold text-success">${valor}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Método e Status -->
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <div class="text-center">
-                                        <i class="fas fa-credit-card text-info fa-2x mb-2"></i>
-                                        <h6 class="text-info fw-bold mb-1">Método</h6>
-                                        <p class="mb-0">${metodo}</p>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="text-center">
-                                        <i class="fas fa-info-circle text-${status === 'Confirmado' ? 'success' : status === 'Pendente' ? 'warning' : 'secondary'} fa-2x mb-2"></i>
-                                        <h6 class="text-${status === 'Confirmado' ? 'success' : status === 'Pendente' ? 'warning' : 'secondary'} fw-bold mb-1">Status</h6>
-                                        <span class="badge bg-${status === 'Confirmado' ? 'success' : status === 'Pendente' ? 'warning' : 'secondary'} fs-6 px-3 py-2">${status}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Referência -->
-                            <div class="text-center">
-                                <i class="fas fa-hashtag text-muted fa-lg mb-2"></i>
-                                <h6 class="text-muted fw-bold mb-2">Referência</h6>
-                                <div class="bg-white rounded p-2 border">
-                                    <code class="text-dark small">${referencia}</code>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `,
-            showConfirmButton: false,
-            showCancelButton: true,
-            cancelButtonText: '<i class="fas fa-times me-2"></i>Fechar',
-            customClass: {
-                popup: 'swal-wide-modal',
-                cancelButton: 'btn btn-secondary'
-            },
-            buttonsStyling: false,
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown animate__faster'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp animate__faster'
-            }
-        });
-    }
-
-    // Função para visualizar comprovativo
-    function verComprovativo(url, tipo) {
-        // Sempre mostrar no SweetAlert2 para maior segurança
-        Swal.fire({
-            title: '<i class="fas fa-file text-info me-2"></i>Comprovativo',
-            html: `
-                <div class="text-center">
-                    ${tipo.includes('pdf')
-                        ? `<iframe src="${url}" width="100%" height="400px" style="border: none; border-radius: 8px;"></iframe>`
-                        : `<img src="${url}" class="img-fluid rounded shadow" style="max-height: 400px;" alt="Comprovativo">`
-                    }
-                </div>
-            `,
-            showConfirmButton: false,
-            showCloseButton: true,
-            customClass: {
-                popup: 'swal-wide-modal'
-            },
-            showClass: {
-                popup: 'animate__animated animate__zoomIn animate__faster'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__zoomOut animate__faster'
-            }
-        });
-    }
-</script>

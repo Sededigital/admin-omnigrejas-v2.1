@@ -17,7 +17,7 @@
       </button>
       <a href="<?php echo e(url('/')); ?>" class="logo-center navbar-horizontal-brand navbar-brand col-md-2 col-lg-2 col-xl-2 col-xxl-3  ms-0">
         <!--Logo start-->
-        
+
              <!--Logo start-->
              <div class="logo-main">
                 <div class="logo-normal">
@@ -28,10 +28,10 @@
                 </div>
             </div>
             <!--logo End-->
-            
-            
-            
-            
+
+
+
+
             <!--logo End-->
             <h4 class="logo-title fw-bold">
                 <span class="text-info">Omn</span><span class="text-info">Igrejas</span>
@@ -52,8 +52,8 @@
                     </div>
                 </div>
                 <!--logo End-->
-                
-                
+
+
                 <!--logo End-->
                 <h4 class="logo-title fw-bold">
                     <span class="text-info">Omn</span><span class="text-success">Igrejas</span>
@@ -74,7 +74,7 @@
                   <?php if(!Auth::user()->hasTrialAccess() || Auth::user()->getIgreja()->pagamentosAssinaturaIgreja()->exists()): ?>
                   <li class="nav-item"><a class="nav-link"
                     href="<?php echo e(route('ecommerce.payment.assignature')); ?>" wire:navigate wire:current="active"> Assinaturas</a>
-                  </li>   
+                  </li>
                   <?php endif; ?>
                 <?php endif; ?>
                <li class="nav-item"><a class="nav-link"
@@ -87,7 +87,7 @@
                 <?php if(auth()->guard()->check()): ?>
                   <?php if(Auth::user()->hasTrialAccess()): ?>
                     <li class="nav-item"><a class="nav-link fw-bold text-danger"
-                      href="<?php echo e(route('ecommerce.trial.expirando')); ?>" > Trial</a>
+                      href="<?php echo e(route('ecommerce.trial.expirando')); ?>" wire:navigate  wire:current="active"> Trial</a>
                     </li>
                   <?php endif; ?>
                 <?php endif; ?>
@@ -95,19 +95,19 @@
                 <?php if(auth()->guard()->check()): ?>
                 <li class="nav-item"><a class="nav-link"
                   href="<?php echo e(url('/')); ?>" > Dashboard</a>
-                </li>  
+                </li>
                 <?php endif; ?>
-                
+
                <?php if(auth()->guard()->guest()): ?>
                <li class="nav-item"><a class="nav-link btn bg-info text-light text-light border-2 px-4 py-1 mt-1"
                     href="<?php echo e(route('login')); ?>"> Entrar</a>
                 </li>
                <?php endif; ?>
-               
+
             </ul>
          </div> <!-- container-fluid.// -->
       </nav>
-          <!-- Sidebar Menu End --> 
+          <!-- Sidebar Menu End -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon">
@@ -119,7 +119,7 @@
         <div class="collapse navbar-collapse  bg-light" id="navbarSupportedContent">
           <?php if(auth()->guard()->check()): ?>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              
+
               <li class="nav-item dropdown">
                 <a class="nav-link py-0 d-flex align-items-center" href="#" id="navbarDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -160,8 +160,9 @@
               </li>
             </ul>
           <?php endif; ?>
-         
+
         </div>
 
     </div>
-  </nav>   <?php /**PATH C:\laragon\www\admin-omnigrejas-v2.1\resources\views/components/layouts/nav-subscription.blade.php ENDPATH**/ ?>
+  </nav>
+<?php /**PATH C:\laragon\www\admin-omnigrejas-v2.1\resources\views/components/layouts/nav-subscription.blade.php ENDPATH**/ ?>
