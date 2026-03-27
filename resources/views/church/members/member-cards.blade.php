@@ -8,7 +8,7 @@
         :root {
             --card-header-bg: {{ $cores['cor_fundo_header'] }};
             --card-header-text: {{ $cores['cor_texto_header'] }};
-            --card-text-primary: {{ $cores['cor_texto_principal'] }};
+            --card-text-info: {{ $cores['cor_texto_principal'] }};
             --card-text-secondary: {{ $cores['cor_texto_secundario'] }};
             --card-accent: {{ $cores['cor_acento'] }};
             --card-status-active: {{ $cores['cor_status_ativo'] }};
@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-id-card me-2"></i>Cartões de Membro
                         </h1>
                         <p class="mb-0 text-muted">
@@ -40,7 +40,7 @@
                             <button class="btn btn-outline-info btn-md" wire:click="abrirModalConfig" data-bs-toggle="modal" data-bs-target="#cardConfigModal" title="Configurar Cores">
                                 <i class="fas fa-palette"></i>
                             </button>
-                            <button class="btn btn-primary btn-md" wire:click="abrirModalNovo" data-bs-toggle="modal" data-bs-target="#memberCardModal">
+                            <button class="btn bg-info text-light btn-md" wire:click="abrirModalNovo" data-bs-toggle="modal" data-bs-target="#memberCardModal">
                                 <i class="fas fa-plus me-2"></i>Adicionar Cartão
                             </button>
                         </div>
@@ -54,8 +54,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-id-card text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $estatisticas['total'] }}</div>
+                        <i class="fas fa-id-card text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $estatisticas['total'] }}</div>
                         <div class="text-muted small">Total de Cartões</div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 @if($cartao->membro && $cartao->membro->user)
-                                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                                    <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
                                                         <i class="fas fa-user fa-sm"></i>
                                                     </div>
                                                     <div>
@@ -160,7 +160,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="badge bg-primary">{{ $cartao->numero_cartao }}</span>
+                                            <span class="badge bg-info text-light">{{ $cartao->numero_cartao }}</span>
                                         </td>
                                         <td>{{ $cartao->data_emissao ? $cartao->data_emissao->format('d/m/Y') : '-' }}</td>
                                         <td>
@@ -250,7 +250,7 @@
                         <i class="fas fa-id-card text-muted mb-3" style="font-size: 3rem;"></i>
                         <h5 class="text-muted">Nenhum cartão encontrado</h5>
                         <p class="text-muted">Não há cartões cadastrados com os filtros atuais.</p>
-                        <button class="btn btn-primary" wire:click="abrirModalNovo" data-bs-toggle="modal" data-bs-target="#memberCardModal">
+                        <button class="btn bg-info text-light" wire:click="abrirModalNovo" data-bs-toggle="modal" data-bs-target="#memberCardModal">
                             <i class="fas fa-plus me-1"></i>Criar Primeiro Cartão
                         </button>
                     </div>

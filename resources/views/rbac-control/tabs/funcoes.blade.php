@@ -82,7 +82,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-info">{{ $funcao->permissoes->count() }}</span>
+                                        <span class="badge bg-info text-light">{{ $funcao->permissoes->count() }}</span>
                                         @if($funcao->permissoes->count() > 0)
                                             <small class="text-muted d-block">
                                                 {{ $funcao->permissoes->take(2)->pluck('nome')->join(', ') }}
@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="mb-2">
                                     <i class="fas fa-shield-alt text-muted me-1"></i>
-                                    <span class="badge bg-info">{{ $funcao->permissoes->count() }} permissões</span>
+                                    <span class="badge bg-info text-light">{{ $funcao->permissoes->count() }} permissões</span>
                                 </div>
                                 <div class="mb-2">
                                     <i class="fas fa-users text-muted me-1"></i>

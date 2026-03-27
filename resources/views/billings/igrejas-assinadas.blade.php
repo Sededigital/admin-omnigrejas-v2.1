@@ -10,7 +10,7 @@
                             <p>Gerencie as igrejas que possuem assinaturas ativas</p>
                         </div>
                         <div>
-                            <a type="button" class="btn btn-primary" href="{{ route('admin.assignatures.assinaturas-atuais') }}"  wire:navigate >
+                            <a type="button" class="btn bg-info text-light" href="{{ route('admin.assignatures.assinaturas-atuais') }}"  wire:navigate >
                                 <i class="fas fa-plus me-2"></i>
                                 Nova Assinatura
                             </a>

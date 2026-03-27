@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="requestModalLabel">
-                    <i class="fas fa-hands-helping text-primary me-2"></i>
+                    <i class="fas fa-hands-helping text-info me-2"></i>
                     <span id="modal-title">{{ $editingRequest ? 'Editar Pedido Especial' : 'Novo Pedido Especial' }}</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -21,15 +21,15 @@
                         <div class="nav nav-tabs border-bottom-0" id="nav-tab" role="tablist">
                             <button class="nav-link active border-0 bg-transparent fw-semibold" id="nav-basic-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-basic" type="button" role="tab">
-                                <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-details-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab">
-                                <i class="fas fa-file-text text-primary me-1"></i>Detalhes do Pedido
+                                <i class="fas fa-file-text text-info me-1"></i>Detalhes do Pedido
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-course-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-course" type="button" role="tab">
-                                <i class="fas fa-graduation-cap text-primary me-1"></i>Curso Relacionado
+                                <i class="fas fa-graduation-cap text-info me-1"></i>Curso Relacionado
                             </button>
                         </div>
                     </nav>
@@ -50,7 +50,7 @@
                                                 <option value="{{ $membro->id }}">{{ $membro->user->name }} - {{ $membro->numero_membro }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-user text-primary me-1"></i>Membro Solicitante *</label>
+                                        <label><i class="fas fa-user text-info me-1"></i>Membro Solicitante *</label>
                                         @error('membro_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -67,7 +67,7 @@
                                                 <option value="{{ $tipo->id }}">{{ $tipo->nome }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-tag text-primary me-1"></i>Tipo de Pedido *</label>
+                                        <label><i class="fas fa-tag text-info me-1"></i>Tipo de Pedido *</label>
                                         @error('pedido_tipo_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -79,7 +79,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control date_flatpicker @error('data_pedido') is-invalid @enderror"
                                                wire:model="data_pedido" placeholder="Selecione a data">
-                                        <label><i class="fas fa-calendar-day text-primary me-1"></i>Data do Pedido *</label>
+                                        <label><i class="fas fa-calendar-day text-info me-1"></i>Data do Pedido *</label>
                                         @error('data_pedido')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -96,7 +96,7 @@
                                                 <option value="{{ $responsavel->id }}">{{ $responsavel->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-user-tie text-primary me-1"></i>Responsável</label>
+                                        <label><i class="fas fa-user-tie text-info me-1"></i>Responsável</label>
                                         @error('responsavel_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -115,7 +115,7 @@
                                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                                   wire:model="descricao" rows="6"
                                                   placeholder="Descreva detalhadamente o pedido especial..."></textarea>
-                                        <label><i class="fas fa-file-text text-primary me-1"></i>Descrição do Pedido *</label>
+                                        <label><i class="fas fa-file-text text-info me-1"></i>Descrição do Pedido *</label>
                                         @error('descricao')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -128,7 +128,7 @@
                                 <!-- Status -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label"><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                        <label class="form-label"><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                         <div class="row g-2">
                                             <div class="col-6">
                                                 <div class="form-check form-check-lg">
@@ -156,7 +156,7 @@
                                 <!-- Status Visual -->
                                 <div class="col-12">
                                     <div class="alert alert-light border">
-                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        <i class="fas fa-info-circle text-info me-2"></i>
                                         <strong>Status do Pedido:</strong>
                                         <span class="text-muted ms-2">
                                             @if($status === 'pendente')
@@ -182,7 +182,7 @@
                         <div class="tab-pane fade" id="nav-course" role="tabpanel" wire:ignore.self>
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <h6 class="text-primary mb-3">
+                                    <h6 class="text-info mb-3">
                                         <i class="fas fa-graduation-cap me-2"></i>Curso Relacionado (Opcional)
                                     </h6>
                                     <p class="text-muted small mb-3">
@@ -200,7 +200,7 @@
                                                 <option value="{{ $curso->id }}">{{ $curso->nome }} - {{ $curso->tipo }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-graduation-cap text-primary me-1"></i>Curso Relacionado</label>
+                                        <label><i class="fas fa-graduation-cap text-info me-1"></i>Curso Relacionado</label>
                                         @error('curso_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -240,7 +240,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="salvarPedido" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="salvarPedido" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="salvarPedido">
                         <i class="fas fa-save me-1"></i>{{ $editingRequest ? 'Atualizar Pedido' : 'Salvar Pedido' }}
                     </span>

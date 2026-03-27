@@ -142,7 +142,7 @@
             color: #dc3545;
         }
 
-        .text-primary {
+        .text-info {
             color: #007bff;
         }
 

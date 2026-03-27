@@ -351,7 +351,7 @@
                             <div class="row g-2 justify-content-center text-center">
                                 <div class="col-6">
                                     <div class="border rounded-3 p-3 bg-light shadow-sm">
-                                        <h6 class="text-primary mb-1 small fw-bold text-uppercase">Usuário</h6>
+                                        <h6 class="text-info mb-1 small fw-bold text-uppercase">Usuário</h6>
                                         <strong class="fs-6 text-dark">${trial.user.name}</strong>
                                     </div>
                                 </div>
@@ -408,7 +408,7 @@
                             <div class="row g-2 justify-content-center text-center">
                                 <div class="col-6">
                                     <div class="border rounded-3 p-3 bg-light shadow-sm">
-                                        <h6 class="text-primary mb-1 small fw-bold text-uppercase">Solicitante</h6>
+                                        <h6 class="text-info mb-1 small fw-bold text-uppercase">Solicitante</h6>
                                         <strong class="fs-6 text-dark">${request.nome}</strong>
                                     </div>
                                 </div>
@@ -435,7 +435,7 @@
                     `,
                     customClass: {
                         popup: 'swal2-responsive-modal shadow-lg',
-                        confirmButton: 'btn btn-primary btn-lg px-4 fw-bold'
+                        confirmButton: 'btn bg-info text-light btn-lg px-4 fw-bold'
                     },
                     showConfirmButton: true,
                     confirmButtonText: '<i class="fas fa-check me-2"></i> Entendido',
@@ -464,7 +464,7 @@
                                 <!-- Informações Pessoais -->
                                 <div class="col-12">
                                     <div class="border rounded-3 p-3 bg-light">
-                                        <h6 class="text-primary mb-3 fw-bold">
+                                        <h6 class="text-info mb-3 fw-bold">
                                             <i class="fas fa-user me-2"></i>Informações Pessoais
                                         </h6>
                                         <div class="row">
@@ -525,7 +525,7 @@
                                 <!-- Observações -->
                                 ${request.observacoes ? `
                                 <div class="col-12">
-                                    <div class="border rounded-3 p-3 bg-info-subtle">
+                                    <div class="border rounded-3 p-3 bg-info text-light-subtle">
                                         <h6 class="text-info mb-2 fw-bold">
                                             <i class="fas fa-sticky-note me-2"></i>Observações
                                         </h6>
@@ -538,7 +538,7 @@
                     `,
                     customClass: {
                         popup: 'swal2-wide-modal shadow-lg',
-                        confirmButton: 'btn btn-primary btn-lg px-4 fw-bold'
+                        confirmButton: 'btn bg-info text-light btn-lg px-4 fw-bold'
                     },
                     showConfirmButton: true,
                     confirmButtonText: '<i class="fas fa-check me-2"></i> Fechar',

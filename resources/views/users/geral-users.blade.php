@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-users me-2"></i>Gestão de Usuários
                         </h1>
                         <p class="mb-0 text-muted">Gerencie todos os usuários da plataforma</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#userModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#userModal">
                             <i class="fas fa-user-plus me-2"></i>Adicionar Usuário
                         </button>
                     </div>
@@ -24,8 +24,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-users text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-users text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total de Usuários</div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar Filtros
                             </button>
                         </div>
@@ -133,7 +133,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Usuários
                     </h5>
                 </div>
@@ -154,7 +154,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-avatar bg-primary text-white me-3">
+                                        <div class="user-avatar bg-info text-light text-white me-3">
                                             {{ strtoupper(substr($user->name, 0, 2)) }}
                                         </div>
                                         <div>
@@ -172,7 +172,7 @@
                                             </span>
                                         </div>
                                         @if($user->membros->first() && $user->membros->first()->igreja)
-                                            <small class="badge bg-dark">{{ Str::limit($user->membros->first()->igreja->nome, 20, '...') }}</small>
+                                            <small class="badge bg-dark text-light">{{ Str::limit($user->membros->first()->igreja->nome, 20, '...') }}</small>
                                         @endif
                                     </div>
 
@@ -192,13 +192,16 @@
                                         <button class="btn btn-outline-primary" wire:click="openModal('{{ $user->id }}')" data-bs-toggle="modal" data-bs-target="#userModal" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </button>
+                                        <button class="btn btn-outline-info" wire:click="enviarCredenciais('{{ $user->id }}')" title="Enviar Credenciais">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
                                         <button class="btn btn-outline-{{ $user->is_active ? 'warning' : 'success' }}"
                                                 wire:click="toggleUserStatus('{{ $user->id }}')"
                                                 title="{{ $user->is_active ? 'Desativar' : 'Ativar' }}">
                                             <i class="fas fa-{{ $user->is_active ? 'user-times' : 'user-check' }}"></i>
                                         </button>
-                                        <button class="btn btn-outline-danger" wire:click="deleteUser({{ $user->id }})"
-                                                onclick="return confirm('Tem certeza que deseja excluir este usuário?')" title="Excluir">
+                                        <button class="btn btn-outline-danger" onclick="confirmDelete('{{ $user->id }}')"
+                                                title="Excluir">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
@@ -235,7 +238,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between mb-3">
                                 <div class="d-flex align-items-center">
-                                    <div class="user-avatar bg-primary text-white me-3">
+                                    <div class="user-avatar bg-info text-light text-white me-3">
                                         {{ strtoupper(substr($user->name, 0, 2)) }}
                                     </div>
                                     <div>
@@ -266,11 +269,13 @@
                                 <small class="text-muted">{{ $user->created_at->format('d/m/Y') }}</small>
                             </div>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal({{ $user->id }})" data-bs-toggle="modal" data-bs-target="#userModal">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal({{ $user->id }})" data-bs-toggle="modal" data-bs-target="#userModal">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
-                                <button class="btn btn-outline-danger btn-sm" wire:click="deleteUser({{ $user->id }})"
-                                        onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+                                <button class="btn btn-outline-info btn-sm" wire:click="enviarCredenciais({{ $user->id }})">
+                                    <i class="fas fa-envelope me-1"></i>Email
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete('{{ $user->id }}')">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
@@ -306,6 +311,25 @@
     <!-- Modal para Cadastro/Edição de Usuário -->
     @include('users.modals.user-modal')
     <!-- Scripts para o Modal -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(userId) {
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: 'Esta ação não pode ser desfeita! O usuário será excluído permanentemente.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    @this.call('deleteUser', userId);
+                }
+            });
+        }
+    </script>
     <script src="{{ asset('system/js/user.js') }}"></script>
 
 

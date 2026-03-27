@@ -35,10 +35,6 @@
                         </div>
                         <!--logo End-->
 
-                        <h2 class="logo-title fw-bold m-0"
-                            style="font-size:60px; line-height:1; margin-left:-22px;">
-                            <span class="text-primary">mn</span><span class="text-success">Igrejas</span>
-                        </h2>
                     </a>
 
                         <h2 class="mt-3 mb-2 display-6">Verificar Email</h2>
@@ -53,14 +49,14 @@
                             Se você não recebeu o email, clique no botão abaixo para solicitar um novo.
                         </p>
                         <div class="d-inline-block w-100">
-                           <button wire:click="resend" class="btn btn-primary bg-primary border-0"  wire:loading.attr="disabled">
+                           <button wire:click="resend" class="btn bg-info text-light bg-info text-light border-0"  wire:loading.attr="disabled">
                              <span wire:loading wire:target="resend" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                             Reenviar o Email de verificação</button>
                         </div>
                   </div>
                </div>
             </div>
-            <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
+            <div class="col-md-6 d-md-block d-none bg-info text-light p-0 mt-n1 vh-100 overflow-hidden">
                <img src="../../assets/images/auth/03.png" class="img-fluid gradient-main animated-scaleX" alt="images">
             </div>
          </div>

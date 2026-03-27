@@ -105,7 +105,7 @@
                                             @if($reacao->user->photo_url)
                                             <img src="{{ Storage::disk('supabase')->url($reacao->user->photo_url) }}" alt="Avatar" class="rounded-circle">
                                             @else
-                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
                                                     <span class="fw-bold">{{ substr($reacao->user->name, 0, 1) }}</span>
                                                 </div>
                                             @endif

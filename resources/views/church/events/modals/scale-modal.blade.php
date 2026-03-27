@@ -5,7 +5,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="scaleModalLabel">
-                        <i class="fas fa-user-plus text-primary me-2"></i>
+                        <i class="fas fa-user-plus text-info me-2"></i>
                         <span id="modal-title">{{ $editingScale ? 'Editar Escala' : 'Escalar Membro' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -28,7 +28,7 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-calendar-alt text-primary me-1"></i>Evento *</label>
+                                    <label><i class="fas fa-calendar-alt text-info me-1"></i>Evento *</label>
                                     @error('culto_evento_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -47,7 +47,7 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-user text-primary me-1"></i>Membro *</label>
+                                    <label><i class="fas fa-user text-info me-1"></i>Membro *</label>
                                     @error('membro_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -59,7 +59,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('funcao') is-invalid @enderror"
                                            wire:model="funcao" placeholder="Ex: Cantor, Instrumentista, Diácono" required>
-                                    <label><i class="fas fa-briefcase text-primary me-1"></i>Função *</label>
+                                    <label><i class="fas fa-briefcase text-info me-1"></i>Função *</label>
                                     @error('funcao')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -72,7 +72,7 @@
                                     <textarea class="form-control @error('observacoes') is-invalid @enderror"
                                               wire:model="observacoes" rows="3"
                                               placeholder="Observações sobre a escala"></textarea>
-                                    <label><i class="fas fa-comment text-primary me-1"></i>Observações</label>
+                                    <label><i class="fas fa-comment text-info me-1"></i>Observações</label>
                                     @error('observacoes')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -82,7 +82,7 @@
                             <!-- Status Visual -->
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingScale ? 'Editando Escala' : 'Nova Escala' }}
@@ -98,7 +98,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveScale" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveScale" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveScale">
                             <i class="fas fa-save me-1"></i>{{ $editingScale ? 'Atualizar Escala' : 'Salvar Escala' }}
                         </span>

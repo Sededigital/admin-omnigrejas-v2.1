@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-md-7">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-shield-alt me-2"></i>Controle de Acesso
                         </h1>
                         <p class="mb-0 text-muted">

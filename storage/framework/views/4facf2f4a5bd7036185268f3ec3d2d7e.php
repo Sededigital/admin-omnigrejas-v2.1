@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="<?php echo e(asset('assets/css/custom.min.css')); ?>">
 
 <!-- Customizer Css -->
-<link rel="stylesheet" href="<?php echo e(asset('assets/css/customizer.min.css')); ?>">
+
 
 <!-- RTL Css -->
 <link rel="stylesheet" href="<?php echo e(asset('assets/css/rtl.min.css')); ?>">

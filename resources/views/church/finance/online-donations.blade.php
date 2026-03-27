@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-hand-holding-heart me-2"></i>Doações Online
                         </h1>
                         <p class="mb-0 text-muted">Gerencie doações digitais e pagamentos online da igreja</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="configurePaymentGateway">
+                        <button class="btn bg-info text-light btn-md" wire:click="configurePaymentGateway">
                             <i class="fas fa-cogs me-2"></i>Configurar Gateway
                         </button>
                     </div>
@@ -51,8 +51,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-calendar-alt text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">AOA {{ number_format($stats['media_mensal'] ?? 0, 2, ',', '.') }}</div>
+                        <i class="fas fa-calendar-alt text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">AOA {{ number_format($stats['media_mensal'] ?? 0, 2, ',', '.') }}</div>
                         <div class="text-muted small">Média Mensal</div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
         <!-- Status do Gateway de Pagamento -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0 text-primary">
+                <h5 class="mb-0 text-info">
                     <i class="fas fa-credit-card me-2"></i>Status do Gateway de Pagamento
                 </h5>
             </div>
@@ -191,7 +191,7 @@
                     </div>
                     <div class="col-md-1">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -204,7 +204,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Doações
                     </h5>
                 </div>
@@ -371,7 +371,7 @@
         <!-- Link para Página de Doação -->
         <div class="card mt-4">
             <div class="card-body text-center">
-                <h5 class="text-primary mb-3">Página de Doações Online</h5>
+                <h5 class="text-info mb-3">Página de Doações Online</h5>
                 <p class="text-muted mb-3">Compartilhe este link para receber doações online</p>
                 <div class="input-group mb-3">
                     <input type="text"  autocomplete="new-password" class="form-control" value="{{ url('doacoes') }}" readonly>
@@ -380,7 +380,7 @@
                     </button>
                 </div>
                 <div class="d-flex gap-2 justify-content-center">
-                    <a href="{{ url('doacoes') }}" target="_blank" class="btn btn-primary">
+                    <a href="{{ url('doacoes') }}" target="_blank" class="btn bg-info text-light">
                         <i class="fas fa-external-link-alt me-2"></i>Ver Página
                     </a>
                     <button class="btn btn-outline-primary" wire:click="shareDonationPage">

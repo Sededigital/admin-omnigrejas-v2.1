@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-store me-2"></i>Vitrine de Igrejas
                         </h1>
                         <p class="mb-0 text-muted">Explore e conheça outras igrejas da nossa rede</p>
@@ -99,7 +99,7 @@
                         <div class="row g-2 mb-3">
                             <div class="col-6">
                                 <div class="text-center">
-                                    <div class="fw-bold text-primary h5 mb-0">{{ $igreja->membros_count }}</div>
+                                    <div class="fw-bold text-info h5 mb-0">{{ $igreja->membros_count }}</div>
                                     <small class="text-muted">Membros</small>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
 
                         @if($igreja->categoria)
                         <div class="mb-2">
-                            <span class="badge bg-info">{{ $igreja->categoria->nome }}</span>
+                            <span class="badge bg-info text-light">{{ $igreja->categoria->nome }}</span>
                         </div>
                         @endif
 
@@ -180,14 +180,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        <i class="fas fa-building text-primary me-2"></i>Detalhes da Igreja
+                        <i class="fas fa-building text-info me-2"></i>Detalhes da Igreja
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body p-4">
                     @if($loadingDetalhes)
                     <div class="text-center py-5">
-                        <div class="spinner-border text-primary" role="status">
+                        <div class="spinner-border text-info" role="status">
                             <span class="visually-hidden">Carregando...</span>
                         </div>
                         <p class="mt-3 text-muted">Carregando detalhes da igreja...</p>
@@ -203,7 +203,7 @@
                                          alt="Logo {{ $igrejaSelecionada->nome }}"
                                          style="width: 60px; height: 60px; object-fit: cover;">
                                 @else
-                                    <div class="church-avatar bg-primary text-white me-3">
+                                    <div class="church-avatar bg-info text-light text-white me-3">
                                         {{ $this->getIniciais($igrejaSelecionada->nome) }}
                                     </div>
                                 @endif
@@ -217,14 +217,14 @@
 
                             @if($igrejaSelecionada->sobre)
                             <div class="mb-3">
-                                <h6 class="fw-bold text-primary">Sobre</h6>
+                                <h6 class="fw-bold text-info">Sobre</h6>
                                 <p class="mb-0">{{ $igrejaSelecionada->sobre }}</p>
                             </div>
                             @endif
 
                             @if($igrejaSelecionada->descricao)
                             <div class="mb-3">
-                                <h6 class="fw-bold text-primary">Descrição</h6>
+                                <h6 class="fw-bold text-info">Descrição</h6>
                                 <p class="mb-0">{{ $igrejaSelecionada->descricao }}</p>
                             </div>
                             @endif
@@ -237,7 +237,7 @@
                                     <div class="row g-3">
                                         <div class="col-12">
                                             <div class="border-bottom pb-2">
-                                                <div class="fw-bold h4 text-primary mb-0">{{ $igrejaSelecionada->membros_count }}</div>
+                                                <div class="fw-bold h4 text-info mb-0">{{ $igrejaSelecionada->membros_count }}</div>
                                                 <small class="text-muted">Membros Ativos</small>
                                             </div>
                                         </div>
@@ -260,7 +260,7 @@
                                 <div class="col-md-6">
                                     <div class="card h-100">
                                         <div class="card-body">
-                                            <h6 class="card-title fw-bold text-primary">
+                                            <h6 class="card-title fw-bold text-info">
                                                 <i class="fas fa-info-circle me-2"></i>Informações Gerais
                                             </h6>
                                             <div class="row g-2">
@@ -271,7 +271,7 @@
                                                 @if($igrejaSelecionada->categoria)
                                                 <div class="col-12">
                                                     <strong>Categoria:</strong>
-                                                    <span class="badge bg-info">{{ $igrejaSelecionada->categoria->nome }}</span>
+                                                    <span class="badge bg-info text-light">{{ $igrejaSelecionada->categoria->nome }}</span>
                                                 </div>
                                                 @endif
                                                 <div class="col-12">
@@ -292,7 +292,7 @@
                                 <div class="col-md-6">
                                     <div class="card h-100">
                                         <div class="card-body">
-                                            <h6 class="card-title fw-bold text-primary">
+                                            <h6 class="card-title fw-bold text-info">
                                                 <i class="fas fa-map-marker-alt me-2"></i>Localização & Contato
                                             </h6>
                                             <div class="row g-2">
@@ -320,7 +320,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="card-title fw-bold text-primary">
+                                    <h6 class="card-title fw-bold text-info">
                                         <i class="fas fa-users-cog me-2"></i>Liderança ({{ $igrejaSelecionada->lideranca->count() }})
                                     </h6>
                                     <div class="row g-2">
@@ -346,7 +346,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="card-title fw-bold text-primary">
+                                    <h6 class="card-title fw-bold text-info">
                                         <i class="fas fa-handshake me-2"></i>Alianças ({{ $igrejaSelecionada->aliancas->count() }})
                                     </h6>
                                     <div class="row g-2">

@@ -1,6 +1,6 @@
 <div class="container-fluid py-1">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -40,7 +40,7 @@
         <div class="col-lg-6 mb-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-user me-2"></i> Seus Dados
                     </h3>
 
@@ -81,7 +81,7 @@
                     <div class="trial-period">
                         <div class="period-item mb-3">
                             <div class="period-label">Data de Início:</div>
-                            <div class="period-value fw-bold text-primary">{{ $dataInicio }}</div>
+                            <div class="period-value fw-bold text-info">{{ $dataInicio }}</div>
                         </div>
 
                         <div class="period-item mb-3">
@@ -120,7 +120,7 @@
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4 p-md-5">
                     <div class="text-center mb-5">
-                        <h2 class="section-header text-primary fw-bold display-5 mb-3">
+                        <h2 class="section-header text-info fw-bold display-5 mb-3">
                             <i class="fas fa-star me-3"></i>O que você pode fazer agora
                         </h2>
                         <p class="text-muted lead fs-5">Explore todas as funcionalidades disponíveis no seu período de teste</p>
@@ -131,7 +131,7 @@
                             <div class="card feature-available-card border-0 shadow-sm h-100">
                                 <div class="card-body p-4 text-center">
                                     <div class="feature-icon mb-3">
-                                        <i class="fas fa-users fa-3x text-primary"></i>
+                                        <i class="fas fa-users fa-3x text-info"></i>
                                     </div>
                                     <h5 class="card-title fw-bold">Gerenciar Membros</h5>
                                     <p class="card-text small text-muted mb-3">Cadastre e organize os membros da sua igreja</p>
@@ -209,7 +209,7 @@
                             <div class="card feature-available-card border-0 shadow-sm h-100">
                                 <div class="card-body p-4 text-center">
                                     <div class="feature-icon mb-3">
-                                        <i class="fas fa-handshake fa-3x text-primary"></i>
+                                        <i class="fas fa-handshake fa-3x text-info"></i>
                                     </div>
                                     <h5 class="card-title fw-bold">Alianças</h5>
                                     <p class="card-text small text-muted mb-3">Conecte-se com outras igrejas</p>
@@ -248,7 +248,7 @@
                     <div class="tips-list">
                         <div class="tip-item mb-3">
                             <div class="tip-icon">
-                                <i class="fas fa-user-plus text-primary"></i>
+                                <i class="fas fa-user-plus text-info"></i>
                             </div>
                             <div class="tip-content">
                                 <h6 class="fw-bold mb-1">Comece Cadastrando Membros</h6>
@@ -290,7 +290,7 @@
                     <div class="usage-stats">
                         <div class="stat-item mb-3">
                             <div class="stat-icon">
-                                <i class="fas fa-users text-primary"></i>
+                                <i class="fas fa-users text-info"></i>
                             </div>
                             <div class="stat-content">
                                 <h6 class="fw-bold mb-1">Membros Criados</h6>
@@ -331,7 +331,7 @@
 
                     <div class="reminder-actions mt-4">
                         <div class="d-grid gap-2">
-                            <a href="{{ route('ecommerce.subscription.upgrade') }}" class="btn btn-primary">
+                            <a href="{{ route('ecommerce.subscription.upgrade') }}" class="btn bg-info text-light">
                                 <i class="fas fa-rocket me-2"></i>Ver Planos de Upgrade
                             </a>
                             <a href="{{ route('ecommerce.contact') }}" class="btn btn-outline-primary">
@@ -345,7 +345,7 @@
     </div>
 
     <!-- CTA Final -->
-    <div class="card cta-gradient text-white border-0 shadow-lg">
+    <div class="card bg-info text-light text-white border-0 shadow-lg">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 Comece a Explorar Agora!

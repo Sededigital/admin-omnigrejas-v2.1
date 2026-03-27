@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="memberCardModalLabel">
-                    <i class="fas fa-id-card text-primary me-2"></i>
+                    <i class="fas fa-id-card text-info me-2"></i>
                     <span id="modal-title">{{ $modoEdicao ? 'Editar Cartão' : 'Cadastrar Novo Cartão' }}</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -21,11 +21,11 @@
                         <div class="nav nav-tabs border-bottom-0" id="nav-tab" role="tablist">
                             <button class="nav-link active border-0 bg-transparent fw-semibold" id="nav-basic-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-basic" type="button" role="tab">
-                                <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-details-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab">
-                                <i class="fas fa-cogs text-primary me-1"></i>Detalhes Técnicos
+                                <i class="fas fa-cogs text-info me-1"></i>Detalhes Técnicos
                             </button>
                         </div>
                     </nav>
@@ -58,7 +58,7 @@
                                                 </small>
                                             </div>
                                         @endif
-                                        <label><i class="fas fa-user text-primary me-1"></i>Membro *</label>
+                                        <label><i class="fas fa-user text-info me-1"></i>Membro *</label>
                                         @error('membro_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -71,7 +71,7 @@
                                         <input type="text"  autocomplete="new-password" class="form-control" wire:model="numero_cartao"
                                                placeholder="Será gerado automaticamente" readonly
                                                style="background-color: #f8f9fa;">
-                                        <label><i class="fas fa-hashtag text-primary me-1"></i>Número do Cartão</label>
+                                        <label><i class="fas fa-hashtag text-info me-1"></i>Número do Cartão</label>
                                         @if($numero_cartao)
                                             <div class="mt-1">
                                                 <small class="text-success">
@@ -100,7 +100,7 @@
                                                autocomplete="off"
                                                readonly
                                                style="cursor: not-allowed;">
-                                        <label><i class="fas fa-calendar-plus text-primary me-1"></i>Data de Emissão *</label>
+                                        <label><i class="fas fa-calendar-plus text-info me-1"></i>Data de Emissão *</label>
                                         <div class="mt-1">
                                             <small class="text-muted">
                                                 <i class="fas fa-info-circle me-1"></i>Data atual (automática)
@@ -125,7 +125,7 @@
                                                autocomplete="off"
                                                readonly
                                                style="cursor: pointer;">
-                                        <label><i class="fas fa-calendar-check text-primary me-1"></i>Data de Validade</label>
+                                        <label><i class="fas fa-calendar-check text-info me-1"></i>Data de Validade</label>
                                         <div class="mt-1">
                                             <small class="text-muted">
                                                 <i class="fas fa-info-circle me-1"></i>Selecione uma data futura
@@ -140,7 +140,7 @@
                                 <!-- Status -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label"><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                        <label class="form-label"><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                         <div class="row g-2">
                                             <div class="col-6">
                                                 <div class="form-check">
@@ -171,7 +171,7 @@
                                         <textarea class="form-control @error('observacoes') is-invalid @enderror"
                                                   wire:model="observacoes" rows="3"
                                                   placeholder="Observações sobre o cartão"></textarea>
-                                        <label><i class="fas fa-comment text-primary me-1"></i>Observações</label>
+                                        <label><i class="fas fa-comment text-info me-1"></i>Observações</label>
                                         @error('observacoes')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -198,7 +198,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control" wire:model="custo_producao" step="0.01" min="0"
                                                placeholder="0.00">
-                                        <label><i class="fas fa-print text-primary me-1"></i>Custo de Produção (KZ)</label>
+                                        <label><i class="fas fa-print text-info me-1"></i>Custo de Produção (KZ)</label>
                                     </div>
                                 </div>
 
@@ -206,7 +206,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control" wire:model="custo_entrega" step="0.01" min="0"
                                                placeholder="0.00">
-                                        <label><i class="fas fa-truck text-primary me-1"></i>Custo de Entrega (KZ)</label>
+                                        <label><i class="fas fa-truck text-info me-1"></i>Custo de Entrega (KZ)</label>
                                     </div>
                                 </div>
 
@@ -214,7 +214,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control" wire:model="assinatura_digital"
                                                placeholder="Dados da assinatura digital">
-                                        <label><i class="fas fa-signature text-primary me-1"></i>Assinatura Digital</label>
+                                        <label><i class="fas fa-signature text-info me-1"></i>Assinatura Digital</label>
                                     </div>
                                 </div>
                                 <!-- Campos Técnicos -->
@@ -222,7 +222,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label"><i class="fas fa-camera text-primary me-1"></i>Foto do Membro</label>
+                                                <label class="form-label"><i class="fas fa-camera text-info me-1"></i>Foto do Membro</label>
                                                 <input type="file" class="form-control @error('foto_arquivo') is-invalid @enderror"
                                                        wire:model="foto_arquivo" accept="image/*">
                                                 <div class="form-text">
@@ -242,12 +242,12 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="mb-3">
-                                                <label class="form-label"><i class="fas fa-eye text-primary me-1"></i>Pré-visualização</label>
+                                                <label class="form-label"><i class="fas fa-eye text-info me-1"></i>Pré-visualização</label>
                                                 <div class="border rounded p-2" style="min-height: 100px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa;">
                                                     @if($foto_arquivo)
                                                         <div class="text-center">
                                                             <div wire:loading wire:target="foto_arquivo" class="mb-2">
-                                                                <i class="fas fa-spinner fa-spin text-primary"></i>
+                                                                <i class="fas fa-spinner fa-spin text-info"></i>
                                                                 <small class="text-muted d-block">Processando...</small>
                                                             </div>
                                                             <img src="{{ $foto_arquivo->temporaryUrl() }}" alt="Pré-visualização" class="img-thumbnail" style="max-width: 80px; max-height: 80px;" wire:loading.remove wire:target="foto_arquivo">
@@ -270,7 +270,7 @@
                                 <!-- Status Visual -->
                                 <div class="col-12">
                                     <div class="alert alert-light border">
-                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        <i class="fas fa-info-circle text-info me-2"></i>
                                         <strong>Status:</strong>
                                         <span class="text-muted">
                                             {{ $modoEdicao ? 'Editando Cartão' : 'Novo Cartão' }}
@@ -288,7 +288,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="salvarCartao" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="salvarCartao" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="salvarCartao">
                         <i class="fas fa-save me-1"></i>{{ $modoEdicao ? 'Atualizar Cartão' : 'Salvar Cartão' }}
                     </span>
@@ -306,7 +306,7 @@
      data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header bg-info text-white">
+            <div class="modal-header bg-info text-light text-white">
                 <h5 class="modal-title">
                     <i class="fas fa-history me-2"></i>Histórico do Cartão
                 </h5>

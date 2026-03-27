@@ -12,6 +12,7 @@ class ResourceHelper
 {
     /**
      * Verificar assinatura da igreja (logada ou do usuário)
+     * Otimizado: Removido carregamento eager de 'pacote.recursos' para evitar queries desnecessárias
      */
     public static function getIgrejaAssinatura(?int $igrejaId = null): ?AssinaturaAtual
     {
@@ -21,13 +22,14 @@ class ResourceHelper
             return null;
         }
 
+        // Cache por 10 minutos para reduzir queries ao banco
         return Cache::remember(
             "assinatura_atual_{$igrejaId}",
             600, // 10 minutos
             function () use ($igrejaId) {
                 return AssinaturaAtual::where('igreja_id', $igrejaId)
                     ->where('status', 'Ativo')
-                    ->with(['pacote.recursos', 'pacote.niveis'])
+                    ->with(['pacote.niveis']) // Apenas níveis, recursos são carregados sob demanda
                     ->first();
             }
         );
@@ -35,19 +37,26 @@ class ResourceHelper
 
     /**
      * Obter pacote atual da igreja
+     * Otimizado: Pacote premium para trial é cacheado globalmente
      */
     public static function getPacoteAtual(?int $igrejaId = null): ?Pacote
     {
         $assinatura = self::getIgrejaAssinatura($igrejaId);
 
-        // Se há assinatura paga, retorna o pacote dela
+        // Se há assinatura paga ativa, retorna o pacote dela
         if ($assinatura && $assinatura->estaAtiva()) {
             return $assinatura->pacote;
         }
 
-        // Se não há assinatura paga mas há trial ativo, retorna o pacote premium
+        // Se não há assinatura paga mas há trial ativo, retorna o pacote premium (cacheado por 1 hora)
         if (self::isAssinaturaTrial($igrejaId)) {
-            return Pacote::orderBy('preco', 'desc')->first();
+            return Cache::remember(
+                'pacote_premium_trial',
+                3600, // 1 hora - cache global para reduzir queries
+                function () {
+                    return Pacote::orderBy('preco', 'desc')->first();
+                }
+            );
         }
 
         return $assinatura?->pacote;
@@ -61,7 +70,7 @@ class ResourceHelper
         // Primeiro verificar se existe no RBAC
         $permissaoRBAC = \App\Models\RBAC\IgrejaPermissao::where('codigo', $recursoTipo)
             ->where('ativo', true)
-            ->first();
+            ->exists(); // Usar exists() para performance
 
         if (!$permissaoRBAC) {
             return false;
@@ -79,7 +88,8 @@ class ResourceHelper
             return false;
         }
 
-        return $pacote->recursos()
+        // Query direta para verificar existência
+        return \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacote->id)
             ->where('recurso_tipo', $recursoTipo)
             ->where('ativo', true)
             ->exists();
@@ -96,12 +106,17 @@ class ResourceHelper
             return 0;
         }
 
-        $recurso = $pacote->recursos()
-            ->where('recurso_tipo', $recursoTipo)
-            ->where('ativo', true)
-            ->first();
-
-        return $recurso ? $recurso->limite_valor : 0;
+        return Cache::remember(
+            "limite_recurso_{$pacote->id}_{$recursoTipo}",
+            3600, // 1 hora
+            function () use ($pacote, $recursoTipo) {
+                // Query direta para evitar carregamento de todos os recursos
+                return \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacote->id)
+                    ->where('recurso_tipo', $recursoTipo)
+                    ->where('ativo', true)
+                    ->value('limite_valor') ?? 0;
+            }
+        );
     }
 
     /**
@@ -118,35 +133,41 @@ class ResourceHelper
      */
     public static function getRecursosDisponiveis(?int $igrejaId = null): array
     {
-        // Se for trial, retorna recursos do pacote premium
-        if (self::isAssinaturaTrial($igrejaId)) {
-            return self::getRecursosTrialDisponiveis();
-        }
+        $igrejaId = $igrejaId ?? self::getIgrejaIdUsuarioLogado();
 
-        $pacote = self::getPacoteAtual($igrejaId);
+        return Cache::remember(
+            "recursos_disponiveis_{$igrejaId}",
+            600, // 10 minutos
+            function () use ($igrejaId) {
+                // Se for trial, retorna recursos do pacote premium
+                if (self::isAssinaturaTrial($igrejaId)) {
+                    return self::getRecursosTrialDisponiveis();
+                }
 
-        if (!$pacote) {
-            return [];
-        }
+                $pacote = self::getPacoteAtual($igrejaId);
 
-        return $pacote->recursos()
-            ->where('ativo', true)
-            ->whereHas('pacotePermissao', function($query) {
-                $query->where('ativo', true);
-            })
-            ->get()
-            ->map(function ($recurso) {
-                return [
-                    'tipo' => $recurso->recurso_tipo,
-                    'nome' => $recurso->getTipoFormatado(),
-                    'limite' => $recurso->limite_valor,
-                    'unidade' => $recurso->unidade,
-                    'ilimitado' => $recurso->isIlimitado(),
-                    'icone' => $recurso->getIcone(),
-                    'descricao' => $recurso->getDescricao(),
-                ];
-            })
-            ->toArray();
+                if (!$pacote) {
+                    return [];
+                }
+
+                // Query direta sem join complexo para performance
+                return \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacote->id)
+                    ->where('ativo', true)
+                    ->get()
+                    ->map(function ($recurso) {
+                        return [
+                            'tipo' => $recurso->recurso_tipo,
+                            'nome' => $recurso->getTipoFormatado(),
+                            'limite' => $recurso->limite_valor,
+                            'unidade' => $recurso->unidade,
+                            'ilimitado' => $recurso->isIlimitado(),
+                            'icone' => $recurso->getIcone(),
+                            'descricao' => $recurso->getDescricao(),
+                        ];
+                    })
+                    ->toArray();
+            }
+        );
     }
 
     /**
@@ -311,50 +332,49 @@ class ResourceHelper
      */
     private static function getRecursosTrialDisponiveis(): array
     {
-        // Obter o pacote com mais recursos (mais caro)
-        $pacotePremium = Pacote::with(['recursos' => function($query) {
-            $query->where('ativo', true);
-        }])
-        ->orderBy('preco', 'desc')
-        ->first();
+        return Cache::remember(
+            'recursos_trial_disponiveis',
+            3600, // 1 hora
+            function () {
+                // Obter o pacote com mais recursos (mais caro)
+                $pacotePremium = Pacote::orderBy('preco', 'desc')->first();
 
-        if (!$pacotePremium) {
-            // Fallback: todos os recursos do RBAC se não houver pacotes
-            return \App\Models\RBAC\IgrejaPermissao::where('ativo', true)
-                ->get()
-                ->map(function ($permissao) {
-                    return [
-                        'tipo' => $permissao->codigo,
-                        'nome' => $permissao->nome,
-                        'limite' => null, // Trial = ilimitado
-                        'unidade' => 'ilimitado',
-                        'ilimitado' => true,
-                        'icone' => 'fas fa-crown', // Ícone premium
-                        'descricao' => $permissao->descricao ?? 'Recurso premium disponível no trial',
-                    ];
-                })
-                ->toArray();
-        }
+                if (!$pacotePremium) {
+                    // Fallback: todos os recursos do RBAC se não houver pacotes
+                    return \App\Models\RBAC\IgrejaPermissao::where('ativo', true)
+                        ->get()
+                        ->map(function ($permissao) {
+                            return [
+                                'tipo' => $permissao->codigo,
+                                'nome' => $permissao->nome,
+                                'limite' => null, // Trial = ilimitado
+                                'unidade' => 'ilimitado',
+                                'ilimitado' => true,
+                                'icone' => 'fas fa-crown', // Ícone premium
+                                'descricao' => $permissao->descricao ?? 'Recurso premium disponível no trial',
+                            ];
+                        })
+                        ->toArray();
+                }
 
-        // Retornar recursos do pacote premium, mas como ilimitados para trial
-        return $pacotePremium->recursos()
-            ->where('ativo', true)
-            ->whereHas('pacotePermissao', function($query) {
-                $query->where('ativo', true);
-            })
-            ->get()
-            ->map(function ($recurso) {
-                return [
-                    'tipo' => $recurso->recurso_tipo,
-                    'nome' => $recurso->getTipoFormatado(),
-                    'limite' => null, // Trial sempre ilimitado
-                    'unidade' => 'ilimitado',
-                    'ilimitado' => true,
-                    'icone' => $recurso->getIcone(),
-                    'descricao' => $recurso->getDescricao() . ' (Premium Trial)',
-                ];
-            })
-            ->toArray();
+                // Query direta dos recursos do pacote premium
+                return \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacotePremium->id)
+                    ->where('ativo', true)
+                    ->get()
+                    ->map(function ($recurso) {
+                        return [
+                            'tipo' => $recurso->recurso_tipo,
+                            'nome' => $recurso->getTipoFormatado(),
+                            'limite' => null, // Trial sempre ilimitado
+                            'unidade' => 'ilimitado',
+                            'ilimitado' => true,
+                            'icone' => $recurso->getIcone(),
+                            'descricao' => $recurso->getDescricao() . ' (Premium Trial)',
+                        ];
+                    })
+                    ->toArray();
+            }
+        );
     }
 
     /**
@@ -400,8 +420,27 @@ class ResourceHelper
 
         if ($igrejaId) {
             Cache::forget("assinatura_atual_{$igrejaId}");
+            Cache::forget("recursos_disponiveis_{$igrejaId}");
+
+            // Limpar caches de limites de recursos
+            $pacoteId = AssinaturaAtual::where('igreja_id', $igrejaId)->value('pacote_id');
+            if ($pacoteId) {
+                $recursosTipos = \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacoteId)
+                    ->where('ativo', true)
+                    ->pluck('recurso_tipo')
+                    ->toArray();
+
+                foreach ($recursosTipos as $tipo) {
+                    Cache::forget("limite_recurso_{$pacoteId}_{$tipo}");
+                }
+            }
+
             SubscriptionHelper::clearCache($igrejaId);
         }
+
+        // Limpar caches globais se necessário
+        Cache::forget('pacote_premium_trial');
+        Cache::forget('recursos_trial_disponiveis');
     }
 
     /**

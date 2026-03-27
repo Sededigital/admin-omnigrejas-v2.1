@@ -15,7 +15,7 @@
 
 
             <h4 class="logo-title fw-bold">
-                <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
+                <span class="text-info">Omn</span><span class="text-info">Igrejas</span>
             </h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
@@ -105,6 +105,19 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('geral/logs') }}" wire:navigate wire:current="active">
+                        <i class="icon">
+                            <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.4" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="currentColor"/>
+                                <path d="M19 5v14H5V8h14V5z" fill="currentColor"/>
+                                <path d="M7 10h5v5H7z" fill="currentColor"/>
+                            </svg>
+                        </i>
+                        <span class="item-name">Logs</span>
+                    </a>
                 </li>
 
                 <li><hr class="hr-horizontal"></li>

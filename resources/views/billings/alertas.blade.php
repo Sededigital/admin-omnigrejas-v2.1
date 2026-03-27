@@ -10,7 +10,7 @@
                             <p>Gerencie alertas automáticos e manuais para assinaturas</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#alertaModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#alertaModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo Alerta
                             </button>
@@ -110,7 +110,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge bg-info">{{ $tipoOptions[$alerta->tipo_alerta] ?? $alerta->tipo_alerta }}</span>
+                                        <span class="badge bg-info text-light">{{ $tipoOptions[$alerta->tipo_alerta] ?? $alerta->tipo_alerta }}</span>
                                     </td>
                                     <td>
                                         <div>
@@ -179,7 +179,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="alertaModalLabel">
-                        <i class="fas fa-bell text-primary me-2"></i>
+                        <i class="fas fa-bell text-info me-2"></i>
                         <span id="modal-title">{{ $editingAlerta ? 'Editar Alerta' : 'Novo Alerta' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -200,7 +200,7 @@
                                             <option value="{{ $igreja->id }}">{{ $igreja->nome }} ({{ $igreja->nif }})</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-church text-primary me-1"></i>Igreja *</label>
+                                    <label><i class="fas fa-church text-info me-1"></i>Igreja *</label>
                                     @error('igreja_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -217,7 +217,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-tag text-primary me-1"></i>Tipo de Alerta *</label>
+                                    <label><i class="fas fa-tag text-info me-1"></i>Tipo de Alerta *</label>
                                     @error('tipo_alerta')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -228,7 +228,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" autocomplete="new-password"  class="form-control @error('titulo') is-invalid @enderror"
                                            wire:model="titulo" placeholder="Título do alerta">
-                                    <label><i class="fas fa-heading text-primary me-1"></i>Título *</label>
+                                    <label><i class="fas fa-heading text-info me-1"></i>Título *</label>
                                     @error('titulo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -240,7 +240,7 @@
                                 <div class="form-floating mb-3">
                                     <textarea class="form-control @error('mensagem') is-invalid @enderror"
                                               wire:model="mensagem" placeholder="Mensagem do alerta" rows="3"></textarea>
-                                    <label><i class="fas fa-comment text-primary me-1"></i>Mensagem *</label>
+                                    <label><i class="fas fa-comment text-info me-1"></i>Mensagem *</label>
                                     @error('mensagem')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -252,7 +252,7 @@
                                 <div class="form-floating mb-3" wire:ignore>
                                     <input type="datetime-local" class="form-control date_flatpicker @error('expires_at') is-invalid @enderror"
                                            wire:model="expires_at">
-                                    <label><i class="fas fa-calendar-times text-primary me-1"></i>Data de Expiração (opcional)</label>
+                                    <label><i class="fas fa-calendar-times text-info me-1"></i>Data de Expiração (opcional)</label>
                                     @error('expires_at')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -268,7 +268,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveAlerta" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveAlerta" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveAlerta">
                             <i class="fas fa-save me-1"></i>{{ $editingAlerta ? 'Atualizar Alerta' : 'Salvar Alerta' }}
                         </span>

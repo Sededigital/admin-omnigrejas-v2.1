@@ -143,7 +143,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" wire:click="saveMovement" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="saveMovement" wire:loading.attr="disabled">
                     <span wire:loading.remove><i class="fas fa-save me-2"></i>Salvar</span>
                     <span wire:loading><i class="fas fa-spinner fa-spin me-2"></i>Salvando...</span>
                 </button>

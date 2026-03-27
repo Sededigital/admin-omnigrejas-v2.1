@@ -74,7 +74,6 @@
             <!-- Toasts will be added here -->
         </div>
 
-
         <!-- Toast Styles -->
         <link rel="stylesheet" href="{{ asset('system/css/toast.css') }}">
 
@@ -83,7 +82,6 @@
 
         <!-- CSRF Token Handler -->
         <script src="{{ asset('system/js/csrf-handler.js') }}"></script>
-
 
 
     </body>

@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-handshake me-2"></i>Alianças de Igrejas
                         </h1>
                         <p class="mb-0 text-muted">Visualize suas participações e explore novas alianças</p>
@@ -16,7 +16,7 @@
                                 <i class="fas fa-star me-2"></i>Gerenciar Minhas Alianças
                             </a>
                             @if(!$showMyAlliances)
-                            <button class="btn btn-primary btn-md" wire:click="procurarAliancasCompativeis" wire:loading.attr="disabled">
+                            <button class="btn bg-info text-light btn-md" wire:click="procurarAliancasCompativeis" wire:loading.attr="disabled">
                                 <span wire:loading.remove>
                                     <i class="fas fa-search me-2"></i>Encontrar Compatíveis
                                 </span>
@@ -58,8 +58,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-handshake text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">
+                        <i class="fas fa-handshake text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">
                             @if($showMyAlliances)
                                 {{ count($minhasAliancas) }}
                             @elseif($showCompatibleOnly)
@@ -163,7 +163,7 @@
         <!-- Spinner de Busca -->
         @if($isSearching)
         <div class="text-center py-5">
-            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <div class="spinner-border text-info" role="status" style="width: 3rem; height: 3rem;">
                 <span class="visually-hidden">Procurando alianças compatíveis...</span>
             </div>
             <h5 class="mt-3 text-muted">Procurando alianças compatíveis...</h5>
@@ -204,7 +204,7 @@
                         <div class="d-flex justify-content-between align-items-center m-2">
                             <div>
                                 <h6 class="card-title mb-0">
-                                    <i class="fas fa-handshake text-primary me-2"></i>
+                                    <i class="fas fa-handshake text-info me-2"></i>
                                     {{ $alianca->nome }}
                                     @if($alianca->sigla)
                                         <small class="text-muted">({{ $alianca->sigla }})</small>
@@ -258,7 +258,7 @@
                             </div>
                             <div class="col-6">
                                 <small class="text-muted d-block">Membros</small>
-                                <span class="fw-semibold text-primary">
+                                <span class="fw-semibold text-info">
                                     <i class="fas fa-users me-1"></i>{{ $alianca->aderentes_count }}
                                 </span>
                             </div>
@@ -304,7 +304,7 @@
                                     <a href="{{ route('churches.community', $alianca->id) }}" wire:navigate class="btn btn-outline-success btn-sm">
                                         <i class="fas fa-comments me-1"></i>Comunidade
                                     </a>
-                                    <button class="btn btn-primary btn-sm"
+                                    <button class="btn bg-info text-light btn-sm"
                                             data-bs-toggle="modal"
                                             data-bs-target="#addLeaderModal"
                                             wire:click="$set('selectedAliancaId', {{ $alianca->id }})">
@@ -371,7 +371,7 @@
                             <h5 class="text-muted">Você ainda não participa de nenhuma aliança</h5>
                             <p class="text-muted">Explore alianças compatíveis e fortaleça sua comunidade</p>
                             <div class="d-flex gap-2 justify-content-center">
-                                <button class="btn btn-primary" wire:click="mostrarTodasAliancas">
+                                <button class="btn bg-info text-light" wire:click="mostrarTodasAliancas">
                                     <i class="fas fa-search me-1"></i>Encontrar Alianças
                                 </button>
                                 <a href="{{ route('churches.alliance.my') }}" wire:navigate class="btn btn-outline-primary">
@@ -426,7 +426,7 @@
                 <div class="modal-body">
                     @if($selectedAlianca)
                         <div class="text-center mb-4">
-                            <i class="fas fa-handshake text-primary" style="font-size: 3rem;"></i>
+                            <i class="fas fa-handshake text-info" style="font-size: 3rem;"></i>
                         </div>
                         <h6 class="fw-bold text-center mb-3">{{ $selectedAlianca->nome }}</h6>
                         <p class="text-muted mb-4">
@@ -443,7 +443,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" wire:click="fecharModalConfirmacao">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="confirmarEntrarNaAlianca" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="confirmarEntrarNaAlianca" wire:loading.attr="disabled">
                         <span wire:loading.remove>
                             <i class="fas fa-check me-1"></i>Confirmar Entrada
                         </span>
@@ -460,7 +460,7 @@
     <div class="modal fade" id="addLeaderModal" tabindex="-1" aria-labelledby="addLeaderModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header bg-info text-light text-white">
                     <h5 class="modal-title" id="addLeaderModalLabel">
                         <i class="fas fa-user-plus me-2"></i>Adicionar Líder
                     </h5>
@@ -485,7 +485,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btn bg-info text-light"
                             wire:click="adicionarLider"
                             wire:loading.attr="disabled"
                             data-bs-dismiss="modal">
@@ -547,7 +547,7 @@
     <div class="modal fade" id="leadersModal" tabindex="-1" aria-labelledby="leadersModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-info text-white">
+                <div class="modal-header bg-info text-light text-white">
                     <h5 class="modal-title" id="leadersModalLabel">
                         <i class="fas fa-users me-2"></i>Líderes das Minhas Alianças
                     </h5>
@@ -574,9 +574,9 @@
                         @if($aliancaSelecionada)
                             <div class="mb-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <i class="fas fa-handshake text-primary me-2 fs-5"></i>
-                                    <h6 class="mb-0 text-primary fw-bold">{{ $aliancaSelecionada->nome }}</h6>
-                                    <span class="badge bg-primary ms-2">
+                                    <i class="fas fa-handshake text-info me-2 fs-5"></i>
+                                    <h6 class="mb-0 text-info fw-bold">{{ $aliancaSelecionada->nome }}</h6>
+                                    <span class="badge bg-info text-light ms-2">
                                         {{ $lideres->count() }} líder{{ $lideres->count() !== 1 ? 'es' : '' }}
                                     </span>
                                 </div>
@@ -589,7 +589,7 @@
                                                     <div class="card-body text-center">
                                                         <div class="position-relative mb-3">
                                                             <div class="text-center">
-                                                                <i class="fas fa-user-circle text-primary" style="font-size: 2rem;"></i>
+                                                                <i class="fas fa-user-circle text-info" style="font-size: 2rem;"></i>
                                                             </div>
                                                             @if($lider->membro->igreja_id === $igreja->id)
                                                                 <div class="position-absolute top-0 end-0">
@@ -706,7 +706,7 @@
                             <div class="card border-light mb-3">
                                 <div class="card-body text-center">
                                     <div class="text-center mb-2">
-                                        <i class="fas fa-user-circle text-primary" style="font-size: 2.5rem;"></i>
+                                        <i class="fas fa-user-circle text-info" style="font-size: 2.5rem;"></i>
                                     </div>
                                     <h6 class="mb-1">{{ $liderSelecionado->membro->user->name }}</h6>
                                     <p class="text-muted small mb-0">{{ ucfirst($liderSelecionado->cargo_na_alianca) }}</p>

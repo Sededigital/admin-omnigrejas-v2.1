@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -41,17 +41,17 @@
         <div class="col-lg-4 mb-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-info-circle me-2"></i> Informações
                     </h3>
 
                     <div class="contact-info">
                         <div class="contact-item mb-4">
                             <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                <i class="fas fa-map-marker-alt fa-2x text-info"></i>
                             </div>
                             <div class="contact-details">
-                                <h6 class="fw-bold text-primary mb-1">Endereço</h6>
+                                <h6 class="fw-bold text-info mb-1">Endereço</h6>
                                 <p class="mb-0 small">Luanda, Angola<br>Centro Empresarial</p>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="contact-details">
                                 <h6 class="fw-bold text-success mb-1">Telefone</h6>
-                                <p class="mb-0 small">+244 923 456 789<br>+244 912 345 678</p>
+                                <p class="mb-0 small">+244 975 536 089<br>+244 975 560 689</p>
                             </div>
                         </div>
 
@@ -94,7 +94,7 @@
         <div class="col-lg-8">
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-paper-plane me-2"></i> Envie sua Mensagem
                     </h3>
 
@@ -112,7 +112,7 @@
 
                             <div class="col-md-6">
                                 <label for="telefone" class="form-label fw-semibold">Telefone</label>
-                                <input type="tel" class="form-control" id="telefone" placeholder="+244 923 456 789">
+                                <input type="tel" class="form-control" id="telefone" placeholder="+244 975 560 689">
                             </div>
 
                             <div class="col-md-6">
@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="d-grid mt-4">
-                            <button type="submit" class="btn btn-primary btn-glow">
+                            <button type="submit" class="btn bg-info text-light btn-glow">
                                 <i class="fas fa-paper-plane me-2"></i> Enviar Mensagem
                             </button>
                         </div>
@@ -157,7 +157,7 @@
     <div class="card shadow-sm border-0 mb-5">
         <div class="card-body p-4 p-md-5">
             <div class="text-center mb-5">
-                <h2 class="section-header text-primary fw-bold display-5 mb-3">
+                <h2 class="section-header text-info fw-bold display-5 mb-3">
                     <i class="fas fa-question-circle me-3"></i>Dúvidas Frequentes
                 </h2>
                 <p class="text-muted lead fs-5">Encontre respostas rápidas para suas dúvidas</p>
@@ -166,7 +166,7 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="faq-item">
-                        <h5 class="fw-bold text-primary mb-2">
+                        <h5 class="fw-bold text-info mb-2">
                             <i class="fas fa-clock me-2"></i>Qual o prazo de resposta?
                         </h5>
                         <p class="mb-0 small">Respondemos todas as mensagens em até 24 horas úteis.</p>
@@ -207,7 +207,7 @@
     <div class="card shadow-sm border-0 mb-5">
         <div class="card-body p-4 p-md-5">
             <div class="text-center mb-4">
-                <h3 class="section-header text-primary fw-bold mb-3">
+                <h3 class="section-header text-info fw-bold mb-3">
                     <i class="fas fa-map-marked-alt me-2"></i> Nossa Localização
                 </h3>
                 <p class="text-muted">Venha nos visitar em Luanda</p>
@@ -226,7 +226,7 @@
 
                 <div class="col-lg-4">
                     <div class="location-details">
-                        <h5 class="fw-bold text-primary mb-3">Como Chegar</h5>
+                        <h5 class="fw-bold text-info mb-3">Como Chegar</h5>
 
                         <div class="location-item mb-3">
                             <i class="fas fa-car text-success me-2"></i>
@@ -249,7 +249,7 @@
     </div>
 
     <!-- CTA Final -->
-    <div class="card cta-gradient text-white border-0 shadow-lg">
+    <div class="card bg-info text-light text-white border-0 shadow-lg">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 Pronto para Começar?

@@ -29,9 +29,9 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">
-            <i class="fas fa-newspaper text-primary me-2"></i>Posts
+            <i class="fas fa-newspaper text-info me-2"></i>Posts
         </h5>
-        <button class="btn btn-primary btn-sm" wire:click="abrirModalPost">
+        <button class="btn bg-info text-light btn-sm" wire:click="abrirModalPost">
             <i class="fas fa-plus me-1"></i>Novo Post
         </button>
     </div>
@@ -56,7 +56,7 @@
                                     @else
                                         <img src="{{ Storage::url($post->media_url) }}" class="card-img-top" alt="Post image" style="height: 200px; object-fit: cover;">
                                         <div class="position-absolute top-0 end-0 m-2">
-                                            <span class="badge bg-info">
+                                            <span class="badge bg-info text-light">
                                                 <i class="fas fa-image me-1"></i>Imagem
                                             </span>
                                         </div>
@@ -149,7 +149,7 @@
                         <i class="fas fa-times me-1"></i>Limpar Filtros
                     </button>
                 @endif
-                <button class="btn btn-primary" wire:click="abrirModalPost">
+                <button class="btn bg-info text-light" wire:click="abrirModalPost">
                     <i class="fas fa-plus me-1"></i>Criar Primeiro Post
                 </button>
             </div>

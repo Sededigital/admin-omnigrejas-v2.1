@@ -77,7 +77,7 @@ trait DashboardConfirmation
         $this->confirmTitle = 'Sincronizar Pagamentos';
         $this->confirmMessage = 'Esta ação irá sincronizar todos os pagamentos com o gateway. Pode levar alguns minutos. Continuar?';
         $this->confirmButtonText = 'Sim, Sincronizar';
-        $this->confirmButtonClass = 'btn-primary';
+        $this->confirmButtonClass = 'bg-info text-light';
     }
 
     public function executarAcaoConfirmada()

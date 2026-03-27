@@ -52,7 +52,7 @@
                                         $funcaoSelecionada = $funcoesDisponiveis->find($atribuicaoFuncaoId);
                                     @endphp
                                     @if($funcaoSelecionada && $funcaoSelecionada->permissoes->count() > 0)
-                                        <span class="badge bg-info me-1">{{ $funcaoSelecionada->permissoes->count() }}</span>
+                                        <span class="badge bg-info text-light me-1">{{ $funcaoSelecionada->permissoes->count() }}</span>
                                         <small>permissões incluídas</small>
                                     @else
                                         <small class="text-muted">Nenhuma permissão</small>

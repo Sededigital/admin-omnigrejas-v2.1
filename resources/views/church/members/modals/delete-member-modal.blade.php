@@ -12,7 +12,7 @@
             <div class="modal-body py-3" style="min-height: 200px;">
                 @if($memberToDelete)
                 <div class="text-center mb-3">
-                    <div class="user-avatar bg-primary text-white mx-auto mb-2" style="width: 50px; height: 50px; font-size: 20px;">
+                    <div class="user-avatar bg-info text-light text-white mx-auto mb-2" style="width: 50px; height: 50px; font-size: 20px;">
                         {{ strtoupper(substr($memberToDelete->user->name ?? 'N', 0, 2)) }}
                     </div>
                     <h6 class="mb-1 fw-bold">{{ $memberToDelete->user->name ?? 'N/A' }}</h6>
@@ -62,7 +62,7 @@
                 </div>
                 @else
                 <div class="text-center py-3 d-flex flex-column align-items-center justify-content-center" style="min-height: 150px;">
-                    <i class="fas fa-spinner fa-spin text-primary mb-2" style="font-size: 2rem;"></i>
+                    <i class="fas fa-spinner fa-spin text-info mb-2" style="font-size: 2rem;"></i>
                     <p class="text-muted small">Carregando dados do membro...</p>
                 </div>
                 @endif

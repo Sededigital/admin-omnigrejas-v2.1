@@ -6,7 +6,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="assinaturaModalLabel">
-                        <i class="fas fa-file-signature text-primary me-2"></i>
+                        <i class="fas fa-file-signature text-info me-2"></i>
                         <span id="modal-title">{{ $editingAssinatura ? 'Editar Assinatura' : 'Nova Assinatura' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -29,7 +29,7 @@
                                                list="igrejas_list"
                                                wire:model.live="igreja_nome"
                                                wire:loading.attr="readonly">
-                                        <label><i class="fas fa-church text-primary me-1"></i>Igreja *</label>
+                                        <label><i class="fas fa-church text-info me-1"></i>Igreja *</label>
                                         <datalist id="igrejas_list">
                                             @foreach($igrejas as $igreja)
                                                 <option value="{{ $igreja->nome }} ({{ $igreja->nif }})" data-id="{{ $igreja->id }}">
@@ -39,7 +39,7 @@
                                     <span class="input-group-text border-0"
                                           style="min-width: 50px; justify-content: center;">
                                         <span class="spinner-border spinner-border-sm"
-                                              wire:loading.class="text-primary"
+                                              wire:loading.class="text-info"
                                               wire:loading wire:target="igreja_nome"
                                               role="status"
                                               aria-hidden="true"></span>
@@ -85,12 +85,12 @@
                                                  @endforeach
                                              @endif
                                          </select>
-                                         <label><i class="fas fa-box text-primary me-1"></i>Pacote *</label>
+                                         <label><i class="fas fa-box text-info me-1"></i>Pacote *</label>
                                      </div>
                                      <span class="input-group-text border-0"
                                            style="min-width: 50px; justify-content: center;">
                                          <span class="spinner-border spinner-border-sm"
-                                               wire:loading.class="text-primary"
+                                               wire:loading.class="text-info"
                                                wire:loading wire:target="pacote_id"
                                                role="status"
                                                aria-hidden="true"></span>
@@ -109,7 +109,7 @@
                                          <option value="Cancelado">Cancelado</option>
                                          <option value="Expirado">Expirado</option>
                                      </select>
-                                     <label><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                     <label><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                      @error('status')
                                          <div class="invalid-feedback">{{ $message }}</div>
                                      @enderror
@@ -127,13 +127,13 @@
                                                 autocomplete="off"
                                                 readonly
                                                 style="cursor: pointer;">
-                                         <label><i class="fas fa-calendar-plus text-primary me-1"></i>Data Início *</label>
+                                         <label><i class="fas fa-calendar-plus text-info me-1"></i>Data Início *</label>
                                      </div>
                                      <button type="button"
                                              class="btn btn-sm border-0"
                                              wire:click="clearDataInicio"
                                              title="Limpar Data Início">
-                                         <i class="fas fa-times text-primary"></i>
+                                         <i class="fas fa-times text-info"></i>
                                      </button>
                                  </div>
                                  @error('data_inicio')
@@ -152,13 +152,13 @@
                                                 autocomplete="off"
                                                 readonly
                                                 style="cursor: pointer;">
-                                         <label><i class="fas fa-calendar-minus text-primary me-1"></i>Data Fim *</label>
+                                         <label><i class="fas fa-calendar-minus text-info me-1"></i>Data Fim *</label>
                                      </div>
                                      <button type="button"
                                              class="btn  btn-sm border-0"
                                              wire:click="clearDataFim"
                                              title="Limpar Data Fim">
-                                         <i class="fas fa-times text-primary"></i>
+                                         <i class="fas fa-times text-info"></i>
                                      </button>
                                  </div>
                                  @error('data_fim')
@@ -184,13 +184,13 @@
                                                 autocomplete="off"
                                                 readonly
                                                 style="cursor: pointer;">
-                                         <label><i class="fas fa-clock text-primary me-1"></i>Trial Fim</label>
+                                         <label><i class="fas fa-clock text-info me-1"></i>Trial Fim</label>
                                      </div>
                                      <button type="button"
                                              class="btn  btn-sm border-0"
                                              wire:click="clearTrialFim"
                                              title="Limpar Trial Fim">
-                                         <i class="fas fa-times text-primary"></i>
+                                         <i class="fas fa-times text-info"></i>
                                      </button>
                                  </div>
                                  @error('trial_fim')
@@ -203,7 +203,7 @@
                                  <div class="form-floating mb-2">
                                      <input type="number" class="form-control @error('duracao_meses_custom') is-invalid @enderror"
                                             wire:model="duracao_meses_custom" placeholder="Calculado automaticamente" min="0" readonly>
-                                     <label><i class="fas fa-calendar-alt text-primary me-1"></i>Duração (meses)</label>
+                                     <label><i class="fas fa-calendar-alt text-info me-1"></i>Duração (meses)</label>
                                      @error('duracao_meses_custom')
                                          <div class="invalid-feedback">{{ $message }}</div>
                                      @enderror
@@ -216,7 +216,7 @@
                                             type="checkbox" wire:model.live="vitalicio" id="vitalicio"
                                             style="width: 1.2rem; height: 1.2rem; margin-right: 0.5rem;">
                                      <label class="form-check-label fw-bold" for="vitalicio">
-                                         <i class="fas fa-infinity text-primary me-2"></i>Assinatura Vitalícia
+                                         <i class="fas fa-infinity text-info me-2"></i>Assinatura Vitalícia
                                      </label>
                                      @error('vitalicio')
                                          <div class="invalid-feedback">{{ $message }}</div>
@@ -242,7 +242,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveAssinatura" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveAssinatura" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveAssinatura">
                             <i class="fas fa-save me-1"></i>{{ $editingAssinatura ? 'Atualizar Assinatura' : 'Salvar Assinatura' }}
                         </span>

@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-users-cog me-2"></i>Escala de Eventos
                         </h1>
                         <p class="mb-0 text-muted">Gerencie a escala de membros para os eventos</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#scaleModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#scaleModal">
                             <i class="fas fa-user-plus me-2"></i>Escalar Membro
                         </button>
                     </div>
@@ -71,8 +71,8 @@
                     <div class="col-6">
                         <div class="card text-center card-hover border-2 border-dashed metric-card h-100" role="button" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#scaleModal">
                             <div class="card-body">
-                                <i class="fas fa-user-plus text-primary display-6 mb-2 icon-interactive"></i>
-                                <div class="fw-bold h5 mb-1 text-primary">Adicionar</div>
+                                <i class="fas fa-user-plus text-info display-6 mb-2 icon-interactive"></i>
+                                <div class="fw-bold h5 mb-1 text-info">Adicionar</div>
                                 <div class="text-muted small">Nova Escala</div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar Filtros
                             </button>
                         </div>
@@ -114,7 +114,7 @@
         <!-- Tabela de Escalas -->
         <div class="card">
             <div class="card-header d-flex align-items-center mb-3">
-                <h5 class="mb-0 text-primary">
+                <h5 class="mb-0 text-info">
                     <i class="fas fa-list-ul me-2"></i>Lista de Escalas
                 </h5>
             </div>
@@ -135,7 +135,7 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <div class="event-avatar bg-primary text-white me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">
+                                    <div class="event-avatar bg-info text-light text-white me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">
                                         {{ strtoupper(substr($scale->evento->titulo ?? 'E', 0, 2)) }}
                                     </div>
                                     <div>
@@ -156,7 +156,7 @@
                                 </div>
                             </td>
                             <td>
-                                <span class="badge bg-info">{{ $scale->funcao }}</span>
+                                <span class="badge bg-info text-light">{{ $scale->funcao }}</span>
                             </td>
                             <td>
                                 <div>{{ $scale->evento->data_evento ? $scale->evento->data_evento->format('d/m/Y') : 'N/A' }}</div>

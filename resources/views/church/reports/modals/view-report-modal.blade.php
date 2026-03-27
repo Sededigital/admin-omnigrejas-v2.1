@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="viewReportModalLabel">
-                    <i class="fas fa-eye text-primary me-2"></i>Visualizar Relatório
+                    <i class="fas fa-eye text-info me-2"></i>Visualizar Relatório
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
@@ -156,7 +156,7 @@
                     <i class="fas fa-times me-1"></i>Fechar
                 </button>
                 @if($showViewModal && $relatorioVisualizacao)
-                <button type="button" class="btn btn-primary" wire:click="exportReport('{{ $relatorioVisualizacao->id }}')" wire:loading.class="btn-loading" title="Imprimir" wire:target="exportingReport">
+                <button type="button" class="btn bg-info text-light" wire:click="exportReport('{{ $relatorioVisualizacao->id }}')" wire:loading.class="btn-loading" title="Imprimir" wire:target="exportingReport">
                     <span wire:loading.remove  wire:target="exportReport('{{ $relatorio->id }}')"><i class="fas fa-print"></i></span>
                     <span wire:loading  wire:target="exportReport('{{ $relatorio->id }}')"><i class="fas fa-spinner fa-spin"></i></span>
                     Imprimir

@@ -442,7 +442,7 @@ class AdminChurch extends Component
 
     public function getCorAvatar($index)
     {
-        $cores = ['bg-primary', 'bg-info', 'bg-warning', 'bg-success', 'bg-danger', 'bg-secondary'];
+        $cores = ['bg-primary', 'bg-info text-light', 'bg-warning', 'bg-success', 'bg-danger', 'bg-secondary'];
         return $cores[$index % count($cores)];
     }
 

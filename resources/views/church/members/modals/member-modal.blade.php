@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="memberModalLabel">
-                    <i class="fas fa-user text-primary me-2"></i>
+                    <i class="fas fa-user text-info me-2"></i>
                     <span id="modal-title">{{ $editingMember ? 'Editar Membro' : 'Cadastrar Novo Membro' }}</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -21,11 +21,11 @@
                         <div class="nav nav-tabs border-bottom-0" id="nav-tab" role="tablist">
                             <button class="nav-link active border-0 bg-transparent fw-semibold" id="nav-basic-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-basic" type="button" role="tab">
-                                <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-details-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab">
-                                <i class="fas fa-comment text-primary me-1"></i>Observações
+                                <i class="fas fa-comment text-info me-1"></i>Observações
                             </button>
                         </div>
                     </nav>
@@ -41,7 +41,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control @error('name') is-invalid @enderror"
                                                wire:model="name" placeholder="Nome completo">
-                                        <label><i class="fas fa-user text-primary me-1"></i>Nome *</label>
+                                        <label><i class="fas fa-user text-info me-1"></i>Nome *</label>
                                         @error('name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -53,7 +53,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="email"  autocomplete="new-password" class="form-control @error('email') is-invalid @enderror"
                                                wire:model="email" placeholder="email@exemplo.com">
-                                        <label><i class="fas fa-envelope text-primary me-1"></i>Email *</label>
+                                        <label><i class="fas fa-envelope text-info me-1"></i>Email *</label>
                                         @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -65,7 +65,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="tel" class="form-control @error('phone') is-invalid @enderror"
                                                wire:model="phone" placeholder="+244 900 000 000">
-                                        <label><i class="fas fa-phone text-primary me-1"></i>Telefone</label>
+                                        <label><i class="fas fa-phone text-info me-1"></i>Telefone</label>
                                         @error('phone')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -84,7 +84,7 @@
                                                autocomplete="off"
                                                readonly
                                                style="border: 2px solid #007bff; border-radius: 0.375rem; cursor: pointer;">
-                                        <label><i class="fas fa-birthday-cake text-primary me-1"></i>Data de Nascimento</label>
+                                        <label><i class="fas fa-birthday-cake text-info me-1"></i>Data de Nascimento</label>
                                         @error('data_nascimento')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -94,13 +94,13 @@
                                 <!-- Gênero -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label"><i class="fas fa-venus-mars text-primary me-1"></i>Gênero</label>
+                                        <label class="form-label"><i class="fas fa-venus-mars text-info me-1"></i>Gênero</label>
                                         <div class="row g-2">
                                             <div class="col-4">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="genero" id="genero-masculino" value="masculino" wire:model="genero">
                                                     <label class="form-check-label" for="genero-masculino">
-                                                        <i class="fas fa-mars text-primary me-1"></i>Masculino
+                                                        <i class="fas fa-mars text-info me-1"></i>Masculino
                                                     </label>
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@
                                             <option value="ministro">Ministro</option>
                                             <option value="pastor">Pastor</option>
                                         </select>
-                                        <label><i class="fas fa-user-tag text-primary me-1"></i>Cargo *</label>
+                                        <label><i class="fas fa-user-tag text-info me-1"></i>Cargo *</label>
                                         @error('cargo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -143,7 +143,7 @@
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control @error('endereco') is-invalid @enderror"
                                                   wire:model="endereco" rows="2" placeholder="Endereço completo"></textarea>
-                                        <label><i class="fas fa-map-marker-alt text-primary me-1"></i>Endereço</label>
+                                        <label><i class="fas fa-map-marker-alt text-info me-1"></i>Endereço</label>
                                         @error('endereco')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -162,7 +162,7 @@
                                                autocomplete="off"
                                                readonly
                                                style="cursor: pointer;">
-                                        <label><i class="fas fa-calendar-plus text-primary me-1"></i>Data de Entrada *</label>
+                                        <label><i class="fas fa-calendar-plus text-info me-1"></i>Data de Entrada *</label>
                                         @error('data_entrada')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -172,7 +172,7 @@
                                 <!-- Status -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label"><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                        <label class="form-label"><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                         <div class="row g-2">
                                             <div class="col-6 col-lg-3">
                                                 <div class="form-check">
@@ -225,7 +225,7 @@
                                         <textarea class="form-control @error('observacoes') is-invalid @enderror"
                                                   wire:model="observacoes" rows="3"
                                                   placeholder="Observações sobre o membro"></textarea>
-                                        <label><i class="fas fa-comment text-primary me-1"></i>Observações</label>
+                                        <label><i class="fas fa-comment text-info me-1"></i>Observações</label>
                                         @error('observacoes')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -235,7 +235,7 @@
                                 <!-- Status Visual -->
                                 <div class="col-12">
                                     <div class="alert alert-light border">
-                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        <i class="fas fa-info-circle text-info me-2"></i>
                                         <strong>Status:</strong>
                                         <span class="text-muted">
                                             {{ $editingMember ? 'Editando Membro' : 'Novo Membro' }}
@@ -253,7 +253,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="saveMember" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="saveMember" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="saveMember">
                         <i class="fas fa-save me-1"></i>{{ $editingMember ? 'Atualizar Membro' : 'Salvar Membro' }}
                     </span>

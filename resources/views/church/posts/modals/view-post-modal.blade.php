@@ -80,7 +80,7 @@
                     <i class="fas fa-times me-1"></i>Fechar
                 </button>
                 @if($postSelecionado)
-                    <button class="btn btn-primary" wire:click="verReacoes({{ $postSelecionado->id }})" data-bs-dismiss="modal">
+                    <button class="btn bg-info text-light" wire:click="verReacoes({{ $postSelecionado->id }})" data-bs-dismiss="modal">
                         <i class="fas fa-heart me-1"></i>Ver Reações
                     </button>
                 @endif

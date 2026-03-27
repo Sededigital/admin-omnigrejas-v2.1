@@ -5,14 +5,14 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-building me-2"></i>Minhas Igrejas
                         </h1>
                         <p class="mb-0 text-muted">Gerencie as igrejas onde você é membro ou administrador</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                         @can('manage-churches')
-                         <button class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#churchModal">
+                         <button class="btn bg-info text-light btn-md" data-bs-toggle="modal" data-bs-target="#churchModal">
                             <i class="fas fa-plus-circle me-2"></i>Nova Igreja
                         </button>
                         @endcan
@@ -26,8 +26,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-building text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $totalIgrejas }}</div>
+                        <i class="fas fa-building text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $totalIgrejas }}</div>
                         <div class="text-muted small">Total de Igrejas</div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Igrejas
                     </h5>
                     <div class="ms-auto">
@@ -277,7 +277,7 @@
                                     </div>
                                 </div>
                                 <div class="text-end">
-                                    <div class="fw-bold text-primary h5">{{ $igreja->membros_count }}</div>
+                                    <div class="fw-bold text-info h5">{{ $igreja->membros_count }}</div>
                                     <small class="text-muted">membros</small>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
                                 <button class="btn btn-outline-secondary btn-sm" wire:click="openAdminModal({{ $igreja->id }})" data-bs-toggle="modal" data-bs-target="#adminModal" title="Gerenciar Admins">
                                     <i class="fas fa-cog"></i>
                                 </button>
-                                <button class="btn btn-primary btn-sm" wire:click="editIgreja({{ $igreja->id }})" title="Editar" data-bs-toggle="modal" data-bs-target="#churchModal">
+                                <button class="btn bg-info text-light btn-sm" wire:click="editIgreja({{ $igreja->id }})" title="Editar" data-bs-toggle="modal" data-bs-target="#churchModal">
                                     <i class="fas fa-edit"></i>
                                 </button>
 
@@ -349,7 +349,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-primary mb-3">
+                            <h5 class="text-info mb-3">
                                 <i class="fas fa-clock me-2"></i>Igrejas Recentes
                             </h5>
                             <div class="row g-2">
@@ -380,7 +380,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-primary mb-3">
+                            <h5 class="text-info mb-3">
                                 <i class="fas fa-users me-2"></i>Maiores Congregações
                             </h5>
                             <div class="row g-2">
@@ -465,7 +465,7 @@
                                 <i class="fas fa-info-circle me-1"></i>Código Atual
                             </h6>
                             <div class="d-flex align-items-center">
-                                <code class="fs-4 fw-bold text-primary me-3">{{ $currentAccessCode }}</code>
+                                <code class="fs-4 fw-bold text-info me-3">{{ $currentAccessCode }}</code>
                                 <button
                                     class="btn btn-sm btn-outline-secondary"
                                     onclick="copyAccessCode(this, '{{ $currentAccessCode }}')"
@@ -532,7 +532,7 @@
                 <div class="modal-body p-4">
                     <!-- Admins Atuais -->
                     <div class="mb-4">
-                        <h6 class="fw-bold text-primary mb-3">
+                        <h6 class="fw-bold text-info mb-3">
                             <i class="fas fa-users-cog me-2"></i>Administradores Atuais
                         </h6>
                         <div class="row g-2">
@@ -605,7 +605,7 @@
 
                     <!-- Adicionar Novos Admins -->
                     <div class="border-top pt-4">
-                        <h6 class="fw-bold text-primary mb-3">
+                        <h6 class="fw-bold text-info mb-3">
                             <i class="fas fa-user-plus me-2"></i>Adicionar Administrador
                         </h6>
 
@@ -623,7 +623,7 @@
                                 <div class="card border">
                                     <div class="card-body p-3 d-flex align-items-center justify-content-between">
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar bg-primary text-white me-3">
+                                            <div class="user-avatar bg-info text-light text-white me-3">
                                                 {{ substr($user->name, 0, 1) }}
                                             </div>
                                             <div>

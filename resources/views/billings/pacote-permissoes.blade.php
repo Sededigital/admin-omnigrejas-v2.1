@@ -10,7 +10,7 @@
                             <p>Gerencie as permissões de acesso dos pacotes aos módulos</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#permissaoModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#permissaoModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Nova Permissão
                             </button>
@@ -181,7 +181,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="permissaoModalLabel">
-                        <i class="fas fa-shield-alt text-primary me-2"></i>
+                        <i class="fas fa-shield-alt text-info me-2"></i>
                         <span id="modal-title">{{ $editingPermissao ? 'Editar Permissão' : 'Nova Permissão' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -202,7 +202,7 @@
                                             <option value="{{ $pacote->id }}">{{ $pacote->nome }} - {{ number_format($pacote->preco, 2, ',', '.') }} Kz</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-box text-primary me-1"></i>Pacote *</label>
+                                    <label><i class="fas fa-box text-info me-1"></i>Pacote *</label>
                                     @error('pacote_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -220,7 +220,7 @@
                                             <option value="{{ $modulo->id }}">{{ $modulo->nome }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-cube text-primary me-1"></i>Módulo *</label>
+                                    <label><i class="fas fa-cube text-info me-1"></i>Módulo *</label>
                                     @error('modulo_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -239,7 +239,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-key text-primary me-1"></i>Permissão *</label>
+                                    <label><i class="fas fa-key text-info me-1"></i>Permissão *</label>
                                     @error('permissao')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -249,7 +249,7 @@
                             <!-- Status Visual -->
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingPermissao ? 'Editando Permissão' : 'Nova Permissão' }}
@@ -271,7 +271,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="savePermissao" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="savePermissao" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="savePermissao">
                             <i class="fas fa-save me-1"></i>{{ $editingPermissao ? 'Atualizar Permissão' : 'Salvar Permissão' }}
                         </span>

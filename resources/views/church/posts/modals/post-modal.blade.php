@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    <i class="fas fa-newspaper text-primary me-2"></i>
+                    <i class="fas fa-newspaper text-info me-2"></i>
                     {{ $isEditingPost ? 'Editar Post' : 'Novo Post' }}
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -95,7 +95,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                    <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled">
                         <span wire:loading.remove>
                             <i class="fas fa-save me-1"></i>{{ $isEditingPost ? 'Atualizar' : 'Publicar' }} Post
                         </span>

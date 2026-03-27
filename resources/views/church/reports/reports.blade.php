@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-file-alt me-2"></i>Relatórios de Culto
                         </h1>
                         <p class="mb-0 text-muted">Gerencie os relatórios dos cultos e eventos</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="abrirModalNovo" data-bs-toggle="modal" data-bs-target="#reportModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="abrirModalNovo" data-bs-toggle="modal" data-bs-target="#reportModal">
                             <i class="fas fa-plus me-2"></i>Novo Relatório
                         </button>
                     </div>
@@ -24,8 +24,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-file-alt text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $estatisticas['total'] }}</div>
+                        <i class="fas fa-file-alt text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $estatisticas['total'] }}</div>
                         <div class="text-muted small">Total de Relatórios</div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -102,7 +102,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Relatórios
                     </h5>
                 </div>
@@ -190,7 +190,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between mb-3">
                                 <div class="d-flex align-items-center">
-                                    <div class="user-avatar bg-primary text-white me-3">
+                                    <div class="user-avatar bg-info text-light text-white me-3">
                                         <i class="fas fa-file-alt"></i>
                                     </div>
                                     <div>

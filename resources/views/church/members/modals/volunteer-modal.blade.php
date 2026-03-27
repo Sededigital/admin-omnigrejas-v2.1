@@ -2,7 +2,7 @@
 <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="volunteerModalLabel" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
+            <div class="modal-header bg-info text-light">
                 <h5 class="modal-title fw-bold" id="volunteerModalLabel">
                     <i class="fas fa-{{ $isEditing ? 'edit' : 'plus' }} text-white me-2"></i>
                     {{ $isEditing ? 'Editar Voluntário' : 'Adicionar Voluntário' }}
@@ -12,7 +12,7 @@
             <div class="modal-body">
                 <form wire:submit.prevent="salvarVoluntario">
                     <div class="text-center mb-4">
-                        <i class="fas fa-hands-helping text-primary" style="font-size: 3rem;"></i>
+                        <i class="fas fa-hands-helping text-info" style="font-size: 3rem;"></i>
                     </div>
                     <h6 class="fw-bold text-center mb-3">
                         {{ $isEditing ? 'Atualize as informações do voluntário' : 'Cadastre um novo voluntário' }}
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-user text-primary me-1"></i>Membro *
+                                <i class="fas fa-user text-info me-1"></i>Membro *
                             </label>
                             <select class="form-select @error('membro_id') is-invalid @enderror"
                                     wire:model="membro_id"
@@ -52,7 +52,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-star text-primary me-1"></i>Área de Interesse *
+                                <i class="fas fa-star text-info me-1"></i>Área de Interesse *
                             </label>
                             <input type="text"  autocomplete="new-password"
                                    class="form-control @error('area_interesse') is-invalid @enderror"
@@ -67,7 +67,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
-                            <i class="fas fa-clock text-primary me-1"></i>Disponibilidade *
+                            <i class="fas fa-clock text-info me-1"></i>Disponibilidade *
                         </label>
                         <textarea class="form-control @error('disponibilidade') is-invalid @enderror"
                                   wire:model="disponibilidade"
@@ -83,7 +83,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" wire:model="ativo" id="ativoCheck">
                             <label class="form-check-label fw-semibold" for="ativoCheck">
-                                <i class="fas fa-toggle-on text-primary me-1"></i>Voluntário ativo
+                                <i class="fas fa-toggle-on text-info me-1"></i>Voluntário ativo
                             </label>
                         </div>
                         <small class="text-muted">Marque para ativar o voluntário e permitir sua participação nos serviços</small>
@@ -98,7 +98,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-primary"
+                    <button type="submit" class="btn bg-info text-light"
                             wire:loading.attr="disabled"
                             wire:target="salvarVoluntario">
                         <span wire:loading.remove wire:target="salvarVoluntario">

@@ -10,7 +10,7 @@
                             <p>Configure os limites de recursos para cada pacote SaaS</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#recursoModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#recursoModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo Limite
                             </button>
@@ -109,10 +109,10 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge bg-info">{{ $recursoOptions[$recurso->recurso_tipo] ?? $recurso->recurso_tipo }}</span>
+                                        <span class="badge bg-info text-light">{{ $recursoOptions[$recurso->recurso_tipo] ?? $recurso->recurso_tipo }}</span>
                                     </td>
                                     <td>
-                                        <strong class="text-primary">{{ number_format($recurso->limite_valor, 0, ',', '.') }}</strong>
+                                        <strong class="text-info">{{ number_format($recurso->limite_valor, 0, ',', '.') }}</strong>
                                     </td>
                                     <td>
                                         <small class="text-muted">{{ $unidadeOptions[$recurso->unidade] ?? $recurso->unidade }}</small>
@@ -159,7 +159,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="recursoModalLabel">
-                        <i class="fas fa-cogs text-primary me-2"></i>
+                        <i class="fas fa-cogs text-info me-2"></i>
                         <span id="modal-title">{{ $editingRecurso ? 'Editar Limite' : 'Novo Limite de Recurso' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -180,7 +180,7 @@
                                             <option value="{{ $pacote->id }}">{{ $pacote->nome }} - AOA {{ number_format($pacote->preco, 2, ',', '.') }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-box text-primary me-1"></i>Pacote *</label>
+                                    <label><i class="fas fa-box text-info me-1"></i>Pacote *</label>
                                     @error('pacote_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -197,7 +197,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-tags text-primary me-1"></i>Tipo de Recurso *</label>
+                                    <label><i class="fas fa-tags text-info me-1"></i>Tipo de Recurso *</label>
                                     @error('recurso_tipo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -208,7 +208,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control @error('limite_valor') is-invalid @enderror"
                                            wire:model="limite_valor" placeholder="0" min="0" step="0.01">
-                                    <label><i class="fas fa-tachometer-alt text-primary me-1"></i>Limite </label>
+                                    <label><i class="fas fa-tachometer-alt text-info me-1"></i>Limite </label>
                                     @error('limite_valor')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -225,7 +225,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-balance-scale text-primary me-1"></i>Unidade *</label>
+                                    <label><i class="fas fa-balance-scale text-info me-1"></i>Unidade *</label>
                                     @error('unidade')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -240,7 +240,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveRecurso" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveRecurso" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveRecurso">
                             <i class="fas fa-save me-1"></i>{{ $editingRecurso ? 'Atualizar Limite' : 'Salvar Limite' }}
                         </span>

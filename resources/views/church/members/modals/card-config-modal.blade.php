@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <!-- Header do Modal -->
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header bg-info text-light text-white">
                 <h5 class="modal-title" id="cardConfigModalLabel">
                     <i class="fas fa-palette me-2"></i>Configurar Cores do Cartão
                 </h5>
@@ -26,11 +26,11 @@
                     <div class="row g-4 mb-5">
                         <div class="col-12">
                             <div class="d-flex align-items-center mb-4">
-                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
                                     <i class="fas fa-header"></i>
                                 </div>
                                 <div>
-                                    <h5 class="text-primary mb-1">Cores do Cabeçalho</h5>
+                                    <h5 class="text-info mb-1">Cores do Cabeçalho</h5>
                                     <small class="text-muted">Configure as cores do cabeçalho do cartão</small>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                         <input type="color" class="form-control form-control-color form-control-lg" wire:model="cor_fundo_header"
                                                value="{{ $cor_fundo_header ?? '#8B5CF6' }}" style="width: 80px; height: 60px;">
                                     </div>
-                                    <h6 class="card-title text-primary">
+                                    <h6 class="card-title text-info">
                                         <i class="fas fa-fill-drip me-2"></i>Fundo do Cabeçalho
                                     </h6>
                                     <p class="card-text text-muted small">{{ $cor_fundo_header ?? '#8B5CF6' }}</p>
@@ -58,7 +58,7 @@
                                         <input type="color" class="form-control form-control-color form-control-lg" wire:model="cor_texto_header"
                                                value="{{ $cor_texto_header ?? '#FFFFFF' }}" style="width: 80px; height: 60px;">
                                     </div>
-                                    <h6 class="card-title text-primary">
+                                    <h6 class="card-title text-info">
                                         <i class="fas fa-font me-2"></i>Texto do Cabeçalho
                                     </h6>
                                     <p class="card-text text-muted small">{{ $cor_texto_header ?? '#FFFFFF' }}</p>
@@ -236,7 +236,7 @@
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="d-flex align-items-center mb-4">
-                                <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
                                     <i class="fas fa-eye"></i>
                                 </div>
                                 <div>
@@ -248,7 +248,7 @@
                             <div class="card border-0 shadow-lg">
                                 <div class="card-body bg-gradient-to-br from-light to-white p-4">
                                     <div class="text-center mb-4">
-                                        <h6 class="text-primary">
+                                        <h6 class="text-info">
                                             <i class="fas fa-id-card me-2"></i>Cartão de Membro
                                         </h6>
                                         <small class="text-muted">Pré-visualização em tempo real</small>

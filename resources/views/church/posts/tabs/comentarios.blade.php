@@ -26,7 +26,7 @@
 <div class="card mb-4">
     <div class="card-body">
         <h6 class="mb-3">
-            <i class="fas fa-plus-circle text-primary me-2"></i>Adicionar Comentário
+            <i class="fas fa-plus-circle text-info me-2"></i>Adicionar Comentário
         </h6>
         <form wire:submit="adicionarComentario">
             <div class="mb-3">
@@ -45,7 +45,7 @@
                 <small class="text-muted">
                     {{ strlen($novoComentario) }}/1000 caracteres
                 </small>
-                <button type="submit" class="btn btn-primary btn-sm" wire:loading.attr="disabled">
+                <button type="submit" class="btn bg-info text-light btn-sm" wire:loading.attr="disabled">
                     <span wire:loading.remove>
                         <i class="fas fa-paper-plane me-1"></i>Comentar
                     </span>
@@ -100,7 +100,7 @@
                                                 @if($comentario->usuario_photo_url)
                                                 <img src="{{ Storage::disk('supabase')->url($comentario->usuario_photo_url) }}" alt="Avatar" class="rounded-circle" style="width: 24px; height: 24px;">
                                                 @else
-                                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; font-size: 10px;">
+                                                    <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; font-size: 10px;">
                                                         <span class="fw-bold">{{ substr($comentario->usuario_name, 0, 1) }}</span>
                                                     </div>
                                                 @endif
@@ -149,7 +149,7 @@
                                                     @enderror
                                                 </div>
                                                 <div class="d-flex gap-2">
-                                                    <button type="submit" class="btn btn-primary btn-sm" wire:loading.attr="disabled">
+                                                    <button type="submit" class="btn bg-info text-light btn-sm" wire:loading.attr="disabled">
                                                         <span wire:loading.remove>
                                                             <i class="fas fa-save me-1"></i>Salvar
                                                         </span>

@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-users me-2"></i>Gestão de Membros
                         </h1>
                         <p class="mb-0 text-muted">Gerencie todos os membros da igreja</p>
@@ -25,7 +25,7 @@
                                     <i class="fas fa-spinner fa-spin"></i>
                                 </span>
                             </button>
-                            <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#memberModal">
+                            <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#memberModal">
                                 <i class="fas fa-user-plus me-1"></i>Adicionar Membro
                             </button>
                         </div>
@@ -42,8 +42,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-users text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-users text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total de Membros</div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -138,7 +138,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Membros
                     </h5>
                 </div>
@@ -169,7 +169,7 @@
                                             alt="Logo {{ $member->user->name }}"
                                             style="width: 40px; height: 40px; object-fit: cover;">
                                         @else
-                                            <div class="user-avatar bg-primary text-white me-3">
+                                            <div class="user-avatar bg-info text-light text-white me-3">
                                                 {{ strtoupper(substr($member->user->name ?? 'N', 0, 2)) }}
                                             </div>
                                         @endif
@@ -296,7 +296,7 @@
                                         alt="Logo {{ $member->user->name }}"
                                         style="width: 40px; height: 40px; object-fit: cover;">
                                     @else
-                                        <div class="user-avatar bg-primary text-white me-3">
+                                        <div class="user-avatar bg-info text-light text-white me-3">
                                             {{ strtoupper(substr($member->user->name ?? 'N', 0, 2)) }}
                                         </div>
                                     @endif
@@ -346,7 +346,7 @@
                             </div>
                             @can('manage-members')
                             <div class="d-flex gap-2 flex-wrap">
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal('{{ $member->id }}')" data-bs-toggle="modal" data-bs-target="#memberModal">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal('{{ $member->id }}')" data-bs-toggle="modal" data-bs-target="#memberModal">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
                                 <button class="btn btn-outline-info btn-sm btn-send-credentials-mobile-{{ $member->id }}"

@@ -12,7 +12,7 @@
                     @elseif($confirmButtonClass === 'btn-info')
                         <i class="fas fa-info-circle text-info me-2"></i>
                     @else
-                        <i class="fas fa-question-circle text-primary me-2"></i>
+                        <i class="fas fa-question-circle text-info me-2"></i>
                     @endif
                     {{ $confirmTitle }}
                 </h5>
@@ -40,7 +40,7 @@
 <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
-            <i class="fas fa-info-circle text-primary me-2"></i>
+            <i class="fas fa-info-circle text-info me-2"></i>
             <strong class="me-auto">Omnigrejas</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
@@ -71,7 +71,7 @@ function showToast(message, type = 'info') {
         'success': { icon: 'fas fa-check-circle text-success' },
         'error': { icon: 'fas fa-exclamation-circle text-danger' },
         'warning': { icon: 'fas fa-exclamation-triangle text-warning' },
-        'info': { icon: 'fas fa-info-circle text-primary' }
+        'info': { icon: 'fas fa-info-circle text-info' }
     };
     
     const config = typeConfig[type] || typeConfig['info'];

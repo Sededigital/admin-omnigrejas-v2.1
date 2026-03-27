@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-hands-helping me-2"></i>Pedidos Especiais
                         </h1>
                         <p class="mb-0 text-muted">Gerencie os pedidos especiais dos membros da igreja</p>
@@ -15,7 +15,7 @@
                             <button class="btn btn-outline-secondary btn-md" wire:click="$dispatch('show-modal', 'typesListModal')" data-bs-toggle="modal" data-bs-target="#typesListModal">
                                 <i class="fas fa-tags me-2"></i>Tipos
                             </button>
-                            <button class="btn btn-primary btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#requestModal">
+                            <button class="btn bg-info text-light btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#requestModal">
                                 <i class="fas fa-plus me-2"></i>Novo Pedido
                             </button>
                         </div>
@@ -34,7 +34,7 @@
                                 type="button" role="tab">
                             <i class="fas fa-list-ul me-2"></i>Lista de Pedidos Especiais
                             @if(isset($stats['total']) && $stats['total'] > 0)
-                                <span class="badge bg-primary ms-2">{{ $stats['total'] }}</span>
+                                <span class="badge bg-info text-light ms-2">{{ $stats['total'] }}</span>
                             @endif
                         </button>
                     </li>
@@ -60,8 +60,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-hands-helping text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] ?? 0 }}</div>
+                        <i class="fas fa-hands-helping text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] ?? 0 }}</div>
                         <div class="text-muted small">Total de Pedidos</div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                     @endif
                     <div class="col-md-3">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -172,7 +172,7 @@
                 <div class="d-none d-lg-block">
                     <div class="card">
                         <div class="card-header d-flex align-items-center mb-3">
-                            <h5 class="mb-0 text-primary">
+                            <h5 class="mb-0 text-info">
                                 <i class="fas fa-list-ul me-2"></i>Lista de Pedidos Especiais
                             </h5>
                         </div>
@@ -193,7 +193,7 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <div class="user-avatar bg-primary text-white me-3">
+                                                <div class="user-avatar bg-info text-light text-white me-3">
                                                     {{ strtoupper(substr($request->membro->user->name ?? 'M', 0, 2)) }}
                                                 </div>
                                                 <div>
@@ -257,7 +257,7 @@
                                         <td colspan="7" class="text-center py-4">
                                             <i class="fas fa-hands-helping text-muted display-4 mb-3"></i>
                                             <div class="text-muted">Nenhum pedido especial encontrado</div>
-                                            <button class="btn btn-primary mt-3" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#requestModal">
+                                            <button class="btn bg-info text-light mt-3" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#requestModal">
                                                 <i class="fas fa-plus me-1"></i>Criar Primeiro Pedido
                                             </button>
                                         </td>
@@ -388,7 +388,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-start justify-content-between mb-3">
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar bg-primary text-white me-3">
+                                            <div class="user-avatar bg-info text-light text-white me-3">
                                                 {{ strtoupper(substr($request->membro->user->name ?? 'M', 0, 2)) }}
                                             </div>
                                             <div>
@@ -418,7 +418,7 @@
                                     </div>
                                     @endif
                                     <div class="d-flex gap-2">
-                                        <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal('{{ $request->id ?? '' }}')" data-bs-toggle="modal" data-bs-target="#requestModal">
+                                        <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal('{{ $request->id ?? '' }}')" data-bs-toggle="modal" data-bs-target="#requestModal">
                                             <i class="fas fa-edit me-1"></i>Editar
                                         </button>
                                         <button class="btn btn-outline-info btn-sm" wire:click="viewRequest('{{ $request->id ?? '' }}')">
@@ -445,7 +445,7 @@
                                 <div class="card-body text-center py-5">
                                     <i class="fas fa-hands-helping text-muted display-4 mb-3"></i>
                                     <div class="text-muted mb-3">Nenhum pedido especial encontrado</div>
-                                    <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#requestModal">
+                                    <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#requestModal">
                                         <i class="fas fa-plus me-1"></i>Criar Primeiro Pedido
                                     </button>
                                 </div>
@@ -503,7 +503,7 @@
                                         <small class="text-muted">{{ $request->data_pedido ? $request->data_pedido->format('d/m/Y') : 'Data não definida' }}</small>
                                     </div>
                                     <div class="d-flex gap-2">
-                                        <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal('{{ $request->id ?? '' }}')">
+                                        <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal('{{ $request->id ?? '' }}')">
                                             <i class="fas fa-edit me-1"></i>Editar
                                         </button>
                                         <button class="btn btn-outline-info btn-sm" wire:click="viewRequest('{{ $request->id ?? '' }}')">

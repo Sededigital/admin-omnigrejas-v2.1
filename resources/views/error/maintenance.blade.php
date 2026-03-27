@@ -43,7 +43,7 @@
             <img src="{{ asset('assets/images/error/01.png') }}" class="img-fluid mb-4" alt="">
             <div class="maintenance-bottom text-white pb-0">
 
-                <div class="bg-primary" style="background: transparent; height: 320px;">
+                <div class="bg-info text-light" style="background: transparent; height: 320px;">
                     <div class="gradient-bottom">
                         <div class="bottom-text general-zindex">
                             <h1 class="mb-2 text-white">Aguarde! Estamos em manutenção</h1>
@@ -65,7 +65,7 @@
                             <div class="w-50 mx-auto mt-2">
                                 <div class="input-group search-input search-input">
                                     <input type="text" class="form-control" placeholder="Enter your mail">
-                                    <a href="#" class="btn bg-white text-primary ms-2 rounded">Notify Me</a>
+                                    <a href="#" class="btn bg-white text-info ms-2 rounded">Notify Me</a>
                                 </div>
                             </div>
                         </div>

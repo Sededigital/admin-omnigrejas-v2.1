@@ -65,7 +65,7 @@
             </ul>
 
         </div>
-        <a class="btn bg-white text-primary d-inline-flex align-items-center" href="{{ url('/') }}">
+        <a class="btn bg-white text-info d-inline-flex align-items-center" href="{{ url('/') }}">
             <i class="fas fa-home me-2"></i>Voltar ao Dashboard
         </a>
     </div>

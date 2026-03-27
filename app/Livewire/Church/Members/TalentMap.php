@@ -320,7 +320,7 @@ class TalentMap extends Component
     public function getSkillBadgeClass($level)
     {
         return match($level) {
-            'iniciante' => 'bg-info',
+            'iniciante' => 'bg-info text-light',
             'intermediario' => 'bg-warning',
             'avancado' => 'bg-success',
             default => 'bg-secondary'

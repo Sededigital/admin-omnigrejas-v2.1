@@ -102,21 +102,19 @@ class SubscriptionHelper
             "resource_limit_{$igrejaId}_{$resourceType}",
             3600, // 1 hora
             function () use ($igrejaId, $resourceType) {
-                $assinatura = AssinaturaAtual::where('igreja_id', $igrejaId)
+                $pacoteId = AssinaturaAtual::where('igreja_id', $igrejaId)
                     ->where('status', 'Ativo')
-                    ->with('pacote.recursos')
-                    ->first();
+                    ->value('pacote_id');
 
-                if (!$assinatura) {
+                if (!$pacoteId) {
                     return 0; // Sem assinatura = sem limite
                 }
 
-                $recurso = $assinatura->pacote->recursos()
+                // Query direta para o recurso específico
+                return \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacoteId)
                     ->where('recurso_tipo', $resourceType)
                     ->where('ativo', true)
-                    ->first();
-
-                return $recurso ? $recurso->limite_valor : 0;
+                    ->value('limite_valor') ?? 0;
             }
         );
     }
@@ -314,13 +312,19 @@ class SubscriptionHelper
     {
         // Limpar cache de assinatura
         Cache::forget("subscription_active_{$igrejaId}");
+        Cache::forget("assinatura_atual_{$igrejaId}");
 
-        // Limpar cache de recursos (buscar dinamicamente todos os tipos)
-        $assinatura = AssinaturaAtual::where('igreja_id', $igrejaId)->with('pacote.recursos')->first();
-        if ($assinatura && $assinatura->pacote) {
-            foreach ($assinatura->pacote->recursos as $recurso) {
-                Cache::forget("resource_limit_{$igrejaId}_{$recurso->recurso_tipo}");
-                Cache::forget("consumption_{$igrejaId}_{$recurso->recurso_tipo}");
+        // Limpar cache de recursos (buscar dinamicamente todos os tipos via query)
+        $pacoteId = AssinaturaAtual::where('igreja_id', $igrejaId)->value('pacote_id');
+        if ($pacoteId) {
+            $recursosTipos = \App\Models\Billings\PacoteRecursos::where('pacote_id', $pacoteId)
+                ->where('ativo', true)
+                ->pluck('recurso_tipo')
+                ->toArray();
+
+            foreach ($recursosTipos as $tipo) {
+                Cache::forget("resource_limit_{$igrejaId}_{$tipo}");
+                Cache::forget("consumption_{$igrejaId}_{$tipo}");
             }
         }
     }

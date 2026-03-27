@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-users-cog me-2"></i>Corpo de Liderança
                         </h1>
                         <p class="mb-0 text-muted">Gerencie e visualize todos os líderes das igrejas</p>
@@ -26,8 +26,8 @@
             <div class="col-6 col-lg-2">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-users text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $estatisticas['total_lideres'] }}</div>
+                        <i class="fas fa-users text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $estatisticas['total_lideres'] }}</div>
                         <div class="text-muted small">Total de Líderes</div>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
             <div class="col-6 col-lg-2">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-church text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $estatisticas['pastores'] }}</div>
+                        <i class="fas fa-church text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $estatisticas['pastores'] }}</div>
                         <div class="text-muted small">Pastores</div>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
                     @if($leaderDetails)
                     <!-- Informações Pessoais -->
                     <div class="mb-4">
-                        <h6 class="fw-bold text-primary mb-3">
+                        <h6 class="fw-bold text-info mb-3">
                             <i class="fas fa-user me-2"></i>Informações Pessoais
                         </h6>
                         <div class="row g-3">
@@ -258,7 +258,7 @@
                                              alt="Foto {{ $leaderDetails['user']->name }}"
                                              style="width: 60px; height: 60px; object-fit: cover;">
                                     @else
-                                        <div class="leader-avatar bg-primary text-white me-3">
+                                        <div class="leader-avatar bg-info text-light text-white me-3">
                                             {{ $this->getIniciais($leaderDetails['user']->name) }}
                                         </div>
                                     @endif
@@ -293,14 +293,14 @@
                     @if($leaderDetails['liderancas']->isNotEmpty())
                     <!-- Estatísticas -->
                     <div class="mb-4">
-                        <h6 class="fw-bold text-primary mb-3">
+                        <h6 class="fw-bold text-info mb-3">
                             <i class="fas fa-chart-bar me-2"></i>Estatísticas
                         </h6>
                         <div class="row g-3">
                             <div class="col-6 col-md-3">
                                 <div class="card text-center border-primary">
                                     <div class="card-body p-2">
-                                        <i class="fas fa-building text-primary mb-1"></i>
+                                        <i class="fas fa-building text-info mb-1"></i>
                                         <div class="fw-bold">{{ $leaderDetails['estatisticas']['total_igrejas'] }}</div>
                                         <small class="text-muted">Igrejas</small>
                                     </div>
@@ -322,7 +322,7 @@
 
                     <!-- Igrejas onde é Líder -->
                     <div class="mb-4">
-                        <h6 class="fw-bold text-primary mb-3">
+                        <h6 class="fw-bold text-info mb-3">
                             <i class="fas fa-church me-2"></i>Igrejas onde Lidera
                         </h6>
                         <div class="row g-2">
@@ -349,7 +349,7 @@
 
                     <!-- Histórico de Liderança -->
                     <div class="mb-4">
-                        <h6 class="fw-bold text-primary mb-3">
+                        <h6 class="fw-bold text-info mb-3">
                             <i class="fas fa-history me-2"></i>Histórico de Liderança
                         </h6>
                         <div class="table-responsive">
@@ -391,7 +391,7 @@
                     @endif
                     @else
                     <div class="text-center py-4">
-                        <i class="fas fa-spinner fa-spin text-primary mb-3" style="font-size: 2rem;"></i>
+                        <i class="fas fa-spinner fa-spin text-info mb-3" style="font-size: 2rem;"></i>
                         <p class="text-muted">Carregando detalhes do líder...</p>
                     </div>
                     @endif
@@ -401,7 +401,7 @@
                         <i class="fas fa-times me-2"></i>Fechar
                     </button>
                     @if($leaderDetails)
-                    <a href="mailto:{{ $leaderDetails['user']->email }}" class="btn btn-primary">
+                    <a href="mailto:{{ $leaderDetails['user']->email }}" class="btn bg-info text-light">
                         <i class="fas fa-envelope me-2"></i>Enviar Email
                     </a>
                     @endif

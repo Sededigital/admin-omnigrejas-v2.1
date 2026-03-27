@@ -3,7 +3,7 @@
 
     $badgeClasses = match($role) {
         'root', 'super_admin' => 'badge bg-danger text-white',
-        'admin', 'pastor'     => 'badge bg-primary text-white',
+        'admin', 'pastor'     => 'badge bg-info text-light text-white',
         default               => 'badge bg-secondary text-white'
     };
 
@@ -23,7 +23,7 @@
                 <!--Logo start-->
                 <div class="logo-main">
                     <div class="logo-normal">
-                        <svg class="text-primary icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="text-info icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"/>
                             <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor"/>
                             <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor"/>
@@ -31,7 +31,7 @@
                         </svg>
                     </div>
                     <div class="logo-mini">
-                        <svg class="text-primary icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="text-info icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"/>
                             <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor"/>
                             <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor"/>
@@ -104,7 +104,7 @@
                                 <?php if($permissionHelper->hasPermission('gerenciar_mensagens_privadas') && $resourceHelper->userCanAccessResource('gerenciar_mensagens_privadas')): ?>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item d-flex justify-content-between align-items-center" href="<?php echo e(route('churches.chat.private-chat-nav')); ?>" wire:navigate>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center" href="<?php echo e(route('churches.private-chat-nav')); ?>" wire:navigate>
                                         Privado
                                     </a>
                                 </li>
@@ -140,18 +140,15 @@ if (isset($__slots)) unset($__slots);
                     <?php endif; ?>
                 </ul>
 
-                    
                 <?php endif; ?>
-
-
 
                 <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
                     <li class="nav-item d-flex align-items-center ms-3 font-size-toggle">
 
-                        <label for="font-size-sm" class="btn btn-border border-0 btn-icon btn-sm" data-size="small" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Tamanho de letra 14px">
+                        <label for="font-size-sm" class="btn btn-border bg-info text-light text-light border-0 btn-icon btn-sm" data-size="small" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Tamanho de letra 14px">
                             <span class="mb-0 h6" style="color: inherit !important;">A</span>
                         </label>
-                        <label for="font-size-md" class="btn btn-border border-0 btn-icon" data-size="medium" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Tamanho de letra 16px">
+                        <label for="font-size-md" class="btn btn-border text-light border-0 btn-icon" data-size="medium" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Tamanho de letra 16px">
                             <span class="mb-0 h4" style="color: inherit !important;">A</span>
                         </label>
                     </li>

@@ -2,7 +2,7 @@
 <div class="modal fade" id="pastoralCareModal" tabindex="-1" aria-labelledby="pastoralCareModalLabel" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
+            <div class="modal-header bg-info text-light">
                 <h5 class="modal-title fw-bold" id="pastoralCareModalLabel">
                     <i class="fas fa-{{ $isEditing ? 'edit' : 'plus' }} text-white me-2"></i>
                     {{ $isEditing ? 'Editar Atendimento Pastoral' : 'Registrar Atendimento Pastoral' }}
@@ -12,7 +12,7 @@
             <div class="modal-body">
                 <form wire:submit.prevent="salvarAtendimento">
                     <div class="text-center mb-4">
-                        <i class="fas fa-praying-hands text-primary" style="font-size: 3rem;"></i>
+                        <i class="fas fa-praying-hands text-info" style="font-size: 3rem;"></i>
                     </div>
                     <h6 class="fw-bold text-center mb-3">
                         {{ $isEditing ? 'Atualize as informações do atendimento' : 'Registre um novo atendimento pastoral' }}
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-user text-primary me-1"></i>Membro *
+                                <i class="fas fa-user text-info me-1"></i>Membro *
                             </label>
                             <select class="form-select @error('membro_id') is-invalid @enderror"
                                     wire:model="membro_id">
@@ -42,7 +42,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-user-tie text-primary me-1"></i>Pastor *
+                                <i class="fas fa-user-tie text-info me-1"></i>Pastor *
                             </label>
                             <select class="form-select @error('pastor_id') is-invalid @enderror"
                                     wire:model="pastor_id">
@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-list text-primary me-1"></i>Tipo de Atendimento *
+                                <i class="fas fa-list text-info me-1"></i>Tipo de Atendimento *
                             </label>
                             <select class="form-select @error('tipo') is-invalid @enderror"
                                     wire:model="tipo">
@@ -80,7 +80,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-calendar text-primary me-1"></i>Data do Atendimento
+                                <i class="fas fa-calendar text-info me-1"></i>Data do Atendimento
                             </label>
                             <input type="date"
                                    class="form-control @error('data_atendimento') is-invalid @enderror"
@@ -93,7 +93,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
-                            <i class="fas fa-align-left text-primary me-1"></i>Descrição do Atendimento (opcional)
+                            <i class="fas fa-align-left text-info me-1"></i>Descrição do Atendimento (opcional)
                         </label>
                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                   wire:model="descricao"
@@ -114,7 +114,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-primary"
+                    <button type="submit" class="btn bg-info text-light"
                             wire:loading.attr="disabled"
                             wire:target="salvarAtendimento">
                         <span wire:loading.remove wire:target="salvarAtendimento">

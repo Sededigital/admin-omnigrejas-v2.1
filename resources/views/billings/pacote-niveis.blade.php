@@ -10,7 +10,7 @@
                             <p>Configure os níveis hierárquicos dos pacotes SaaS</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#nivelModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#nivelModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo Nível
                             </button>
@@ -104,7 +104,7 @@
                                         <span class="badge bg-secondary">{{ $nivel->nivel }}</span>
                                     </td>
                                     <td>
-                                        <strong class="text-primary">{{ $nivel->prioridade }}</strong>
+                                        <strong class="text-info">{{ $nivel->prioridade }}</strong>
                                     </td>
                                     <td>
                                         @if($nivel->recursos_extras)
@@ -157,7 +157,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="nivelModalLabel">
-                        <i class="fas fa-layer-group text-primary me-2"></i>
+                        <i class="fas fa-layer-group text-info me-2"></i>
                         <span id="modal-title">{{ $editingNivel ? 'Editar Nível' : 'Novo Nível' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -178,7 +178,7 @@
                                             <option value="{{ $pacote->id }}">{{ $pacote->nome }} - AOA {{ number_format($pacote->preco, 2, ',', '.') }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-box text-primary me-1"></i>Pacote *</label>
+                                    <label><i class="fas fa-box text-info me-1"></i>Pacote *</label>
                                     @error('pacote_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -190,7 +190,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('nivel') is-invalid @enderror"
                                            wire:model="nivel" placeholder="Ex: Básico, Premium, Enterprise">
-                                    <label><i class="fas fa-tag text-primary me-1"></i>Nível *</label>
+                                    <label><i class="fas fa-tag text-info me-1"></i>Nível *</label>
                                     @error('nivel')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -201,7 +201,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control @error('prioridade') is-invalid @enderror"
                                            wire:model="prioridade" placeholder="1" min="1" max="10">
-                                    <label><i class="fas fa-sort-numeric-up text-primary me-1"></i>Prioridade *</label>
+                                    <label><i class="fas fa-sort-numeric-up text-info me-1"></i>Prioridade *</label>
                                     @error('prioridade')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -213,7 +213,7 @@
                                 <div class="form-floating mb-3">
                                     <textarea class="form-control @error('recursos_extras') is-invalid @enderror"
                                               wire:model="recursos_extras" placeholder='{"suporte": "24/7", "backup": "diario"}' rows="4"></textarea>
-                                    <label><i class="fas fa-cogs text-primary me-1"></i>Recursos Extras (JSON)</label>
+                                    <label><i class="fas fa-cogs text-info me-1"></i>Recursos Extras (JSON)</label>
                                     @error('recursos_extras')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -229,7 +229,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveNivel" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveNivel" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveNivel">
                             <i class="fas fa-save me-1"></i>{{ $editingNivel ? 'Atualizar Nível' : 'Salvar Nível' }}
                         </span>

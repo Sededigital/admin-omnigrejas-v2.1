@@ -9,7 +9,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     style="min-width: 350px; font-size: 0.875rem; border-radius: 6px;">
-                <i class="fas fa-church me-2 text-primary"></i>
+                <i class="fas fa-church me-2 text-info"></i>
                 <span id="selectedChurchText">
                     @if($selectedIgrejaId)
                         @php
@@ -24,7 +24,7 @@
                     @endif
                 </span>
                 <div class="ms-auto" id="churchSpinner" style="display: none;">
-                    <div class="spinner-border spinner-border-sm text-primary" role="status">
+                    <div class="spinner-border spinner-border-sm text-info" role="status">
                         <span class="visually-hidden">Carregando...</span>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <!-- Header do Modal -->
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header bg-info text-light text-white">
                     <h5 class="modal-title fw-bold" id="accessCodeModalLabel">
                         <i class="fas fa-key me-2"></i>Código de Acesso
                     </h5>
@@ -115,8 +115,8 @@
                 <form wire:submit.prevent="validateAccessCode">
                     <div class="modal-body p-3">
                         <div class="text-center mb-3">
-                            <i class="fas fa-shield-alt text-primary display-4 mb-2"></i>
-                            <h5 class="text-primary mb-2">Acesso Seguro</h5>
+                            <i class="fas fa-shield-alt text-info display-4 mb-2"></i>
+                            <h5 class="text-info mb-2">Acesso Seguro</h5>
                         </div>
 
                         <div class="alert alert-info py-2 mb-3" role="alert">
@@ -159,7 +159,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Fechar">
                             <i class="fas fa-times me-1"></i>Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" wire:loading.attr="disabled">
+                        <button type="submit" class="btn bg-info text-light d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" wire:loading.attr="disabled">
                             <span wire:loading.remove>
                                 <i class="fas fa-check me-1"></i>Validar
                             </span>

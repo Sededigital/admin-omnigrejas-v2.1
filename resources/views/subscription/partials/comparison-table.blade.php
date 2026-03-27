@@ -1,8 +1,8 @@
 <div class="comparison-container">
     <div class="comparison-header">
         <h3 class="text-center mb-4">
-            <i class="fas fa-balance-scale text-primary me-2"></i>
-            <span class="gradient-text">Comparação Detalhada</span>
+            <i class="fas fa-balance-scale text-info me-2"></i>
+            <span class="text-info">Comparação Detalhada</span>
         </h3>
         <p class="text-center text-muted mb-4">
             Compare todos os recursos e encontre o plano ideal para sua igreja
@@ -15,7 +15,7 @@
                 <tr class="table-header">
                     <th class="feature-column">
                         <div class="feature-header">
-                            <i class="fas fa-list-check text-primary"></i>
+                            <i class="fas fa-list-check text-info"></i>
                             <span>Recursos</span>
                         </div>
                     </th>
@@ -55,7 +55,7 @@
                 <tr class="resource-section">
                     <td colspan="{{ count($pacotes) + 1 }}" class="section-header">
                         <div class="section-title">
-                            <i class="fas fa-cubes text-primary"></i>
+                            <i class="fas fa-cubes text-info"></i>
                             <span>Recursos Básicos</span>
                         </div>
                     </td>
@@ -86,7 +86,7 @@
                                     }
                                 @endphp
                                 @if($exemploRecurso)
-                                    <i class="{{ $exemploRecurso->getIcone() }} feature-icon text-primary"></i>
+                                    <i class="{{ $exemploRecurso->getIcone() }} feature-icon text-info"></i>
                                     <div class="feature-text">
                                         <div class="feature-name">{{ $exemploRecurso->getTipoFormatado() }}</div>
                                         <div class="feature-desc">{{ $exemploRecurso->getDescricao() }}</div>
@@ -278,7 +278,7 @@
             <h4 class="cta-title">Pronto para escolher seu plano?</h4>
             <p class="cta-text">Todos os planos incluem suporte técnico e atualizações gratuitas.</p>
             <div class="cta-buttons">
-                <button class="btn btn-primary btn-lg me-3">
+                <button class="btn bg-info text-light btn-lg me-3">
                     <i class="fas fa-credit-card me-2"></i>
                     Escolher Plano
                 </button>

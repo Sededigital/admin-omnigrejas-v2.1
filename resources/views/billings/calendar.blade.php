@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-md-3 col-sm-6 mb-2">
                                 <div class="d-flex align-items-center">
-                                    <div class="badge bg-info me-2" style="width: 20px; height: 20px;"></div>
+                                    <div class="badge bg-info text-light me-2" style="width: 20px; height: 20px;"></div>
                                     <small>Pagamento Confirmado</small>
                                 </div>
                             </div>

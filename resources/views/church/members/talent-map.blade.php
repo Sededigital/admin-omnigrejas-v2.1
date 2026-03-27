@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-star me-2"></i>Mapa de Talentos
                         </h1>
                         <p class="mb-0 text-muted">Descubra e gerencie as habilidades dos membros da igreja</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#talentModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#talentModal">
                             <i class="fas fa-plus-circle me-2"></i>Adicionar Habilidade
                         </button>
                     </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -125,7 +125,7 @@
                 <div class="card h-100 shadow-sm border-0 talent-card" style="border-radius: 15px; overflow: hidden;">
                     <!-- Header com gradiente -->
                     <div class="card-header bg-gradient-primary text-white d-flex align-items-center position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 80px;">
-                        <div class="user-avatar bg-white text-primary me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold shadow" style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.3);">
+                        <div class="user-avatar bg-white text-info me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold shadow" style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.3);">
                             {{ strtoupper(substr($member->user->name ?? 'M', 0, 2)) }}
                         </div>
                         <div class="flex-grow-1">
@@ -133,7 +133,7 @@
                             <small class="text-white-50">{{ $member->cargo ?? 'Membro' }}</small>
                         </div>
                         <button class="btn btn-light btn-sm rounded-pill shadow-sm" wire:click="openModal('{{ $member->id }}')" data-bs-toggle="modal" data-bs-target="#talentModal" style="border: none;">
-                            <i class="fas fa-plus text-primary"></i>
+                            <i class="fas fa-plus text-info"></i>
                         </button>
                     </div>
 
@@ -187,7 +187,7 @@
                                     <i class="fas fa-lightbulb text-warning" style="font-size: 3rem;"></i>
                                 </div>
                                 <h6 class="text-muted mb-3">Nenhuma habilidade cadastrada</h6>
-                                <button class="btn btn-primary btn-sm rounded-pill px-3" wire:click="openModal('{{ $member->id }}')" data-bs-toggle="modal" data-bs-target="#talentModal">
+                                <button class="btn bg-info text-light btn-sm rounded-pill px-3" wire:click="openModal('{{ $member->id }}')" data-bs-toggle="modal" data-bs-target="#talentModal">
                                     <i class="fas fa-plus me-1"></i>Adicionar Habilidade
                                 </button>
                             </div>
@@ -199,7 +199,7 @@
                         <div class="row text-center g-2">
                             <div class="col-4">
                                 <div class="p-2 rounded bg-light">
-                                    <div class="fw-bold text-primary">{{ $skills->where('nivel', 'iniciante')->count() }}</div>
+                                    <div class="fw-bold text-info">{{ $skills->where('nivel', 'iniciante')->count() }}</div>
                                     <small class="text-muted">Iniciante</small>
                                 </div>
                             </div>

@@ -10,7 +10,7 @@
                             <p>Gerencie os pagamentos das assinaturas das igrejas</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pagamentoModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pagamentoModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo Pagamento
                             </button>
@@ -160,7 +160,7 @@
                                                         <span class="badge bg-success">{{ number_format($pagamento->valor, 2, ',', '.') }} Kz</span>
                                                     </td>
                                                     <td>
-                                                        <span class="badge bg-info">{{ $metodoOptions[$pagamento->metodo_pagamento] ?? $pagamento->metodo_pagamento }}</span>
+                                                        <span class="badge bg-info text-light">{{ $metodoOptions[$pagamento->metodo_pagamento] ?? $pagamento->metodo_pagamento }}</span>
                                                     </td>
                                                     <td>
                                                         @php
@@ -233,7 +233,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-5 text-end">
-                                    <button type="button" class="btn btn-primary" wire:click="openModalCiclo" data-bs-toggle="modal" data-bs-target="#cicloModal">
+                                    <button type="button" class="btn bg-info text-light" wire:click="openModalCiclo" data-bs-toggle="modal" data-bs-target="#cicloModal">
                                         <i class="fas fa-plus me-2"></i>
                                         Novo Ciclo
                                     </button>
@@ -362,7 +362,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-5 text-end">
-                                    <button type="button" class="btn btn-primary" wire:click="openModalFalha" data-bs-toggle="modal" data-bs-target="#falhaModal">
+                                    <button type="button" class="btn bg-info text-light" wire:click="openModalFalha" data-bs-toggle="modal" data-bs-target="#falhaModal">
                                         <i class="fas fa-plus me-2"></i>
                                         Nova Falha
                                     </button>
@@ -481,7 +481,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light border-bottom">
                             <h5 class="modal-title fw-bold" id="cicloModalLabel">
-                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <i class="fas fa-calendar-alt text-info me-2"></i>
                                 <span id="modal-title">{{ $editingCiclo ? 'Editar Ciclo' : 'Novo Ciclo' }}</span>
                             </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -500,7 +500,7 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            <label><i class="fas fa-file-signature text-primary me-1"></i>Assinatura *</label>
+                                            <label><i class="fas fa-file-signature text-info me-1"></i>Assinatura *</label>
                                             @error('ciclo_assinatura_id')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -510,7 +510,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="date" class="form-control @error('ciclo_inicio') is-invalid @enderror"
                                                    wire:model="ciclo_inicio" readonly style="background-color: #f8f9fa; cursor: not-allowed;">
-                                            <label><i class="fas fa-calendar-plus text-primary me-1"></i>Data Início *</label>
+                                            <label><i class="fas fa-calendar-plus text-info me-1"></i>Data Início *</label>
                                             @error('ciclo_inicio')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -520,7 +520,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="date" class="form-control @error('ciclo_fim') is-invalid @enderror"
                                                    wire:model="ciclo_fim" readonly style="background-color: #f8f9fa; cursor: not-allowed;">
-                                            <label><i class="fas fa-calendar-minus text-primary me-1"></i>Data Fim *</label>
+                                            <label><i class="fas fa-calendar-minus text-info me-1"></i>Data Fim *</label>
                                             @error('ciclo_fim')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -530,7 +530,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="number" step="0.01" class="form-control @error('ciclo_valor') is-invalid @enderror"
                                                    wire:model="ciclo_valor" placeholder="0.00" min="0" readonly>
-                                            <label><i class="fas fa-dollar-sign text-primary me-1"></i>Valor *</label>
+                                            <label><i class="fas fa-dollar-sign text-info me-1"></i>Valor *</label>
                                             @error('ciclo_valor')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -545,7 +545,7 @@
                                                 <option value="atrasado">Atrasado</option>
                                                 <option value="falhou">Falhou</option>
                                             </select>
-                                            <label><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                            <label><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                             @error('ciclo_status')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -553,7 +553,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="alert alert-light border">
-                                            <i class="fas fa-info-circle text-primary me-2"></i>
+                                            <i class="fas fa-info-circle text-info me-2"></i>
                                             <strong>Status:</strong>
                                             <span class="text-muted">
                                                 {{ $editingCiclo ? 'Editando Ciclo' : 'Novo Ciclo' }}
@@ -567,7 +567,7 @@
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 <i class="fas fa-times me-1"></i>Cancelar
                             </button>
-                            <button type="button" class="btn btn-primary" wire:click="saveCiclo" wire:loading.attr="disabled">
+                            <button type="button" class="btn bg-info text-light" wire:click="saveCiclo" wire:loading.attr="disabled">
                                 <span wire:loading.remove wire:target="saveCiclo">
                                     <i class="fas fa-save me-1"></i>{{ $editingCiclo ? 'Atualizar Ciclo' : 'Salvar Ciclo' }}
                                 </span>
@@ -587,7 +587,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light border-bottom">
                             <h5 class="modal-title fw-bold" id="falhaModalLabel">
-                                <i class="fas fa-exclamation-triangle text-primary me-2"></i>
+                                <i class="fas fa-exclamation-triangle text-info me-2"></i>
                                 <span id="modal-title">{{ $editingFalha ? 'Editar Falha' : 'Nova Falha' }}</span>
                             </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -606,7 +606,7 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            <label><i class="fas fa-credit-card text-primary me-1"></i>Pagamento *</label>
+                                            <label><i class="fas fa-credit-card text-info me-1"></i>Pagamento *</label>
                                             @error('falha_pagamento_id')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -617,7 +617,7 @@
                                             <textarea class="form-control @error('falha_motivo') is-invalid @enderror"
                                                       wire:model="falha_motivo" rows="3"
                                                       placeholder="Descreva o motivo da falha"></textarea>
-                                            <label><i class="fas fa-comment text-primary me-1"></i>Motivo *</label>
+                                            <label><i class="fas fa-comment text-info me-1"></i>Motivo *</label>
                                             @error('falha_motivo')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -628,7 +628,7 @@
                                             <input class="form-check-input @error('falha_resolvido') is-invalid @enderror"
                                                    type="checkbox" wire:model="falha_resolvido" id="falhaResolvidoSwitch">
                                             <label class="form-check-label" for="falhaResolvidoSwitch">
-                                                <i class="fas fa-check-circle text-primary me-1"></i>Falha Resolvida
+                                                <i class="fas fa-check-circle text-info me-1"></i>Falha Resolvida
                                             </label>
                                             @error('falha_resolvido')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -637,7 +637,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="alert alert-light border">
-                                            <i class="fas fa-info-circle text-primary me-2"></i>
+                                            <i class="fas fa-info-circle text-info me-2"></i>
                                             <strong>Status:</strong>
                                             <span class="text-muted">
                                                 {{ $editingFalha ? 'Editando Falha' : 'Nova Falha' }}
@@ -651,7 +651,7 @@
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 <i class="fas fa-times me-1"></i>Cancelar
                             </button>
-                            <button type="button" class="btn btn-primary" wire:click="saveFalha" wire:loading.attr="disabled">
+                            <button type="button" class="btn bg-info text-light" wire:click="saveFalha" wire:loading.attr="disabled">
                                 <span wire:loading.remove wire:target="saveFalha">
                                     <i class="fas fa-save me-1"></i>{{ $editingFalha ? 'Atualizar Falha' : 'Salvar Falha' }}
                                 </span>
@@ -678,7 +678,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="pagamentoModalLabel">
-                        <i class="fas fa-credit-card text-primary me-2"></i>
+                        <i class="fas fa-credit-card text-info me-2"></i>
                         <span id="modal-title">{{ $editingPagamento ? 'Editar Pagamento' : 'Novo Pagamento' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -701,7 +701,7 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-file-signature text-primary me-1"></i>Assinatura *</label>
+                                    <label><i class="fas fa-file-signature text-info me-1"></i>Assinatura *</label>
                                     @error('assinatura_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -717,7 +717,7 @@
                                             <option value="{{ $igreja->id }}">{{ $igreja->nome }} ({{ $igreja->nif }})</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-church text-primary me-1"></i>Igreja *</label>
+                                    <label><i class="fas fa-church text-info me-1"></i>Igreja *</label>
                                     @error('igreja_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -729,7 +729,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="number" step="0.01" class="form-control @error('valor') is-invalid @enderror"
                                            wire:model="valor" placeholder="0.00" required disabled>
-                                    <label><i class="fas fa-dollar-sign text-primary me-1"></i>Valor (Kz) *</label>
+                                    <label><i class="fas fa-dollar-sign text-info me-1"></i>Valor (Kz) *</label>
                                     @error('valor')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -746,7 +746,7 @@
                                             <option value="{{ $key }}" {{ $metodo_pagamento === $key ? 'selected' : '' }}>{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-money-bill-wave text-primary me-1"></i>Método *</label>
+                                    <label><i class="fas fa-money-bill-wave text-info me-1"></i>Método *</label>
                                     @error('metodo_pagamento')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -758,7 +758,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('referencia') is-invalid @enderror"
                                            wire:model="referencia" placeholder="Referência do pagamento" readonly>
-                                    <label><i class="fas fa-hashtag text-primary me-1"></i>Referência</label>
+                                    <label><i class="fas fa-hashtag text-info me-1"></i>Referência</label>
                                     @error('referencia')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -773,7 +773,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                    <label><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                     @error('status')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -785,7 +785,7 @@
                                 <div class="form-floating mb-3" wire:ignore>
                                     <input type="date" class="form-control date_flatpicker @error('data_pagamento') is-invalid @enderror"
                                            wire:model="data_pagamento">
-                                    <label><i class="fas fa-calendar-alt text-primary me-1"></i>Data do Pagamento</label>
+                                    <label><i class="fas fa-calendar-alt text-info me-1"></i>Data do Pagamento</label>
                                     @error('data_pagamento')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -795,7 +795,7 @@
                             <!-- Status Visual -->
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingPagamento ? 'Editando Pagamento' : 'Novo Pagamento' }}
@@ -819,7 +819,7 @@
                             <i class="fas fa-spinner fa-spin me-1"></i>Gerando...
                         </span>
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="savePagamento" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="savePagamento" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="savePagamento">
                             <i class="fas fa-save me-1"></i>{{ $editingPagamento ? 'Atualizar Pagamento' : 'Salvar Pagamento' }}
                         </span>

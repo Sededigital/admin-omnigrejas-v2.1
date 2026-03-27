@@ -14,7 +14,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-comments me-2"></i>Comunidade das Alianças
                         </h1>
                         <p class="mb-0 text-muted">
@@ -87,14 +87,14 @@
                         <div class="card h-100">
                             <div class="card-header">
                                 <h6 class="mb-0">
-                                    <i class="fas fa-users text-primary me-2"></i>Minhas Alianças
+                                    <i class="fas fa-users text-info me-2"></i>Minhas Alianças
                                 </h6>
                             </div>
                             <div class="card-body p-0" style="overflow-y: auto; height: calc(100vh - 400px);">
                                 @if(!empty($minhasAliancas ?? []))
                                      @foreach($minhasAliancas ?? [] as $alianca)
                                          <!-- Chat de Líderes -->
-                                         <div class="alliance-item p-3 border-bottom cursor-pointer {{ $aliancaId == $alianca->alianca_id && $tipoChat == 'lideres' ? 'bg-primary text-white' : 'hover-bg-light' }}"
+                                         <div class="alliance-item p-3 border-bottom cursor-pointer {{ $aliancaId == $alianca->alianca_id && $tipoChat == 'lideres' ? 'bg-info text-light text-white' : 'hover-bg-light' }}"
                                               wire:click="selecionarAlianca({{ $alianca->alianca_id }}, 'lideres')">
                                              <div class="d-flex align-items-center">
                                                  <div class="alliance-avatar me-3">
@@ -117,7 +117,7 @@
                                          </div>
 
                                          <!-- Chat da Comunidade Geral -->
-                                         <div class="alliance-item p-3 border-bottom cursor-pointer {{ $aliancaId == $alianca->alianca_id && $tipoChat == 'comunidade' ? 'bg-primary text-white' : 'hover-bg-light' }}"
+                                         <div class="alliance-item p-3 border-bottom cursor-pointer {{ $aliancaId == $alianca->alianca_id && $tipoChat == 'comunidade' ? 'bg-info text-light text-white' : 'hover-bg-light' }}"
                                               wire:click="selecionarAlianca({{ $alianca->alianca_id }}, 'comunidade')">
                                              <div class="d-flex align-items-center">
                                                  <div class="alliance-avatar me-3">
@@ -144,7 +144,7 @@
                                         <i class="fas fa-handshake text-muted mb-3" style="font-size: 2rem;"></i>
                                         <h6 class="text-muted">Nenhuma aliança</h6>
                                         <p class="text-muted small">Participe de alianças para conversar</p>
-                                        <a href="{{ route('churches.alliance.my') }}" wire:navigate class="btn btn-primary btn-sm">
+                                        <a href="{{ route('churches.alliance.my') }}" wire:navigate class="btn bg-info text-light btn-sm">
                                             <i class="fas fa-plus me-1"></i>Gerenciar
                                         </a>
                                     </div>
@@ -161,7 +161,7 @@
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <div class="">
                                         <h6 class="mb-0">
-                                                <i class="fas fa-comments text-primary me-2"></i>
+                                                <i class="fas fa-comments text-info me-2"></i>
                                                 {{ collect($minhasAliancas ?? [])->firstWhere('alianca_id', $aliancaId)->alianca->nome ?? 'Aliança' }}
                                                 @if($tipoChat == 'lideres')
                                                     <span class="badge bg-warning text-dark ms-2">Líderes</span>
@@ -336,13 +336,13 @@
                                                                                    download="{{ $fileName }}"
                                                                                    class="d-flex align-items-center p-2 border rounded"
                                                                                    style="text-decoration: none; color: inherit; background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3) !important;">
-                                                                                    <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-primary me-2"
+                                                                                    <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-info me-2"
                                                                                        style="font-size: 24px;"></i>
                                                                                     <div class="flex-grow-1">
                                                                                         <div class="fw-semibold small">{{ Str::limit($fileName, 25) }}</div>
                                                                                         <small class="text-muted">{{ strtoupper($fileExtension) }} • Download</small>
                                                                                     </div>
-                                                                                    <i class="fas fa-download text-primary ms-2"></i>
+                                                                                    <i class="fas fa-download text-info ms-2"></i>
                                                                                 </a>
                                                                             </div>
                                                                         @endif
@@ -379,7 +379,7 @@
                                         @if($arquivoAudioAlianca || $arquivoAnexoAlianca)
                                         <div class="mb-2 p-2 bg-light rounded d-flex align-items-center justify-content-between">
                                             <div class="d-flex align-items-center">
-                                                <i class="fas fa-paperclip text-primary me-2"></i>
+                                                <i class="fas fa-paperclip text-info me-2"></i>
                                                 <small class="text-muted">
                                                     @if($arquivoAudioAlianca)
                                                         🎵 {{ $arquivoAudioAlianca->getClientOriginalName() }}
@@ -598,7 +598,7 @@
                         <div class="card h-100">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0">
-                                    <i class="fas fa-user-friends text-primary me-2"></i>Conversas
+                                    <i class="fas fa-user-friends text-info me-2"></i>Conversas
                                 </h6>
                                 <button class="btn btn-outline-primary btn-sm" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#newConversationModal">
                                     <i class="fas fa-plus me-1"></i>Nova
@@ -610,13 +610,13 @@
                                         <i class="fas fa-inbox text-muted mb-3" style="font-size: 2rem;"></i>
                                         <h6 class="text-muted">Nenhuma conversa</h6>
                                         <p class="text-muted small">Inicie uma conversa com membros da aliança</p>
-                                        <button class="btn btn-primary btn-sm" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#newConversationModal">
+                                        <button class="btn bg-info text-light btn-sm" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#newConversationModal">
                                             <i class="fas fa-plus me-1"></i>Iniciar Conversa
                                         </button>
                                     </div>
                                 @else
                                     @foreach($conversas2 as $conversa)
-                                        <div class="alliance-item p-3 border-bottom cursor-pointer {{ (isset($conversaAtiva2) && $conversaAtiva2 == $conversa['usuario_id']) ? 'bg-primary text-white' : 'hover-bg-light' }}"
+                                        <div class="alliance-item p-3 border-bottom cursor-pointer {{ (isset($conversaAtiva2) && $conversaAtiva2 == $conversa['usuario_id']) ? 'bg-info text-light text-white' : 'hover-bg-light' }}"
                                              wire:click="selecionarConversa2('{{ $conversa['usuario_id'] }}')">
                                             <div class="d-flex align-items-center">
                                                 <div class="alliance-avatar me-3">
@@ -653,7 +653,7 @@
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <div class="">
                                         <h6 class="mb-0">
-                                            <i class="fas fa-comments text-primary me-2"></i>
+                                            <i class="fas fa-comments text-info me-2"></i>
                                             Conversa com {{ (isset($conversas2) && isset($conversaAtiva2)) ? collect($conversas2)->firstWhere('usuario_id', $conversaAtiva2)['usuario']['name'] ?? 'Usuário' : 'Usuário' }}
                                         </h6>
                                         <small class="text-muted m-2 mb-2 mt-2">
@@ -769,13 +769,13 @@
                                                                            download="{{ $fileName }}"
                                                                            class="d-flex align-items-center p-2 border rounded"
                                                                            style="text-decoration: none; color: inherit; background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3) !important;">
-                                                                            <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-primary me-2"
+                                                                            <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-info me-2"
                                                                                style="font-size: 24px;"></i>
                                                                             <div class="flex-grow-1">
                                                                                 <div class="fw-semibold small">{{ Str::limit($fileName, 25) }}</div>
                                                                                 <small class="text-muted">{{ strtoupper($fileExtension) }} • Download</small>
                                                                             </div>
-                                                                            <i class="fas fa-download text-primary ms-2"></i>
+                                                                            <i class="fas fa-download text-info ms-2"></i>
                                                                         </a>
                                                                     </div>
                                                                 @endif
@@ -830,7 +830,7 @@
                                         @if($arquivoAudio || $arquivoAnexo)
                                         <div class="mb-2 p-2 bg-light rounded d-flex align-items-center justify-content-between">
                                             <div class="d-flex align-items-center">
-                                                <i class="fas fa-paperclip text-primary me-2"></i>
+                                                <i class="fas fa-paperclip text-info me-2"></i>
                                                 <small class="text-muted">
                                                     @if($arquivoAudio)
                                                         🎵 {{ $arquivoAudio->getClientOriginalName() }}
@@ -939,7 +939,7 @@
                         <div class="card h-100">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0">
-                                    <i class="fas fa-clock text-primary me-2"></i>Próximas Reuniões
+                                    <i class="fas fa-clock text-info me-2"></i>Próximas Reuniões
                                 </h6>
                                 <button class="btn btn-outline-primary btn-sm" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
                                     <i class="fas fa-plus me-1"></i>Nova
@@ -1027,7 +1027,7 @@
                                         <i class="fas fa-calendar-times text-muted mb-3" style="font-size: 2rem;"></i>
                                         <h6 class="text-muted">Nenhuma reunião próxima</h6>
                                         <p class="text-muted small">Agende sua primeira reunião</p>
-                                        <button class="btn btn-primary btn-sm" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                                        <button class="btn bg-info text-light btn-sm" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
                                             <i class="fas fa-plus me-1"></i>Agendar Reunião
                                         </button>
                                     </div>
@@ -1051,7 +1051,7 @@
                                             </button>
                                             <div>
                                                 <h5 class="mb-0">
-                                                    <i class="fas fa-calendar-check text-primary me-2"></i>{{ $reuniao->titulo }}
+                                                    <i class="fas fa-calendar-check text-info me-2"></i>{{ $reuniao->titulo }}
                                                 </h5>
                                                 <small class="text-muted">
                                                     <i class="fas fa-{{ $reuniao->modalidade === 'online' ? 'video' : 'map-marker-alt' }} me-1"></i>
@@ -1105,13 +1105,13 @@
                                         <div class="row g-3 mb-4">
                                             <div class="col-md-6">
                                                 <div class="meeting-info-item">
-                                                    <i class="fas fa-calendar text-primary me-2"></i>
+                                                    <i class="fas fa-calendar text-info me-2"></i>
                                                     <strong>Data:</strong> {{ $reuniao->data_agendamento->format('d/m/Y') }}
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="meeting-info-item">
-                                                    <i class="fas fa-clock text-primary me-2"></i>
+                                                    <i class="fas fa-clock text-info me-2"></i>
                                                     <strong>Horário:</strong> {{ $reuniao->hora_inicio->format('H:i') }}
                                                     @if($reuniao->hora_fim)
                                                         às {{ $reuniao->hora_fim->format('H:i') }}
@@ -1120,20 +1120,20 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="meeting-info-item">
-                                                    <i class="fas fa-user text-primary me-2"></i>
+                                                    <i class="fas fa-user text-info me-2"></i>
                                                     <strong>Organizador:</strong> {{ $reuniao->organizador->name ?? 'N/A' }}
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="meeting-info-item">
-                                                    <i class="fas fa-tag text-primary me-2"></i>
+                                                    <i class="fas fa-tag text-info me-2"></i>
                                                     <strong>Tipo:</strong> {{ ucfirst($reuniao->tipo) }}
                                                 </div>
                                             </div>
                                             @if($reuniao->responsavel)
                                                 <div class="col-md-6">
                                                     <div class="meeting-info-item">
-                                                        <i class="fas fa-user-tie text-primary me-2"></i>
+                                                        <i class="fas fa-user-tie text-info me-2"></i>
                                                         <strong>Responsável:</strong> {{ $reuniao->responsavel->name }}
                                                     </div>
                                                 </div>
@@ -1141,7 +1141,7 @@
                                             @if($reuniao->convidado)
                                                 <div class="col-md-6">
                                                     <div class="meeting-info-item">
-                                                        <i class="fas fa-user-check text-primary me-2"></i>
+                                                        <i class="fas fa-user-check text-info me-2"></i>
                                                         <strong>Convidado:</strong> {{ $reuniao->convidado->name }}
                                                     </div>
                                                 </div>
@@ -1149,7 +1149,7 @@
                                             @if($reuniao->link_reuniao)
                                                 <div class="col-12">
                                                     <div class="meeting-info-item">
-                                                        <i class="fas fa-link text-primary me-2"></i>
+                                                        <i class="fas fa-link text-info me-2"></i>
                                                         <strong>Link:</strong>
                                                         <a href="{{ $reuniao->link_reuniao }}" target="_blank" class="text-decoration-none ms-1">
                                                             {{ Str::limit($reuniao->link_reuniao, 50) }}
@@ -1163,7 +1163,7 @@
                                         <!-- Descrição -->
                                         @if($reuniao->descricao)
                                             <div class="mb-4">
-                                                <h6 class="fw-bold text-primary mb-2">
+                                                <h6 class="fw-bold text-info mb-2">
                                                     <i class="fas fa-align-left me-2"></i>Descrição
                                                 </h6>
                                                 <p class="text-muted mb-0">{{ $reuniao->descricao }}</p>
@@ -1173,7 +1173,7 @@
                                         <!-- Observações -->
                                         @if($reuniao->observacoes)
                                             <div class="mb-4">
-                                                <h6 class="fw-bold text-primary mb-2">
+                                                <h6 class="fw-bold text-info mb-2">
                                                     <i class="fas fa-sticky-note me-2"></i>Observações
                                                 </h6>
                                                 <p class="text-muted mb-0">{{ $reuniao->observacoes }}</p>
@@ -1216,7 +1216,7 @@
                             <div class="card h-100">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">
-                                        <i class="fas fa-calendar-alt text-primary me-2"></i>Todas as Reuniões
+                                        <i class="fas fa-calendar-alt text-info me-2"></i>Todas as Reuniões
                                     </h5>
                                     <div class="d-flex gap-2">
                                         <select class="form-select form-select-sm" wire:model.live="filtroReunioes" style="width: auto;">
@@ -1226,7 +1226,7 @@
                                             <option value="semana">Esta Semana</option>
                                             <option value="mes">Este Mês</option>
                                         </select>
-                                        <button class="btn btn-primary btn-sm" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                                        <button class="btn bg-info text-light btn-sm" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
                                             <i class="fas fa-plus me-1"></i>Nova Reunião
                                         </button>
                                     </div>
@@ -1240,7 +1240,7 @@
                                         @endphp
                                         @foreach($reunioesPorDia as $data => $reunioesDoDia)
                                             <div class="meeting-day-group mb-4">
-                                                <h6 class="text-primary fw-bold mb-3">
+                                                <h6 class="text-info fw-bold mb-3">
                                                     <i class="fas fa-calendar-day me-2"></i>
                                                     {{ \Carbon\Carbon::parse($data)->locale('pt_BR')->isoFormat('dddd, DD [de] MMMM [de] YYYY') }}
                                                 </h6>
@@ -1251,7 +1251,7 @@
                                                             <div class="row align-items-center">
                                                                 <div class="col-auto">
                                                                     <div class="meeting-time text-center">
-                                                                        <div class="fw-bold text-primary">{{ \Carbon\Carbon::parse($reuniao['hora_inicio'])->format('H:i') }}</div>
+                                                                        <div class="fw-bold text-info">{{ \Carbon\Carbon::parse($reuniao['hora_inicio'])->format('H:i') }}</div>
                                                                         @if($reuniao['hora_fim'])
                                                                             <small class="text-muted">{{ \Carbon\Carbon::parse($reuniao['hora_fim'])->format('H:i') }}</small>
                                                                         @endif
@@ -1311,7 +1311,7 @@
                                             <i class="fas fa-calendar-times text-muted mb-3" style="font-size: 3rem;"></i>
                                             <h5 class="text-muted">Nenhuma reunião encontrada</h5>
                                             <p class="text-muted">Não há reuniões agendadas com os filtros atuais.</p>
-                                            <button class="btn btn-primary" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                                            <button class="btn bg-info text-light" wire:click="abrirModalReuniao" data-bs-toggle="modal" data-bs-target="#meetingModal">
                                                 <i class="fas fa-plus me-1"></i>Agendar Primeira Reunião
                                             </button>
                                         </div>
@@ -1367,7 +1367,7 @@
             data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header bg-primary">
+                    <div class="modal-header bg-info text-light">
                         <h5 class="modal-title fw-bold" id="newConversationModalLabel">
                             <i class="fas fa-plus-circle text-white me-2"></i>Iniciar Nova Conversa Privada
                         </h5>
@@ -1375,7 +1375,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="text-center mb-4">
-                            <i class="fas fa-envelope text-primary" style="font-size: 3rem;"></i>
+                            <i class="fas fa-envelope text-info" style="font-size: 3rem;"></i>
                         </div>
                         <h6 class="fw-bold text-center mb-3">Selecione um membro para iniciar a conversa</h6>
                         <p class="text-muted mb-4">
@@ -1385,7 +1385,7 @@
 
                         <div class="mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-user-friends text-primary me-1"></i>Selecione um membro
+                                <i class="fas fa-user-friends text-info me-1"></i>Selecione um membro
                             </label>
                             <select class="form-select @error('usuarioSelecionado') is-invalid @enderror"
                                     wire:model.live="usuarioSelecionado">
@@ -1427,7 +1427,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             <i class="fas fa-times me-1"></i>Cancelar
                         </button>
-                        <button type="button" class="btn btn-primary"
+                        <button type="button" class="btn bg-info text-light"
                                 wire:click="iniciarConversa2"
                                 wire:loading.attr="disabled"
                                 data-bs-dismiss="modal">
@@ -1462,7 +1462,7 @@
                         <p id="imageCaption" class="mt-2 text-muted small"></p>
                     </div>
                     <div class="modal-footer">
-                        <a id="downloadImageBtn" href="" download class="btn btn-primary">
+                        <a id="downloadImageBtn" href="" download class="btn bg-info text-light">
                             <i class="fas fa-download me-1"></i>Download
                         </a>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

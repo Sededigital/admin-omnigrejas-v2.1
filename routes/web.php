@@ -188,6 +188,7 @@ Route::middleware(['auth', \App\Http\Middleware\VerifyCsrfToken::class])->group(
         Route::get('dashboard-church', AdminDashboard::class)->name('dashboard-admin.church')->middleware(['isAdminIgreja']);
         Route::get('dashboard-member', DashboardMember::class)->name('dashboard.member');
         Route::get('dashboard-root', RootDashboard::class)->name('dashboard.root')->middleware(['isRoot']);
+        Route::get('geral/logs', \App\Livewire\Users\Logs::class)->name('users.logs')->middleware(['isRoot']);
         Route::get('geral/list-users', Users::class)->name('users.lisusers')->middleware(['isSuperAdmin']);
 
           //** ROTA DE IMPRESSÃO DE CARTÃO (fora dos middlewares para evitar problemas) */

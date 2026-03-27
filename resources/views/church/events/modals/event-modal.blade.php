@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="eventModalLabel">
-                    <i class="fas fa-calendar-alt text-primary me-2"></i>
+                    <i class="fas fa-calendar-alt text-info me-2"></i>
                     <span id="modal-title">{{ $editingEvent ? 'Editar Evento' : 'Cadastrar Novo Evento' }}</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -21,15 +21,15 @@
                         <div class="nav nav-tabs border-bottom-0" id="nav-tab" role="tablist">
                             <button class="nav-link active border-0 bg-transparent fw-semibold" id="nav-basic-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-basic" type="button" role="tab">
-                                <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-datetime-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-datetime" type="button" role="tab">
-                                <i class="fas fa-clock text-primary me-1"></i>Data e Horário
+                                <i class="fas fa-clock text-info me-1"></i>Data e Horário
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-details-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab">
-                                <i class="fas fa-cog text-primary me-1"></i>Detalhes e Status
+                                <i class="fas fa-cog text-info me-1"></i>Detalhes e Status
                             </button>
                         </div>
                     </nav>
@@ -45,7 +45,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control @error('titulo') is-invalid @enderror"
                                                wire:model="titulo" placeholder="Título do evento" required>
-                                        <label><i class="fas fa-heading text-primary me-1"></i>Título do Evento *</label>
+                                        <label><i class="fas fa-heading text-info me-1"></i>Título do Evento *</label>
                                         @error('titulo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -58,7 +58,7 @@
                                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                                   wire:model="descricao" rows="3"
                                                   placeholder="Descrição detalhada do evento"></textarea>
-                                        <label><i class="fas fa-align-left text-primary me-1"></i>Descrição</label>
+                                        <label><i class="fas fa-align-left text-info me-1"></i>Descrição</label>
                                         @error('descricao')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -76,7 +76,7 @@
                                             <option value="ensaio">Ensaio</option>
                                             <option value="evento_social">Evento Social</option>
                                         </select>
-                                        <label><i class="fas fa-tag text-primary me-1"></i>Tipo de Evento *</label>
+                                        <label><i class="fas fa-tag text-info me-1"></i>Tipo de Evento *</label>
                                         @error('tipo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -88,7 +88,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control @error('local_evento') is-invalid @enderror"
                                                wire:model="local_evento" placeholder="Local do evento">
-                                        <label><i class="fas fa-map-marker-alt text-primary me-1"></i>Local do Evento</label>
+                                        <label><i class="fas fa-map-marker-alt text-info me-1"></i>Local do Evento</label>
                                         @error('local_evento')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -111,7 +111,7 @@
                                                autocomplete="off"
                                                readonly
                                                style="border: 2px solid #007bff; border-radius: 0.375rem; cursor: pointer;">
-                                        <label><i class="fas fa-calendar text-primary me-1"></i>Data do Evento *</label>
+                                        <label><i class="fas fa-calendar text-info me-1"></i>Data do Evento *</label>
                                         @error('data_evento')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -123,7 +123,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control @error('hora_inicio') is-invalid @enderror"
                                                wire:model="hora_inicio" required>
-                                        <label><i class="fas fa-clock text-primary me-1"></i>Hora de Início *</label>
+                                        <label><i class="fas fa-clock text-info me-1"></i>Hora de Início *</label>
                                         @error('hora_inicio')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -135,7 +135,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control @error('hora_fim') is-invalid @enderror"
                                                wire:model="hora_fim">
-                                        <label><i class="fas fa-clock text-primary me-1"></i>Hora de Fim</label>
+                                        <label><i class="fas fa-clock text-info me-1"></i>Hora de Fim</label>
                                         @error('hora_fim')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -161,7 +161,7 @@
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-user text-primary me-1"></i>Responsável</label>
+                                        <label><i class="fas fa-user text-info me-1"></i>Responsável</label>
                                         @error('responsavel')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -177,7 +177,7 @@
                                             <option value="realizado">Realizado</option>
                                             <option value="cancelado">Cancelado</option>
                                         </select>
-                                        <label><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                        <label><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                         @error('status')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -187,7 +187,7 @@
                                 <!-- Status Visual -->
                                 <div class="col-12">
                                     <div class="alert alert-light border">
-                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        <i class="fas fa-info-circle text-info me-2"></i>
                                         <strong>Status:</strong>
                                         <span class="text-muted">
                                             {{ $editingEvent ? 'Editando Evento' : 'Novo Evento' }}
@@ -205,7 +205,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="saveEvent" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="saveEvent" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="saveEvent">
                         <i class="fas fa-save me-1"></i>{{ $editingEvent ? 'Atualizar Evento' : 'Salvar Evento' }}
                     </span>

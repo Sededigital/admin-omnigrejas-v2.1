@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-graduation-cap me-2"></i>Gestão de Cursos
                         </h1>
                         <p class="mb-0 text-muted">Gerencie todos os cursos da igreja</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" onclick="window.coursesManager ? window.coursesManager.openModal() : openCourseModal()" data-bs-toggle="modal" data-bs-target="#courseModal">
+                        <button class="btn bg-info text-light btn-md" onclick="window.coursesManager ? window.coursesManager.openModal() : openCourseModal()" data-bs-toggle="modal" data-bs-target="#courseModal">
                             <i class="fas fa-plus me-2"></i>Novo Curso
                         </button>
                     </div>
@@ -24,8 +24,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-graduation-cap text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $totalCursos ?? 0 }}</div>
+                        <i class="fas fa-graduation-cap text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $totalCursos ?? 0 }}</div>
                         <div class="text-muted small">Total de Cursos</div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar Filtros
                             </button>
                         </div>
@@ -121,7 +121,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Cursos
                     </h5>
                 </div>
@@ -143,7 +143,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="course-icon bg-primary text-white me-3">
+                                        <div class="course-icon bg-info text-light text-white me-3">
                                             <i class="fas fa-graduation-cap"></i>
                                         </div>
                                         <div>
@@ -191,7 +191,7 @@
                                 <td colspan="7" class="text-center py-4">
                                     <i class="fas fa-graduation-cap text-muted display-4 mb-3"></i>
                                     <div class="text-muted">Nenhum curso encontrado</div>
-                                    <button class="btn btn-primary mt-3" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                    <button class="btn bg-info text-light mt-3" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#courseModal">
                                         <i class="fas fa-plus me-1"></i>Criar Primeiro Curso
                                     </button>
                                 </td>
@@ -222,7 +222,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between mb-3">
                                 <div class="d-flex align-items-center">
-                                    <div class="course-icon bg-primary text-white me-3">
+                                    <div class="course-icon bg-info text-light text-white me-3">
                                         <i class="fas fa-graduation-cap"></i>
                                     </div>
                                     <div>
@@ -246,7 +246,7 @@
                                 <small class="text-muted">{{ $course->data_inicio ? $course->data_inicio->format('d/m/Y') : 'Data não definida' }}</small>
                             </div>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal('{{ $course->id ?? '' }}')" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal('{{ $course->id ?? '' }}')" data-bs-toggle="modal" data-bs-target="#courseModal">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
                                 <button class="btn btn-outline-info btn-sm" wire:click="viewCourse('{{ $course->id ?? '' }}')">
@@ -266,7 +266,7 @@
                         <div class="card-body text-center py-5">
                             <i class="fas fa-graduation-cap text-muted display-4 mb-3"></i>
                             <div class="text-muted mb-3">Nenhum curso encontrado</div>
-                            <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#courseModal">
+                            <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#courseModal">
                                 <i class="fas fa-plus me-1"></i>Criar Primeiro Curso
                             </button>
                         </div>

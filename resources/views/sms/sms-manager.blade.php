@@ -2,7 +2,7 @@
 
    {{-- 
     
-    <a class="btn btn-primary btn-icon btn-setting position-fixed"
+    <a class="btn bg-info text-light btn-icon btn-setting position-fixed"
        style="top: 300px; right: 0; z-index: 1050; margin: 0; padding: 0.5rem;"
        data-bs-toggle="offcanvas"
        data-bs-target="#smsOffcanvas"
@@ -151,14 +151,14 @@
                         @php
                             $isValidId = $conversation->id && preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $conversation->id);
                         @endphp
-                        <div class="conversation-item p-3 border-bottom {{ $activeConversation && $activeConversation->id === $conversation->id ? 'active bg-primary bg-opacity-10' : '' }}"
+                        <div class="conversation-item p-3 border-bottom {{ $activeConversation && $activeConversation->id === $conversation->id ? 'active bg-info text-light bg-opacity-10' : '' }}"
                              @if($isValidId)
                                  wire:click="selectConversation('{{ $conversation->id }}')"
                              @endif
                              style="cursor: {{ $isValidId ? 'pointer' : 'not-allowed' }}; opacity: {{ $isValidId ? '1' : '0.6' }};">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="avatar-wrapper">
-                                    <div class="avatar avatar-sm rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">
+                                    <div class="avatar avatar-sm rounded-circle bg-info text-light text-white d-flex align-items-center justify-content-center">
                                         <span class="fw-bold small">{{ substr($conversation->titulo, 0, 1) }}</span>
                                     </div>
                                     @if($conversation->getMensagensNaoLidas() > 0)
@@ -218,7 +218,7 @@
                             </svg>
                             <p>Nenhuma conversa encontrada</p>
                             @if(!Auth::user()->isSuperAdmin())
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#smsNewConversationModal">
+                            <button class="btn bg-info text-light btn-sm" data-bs-toggle="modal" data-bs-target="#smsNewConversationModal">
                                 Iniciar Conversa
                             </button>
                             @endif
@@ -238,7 +238,7 @@
                     <div class="chat-header p-3 border-bottom bg-white">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center gap-3">
-                                <div class="avatar avatar-sm rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">
+                                <div class="avatar avatar-sm rounded-circle bg-info text-light text-white d-flex align-items-center justify-content-center">
                                     <span class="fw-bold">{{ substr($activeConversation->titulo, 0, 1) }}</span>
                                 </div>
                                 <div>
@@ -415,7 +415,7 @@
                                 </select>
 
                                 <button type="submit"
-                                        class="btn btn-primary"
+                                        class="btn bg-info text-light"
                                         wire:loading.attr="disabled"
                                         wire:target="sendMessage">
                                     <span wire:loading.remove wire:target="sendMessage">
@@ -443,7 +443,7 @@
                             <h5>Selecione uma conversa</h5>
                             <p class="mb-4">Escolha uma conversa da lista para começar a conversar</p>
                             @if(!Auth::user()->isSuperAdmin())
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smsNewConversationModal">
+                            <button class="btn bg-info text-light" data-bs-toggle="modal" data-bs-target="#smsNewConversationModal">
                                 <svg width="16" height="16" class="me-2" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                                 </svg>
@@ -503,7 +503,7 @@
                                     wire:model="selectedPriority"
                                     style="box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
                                 <option value="baixa" class="text-success">📊 Baixa</option>
-                                <option value="normal" selected class="text-primary">⚖️ Normal</option>
+                                <option value="normal" selected class="text-info">⚖️ Normal</option>
                                 <option value="alta" class="text-warning">⚡ Alta</option>
                                 <option value="urgente" class="text-danger">🚨 Urgente</option>
                             </select>
@@ -516,7 +516,7 @@
                             </svg>
                             Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary btn-sm px-4 rounded-pill" wire:loading.attr="disabled">
+                        <button type="submit" class="btn bg-info text-light btn-sm px-4 rounded-pill" wire:loading.attr="disabled">
                             <span wire:loading.remove>
                                 <svg width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 24 24">
                                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
@@ -658,7 +658,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Cancelar
                             </button>
-                            <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                            <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled">
                                 <span wire:loading.remove>Salvar Configurações</span>
                                 <span wire:loading>
                                     <div class="spinner-border spinner-border-sm me-2" role="status"></div>

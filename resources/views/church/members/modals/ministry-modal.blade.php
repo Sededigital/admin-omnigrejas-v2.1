@@ -15,7 +15,7 @@
                         <div class="card bg-light">
                             <div class="card-body py-2">
                                 <div class="d-flex align-items-center">
-                                    <div class="user-avatar bg-primary text-white me-3">
+                                    <div class="user-avatar bg-info text-light text-white me-3">
                                         {{ strtoupper(substr($selectedMemberForMinistry->user->name ?? 'N', 0, 2)) }}
                                     </div>
                                     <div>

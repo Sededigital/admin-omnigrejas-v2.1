@@ -10,7 +10,7 @@
                             <p>Gerencie os módulos disponíveis no sistema</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#moduloModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#moduloModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo Módulo
                             </button>
@@ -143,7 +143,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="moduloModalLabel">
-                        <i class="fas fa-cube text-primary me-2"></i>
+                        <i class="fas fa-cube text-info me-2"></i>
                         <span id="modal-title">{{ $editingModulo ? 'Editar Módulo' : 'Novo Módulo' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -159,7 +159,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('nome') is-invalid @enderror"
                                            wire:model="nome" placeholder="Nome do módulo" required>
-                                    <label><i class="fas fa-tag text-primary me-1"></i>Nome *</label>
+                                    <label><i class="fas fa-tag text-info me-1"></i>Nome *</label>
                                     @error('nome')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -172,7 +172,7 @@
                                     <textarea class="form-control @error('descricao') is-invalid @enderror"
                                               wire:model="descricao" rows="3"
                                               placeholder="Descrição do módulo"></textarea>
-                                    <label><i class="fas fa-comment text-primary me-1"></i>Descrição</label>
+                                    <label><i class="fas fa-comment text-info me-1"></i>Descrição</label>
                                     @error('descricao')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -182,7 +182,7 @@
                             <!-- Status Visual -->
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingModulo ? 'Editando Módulo' : 'Novo Módulo' }}
@@ -198,7 +198,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveModulo" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveModulo" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveModulo">
                             <i class="fas fa-save me-1"></i>{{ $editingModulo ? 'Atualizar Módulo' : 'Salvar Módulo' }}
                         </span>

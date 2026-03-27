@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-md-7">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-star me-2"></i>Sistema de Pontos
                         </h1>
                         <p class="mb-0 text-muted">
@@ -13,7 +13,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-5 mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#pointModal">
+                        <button class="btn bg-info text-light btn-sm w-100" data-bs-toggle="modal" data-bs-target="#pointModal">
                             <i class="fas fa-plus me-1"></i>Registrar Pontos
                         </button>
                     </div>
@@ -30,8 +30,8 @@
             <div class="col-md-3">
                 <div class="card text-center border border-primary h-100">
                     <div class="card-body">
-                        <i class="fas fa-trophy text-primary display-6 mb-2"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total_pontos'] }}</div>
+                        <i class="fas fa-trophy text-info display-6 mb-2"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total_pontos'] }}</div>
                         <div class="text-muted small">Pontos Totais</div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                                                     @if($userPoints->usuario->profile_photo_path)
                                                         <img src="{{ asset('storage/' . $userPoints->usuario->profile_photo_path) }}" alt="Avatar" class="rounded-circle">
                                                     @else
-                                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                        <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
                                                             <span class="fw-bold">{{ substr($userPoints->usuario->name, 0, 1) }}</span>
                                                         </div>
                                                     @endif
@@ -164,7 +164,7 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <span class="badge bg-info">{{ $userPoints->total_registros }}</span>
+                                            <span class="badge bg-info text-light">{{ $userPoints->total_registros }}</span>
                                         </td>
                                         <td>
                                             <div class="text-truncate" style="max-width: 200px;" title="{{ str_replace(',', ', ', $userPoints->motivos) }}">
@@ -215,7 +215,7 @@
                                 <i class="fas fa-times me-1"></i>Limpar Filtros
                             </button>
                         @endif
-                        <button class="btn btn-primary" wire:click="abrirModal">
+                        <button class="btn bg-info text-light" wire:click="abrirModal">
                             <i class="fas fa-plus me-1"></i>Registrar Primeiro Ponto
                         </button>
                     </div>
@@ -304,7 +304,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 <i class="fas fa-times me-1"></i>Cancelar
                             </button>
-                            <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                            <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled">
                                 <span wire:loading.remove>
                                     <i class="fas fa-save me-1"></i>Registrar
                                 </span>
@@ -340,7 +340,7 @@
                                                     @if($userDetails['user']->photo_url)
                                                         <img src="{{ \Illuminate\Support\Facades\Storage::disk('supabase')->url($userDetails['user']->photo_url) }}" alt="Avatar" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
                                                     @else
-                                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                                        <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem;">
                                                             <span class="fw-bold">{{ substr($userDetails['user']->name, 0, 1) }}</span>
                                                         </div>
                                                     @endif

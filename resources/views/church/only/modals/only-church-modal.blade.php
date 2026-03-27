@@ -6,7 +6,7 @@
              <!-- Header do Modal -->
              <div class="modal-header bg-light border-bottom">
                  <h5 class="modal-title fw-bold" id="churchModalLabel">
-                     <i class="fas fa-building text-primary me-2"></i>
+                     <i class="fas fa-building text-info me-2"></i>
                      <span id="modal-title">{{ $this->isEditing ? 'Editar Igreja' : 'Cadastrar Nova Igreja' }}</span>
                  </h5>
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -21,15 +21,15 @@
                          <div class="nav nav-tabs border-bottom-0" id="nav-tab" role="tablist">
                              <button class="nav-link active border-0 bg-transparent fw-semibold" id="nav-basic-tab"
                                      data-bs-toggle="tab" data-bs-target="#nav-basic" type="button" role="tab">
-                                 <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                 <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                              </button>
                              <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-details-tab"
                                      data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab">
-                                 <i class="fas fa-file-alt text-primary me-1"></i>Detalhes
+                                 <i class="fas fa-file-alt text-info me-1"></i>Detalhes
                              </button>
                              <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-config-tab"
                                      data-bs-toggle="tab" data-bs-target="#nav-config" type="button" role="tab">
-                                 <i class="fas fa-cog text-primary me-1"></i>Configurações
+                                 <i class="fas fa-cog text-info me-1"></i>Configurações
                              </button>
                          </div>
                      </nav>
@@ -45,7 +45,7 @@
                                      <div class="form-floating mb-3">
                                          <input type="text"  autocomplete="new-password" class="form-control @error('nome') is-invalid @enderror"
                                                 wire:model="nome" placeholder="Digite o nome completo da igreja" required>
-                                         <label><i class="fas fa-building text-primary me-1"></i>Nome da Igreja *</label>
+                                         <label><i class="fas fa-building text-info me-1"></i>Nome da Igreja *</label>
                                          @error('nome')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -57,7 +57,7 @@
                                      <div class="form-floating mb-3">
                                          <input type="text"  autocomplete="new-password" class="form-control @error('nif') is-invalid @enderror"
                                                 wire:model="nif" placeholder="Número de Identificação Fiscal" required>
-                                         <label><i class="fas fa-id-card text-primary me-1"></i>NIF *</label>
+                                         <label><i class="fas fa-id-card text-info me-1"></i>NIF *</label>
                                          @error('nif')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -69,7 +69,7 @@
                                      <div class="form-floating mb-3">
                                          <input type="text"  autocomplete="new-password" class="form-control text-uppercase @error('sigla') is-invalid @enderror"
                                                 wire:model="sigla" placeholder="Ex: IBC" maxlength="10">
-                                         <label><i class="fas fa-tag text-primary me-1"></i>Sigla</label>
+                                         <label><i class="fas fa-tag text-info me-1"></i>Sigla</label>
                                          @error('sigla')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -84,7 +84,7 @@
                                              <option value="sede">🏢 Sede</option>
                                              <option value="filial">🏪 Filial</option>
                                          </select>
-                                         <label><i class="fas fa-sitemap text-primary me-1"></i>Tipo *</label>
+                                         <label><i class="fas fa-sitemap text-info me-1"></i>Tipo *</label>
                                          @error('tipo')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -100,7 +100,7 @@
                                                  <option value="{{ $sede->id }}">{{ $sede->nome }}</option>
                                              @endforeach
                                          </select>
-                                         <label><i class="fas fa-building text-primary me-1"></i>Igreja Sede</label>
+                                         <label><i class="fas fa-building text-info me-1"></i>Igreja Sede</label>
                                          @error('sede_id')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -110,7 +110,7 @@
                                  <!-- Status Visual -->
                                  <div class="col-12">
                                      <div class="alert alert-light border">
-                                         <i class="fas fa-info-circle text-primary me-2"></i>
+                                         <i class="fas fa-info-circle text-info me-2"></i>
                                          <strong>Status:</strong>
                                          <span class="text-muted">
                                              {{ $this->isEditing ? 'Editando Igreja' : 'Nova Igreja' }}
@@ -153,7 +153,7 @@
                                      <div class="form-floating mb-3">
                                          <input type="text"  autocomplete="new-password" class="form-control @error('localizacao') is-invalid @enderror"
                                                 wire:model="localizacao" placeholder="Endereço completo">
-                                         <label><i class="fas fa-map-marker-alt text-primary me-1"></i>Localização</label>
+                                         <label><i class="fas fa-map-marker-alt text-info me-1"></i>Localização</label>
                                          @error('localizacao')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -165,7 +165,7 @@
                                      <div class="form-floating mb-3">
                                          <input type="text"  autocomplete="new-password" class="form-control @error('contacto') is-invalid @enderror"
                                                 wire:model="contacto" placeholder="Telefone, email, etc.">
-                                         <label><i class="fas fa-phone text-primary me-1"></i>Contato</label>
+                                         <label><i class="fas fa-phone text-info me-1"></i>Contato</label>
                                          @error('contacto')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -181,7 +181,7 @@
                                                  <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
                                              @endforeach
                                          </select>
-                                         <label><i class="fas fa-tags text-primary me-1"></i>Categoria</label>
+                                         <label><i class="fas fa-tags text-info me-1"></i>Categoria</label>
                                          @error('categoria_id')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -197,7 +197,7 @@
                                                  <option value="{{ $alianca->id }}">{{ $alianca->nome }}</option>
                                              @endforeach
                                          </select>
-                                         <label><i class="fas fa-handshake text-primary me-1"></i>Aliança</label>
+                                         <label><i class="fas fa-handshake text-info me-1"></i>Aliança</label>
                                          @error('alianca_id')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -209,7 +209,7 @@
                                      <div class="form-floating mb-3">
                                          <textarea class="form-control @error('descricao') is-invalid @enderror" rows="3"
                                                    wire:model="descricao" placeholder="Descrição breve da igreja" style="height: 100px;"></textarea>
-                                         <label><i class="fas fa-align-left text-primary me-1"></i>Descrição</label>
+                                         <label><i class="fas fa-align-left text-info me-1"></i>Descrição</label>
                                          @error('descricao')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -221,7 +221,7 @@
                                      <div class="form-floating mb-3">
                                          <textarea class="form-control @error('sobre') is-invalid @enderror" rows="4"
                                                    wire:model="sobre" placeholder="Informações detalhadas sobre a igreja, missão, visão, etc." style="height: 120px;"></textarea>
-                                         <label><i class="fas fa-info-circle text-primary me-1"></i>Sobre a Igreja</label>
+                                         <label><i class="fas fa-info-circle text-info me-1"></i>Sobre a Igreja</label>
                                          @error('sobre')
                                              <div class="invalid-feedback">{{ $message }}</div>
                                          @enderror
@@ -237,7 +237,7 @@
                                  <div class="col-12">
                                      <div class="card border-0 bg-light">
                                          <div class="card-body">
-                                             <h6 class="fw-bold text-primary mb-3">
+                                             <h6 class="fw-bold text-info mb-3">
                                                  <i class="fas fa-image me-2"></i>Logo da Igreja
                                              </h6>
                                              <div class="row g-3 align-items-center">
@@ -288,7 +288,7 @@
                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                      <i class="fas fa-times me-1"></i>Cancelar
                  </button>
-                 <button type="button" class="btn btn-primary" wire:click="saveChurch" wire:loading.attr="disabled">
+                 <button type="button" class="btn bg-info text-light" wire:click="saveChurch" wire:loading.attr="disabled">
                      <span wire:loading.remove wire:target="saveChurch">
                          <i class="fas fa-save me-1"></i>{{ $this->isEditing ? 'Atualizar Igreja' : 'Salvar Igreja' }}
                      </span>

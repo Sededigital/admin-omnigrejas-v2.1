@@ -17,10 +17,6 @@
                                                 <img src="{{ asset('system/img/logo-system/icon.png') }}" alt="logo">
                                             </div>
                                         </div>
-                                        <!--logo End-->
-                                        <h1 class="logo-title fw-bold">
-                                            <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
-                                        </h1>
                                     </a>
                                     <h2 class="mb-2 text-center">Selecionar Igreja</h2>
                                     <p class="text-center">Escolha qual igreja você deseja acessar</p>
@@ -54,7 +50,7 @@
                                                                                      style="width: 50px; height: 50px; object-fit: cover; border: 2px solid #e3e3e0;">
                                                                             @else
                                                                                 <div class="avatar avatar-md">
-                                                                                    <div class="avatar-initial rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                                                                                    <div class="avatar-initial rounded-circle bg-info text-light text-white d-flex align-items-center justify-content-center"
                                                                                          style="width: 50px; height: 50px; font-size: 18px; font-weight: bold;">
                                                                                         {{ substr($igreja['nome'], 0, 2) }}
                                                                                     </div>
@@ -73,7 +69,7 @@
 
                                                                             <div class="d-flex flex-wrap gap-1 mb-1">
                                                                                 <span class="badge bg-light text-dark">{{ $igreja['categoria'] }}</span>
-                                                                                <span class="badge bg-info">{{ ucfirst($igreja['cargo']) }}</span>
+                                                                                <span class="badge bg-info text-light">{{ ucfirst($igreja['cargo']) }}</span>
                                                                             </div>
 
                                                                             <div class="text-muted small">
@@ -130,7 +126,7 @@
                                         <div class="d-flex justify-content-center">
                                             <button
                                                 id="select-church-button"
-                                                class="btn btn-primary bg-primary border-0 d-flex align-items-center"
+                                                class="btn bg-info text-light bg-info text-light border-0 d-flex align-items-center"
                                                 type="submit"
                                                 wire:loading.attr="disabled"
                                                 wire:loading.class="disabled"
@@ -152,7 +148,7 @@
                              style="max-width: 200px; max-height: 200px;" >
                     </div>
                 </div>
-                <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
+                <div class="col-md-6 d-md-block d-none bg-info text-light p-0 mt-n1 vh-100 overflow-hidden">
                     <img src="{{ asset('assets/images/auth/01.png') }}" class="img-fluid gradient-main animated-scaleX" alt="images">
                 </div>
             </div>
@@ -163,7 +159,7 @@
     <div class="modal fade" id="accessCodeModal" tabindex="-1" wire:ignore.self data-bs-backdrop="false" data-bs-keyboard="false" data-bs-focus="false">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white py-2">
+                <div class="modal-header bg-info text-light text-white py-2">
                     <h6 class="modal-title mb-0">
                         <i class="fas fa-key me-2"></i>Código de Acesso
                     </h6>
@@ -175,7 +171,7 @@
                     <div class="modal-body py-3">
                         <div id="access-code-content">
                             <div class="text-center mb-2">
-                                <i class="fas fa-shield-alt text-primary" style="font-size: 2.5rem;"></i>
+                                <i class="fas fa-shield-alt text-info" style="font-size: 2.5rem;"></i>
                             </div>
                             <p class="text-muted text-center small mb-3">
                                 Digite o código de acesso da igreja
@@ -196,7 +192,7 @@
                             </div>
 
                             <div class="text-center mb-3">
-                                <a href="#" class="text-decoration-none small text-primary" id="forgot-code-link">
+                                <a href="#" class="text-decoration-none small text-info" id="forgot-code-link">
                                     <i class="fas fa-key me-1"></i>Esqueci código de acesso
                                 </a>
                             </div>
@@ -204,7 +200,7 @@
 
                         <div id="connecting-spinner" class="d-none">
                             <div class="text-center py-4 d-flex flex-column align-items-center justify-content-center" style="min-height: 180px;">
-                                <i class="fas fa-spinner fa-spin text-primary mb-3" style="font-size: 3rem;"></i>
+                                <i class="fas fa-spinner fa-spin text-info mb-3" style="font-size: 3rem;"></i>
                                 <p class="text-muted">Conectando...</p>
                             </div>
                         </div>
@@ -231,7 +227,7 @@
                         <button type="button" class="btn btn-sm btn-secondary bg-secondary d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" data-bs-dismiss="modal" id="cancel-button">
                             <i class="fas fa-times me-1"></i>Cancelar
                         </button>
-                        <button type="submit" class="btn btn-sm btn-primary bg-primary d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" id="validate-button">
+                        <button type="submit" class="btn btn-sm bg-info text-light bg-info text-light d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" id="validate-button">
                             <span id="validate-text">
                                 <i class="fas fa-check me-1"></i>Validar
                             </span>
@@ -239,7 +235,7 @@
                                 <i class="fas fa-spinner fa-spin me-1"></i>Validando...
                             </span>
                         </button>
-                        <button type="button" class="btn btn-sm btn-info bg-info d-flex align-items-center justify-content-center d-none" style="min-width: 100px; min-height: 36px;" id="send-email-button" wire:click="sendAccessCodeByEmail" wire:loading.attr="disabled" wire:target="sendAccessCodeByEmail">
+                        <button type="button" class="btn btn-sm btn-info bg-info text-light d-flex align-items-center justify-content-center d-none" style="min-width: 100px; min-height: 36px;" id="send-email-button" wire:click="sendAccessCodeByEmail" wire:loading.attr="disabled" wire:target="sendAccessCodeByEmail">
                             <span wire:loading.remove wire:target="sendAccessCodeByEmail">
                                 <i class="fas fa-paper-plane me-1"></i>Enviar
                             </span>
@@ -402,7 +398,7 @@
                     <button type="button" class="btn btn-sm btn-secondary bg-secondary" data-bs-dismiss="modal" id="cancel-button">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-sm btn-primary bg-primary d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" id="validate-button">
+                    <button type="submit" class="btn btn-sm bg-info text-light bg-info text-light d-flex align-items-center justify-content-center" style="min-width: 100px; min-height: 36px;" id="validate-button">
                         <span id="validate-text">
                             <i class="fas fa-check me-1"></i>Validar
                         </span>
@@ -410,7 +406,7 @@
                             <i class="fas fa-spinner fa-spin me-1"></i>Validando...
                         </span>
                     </button>
-                    <button type="button" class="btn btn-sm btn-info bg-info d-flex align-items-center justify-content-center d-none" style="min-width: 100px; min-height: 36px;" id="send-email-button" wire:click="sendAccessCodeByEmail" wire:loading.attr="disabled" wire:target="sendAccessCodeByEmail">
+                    <button type="button" class="btn btn-sm btn-info bg-info text-light d-flex align-items-center justify-content-center d-none" style="min-width: 100px; min-height: 36px;" id="send-email-button" wire:click="sendAccessCodeByEmail" wire:loading.attr="disabled" wire:target="sendAccessCodeByEmail">
                         <span wire:loading.remove wire:target="sendAccessCodeByEmail">
                             <i class="fas fa-paper-plane me-1"></i>Enviar
                         </span>

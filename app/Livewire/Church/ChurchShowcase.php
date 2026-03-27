@@ -196,7 +196,7 @@ class ChurchShowcase extends Component
 
     public function getCorAvatar($index)
     {
-        $cores = ['bg-primary', 'bg-success', 'bg-info', 'bg-warning', 'bg-danger', 'bg-secondary'];
+        $cores = ['bg-primary', 'bg-success', 'bg-info text-light', 'bg-warning', 'bg-danger', 'bg-secondary'];
         return $cores[$index % count($cores)];
     }
 

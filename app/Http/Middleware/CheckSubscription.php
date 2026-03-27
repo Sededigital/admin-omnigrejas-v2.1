@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use App\Models\Billings\AssinaturaAtual;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -53,7 +54,10 @@ class CheckSubscription
         }
 
         // Verificar assinatura da igreja para usuários não-trial
-        $assinatura = AssinaturaAtual::where('igreja_id', $igrejaAtual->id)->first();
+        $cacheKey = "assinatura_atual_{$igrejaAtual->id}";
+        $assinatura = Cache::remember($cacheKey, now()->addMinutes(10), function () use ($igrejaAtual) {
+            return AssinaturaAtual::where('igreja_id', $igrejaAtual->id)->first();
+        });
 
         // Se não tem assinatura OU assinatura expirou
         if (!$assinatura || !$assinatura->estaAtiva()) {

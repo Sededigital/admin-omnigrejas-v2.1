@@ -10,7 +10,7 @@
                             <p>Gerencie os pacotes de assinatura disponíveis no sistema</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pacoteModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pacoteModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo Pacote
                             </button>
@@ -100,7 +100,7 @@
                                         <span class="badge bg-success">{{ number_format($pacote->preco, 2, ',', '.') }} Kz</span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-info">{{ $pacote->duracao_meses }} meses</span>
+                                        <span class="badge bg-info text-light">{{ $pacote->duracao_meses }} meses</span>
                                     </td>
                                     <td>
                                         <span class="badge bg-warning">{{ $pacote->trial_dias ?? 0 }} dias</span>
@@ -150,7 +150,7 @@
                     <!-- Header do Modal -->
                     <div class="modal-header bg-light border-bottom">
                         <h5 class="modal-title fw-bold" id="pacoteModalLabel">
-                            <i class="fas fa-box text-primary me-2"></i>
+                            <i class="fas fa-box text-info me-2"></i>
                             <span id="modal-title">{{ $editingPacote ? 'Editar Pacote' : 'Novo Pacote' }}</span>
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -166,7 +166,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control @error('nome') is-invalid @enderror"
                                                wire:model="nome" placeholder="Nome do pacote" required>
-                                        <label><i class="fas fa-tag text-primary me-1"></i>Nome *</label>
+                                        <label><i class="fas fa-tag text-info me-1"></i>Nome *</label>
                                         @error('nome')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -178,7 +178,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" step="0.01" class="form-control @error('preco') is-invalid @enderror"
                                                wire:model="preco" placeholder="0.00" required>
-                                        <label><i class="fas fa-dollar-sign text-primary me-1"></i>Preço (Kz) *</label>
+                                        <label><i class="fas fa-dollar-sign text-info me-1"></i>Preço (Kz) *</label>
                                         @error('preco')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -189,7 +189,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control @error('duracao_meses') is-invalid @enderror"
                                                wire:model="duracao_meses" placeholder="1" min="1" required>
-                                        <label><i class="fas fa-calendar text-primary me-1"></i>Duração (meses) *</label>
+                                        <label><i class="fas fa-calendar text-info me-1"></i>Duração (meses) *</label>
                                         @error('duracao_meses')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -200,7 +200,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control @error('trial_dias') is-invalid @enderror"
                                                wire:model="trial_dias" placeholder="0" min="0">
-                                        <label><i class="fas fa-clock text-primary me-1"></i>Trial (dias)</label>
+                                        <label><i class="fas fa-clock text-info me-1"></i>Trial (dias)</label>
                                         @error('trial_dias')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -213,7 +213,7 @@
                                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                                   wire:model="descricao" rows="3"
                                                   placeholder="Descrição do pacote"></textarea>
-                                        <label><i class="fas fa-comment text-primary me-1"></i>Descrição</label>
+                                        <label><i class="fas fa-comment text-info me-1"></i>Descrição</label>
                                         @error('descricao')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -223,7 +223,7 @@
                                 <!-- Status Visual -->
                                 <div class="col-12">
                                     <div class="alert alert-light border">
-                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        <i class="fas fa-info-circle text-info me-2"></i>
                                         <strong>Status:</strong>
                                         <span class="text-muted">
                                             {{ $editingPacote ? 'Editando Pacote' : 'Novo Pacote' }}
@@ -239,7 +239,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             <i class="fas fa-times me-1"></i>Cancelar
                         </button>
-                        <button type="button" class="btn btn-primary" wire:click="savePacote" wire:loading.attr="disabled">
+                        <button type="button" class="btn bg-info text-light" wire:click="savePacote" wire:loading.attr="disabled">
                             <span wire:loading.remove wire:target="savePacote">
                                 <i class="fas fa-save me-1"></i>{{ $editingPacote ? 'Atualizar Pacote' : 'Salvar Pacote' }}
                             </span>

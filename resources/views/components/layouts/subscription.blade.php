@@ -50,7 +50,9 @@
 
    <!-- Livewire Styles -->
    @livewireStyles
+
 </head>
+
 <body class="boxed-fancy">
    <div class="boxed-inner">
     <main class="main-content">
@@ -225,7 +227,7 @@
                         reverseButtons: true,
                         customClass: {
                             popup: 'swal-equal-buttons',
-                            confirmButton: 'btn btn-primary fw-bold swal-btn',
+                            confirmButton: 'btn bg-info text-light fw-bold swal-btn',
                             cancelButton: 'btn btn-secondary fw-bold swal-btn'
                         },
                         buttonsStyling: false,
@@ -274,7 +276,7 @@
                         reverseButtons: true,
                         customClass: {
                             popup: 'swal-equal-buttons',
-                            confirmButton: 'btn btn-primary fw-bold swal-btn',
+                            confirmButton: 'btn bg-info text-light fw-bold swal-btn',
                             cancelButton: 'btn btn-secondary fw-bold swal-btn'
                         },
                         buttonsStyling: false,
@@ -311,7 +313,7 @@
                         html: `
                             <div class="text-center">
                                 <div class="mb-4">
-                                    <i class="fas fa-spinner fa-spin fa-4x text-primary"></i>
+                                    <i class="fas fa-spinner fa-spin fa-4x text-info"></i>
                                 </div>
                                 <p class="h4 fw-semibold text-body-emphasis mb-3">Processando sua ${acaoSelecionada === 'upgrade' ? 'upgrade' : acaoSelecionada === 'renovar' ? 'renovação' : 'assinatura'}</p>
                                 <p class="text-muted">Aguarde enquanto redirecionamos você para o pagamento...</p>
@@ -375,7 +377,7 @@
                             </div>
 
                             <!-- Alerta de Próximos Passos (Compacto e com fundo suave) -->
-                            <div class="alert mt-4 p-3 rounded-3 text-start border-info-subtle bg-info-subtle">
+                            <div class="alert mt-4 p-3 rounded-3 text-start border-info-subtle bg-info text-light-subtle">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-hourglass-half me-3 text-info fs-4"></i>
                                     <div>
@@ -415,10 +417,10 @@
                     html: `
                         <div class="text-center">
                             <div class="mb-4">
-                                <i class="fas fa-user-lock fa-4x text-primary"></i>
+                                <i class="fas fa-user-lock fa-4x text-info"></i>
                             </div>
                             <p class="h5 fw-semibold text-body-emphasis mb-3">Você precisa estar logado para continuar</p>
-                            <p class="text-muted mb-4">Para assinar um plano e acessar todas as funcionalidades, faça login em sua conta.</p>
+                            <p class="text-muted mb-4">Para assinar um plano e acessar todas as funcionalidades, faça login em sua conta. Ou peça um teste.</p>
                         </div>
                     `,
                     icon: 'warning',
@@ -428,7 +430,7 @@
                     reverseButtons: true,
                     customClass: {
                         popup: 'swal-equal-buttons',
-                        confirmButton: 'btn btn-primary fw-bold swal-btn',
+                        confirmButton: 'btn bg-info text-light fw-bold swal-btn',
                         cancelButton: 'btn btn-secondary fw-bold swal-btn'
                     },
                     buttonsStyling: false,
@@ -503,7 +505,7 @@
                     confirmButtonColor: params.icon === 'error' ? '#dc3545' : '#007bff',
                     customClass: {
                         popup: 'swal-equal-buttons',
-                        confirmButton: 'btn btn-primary fw-bold swal-btn'
+                        confirmButton: 'btn bg-info text-light fw-bold swal-btn'
                     },
                     buttonsStyling: false,
                     backdrop: true,

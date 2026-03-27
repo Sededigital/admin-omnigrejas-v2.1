@@ -26,7 +26,7 @@
                     </p>
 
                     <div class="trial-info bg-white text-dark p-4 rounded-3 mb-4">
-                        <h3 class="h5 fw-bold mb-3 text-primary">📋 Dados da Solicitação</h3>
+                        <h3 class="h5 fw-bold mb-3 text-info">📋 Dados da Solicitação</h3>
                         <div class="row text-start">
                             <div class="col-md-6">
                                 <p class="mb-2"><strong>Nome:</strong> {{ $dados_trial['usuario']['nome'] }}</p>
@@ -34,7 +34,7 @@
                                 <p class="mb-2"><strong>Igreja:</strong> {{ $dados_trial['igreja']['nome'] }}</p>
                             </div>
                             <div class="col-md-6">
-                                <p class="mb-2"><strong>Período Solicitado:</strong> <span class="text-primary fw-bold">{{ $dados_trial['periodo']['dias'] }} dias</span></p>
+                                <p class="mb-2"><strong>Período Solicitado:</strong> <span class="text-info fw-bold">{{ $dados_trial['periodo']['dias'] }} dias</span></p>
                                 <p class="mb-2"><strong>Status:</strong> <span class="badge bg-warning">Aguardando Aprovação</span></p>
                                 <p class="mb-2"><strong>Data da Solicitação:</strong> {{ now()->format('d/m/Y H:i') }}</p>
                             </div>
@@ -60,7 +60,7 @@
             <div class="card border-0 shadow-lg">
                 <div class="card-body p-5">
                     <div class="text-center mb-5">
-                        <h2 class="h1 fw-bold text-primary mb-3">Solicitar Período de Teste</h2>
+                        <h2 class="h1 fw-bold text-info mb-3">Solicitar Período de Teste</h2>
                         <p class="lead text-muted fs-5">
                             Preencha os dados abaixo para criar sua conta de teste gratuita. Você terá acesso completo a todas as funcionalidades por 10 dias.
                         </p>
@@ -79,7 +79,7 @@
                             {{-- Nome --}}
                             <div class="col-md-6">
                                 <label for="nome" class="form-label fw-semibold">
-                                    <i class="fas fa-user me-2 text-primary"></i>Nome Completo *
+                                    <i class="fas fa-user me-2 text-info"></i>Nome Completo *
                                 </label>
                                 <input
                                     type="text"
@@ -97,7 +97,7 @@
                             {{-- Email --}}
                             <div class="col-md-6">
                                 <label for="email" class="form-label fw-semibold">
-                                    <i class="fas fa-envelope me-2 text-primary"></i>Email *
+                                    <i class="fas fa-envelope me-2 text-info"></i>Email *
                                 </label>
                                 <input
                                     type="email"
@@ -116,7 +116,7 @@
                             {{-- Senha --}}
                             <div class="col-md-6">
                                 <label for="password" class="form-label fw-semibold">
-                                    <i class="fas fa-lock me-2 text-primary"></i>Senha *
+                                    <i class="fas fa-lock me-2 text-info"></i>Senha *
                                 </label>
                                 <input
                                     type="password"
@@ -135,7 +135,7 @@
                             {{-- Confirmar Senha --}}
                             <div class="col-md-6">
                                 <label for="password_confirmation" class="form-label fw-semibold">
-                                    <i class="fas fa-lock me-2 text-primary"></i>Confirmar Senha *
+                                    <i class="fas fa-lock me-2 text-info"></i>Confirmar Senha *
                                 </label>
                                 <input
                                     type="password"
@@ -154,7 +154,7 @@
                             {{-- Nome da Igreja --}}
                             <div class="col-md-6">
                                 <label for="igreja_nome" class="form-label fw-semibold">
-                                    <i class="fas fa-church me-2 text-primary"></i>Nome da Igreja *
+                                    <i class="fas fa-church me-2 text-info"></i>Nome da Igreja *
                                 </label>
                                 <input
                                     type="text"
@@ -173,7 +173,7 @@
                             {{-- Denominação --}}
                             <div class="col-md-6">
                                 <label for="denominacao" class="form-label fw-semibold">
-                                    <i class="fas fa-building me-2 text-primary"></i>Denominação *
+                                    <i class="fas fa-building me-2 text-info"></i>Denominação *
                                 </label>
                                 <select
                                     id="denominacao"
@@ -190,7 +190,7 @@
                             {{-- Telefone --}}
                             <div class="col-md-6">
                                 <label for="telefone" class="form-label fw-semibold">
-                                    <i class="fas fa-phone me-2 text-primary"></i>Telefone *
+                                    <i class="fas fa-phone me-2 text-info"></i>Telefone *
                                 </label>
                                 <input
                                     type="tel"
@@ -205,7 +205,7 @@
                             {{-- Cidade --}}
                             <div class="col-md-6">
                                 <label for="cidade" class="form-label fw-semibold">
-                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>Cidade
+                                    <i class="fas fa-map-marker-alt me-2 text-info"></i>Cidade
                                 </label>
                                 <input
                                     type="text"
@@ -220,7 +220,7 @@
                             {{-- Província --}}
                             <div class="col-md-6">
                                 <label for="provincia" class="form-label fw-semibold">
-                                    <i class="fas fa-map me-2 text-primary"></i>Província
+                                    <i class="fas fa-map me-2 text-info"></i>Província
                                 </label>
                                 <select
                                     id="provincia"
@@ -262,7 +262,7 @@
                                 class="form-check-input"
                             >
                             <label for="aceitou_termos" class="form-check-label fw-semibold">
-                                Li e aceito os <a href="#" target="_blank" class="text-primary text-decoration-none">Termos de Uso</a> e <a href="#" target="_blank" class="text-primary text-decoration-none">Política de Privacidade</a> do OmnIgrejas *
+                                Li e aceito os <a href="#" target="_blank" class="text-info text-decoration-none">Termos de Uso</a> e <a href="#" target="_blank" class="text-info text-decoration-none">Política de Privacidade</a> do OmnIgrejas *
                             </label>
                         </div>
                         @error('aceitou_termos')
@@ -275,7 +275,7 @@
                         <div class="text-center mt-5">
                             <button
                                 type="submit"
-                                class="btn btn-primary btn-lg px-5 py-3 fw-bold"
+                                class="btn bg-info text-light btn-lg px-5 py-3 fw-bold"
                                 wire:loading.attr="disabled"
                                 wire:loading.class="opacity-50"
                             >
@@ -302,7 +302,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-10">
             <div class="text-center mb-5">
-                <h3 class="h1 fw-bold text-primary mb-4">O que você terá acesso durante o teste</h3>
+                <h3 class="h1 fw-bold text-info mb-4">O que você terá acesso durante o teste</h3>
                 <p class="lead text-muted">Todas as funcionalidades premium por 10 dias completamente grátis</p>
             </div>
 

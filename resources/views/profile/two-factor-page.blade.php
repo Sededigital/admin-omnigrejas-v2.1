@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-shield-alt me-2"></i>Autenticação de Dois Fatores (2FA)
                         </h1>
                         <p class="mb-0 text-muted">Proteja sua conta com uma camada extra de segurança</p>
@@ -64,7 +64,7 @@
                                 <i class="fas fa-times me-1"></i>Desativar 2FA
                             </button>
                         @else
-                            <button class="btn btn-light text-primary fw-semibold" wire:click="generateNewSecret">
+                            <button class="btn btn-light text-info fw-semibold" wire:click="generateNewSecret">
                                 <i class="fas fa-play me-1"></i>Ativar Agora
                             </button>
                         @endif
@@ -104,7 +104,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
-                        <h6 class="text-primary mb-3 fw-bold">
+                        <h6 class="text-info mb-3 fw-bold">
                             <i class="fas fa-list-check me-2"></i>Passos para Configuração:
                         </h6>
                         <div class="timeline">
@@ -120,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="timeline-item mb-3">
-                                <div class="timeline-marker bg-primary">
+                                <div class="timeline-marker bg-info text-light">
                                     <i class="fas fa-qrcode text-white"></i>
                                 </div>
                                 <div class="timeline-content">
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                             <div class="timeline-item mb-3">
-                                <div class="timeline-marker bg-info">
+                                <div class="timeline-marker bg-info text-light">
                                     <i class="fas fa-cogs text-white"></i>
                                 </div>
                                 <div class="timeline-content">
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <h6 class="text-primary mb-3 fw-bold">
+                        <h6 class="text-info mb-3 fw-bold">
                             <i class="fas fa-mobile-alt me-2"></i>Apps Recomendados:
                         </h6>
                         <div class="d-grid gap-2">
@@ -165,7 +165,7 @@
                                 <small class="text-muted">Grátis e confiável</small>
                             </div>
                             <div class="app-card p-3 border rounded text-center bg-light">
-                                <i class="fas fa-mobile-alt text-primary fs-2 mb-2"></i>
+                                <i class="fas fa-mobile-alt text-info fs-2 mb-2"></i>
                                 <div class="fw-semibold">Authy</div>
                                 <small class="text-muted">Backup na nuvem</small>
                             </div>
@@ -189,10 +189,10 @@
             <div class="card-header bg-light border-0">
                 <div class="d-flex align-items-center">
                     <div class="me-3">
-                        <i class="fas fa-cogs text-primary fs-4"></i>
+                        <i class="fas fa-cogs text-info fs-4"></i>
                     </div>
                     <div>
-                        <h5 class="mb-1 fw-bold text-primary">
+                        <h5 class="mb-1 fw-bold text-info">
                             <i class="fas fa-shield-alt me-2"></i>Configuração da Autenticação 2FA
                         </h5>
                         <p class="mb-0 small text-muted">
@@ -300,7 +300,7 @@
                 @else
                 <!-- Botão para Iniciar Configuração -->
                 <div class="text-center py-4">
-                    <button class="btn btn-primary btn-lg" wire:click="generateNewSecret">
+                    <button class="btn bg-info text-light btn-lg" wire:click="generateNewSecret">
                         <i class="fas fa-qrcode me-2"></i>Iniciar Configuração do 2FA
                     </button>
                     <p class="text-muted mt-2 mb-0">
@@ -619,7 +619,7 @@
     <!-- Template oculto para PDF dos códigos de recuperação -->
     <div id="recoveryCodesPDF" class="d-none">
         <div class="pdf-header text-center mb-4">
-            <h2 class="text-primary mb-2">
+            <h2 class="text-info mb-2">
                 <i class="fas fa-shield-alt me-2"></i>Códigos de Recuperação 2FA
             </h2>
             <p class="text-muted mb-0">Guarde estes códigos em local seguro</p>

@@ -14,7 +14,7 @@
                     <!-- Informações da Doação -->
                     <div class="col-12">
                         <div class="card border-primary">
-                            <div class="card-header bg-primary text-white">
+                            <div class="card-header bg-info text-light text-white">
                                 <h6 class="mb-0">
                                     <i class="fas fa-info-circle me-2"></i>Informações da Doação
                                 </h6>
@@ -63,7 +63,7 @@
                     <!-- Informações do Doador -->
                     <div class="col-12">
                         <div class="card border-info">
-                            <div class="card-header bg-info text-white">
+                            <div class="card-header bg-info text-light text-white">
                                 <h6 class="mb-0">
                                     <i class="fas fa-user me-2"></i>Informações do Doador
                                 </h6>

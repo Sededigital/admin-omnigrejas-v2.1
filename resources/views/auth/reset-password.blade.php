@@ -2,7 +2,7 @@
    <div class="wrapper">
       <section class="login-content">
          <div class="row m-0 align-items-center bg-white h-100">
-               <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
+               <div class="col-md-6 d-md-block d-none bg-info text-light p-0 mt-n1 vh-100 overflow-hidden">
                <img src="../../assets/images/auth/05.png" class="img-fluid gradient-main animated-scaleX" alt="images">
             </div>
             <div class="col-md-6">
@@ -40,10 +40,7 @@
                                 </div>
                                 <!--logo End-->
 
-                                <h2 class="logo-title fw-bold m-0"
-                                    style="font-size:60px; line-height:1; margin-left:-22px;">
-                                    <span class="text-primary">mn</span><span class="text-success">Igrejas</span>
-                                </h2>
+                           
                             </a>
                            <h2 class="mb-2 text-center">Atualizar nova senha</h2>
 
@@ -73,7 +70,7 @@
 
                               </div>
                               <div class="d-flex justify-content-center">
-                                 <button type="button" wire:click='resetPassword' class="btn btn-primary bg-primary border-0">
+                                 <button type="button" wire:click='resetPassword' class="btn bg-info text-light bg-info text-light border-0">
                                      <span wire:loading wire:target="resetPassword" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                                     Atualizar
                                  </button>

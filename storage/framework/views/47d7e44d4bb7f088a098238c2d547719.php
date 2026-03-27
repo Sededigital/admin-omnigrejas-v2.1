@@ -2,7 +2,7 @@
 
  
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-0">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-0">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -58,7 +58,7 @@
                 <div class="card h-100 border-0 shadow-lg card-pricing">
                     <div class="card-body text-center p-4">
                         <div class="mb-4">
-                            <i class="fas fa-users fa-4x text-primary"></i>
+                            <i class="fas fa-users fa-4x text-info"></i>
                         </div>
                         <h5 class="card-title fw-bold mb-3 fs-4">Gestão de Membros</h5>
                         <p class="text-muted mb-0">
@@ -142,7 +142,7 @@
                 <div class="card h-100 border-0 shadow-lg card-pricing">
                     <div class="card-body text-center p-4">
                         <div class="mb-4">
-                            <i class="fas fa-handshake fa-4x text-primary"></i>
+                            <i class="fas fa-handshake fa-4x text-info"></i>
                         </div>
                         <h5 class="card-title fw-bold mb-3 fs-4">Alianças</h5>
                         <p class="text-muted mb-0">
@@ -282,7 +282,7 @@
                 <div class="card h-100 border-0 shadow-lg card-pricing">
                     <div class="card-body text-center p-4">
                         <div class="mb-4">
-                            <i class="fas fa-file-alt fa-4x text-primary"></i>
+                            <i class="fas fa-file-alt fa-4x text-info"></i>
                         </div>
                         <h5 class="card-title fw-bold mb-3 fs-4">Relatórios de Culto</h5>
                         <p class="text-muted mb-0">
@@ -366,7 +366,7 @@
                 <div class="card h-100 border-0 shadow-lg card-pricing">
                     <div class="card-body text-center p-4">
                         <div class="mb-4">
-                            <i class="fas fa-envelope fa-4x text-primary"></i>
+                            <i class="fas fa-envelope fa-4x text-info"></i>
                         </div>
                         <h5 class="card-title fw-bold mb-3 fs-4">Mensagens Privadas</h5>
                         <p class="text-muted mb-0">
@@ -436,7 +436,7 @@
                 <div class="card h-100 border-0 shadow-lg card-pricing">
                     <div class="card-body text-center p-4">
                         <div class="mb-4">
-                            <i class="fas fa-shield-alt fa-4x text-primary"></i>
+                            <i class="fas fa-shield-alt fa-4x text-info"></i>
                         </div>
                         <h5 class="card-title fw-bold mb-3 fs-4">Auditoria</h5>
                         <p class="text-muted mb-0">
@@ -450,10 +450,10 @@
 
     <!-- Pricing Section -->
     <div class="pricing-header text-center position-relative mb-5">
-        <h2 class="fw-bold mb-3 gradient-text display-5">Planos Flexíveis</h2>
+        <h2 class="fw-bold mb-3 text-info display-5">Planos Flexíveis</h2>
         <p class="text-muted lead mb-4 fs-5">Escolha o plano ideal para sua igreja</p>
         <div class="mt-4">
-            <a href="<?php echo e(route('ecommerce.subscription.upgrade')); ?>" class="btn btn-primary btn-glow btn-lg px-5 py-3 fw-bold">
+            <a href="<?php echo e(route('ecommerce.subscription.upgrade')); ?>" class="btn bg-info text-light btn-glow btn-lg px-5 py-3 fw-bold">
                 <i class="fas fa-rocket me-2"></i>Ver Planos e Assinar
             </a>
         </div>
@@ -461,7 +461,7 @@
 
 
     <!-- CTA Section -->
-    <div class="card cta-gradient text-white border-0 shadow-lg mt-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mt-5">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">Pronto para Começar?</h3>
             <p class="lead mb-4 fs-5">

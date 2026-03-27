@@ -16,7 +16,9 @@
             .full-width { width: 100% !important; min-width: 100% !important; }
             .content-padding { padding: 30px 20px !important; }
             .header-padding { padding: 30px 20px !important; }
-            .credential-value-cell { word-break: break-all; } /* Garante que o valor quebre em telas pequenas */
+            .credential-row { display: block; margin-bottom: 16px; }
+            .credential-label { display: block; width: 100%; margin-bottom: 8px; padding-bottom: 0 !important; }
+            .credential-value-cell { display: block; width: 100%; overflow-wrap: break-word; }
         }
     </style>
 </head>
@@ -80,8 +82,8 @@
                                         <!-- Tabela das Credenciais (Alinhamento em uma única linha por item) -->
                                         <table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 0;">
                                             <!-- Linha 1: Email -->
-                                            <tr>
-                                                <td style="width: 30%; font-weight: 600; color: #374151; font-size: 14px; padding-right: 15px; padding-bottom: 16px; vertical-align: middle;">
+                                            <tr class="credential-row">
+                                                <td class="credential-label" style="width: 30%; font-weight: 600; color: #374151; font-size: 14px; padding-right: 15px; padding-bottom: 16px; vertical-align: middle;">
                                                     Email:
                                                 </td>
                                                 <td class="credential-value-cell" style="width: 70%; font-family: 'Monaco', 'Menlo', monospace; background-color: #f1f5f9; padding: 12px 15px; border-radius: 8px; color: #1e293b; font-weight: 600; font-size: 16px; letter-spacing: 0.5px; border: 1px solid #cbd5e1; vertical-align: middle;">
@@ -89,8 +91,8 @@
                                                 </td>
                                             </tr>
                                             <!-- Linha 2: Senha Temporária -->
-                                            <tr>
-                                                <td style="width: 30%; font-weight: 600; color: #374151; font-size: 14px; padding-right: 15px; vertical-align: middle;">
+                                            <tr class="credential-row">
+                                                <td class="credential-label" style="width: 30%; font-weight: 600; color: #374151; font-size: 14px; padding-right: 15px; vertical-align: middle;">
                                                     Senha Temporária:
                                                 </td>
                                                 <td class="credential-value-cell" style="width: 70%; font-family: 'Monaco', 'Menlo', monospace; background-color: #f1f5f9; padding: 12px 15px; border-radius: 8px; color: #1e293b; font-weight: 600; font-size: 16px; letter-spacing: 1px; border: 1px solid #cbd5e1; vertical-align: middle;">

@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-star me-2"></i>Minhas Alianças
                         </h1>
                         <p class="mb-0 text-muted">Gerencie as alianças criadas pela sua igreja</p>
@@ -15,7 +15,7 @@
                             <a href="{{ route('churches.alliance.tools') }}" wire:navigate class="btn btn-outline-secondary btn-md">
                                 <i class="fas fa-arrow-left me-2"></i>Voltar
                             </a>
-                            <button class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#allianceModal">
+                            <button class="btn bg-info text-light btn-md" data-bs-toggle="modal" data-bs-target="#allianceModal">
                                 <i class="fas fa-plus-circle me-2"></i>Nova Aliança
                             </button>
                         </div>
@@ -29,8 +29,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-handshake text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-handshake text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total Criadas</div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h6 class="card-title mb-0">
-                                    <i class="fas fa-handshake text-primary me-2"></i>
+                                    <i class="fas fa-handshake text-info me-2"></i>
                                     {{ $alianca->nome }}
                                     @if($alianca->sigla)
                                         <small class="text-muted">({{ $alianca->sigla }})</small>
@@ -149,7 +149,7 @@
                             </div>
                             <div class="col-6">
                                 <small class="text-muted d-block">Membros</small>
-                                <span class="fw-semibold text-primary">
+                                <span class="fw-semibold text-info">
                                     <i class="fas fa-users me-1"></i>{{ $alianca->aderentes_count }}
                                 </span>
                             </div>
@@ -209,7 +209,7 @@
                         <i class="fas fa-handshake text-muted mb-3" style="font-size: 3rem;"></i>
                         <h5 class="text-muted">Você ainda não criou nenhuma aliança</h5>
                         <p class="text-muted">Comece criando sua primeira aliança para conectar com outras igrejas</p>
-                        <button class="btn btn-primary" wire:click="criarNovaAlianca">
+                        <button class="btn bg-info text-light" wire:click="criarNovaAlianca">
                             <i class="fas fa-plus-circle me-2"></i>Criar Primeira Aliança
                         </button>
                     </div>
@@ -237,7 +237,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="allianceModalLabel">
-                        <i class="fas fa-handshake text-primary me-2"></i>
+                        <i class="fas fa-handshake text-info me-2"></i>
                         <span>{{ $isEditing ? 'Editar Aliança' : 'Criar Nova Aliança' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -255,14 +255,14 @@
                                         data-bs-toggle="tab"
                                         data-bs-target="#alliance-nav-basic"
                                         type="button" role="tab">
-                                    <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                    <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                                 </button>
                                 <button class="nav-link border-0 bg-transparent fw-semibold"
                                         id="alliance-nav-details-tab"
                                         data-bs-toggle="tab"
                                         data-bs-target="#alliance-nav-details"
                                         type="button" role="tab">
-                                    <i class="fas fa-file-alt text-primary me-1"></i>Detalhes
+                                    <i class="fas fa-file-alt text-info me-1"></i>Detalhes
                                 </button>
                             </div>
                         </nav>
@@ -278,7 +278,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="text"  autocomplete="new-password"  autocomplete="new-password"  class="form-control @error('nome') is-invalid @enderror"
                                                    wire:model="nome" placeholder="Digite o nome da aliança" required>
-                                            <label><i class="fas fa-handshake text-primary me-1"></i>Nome da Aliança *</label>
+                                            <label><i class="fas fa-handshake text-info me-1"></i>Nome da Aliança *</label>
                                             @error('nome')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -290,7 +290,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="text"  autocomplete="new-password"  autocomplete="new-password"  class="form-control text-uppercase @error('sigla') is-invalid @enderror"
                                                    wire:model="sigla" placeholder="Ex: AEA" maxlength="10">
-                                            <label><i class="fas fa-tag text-primary me-1"></i>Sigla</label>
+                                            <label><i class="fas fa-tag text-info me-1"></i>Sigla</label>
                                             @error('sigla')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -304,7 +304,7 @@
                                                     wire:model.live="categoria_id" >
                                                     <option value="">{{ Auth::user()->getIgreja()->categoria->nome }}</option>
                                             </select>
-                                            <label><i class="fas fa-tags text-primary me-1"></i>Categoria *</label>
+                                            <label><i class="fas fa-tags text-info me-1"></i>Categoria *</label>
                                             @error('categoria_id')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -316,7 +316,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control @error('limite_membros') is-invalid @enderror"
                                                    wire:model="limite_membros" min="1" max="1000000" placeholder="Deixe vazio para ilimitado">
-                                            <label><i class="fas fa-users text-primary me-1"></i>Limite de Membros</label>
+                                            <label><i class="fas fa-users text-info me-1"></i>Limite de Membros</label>
                                             @error('limite_membros')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -335,7 +335,7 @@
                                             <textarea class="form-control @error('descricao') is-invalid @enderror"
                                                       wire:model="descricao" rows="6" style="height: 150px;"
                                                       placeholder="Descreva os objetivos, missão e valores da aliança" required></textarea>
-                                            <label><i class="fas fa-align-left text-primary me-1"></i>Descrição da Aliança *</label>
+                                            <label><i class="fas fa-align-left text-info me-1"></i>Descrição da Aliança *</label>
                                             @error('descricao')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -345,7 +345,7 @@
                                     <!-- Status Visual -->
                                     <div class="col-12">
                                         <div class="alert alert-light border">
-                                            <i class="fas fa-info-circle text-primary me-2"></i>
+                                            <i class="fas fa-info-circle text-info me-2"></i>
                                             <strong>Status:</strong>
                                             <span class="text-muted">
                                                 {{ $isEditing ? 'Editando Aliança' : 'Nova Aliança' }}
@@ -363,7 +363,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="salvarAlianca" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="salvarAlianca" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="salvarAlianca">
                             <i class="fas fa-save me-1"></i>{{ $isEditing ? 'Atualizar Aliança' : 'Criar Aliança' }}
                         </span>

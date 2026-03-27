@@ -18,9 +18,7 @@
                                                 <img src="{{ asset('system/img/logo-system/icon.png') }}" alt="logo">
                                             </div>
                                         </div>
-                                        <h1 class="logo-title fw-bold">
-                                            <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
-                                        </h1>
+                                       
                                     </a>
 
                                     <!-- Título -->
@@ -51,7 +49,7 @@
                                     <!-- Dicas sobre os códigos -->
                                     <div class="alert alert-light border mb-3">
                                         <div class="d-flex align-items-start">
-                                            <i class="fas fa-info-circle text-primary me-2 mt-1"></i>
+                                            <i class="fas fa-info-circle text-info me-2 mt-1"></i>
                                             <div>
                                                 <small class="fw-semibold">Código 2FA:</small> <small>6 dígitos do app autenticador</small><br>
                                                 <small class="fw-semibold">Código Recuperação:</small> <small>Código longo por email</small><br>
@@ -80,7 +78,7 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center mt-4">
-                                            <button type="submit" class="btn btn-primary bg-primary border-0 d-flex align-items-center"
+                                            <button type="submit" class="btn bg-info text-light bg-info text-light border-0 d-flex align-items-center"
                                                     wire:loading.attr="disabled" wire:target="verifyCode">
                                                 <span wire:loading wire:target="verifyCode" class="spinner-border spinner-border-sm me-2"></span>
                                                 <i class="fas fa-sign-in-alt me-2"></i>Verificar e Entrar
@@ -92,7 +90,7 @@
                                     <div class="text-center mt-3">
                                         <div class="row g-2">
                                             <div class="col-12">
-                                                <button class="btn btn-info bg-info btn-sm w-100" wire:click="toggleRecoveryCode">
+                                                <button class="btn btn-info bg-info text-light btn-sm w-100" wire:click="toggleRecoveryCode">
                                                     <i class="fas fa-key me-1"></i>Usar Código de Recuperação
                                                 </button>
                                             </div>
@@ -143,7 +141,7 @@
                                     <!-- Opção de Envio por Email -->
                                     <div class="text-center">
                                         <div class="mb-4">
-                                            <i class="fas fa-envelope-open-text text-primary" style="font-size: 4rem;"></i>
+                                            <i class="fas fa-envelope-open-text text-info" style="font-size: 4rem;"></i>
                                         </div>
                                         <h5 class="mb-3">Enviar Código por Email</h5>
                                         <p class="text-muted mb-4">
@@ -159,7 +157,7 @@
                                                 </div>
                                             @enderror
 
-                                            <button class="btn btn-primary" wire:click="sendRecoveryCodeByEmail"
+                                            <button class="btn bg-info text-light" wire:click="sendRecoveryCodeByEmail"
                                                     wire:loading.attr="disabled" wire:target="sendRecoveryCodeByEmail">
                                                 <span wire:loading wire:target="sendRecoveryCodeByEmail" class="spinner-border spinner-border-sm me-2"></span>
                                                 <i class="fas fa-paper-plane me-1"></i>Enviar Código por Email
@@ -195,7 +193,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
+                <div class="col-md-6 d-md-block d-none bg-info text-light p-0 mt-n1 vh-100 overflow-hidden">
                     <img src="{{ asset('assets/images/auth/01.png') }}" class="img-fluid gradient-main animated-scaleX" alt="images">
                 </div>
             </div>

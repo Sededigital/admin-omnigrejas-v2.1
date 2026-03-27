@@ -29,7 +29,7 @@
                                             @if($denunciaSelecionada->criadoPor->photo_url)
                                                 <img src="{{ Storage::disk('supabase')->url($denunciaSelecionada->criadoPor->photo_url) }}" alt="Avatar" class="rounded-circle" style="width: 60px; height: 60px;">
                                             @else
-                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                                <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
                                                     <span class="fw-bold fs-4">{{ substr($denunciaSelecionada->criadoPor->name, 0, 1) }}</span>
                                                 </div>
                                             @endif

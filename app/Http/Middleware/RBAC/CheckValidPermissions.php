@@ -102,7 +102,7 @@ class CheckValidPermissions
         }
 
         # Verificar se usuário tem pelo menos uma função ativa
-        $hasRole = PermissionHelper::hasAnyRole($user, false); # false = não usar cache para verificação em tempo real
+        $hasRole = PermissionHelper::hasAnyRole($user, true); # true = usar cache para performance
         if (!$hasRole) {
             //**/ Log::warning('Usuário não tem funções ativas', [
             //**/     'user_id' => $user->id,

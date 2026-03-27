@@ -7,7 +7,7 @@
                 <div class="card h-100">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h6 class="mb-0">
-                            <i class="fas fa-comments text-primary me-2"></i>Chats da Igreja
+                            <i class="fas fa-comments text-info me-2"></i>Chats da Igreja
                         </h6>
                         @if($isAdmin)
                             <button class="btn btn-outline-primary btn-sm" onclick="openCriarChatModal()">
@@ -20,7 +20,7 @@
                     <div class="card-body p-0" style="overflow-y: auto; height: calc(100vh - 200px);">
                         @if(!empty($chats))
                             @foreach($chats as $chat)
-                                <div class="alliance-item p-3 border-bottom cursor-pointer {{ $chatAtivo == $chat['id'] ? 'bg-primary text-white' : 'hover-bg-light' }}"
+                                <div class="alliance-item p-3 border-bottom cursor-pointer {{ $chatAtivo == $chat['id'] ? 'bg-info text-light text-white' : 'hover-bg-light' }}"
                                      wire:click="selecionarChat('{{ $chat['id'] }}')">
                                     <div class="d-flex align-items-center">
                                         <div class="alliance-avatar me-3">
@@ -52,7 +52,7 @@
                                 <h6 class="text-muted">Nenhum chat</h6>
                                 <p class="text-muted small">Seja o primeiro a criar um chat</p>
                                 @if($isAdmin)
-                                    <button class="btn btn-primary btn-sm" onclick="openCriarChatModal()">
+                                    <button class="btn bg-info text-light btn-sm" onclick="openCriarChatModal()">
                                         <i class="fas fa-plus me-1"></i>Criar Primeiro Chat
                                     </button>
                                 @endif
@@ -72,7 +72,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <div class="">
                                 <h6 class="mb-0" style="cursor: pointer;" onclick="abrirSobreChat()">
-                                    <i class="fas fa-comments text-primary me-2"></i>
+                                    <i class="fas fa-comments text-info me-2"></i>
                                     {{ $chatSelecionado['nome'] ?? 'Chat da Igreja' }}
                                 </h6>
                                 <small class="text-muted m-2 mb-2 mt-2">
@@ -189,13 +189,13 @@
                                                                        download="{{ $fileName }}"
                                                                        class="d-flex align-items-center p-2 border rounded"
                                                                        style="text-decoration: none; color: inherit; background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3) !important;">
-                                                                        <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-primary me-2"
+                                                                        <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-info me-2"
                                                                            style="font-size: 24px;"></i>
                                                                         <div class="flex-grow-1">
                                                                             <div class="fw-semibold small">{{ Str::limit($fileName, 25) }}</div>
                                                                             <small class="text-muted">{{ strtoupper($fileExtension) }} • Download</small>
                                                                         </div>
-                                                                        <i class="fas fa-download text-primary ms-2"></i>
+                                                                        <i class="fas fa-download text-info ms-2"></i>
                                                                     </a>
                                                                 </div>
                                                             @endif
@@ -294,7 +294,7 @@
                                 @if($arquivoAudio || $arquivoAnexo)
                                 <div class="mb-2 p-2 bg-light rounded d-flex align-items-center justify-content-between">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-paperclip text-primary me-2"></i>
+                                        <i class="fas fa-paperclip text-info me-2"></i>
                                         <small class="text-muted">
                                             @if($arquivoAudio)
                                                 🎵 {{ $arquivoAudio->getClientOriginalName() }}
@@ -795,16 +795,16 @@
                         <div class="card h-100">
                             <div class="card-header d-flex align-items-center bg-light">
                                 <button class="btn btn-link p-0 me-3 text-decoration-none" onclick="fecharSobreChat()">
-                                    <i class="fas fa-arrow-left text-primary" style="font-size: 1.2rem;"></i>
+                                    <i class="fas fa-arrow-left text-info" style="font-size: 1.2rem;"></i>
                                 </button>
                                 <h6 class="mb-0 flex-grow-1">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>Sobre
+                                    <i class="fas fa-info-circle text-info me-2"></i>Sobre
                                 </h6>
                             </div>
                             <div class="card-body p-0" style="overflow-y: auto; height: calc(100vh - 200px);">
                                 <div class="p-4">
                                     <div class="text-center mb-4 position-relative">
-                                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                        <div class="bg-info text-light text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
                                             style="width: 80px; height: 80px; font-size: 2rem;">
                                             <i class="fas fa-comment-dots"></i>
                                         </div>
@@ -860,7 +860,7 @@
                             wire:ignore.self>
                             <div class="modal-dialog modal-dialog-centered" style="position: relative !important; top: 50% !important; transform: translateY(-50%) !important; z-index: 1061 !important;">
                                 <div class="modal-content" style="border-radius: 12px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; position: relative !important; z-index: 1062 !important;">
-                                    <div class="modal-header bg-primary text-white">
+                                    <div class="modal-header bg-info text-light text-white">
                                         <h5 class="modal-title" id="editarChatModalLabel">
                                             <i class="fas fa-edit me-2"></i>Editar Chat
                                         </h5>
@@ -870,13 +870,13 @@
                                         <form id="formEditarChat">
                                             <div class="mb-3">
                                                 <label class="form-label fw-semibold">
-                                                    <i class="fas fa-tag text-primary me-1"></i>Nome do Chat *
+                                                    <i class="fas fa-tag text-info me-1"></i>Nome do Chat *
                                                 </label>
                                                 <input type="text" autocomplete="off" class="form-control" id="editChatNome" value="${chatName}" maxlength="255" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-semibold">
-                                                    <i class="fas fa-align-left text-primary me-1"></i>Descrição (opcional)
+                                                    <i class="fas fa-align-left text-info me-1"></i>Descrição (opcional)
                                                 </label>
                                                 <textarea class="form-control" id="editChatDescricao" rows="3" maxlength="500" placeholder="Descreva o propósito deste chat..."></textarea>
                                             </div>
@@ -886,7 +886,7 @@
                                         <button type="button" class="btn btn-outline-secondary" onclick="fecharModalEditarChat()">
                                             <i class="fas fa-times me-1"></i>Cancelar
                                         </button>
-                                        <button type="button" class="btn btn-primary" onclick="salvarEdicaoChat()">
+                                        <button type="button" class="btn bg-info text-light" onclick="salvarEdicaoChat()">
                                             <i class="fas fa-save me-1"></i>Salvar Alterações
                                         </button>
                                     </div>
@@ -1011,10 +1011,10 @@
                         <div class="card h-100">
                             <div class="card-header d-flex align-items-center bg-light">
                                 <button class="btn btn-link p-0 me-3 text-decoration-none" onclick="abrirSobreChat()">
-                                    <i class="fas fa-arrow-left text-primary" style="font-size: 1.2rem;"></i>
+                                    <i class="fas fa-arrow-left text-info" style="font-size: 1.2rem;"></i>
                                 </button>
                                 <h6 class="mb-0 flex-grow-1">
-                                    <i class="fas fa-shield-alt text-primary me-2"></i>Administradores
+                                    <i class="fas fa-shield-alt text-info me-2"></i>Administradores
                                 </h6>
                                 <button class="btn btn-sm btn-outline-success" onclick="abrirModalAdicionarAdmin()">
                                     <i class="fas fa-plus me-1"></i>Adicionar
@@ -1024,7 +1024,7 @@
                                 <div class="p-4">
                                     <div id="lista-admins">
                                         <div class="text-center py-4">
-                                            <div class="spinner-border text-primary" role="status">
+                                            <div class="spinner-border text-info" role="status">
                                                 <span class="visually-hidden">Carregando...</span>
                                             </div>
                                             <p class="text-muted mt-2">Carregando administradores...</p>
@@ -1100,7 +1100,7 @@
                                 <div class="flex-shrink-0 me-3">
                                     ${admin.photo_url ?
                                         `<img src="${admin.photo_url}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">` :
-                                        `<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        `<div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                                             ${admin.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2)}
                                         </div>`
                                     }
@@ -1802,7 +1802,7 @@
          data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-primary">
+                <div class="modal-header bg-info text-light">
                     <h5 class="modal-title fw-bold" id="criarChatModalLabel">
                         <i class="fas fa-plus-circle text-white me-2"></i>Criar Novo Chat
                     </h5>
@@ -1811,7 +1811,7 @@
                 <div class="modal-body">
                     <form wire:submit.prevent="criarChat">
                         <div class="text-center mb-4">
-                            <i class="fas fa-comment-dots text-primary" style="font-size: 3rem;"></i>
+                            <i class="fas fa-comment-dots text-info" style="font-size: 3rem;"></i>
                         </div>
                         <h6 class="fw-bold text-center mb-3">Crie um novo chat para a igreja</h6>
                         <p class="text-muted mb-4">
@@ -1820,7 +1820,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
-                            <i class="fas fa-tag text-primary me-1"></i>Nome do Chat *
+                            <i class="fas fa-tag text-info me-1"></i>Nome do Chat *
                         </label>
                         <input type="text"  autocomplete="new-password" autocomplete="new-password" 
                                class="form-control @error('nomeChat') is-invalid @enderror"
@@ -1834,7 +1834,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
-                            <i class="fas fa-align-left text-primary me-1"></i>Descrição (opcional)
+                            <i class="fas fa-align-left text-info me-1"></i>Descrição (opcional)
                         </label>
                         <textarea class="form-control @error('descricaoChat') is-invalid @enderror"
                                   wire:model="descricaoChat"
@@ -1848,7 +1848,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
-                            <i class="fas fa-eye text-primary me-1"></i>Visibilidade do Chat
+                            <i class="fas fa-eye text-info me-1"></i>Visibilidade do Chat
                         </label>
                         <div class="row">
                             <div class="col-6">
@@ -1886,7 +1886,7 @@
                     <button type="button" class="btn btn-outline-secondary" onclick="closeCriarChatModal()">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-primary"
+                    <button type="submit" class="btn bg-info text-light"
                             wire:loading.attr="disabled"
                             wire:target="criarChat">
                         <span wire:loading.remove wire:target="criarChat">

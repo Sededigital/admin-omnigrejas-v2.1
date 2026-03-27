@@ -391,7 +391,7 @@ class PaymentPage extends Component
             'deposito' => [
                 'nome' => 'Depósito Bancário',
                 'icone' => 'fas fa-university',
-                'cor' => 'text-primary',
+                'cor' => 'text-info',
                 'descricao' => 'Depósito direto na conta bancária',
                 'requer_referencia' => true
             ],

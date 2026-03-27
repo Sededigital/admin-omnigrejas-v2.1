@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="productModalLabel">
-                    <i class="fas fa-box text-primary me-2"></i>
+                    <i class="fas fa-box text-info me-2"></i>
                     <span>{{ $isEditing ? 'Editar Produto' : 'Cadastrar Novo Produto' }}</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -23,7 +23,7 @@
                             <div class="form-floating mb-3">
                                 <input type="text"  autocomplete="new-password" class="form-control @error('nome') is-invalid @enderror"
                                        wire:model="nome" placeholder="Nome do produto">
-                                <label><i class="fas fa-tag text-primary me-1"></i>Nome *</label>
+                                <label><i class="fas fa-tag text-info me-1"></i>Nome *</label>
                                 @error('nome')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -35,7 +35,7 @@
                             <div class="form-floating mb-3">
                                 <input type="number" step="0.01" min="0" class="form-control @error('preco') is-invalid @enderror"
                                        wire:model="preco" placeholder="0.00">
-                                <label><i class="fas fa-dollar-sign text-primary me-1"></i>Preço (AOA) *</label>
+                                <label><i class="fas fa-dollar-sign text-info me-1"></i>Preço (AOA) *</label>
                                 @error('preco')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -47,7 +47,7 @@
                             <div class="form-floating mb-3">
                                 <textarea class="form-control @error('descricao') is-invalid @enderror"
                                           wire:model="descricao" rows="3" placeholder="Descrição detalhada do produto"></textarea>
-                                <label><i class="fas fa-align-left text-primary me-1"></i>Descrição</label>
+                                <label><i class="fas fa-align-left text-info me-1"></i>Descrição</label>
                                 @error('descricao')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -59,7 +59,7 @@
                             <div class="form-floating mb-3">
                                 <input type="number" min="0" class="form-control @error('estoque') is-invalid @enderror"
                                        wire:model="estoque" placeholder="0">
-                                <label><i class="fas fa-warehouse text-primary me-1"></i>Estoque *</label>
+                                <label><i class="fas fa-warehouse text-info me-1"></i>Estoque *</label>
                                 @error('estoque')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -69,7 +69,7 @@
                         <!-- Status -->
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label"><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                <label class="form-label"><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <div class="form-check">
@@ -97,7 +97,7 @@
                         <!-- Status Visual -->
                         <div class="col-12">
                             <div class="alert alert-light border">
-                                <i class="fas fa-info-circle text-primary me-2"></i>
+                                <i class="fas fa-info-circle text-info me-2"></i>
                                 <strong>Status:</strong>
                                 <span class="text-muted">
                                     {{ $isEditing ? 'Editando Produto' : 'Novo Produto' }}
@@ -113,7 +113,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="salvarProduct" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="salvarProduct" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="salvarProduct">
                         <i class="fas fa-save me-1"></i>{{ $isEditing ? 'Atualizar Produto' : 'Salvar Produto' }}
                     </span>

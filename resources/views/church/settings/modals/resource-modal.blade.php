@@ -2,7 +2,7 @@
 <div class="modal fade" id="resourceModal" tabindex="-1" aria-labelledby="resourceModalLabel" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
+            <div class="modal-header bg-info text-light">
                 <h5 class="modal-title fw-bold" id="resourceModalLabel">
                     <i class="fas fa-{{ $isEditing ? 'edit' : 'plus' }} text-white me-2"></i>
                     {{ $isEditing ? 'Editar Recurso' : 'Adicionar Recurso' }}
@@ -12,7 +12,7 @@
             <div class="modal-body">
                 <form wire:submit.prevent="salvarRecurso">
                     <div class="text-center mb-4">
-                        <i class="fas fa-boxes text-primary" style="font-size: 3rem;"></i>
+                        <i class="fas fa-boxes text-info" style="font-size: 3rem;"></i>
                     </div>
                     <h6 class="fw-bold text-center mb-3">
                         {{ $isEditing ? 'Atualize as informações do recurso' : 'Cadastre um novo recurso' }}
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-tag text-primary me-1"></i>Nome do Recurso *
+                                <i class="fas fa-tag text-info me-1"></i>Nome do Recurso *
                             </label>
                             <input type="text"  autocomplete="new-password"
                                    class="form-control @error('nome') is-invalid @enderror"
@@ -38,7 +38,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">
-                                <i class="fas fa-list text-primary me-1"></i>Tipo *
+                                <i class="fas fa-list text-info me-1"></i>Tipo *
                             </label>
                             <select class="form-select @error('tipo') is-invalid @enderror"
                                     wire:model="tipo">
@@ -57,7 +57,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">
-                            <i class="fas fa-align-left text-primary me-1"></i>Descrição (opcional)
+                            <i class="fas fa-align-left text-info me-1"></i>Descrição (opcional)
                         </label>
                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                   wire:model="descricao"
@@ -73,7 +73,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" wire:model="disponivel" id="disponivelCheck">
                             <label class="form-check-label fw-semibold" for="disponivelCheck">
-                                <i class="fas fa-toggle-on text-primary me-1"></i>Recurso disponível
+                                <i class="fas fa-toggle-on text-info me-1"></i>Recurso disponível
                             </label>
                         </div>
                         <small class="text-muted">Marque para tornar o recurso disponível para agendamento e uso</small>
@@ -88,7 +88,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-primary"
+                    <button type="submit" class="btn bg-info text-light"
                             wire:loading.attr="disabled"
                             wire:target="salvarRecurso">
                         <span wire:loading.remove wire:target="salvarRecurso">

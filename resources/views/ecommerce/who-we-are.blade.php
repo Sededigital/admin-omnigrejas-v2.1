@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -40,7 +40,7 @@
         <div class="col-lg-8">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h2 class="section-header text-primary fw-bold mb-4">
+                    <h2 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-mobile-alt me-2"></i> O que é OMNIGREJAS?
                     </h2>
 
@@ -58,7 +58,7 @@
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <div class="feature-highlight p-3 bg-light rounded">
-                                    <i class="fas fa-users text-primary fa-2x mb-2"></i>
+                                    <i class="fas fa-users text-info fa-2x mb-2"></i>
                                     <h6 class="fw-bold">Gestão de Membros</h6>
                                     <p class="small mb-0">Cadastro completo, perfis detalhados e controle de ministérios.</p>
                                 </div>
@@ -104,7 +104,7 @@
                     </h3>
 
                     <div class="mission-icon mb-4">
-                        <i class="fas fa-cross fa-4x text-primary"></i>
+                        <i class="fas fa-cross fa-4x text-info"></i>
                     </div>
 
                     <p class="lead mb-4">
@@ -139,7 +139,7 @@
         <div class="col-lg-8">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h2 class="section-header text-primary fw-bold mb-4">
+                    <h2 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-star me-2"></i> Por que escolher OMNIGREJAS?
                     </h2>
 
@@ -152,7 +152,7 @@
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <div class="feature-highlight p-3 bg-light rounded border-start border-primary border-4">
-                                    <i class="fas fa-clock text-primary fa-2x mb-2"></i>
+                                    <i class="fas fa-clock text-info fa-2x mb-2"></i>
                                     <h6 class="fw-bold">Gestão Eficiente do Tempo</h6>
                                     <p class="small mb-0">Automatize tarefas administrativas e foque no que realmente importa: cuidar das almas.</p>
                                 </div>
@@ -198,7 +198,7 @@
                     </h3>
 
                     <div class="company-logo-placeholder bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 120px; height: 120px;">
-                        <i class="fas fa-building fa-3x text-primary"></i>
+                        <i class="fas fa-building fa-3x text-info"></i>
                     </div>
 
                     <p class="mb-3 small">
@@ -226,7 +226,7 @@
     </div>
 
     <!-- CTA Final -->
-    <div class="card cta-gradient text-white border-0 shadow-lg">
+    <div class="card bg-info text-light text-white border-0 shadow-lg">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 Faça Parte da Nossa História

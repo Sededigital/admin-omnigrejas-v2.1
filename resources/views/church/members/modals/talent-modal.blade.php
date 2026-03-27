@@ -5,7 +5,7 @@ data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
        <!-- Header do Modal -->
        <div class="modal-header bg-light border-bottom">
            <h5 class="modal-title fw-bold" id="talentModalLabel">
-               <i class="fas fa-star text-primary me-2"></i>
+               <i class="fas fa-star text-info me-2"></i>
                <span id="modal-title">{{ $editingMember ? 'Adicionar Habilidade - ' . $editingMember->user->name : 'Adicionar Habilidade' }}</span>
            </h5>
            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -91,7 +91,7 @@ data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
 
                <!-- Status Visual -->
                <div class="alert alert-light border">
-                   <i class="fas fa-info-circle text-primary me-2"></i>
+                   <i class="fas fa-info-circle text-info me-2"></i>
                    <strong>Status:</strong>
                    <span class="text-muted">
                        Adicionando nova habilidade
@@ -105,7 +105,7 @@ data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                <i class="fas fa-times me-1"></i>Cancelar
            </button>
-           <button type="button" class="btn btn-primary" wire:click="addSkill" wire:loading.attr="disabled">
+           <button type="button" class="btn bg-info text-light" wire:click="addSkill" wire:loading.attr="disabled">
                <span wire:loading.remove wire:target="addSkill">
                    <i class="fas fa-save me-1"></i>Salvar Habilidade
                </span>

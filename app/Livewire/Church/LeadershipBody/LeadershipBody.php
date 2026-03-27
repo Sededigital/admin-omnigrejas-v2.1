@@ -233,7 +233,7 @@ class LeadershipBody extends Component
         return match($cargo) {
             'admin' => 'bg-danger',
             'pastor' => 'bg-primary',
-            'ministro' => 'bg-info',
+            'ministro' => 'bg-info text-light',
             'obreiro' => 'bg-secondary',
             'diacono' => 'bg-success',
             default => 'bg-light text-dark'

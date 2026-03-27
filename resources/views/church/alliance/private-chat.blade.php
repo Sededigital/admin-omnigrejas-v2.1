@@ -7,9 +7,9 @@
                 <div class="card h-100">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h6 class="mb-0">
-                            <i class="fas fa-user-friends text-primary me-2"></i>Conversas Privadas
+                            <i class="fas fa-user-friends text-info me-2"></i>Conversas Privadas
                         </h6>
-                        <button class="btn btn-sm btn-primary" wire:click="abrirModalNovaConversa" data-bs-toggle="modal"
+                        <button class="btn btn-sm bg-info text-light" wire:click="abrirModalNovaConversa" data-bs-toggle="modal"
                         data-bs-target="#abrirModalNovaConversa" title="Nova conversa">
                             <i class="fas fa-plus"></i>
                         </button>
@@ -17,7 +17,7 @@
                     <div class="card-body p-0" style="overflow-y: auto; height: calc(100vh - 200px);">
                         @if(!empty($conversas))
                             @foreach($conversas as $conversa)
-                                <div class="alliance-item p-3 border-bottom cursor-pointer {{ $conversaAtiva == $conversa['usuario']['id'] ? 'bg-primary text-white' : 'hover-bg-light' }}"
+                                <div class="alliance-item p-3 border-bottom cursor-pointer {{ $conversaAtiva == $conversa['usuario']['id'] ? 'bg-info text-light text-white' : 'hover-bg-light' }}"
                                      wire:click="selecionarConversa('{{ $conversa['usuario']['id'] }}')">
                                     <div class="d-flex align-items-center">
                                         <div class="alliance-avatar me-3">
@@ -27,7 +27,7 @@
                                                      class="rounded-circle"
                                                      style="width: 40px; height: 40px; object-fit: cover;">
                                             @else
-                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center"
                                                      style="width: 40px; height: 40px; font-size: 1.2rem;">
                                                     {{ substr($conversa['usuario']['name'], 0, 1) }}
                                                 </div>
@@ -71,7 +71,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <div class="">
                                 <h6 class="mb-0" style="cursor: pointer;">
-                                    <i class="fas fa-user text-primary me-2"></i>
+                                    <i class="fas fa-user text-info me-2"></i>
                                     {{ $usuarioDestino->name }}
                                 </h6>
                                 <small class="text-muted m-2 mb-2 mt-2">
@@ -191,13 +191,13 @@
                                                                    download="{{ $fileName }}"
                                                                    class="d-flex align-items-center p-2 border rounded"
                                                                    style="text-decoration: none; color: inherit; background: rgba(0,123,255,0.1); border-color: rgba(0,123,255,0.3) !important;">
-                                                                    <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-primary me-2"
+                                                                    <i class="fas fa-file-{{ $fileExtension === 'pdf' ? 'pdf' : 'alt' }} text-info me-2"
                                                                        style="font-size: 24px;"></i>
                                                                     <div class="flex-grow-1">
                                                                         <div class="fw-semibold small">{{ Str::limit($fileName, 25) }}</div>
                                                                         <small class="text-muted">{{ strtoupper($fileExtension) }} • Download</small>
                                                                     </div>
-                                                                    <i class="fas fa-download text-primary ms-2"></i>
+                                                                    <i class="fas fa-download text-info ms-2"></i>
                                                                 </a>
                                                             </div>
                                                         @endif
@@ -298,7 +298,7 @@
                                 @if($arquivoAudio || $arquivoAnexo)
                                 <div class="mb-2 p-2 bg-light rounded d-flex align-items-center justify-content-between">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-paperclip text-primary me-2"></i>
+                                        <i class="fas fa-paperclip text-info me-2"></i>
                                         <small class="text-muted">
                                             @if($arquivoAudio)
                                                 🎵 {{ $arquivoAudio->getClientOriginalName() }}
@@ -433,7 +433,7 @@
                                                  class="rounded-circle"
                                                  style="width: 40px; height: 40px; object-fit: cover;">
                                         @else
-                                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                            <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center"
                                                  style="width: 40px; height: 40px; font-size: 1.2rem;">
                                                 {{ substr($membro['name'], 0, 1) }}
                                             </div>
@@ -472,7 +472,7 @@
 
                             <!-- Loader de busca -->
                             <div wire:loading wire:target="termoBuscaMembro" class="text-center py-3">
-                                <i class="fas fa-spinner fa-spin text-primary me-2"></i>
+                                <i class="fas fa-spinner fa-spin text-info me-2"></i>
                                 <small class="text-muted">Buscando membros...</small>
                             </div>
                         </div>

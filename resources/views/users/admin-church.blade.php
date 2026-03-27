@@ -5,18 +5,18 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-user-shield me-2"></i>Administradores de Igrejas
                         </h1>
                         <p class="mb-0 text-muted">
                             Gerencie os administradores das igrejas
                             @if($preSelectedChurchObj && is_object($preSelectedChurchObj))
-                                <span class="badge bg-primary ms-2">{{ $preSelectedChurchObj->nome }}</span>
+                                <span class="badge bg-info text-light ms-2">{{ $preSelectedChurchObj->nome }}</span>
                             @endif
                         </p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="openAddAdminModal" data-bs-toggle="modal" data-bs-target="#addAdminModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="openAddAdminModal" data-bs-toggle="modal" data-bs-target="#addAdminModal">
                             <i class="fas fa-user-plus me-2"></i>Adicionar Admin
                         </button>
                     </div>
@@ -29,8 +29,8 @@
             <div class="col-6 col-lg-4">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-user-shield text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-user-shield text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total de Admins</div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar Filtros
                             </button>
                         </div>
@@ -94,7 +94,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Administradores
                     </h5>
                 </div>
@@ -235,7 +235,7 @@
                                 <small class="text-muted">{{ $admin->created_at->format('d/m/Y') }}</small>
                             </div>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="openEditAdminModal('{{ $admin->id }}')" data-bs-toggle="modal" data-bs-target="#editAdminModal">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openEditAdminModal('{{ $admin->id }}')" data-bs-toggle="modal" data-bs-target="#editAdminModal">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
                                 <div class="dropdown">
@@ -327,7 +327,7 @@
                                 @if($preSelectedChurchObj)
                                     <!-- Igreja pré-selecionada: mostrar badge fixo -->
                                     <div class="d-flex align-items-center">
-                                        <span class="badge bg-primary fs-6 px-3 py-2">
+                                        <span class="badge bg-info text-light fs-6 px-3 py-2">
                                             <i class="fas fa-building me-1"></i>{{ $preSelectedChurchObj->nome ?? 'Nome não disponível' }}
                                         </span>
                                     </div>
@@ -354,7 +354,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" @if($preSelectedChurchObj) wire:click="closeAddAdminModal" @else data-bs-dismiss="modal" @endif>Cancelar</button>
-                        <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                        <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled">
                             <span wire:loading.remove><i class="fas fa-save me-1"></i>Adicionar Admin</span>
                             <span wire:loading><i class="fas fa-spinner fa-spin me-1"></i>Salvando...</span>
                         </button>
@@ -405,7 +405,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                        <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled">
                             <span wire:loading.remove><i class="fas fa-save me-1"></i>Atualizar</span>
                             <span wire:loading><i class="fas fa-spinner fa-spin me-1"></i>Salvando...</span>
                         </button>

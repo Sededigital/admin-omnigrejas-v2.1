@@ -1,6 +1,6 @@
 <div class="container-fluid py-1">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -63,14 +63,14 @@
         <div class="col-lg-6 mb-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-info-circle me-2"></i> Resumo do Seu Período de Teste
                     </h3>
 
                     <div class="trial-summary">
                         <div class="summary-item mb-3">
                             <div class="summary-label">Olá,</div>
-                            <div class="summary-value fw-bold text-primary">{{ $nomeUsuario }}!</div>
+                            <div class="summary-value fw-bold text-info">{{ $nomeUsuario }}!</div>
                         </div>
 
                         <div class="summary-item mb-3">
@@ -140,7 +140,7 @@
     <div class="card shadow-sm border-0 mb-5">
         <div class="card-body p-4 p-md-5">
             <div class="text-center mb-5">
-                <h2 class="section-header text-primary fw-bold display-5 mb-3">
+                <h2 class="section-header text-info fw-bold display-5 mb-3">
                     <i class="fas fa-exclamation-triangle me-3"></i>O que você perderá se não renovar
                 </h2>
                 <p class="text-muted lead fs-5">Mantenha o acesso completo fazendo upgrade agora</p>
@@ -151,7 +151,7 @@
                     <div class="card feature-loss-card border-0 shadow-sm h-100">
                         <div class="card-body p-4 text-center">
                             <div class="feature-icon mb-3">
-                                <i class="fas fa-users fa-3x text-primary"></i>
+                                <i class="fas fa-users fa-3x text-info"></i>
                             </div>
                             <h5 class="card-title fw-bold">Gestão de Membros</h5>
                             <p class="card-text small text-muted mb-0">Cadastro, perfis e controle de membros serão limitados</p>
@@ -223,7 +223,7 @@
     </div>
 
     <!-- CTA Final -->
-    <div class="card cta-gradient text-white border-0 shadow-lg">
+    <div class="card bg-info text-light text-white border-0 shadow-lg">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 Não Perca Tempo!

@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-chart-bar me-2"></i>Estatísticas da Igreja
                         </h1>
                         <p class="mb-0 text-muted">Acompanhe os dados e métricas da sua igreja</p>
@@ -17,7 +17,7 @@
                                 <span wire:loading.remove wire:target="exportReport">Exportar PDF</span>
                                 <span wire:loading wire:target="exportReport">Gerando...</span>
                             </a>
-                            <button class="btn btn-primary btn-sm" wire:click="refreshData">
+                            <button class="btn bg-info text-light btn-sm" wire:click="refreshData">
                                 <i class="fas fa-sync-alt me-1"></i>Atualizar
                             </button>
                         </div>
@@ -31,8 +31,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-users text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total_members'] ?? 0 }}</div>
+                        <i class="fas fa-users text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total_members'] ?? 0 }}</div>
                         <div class="text-muted small">Total de Membros</div>
                         <div class="mt-2">
                             <small class="text-success">
@@ -188,7 +188,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="applyFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="applyFilters">
                                 <i class="fas fa-filter me-1"></i>Aplicar
                             </button>
                         </div>
@@ -203,7 +203,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-chart-line me-2"></i>Crescimento de Membros
                         </h5>
                     </div>
@@ -219,7 +219,7 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-chart-pie me-2"></i>Distribuição por Cargo
                         </h5>
                     </div>
@@ -238,7 +238,7 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-venus-mars me-2"></i>Distribuição por Gênero
                         </h5>
                     </div>
@@ -254,7 +254,7 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-chart-bar me-2"></i>Faixas Etárias
                         </h5>
                     </div>
@@ -270,7 +270,7 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-comments me-2"></i>Engajamento no Chat
                         </h5>
                     </div>
@@ -289,7 +289,7 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-calendar-alt me-2"></i>Frequência de Eventos
                         </h5>
                     </div>
@@ -305,7 +305,7 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-hands-helping me-2"></i>Engajamento por Ministério
                         </h5>
                     </div>
@@ -324,7 +324,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-birthday-cake me-2"></i>Aniversariantes do Mês
                         </h5>
                     </div>
@@ -376,7 +376,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-star me-2"></i>Membros Mais Ativos
                         </h5>
                     </div>
@@ -434,7 +434,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-trophy me-2"></i>Eventos Mais Populares
                         </h5>
                     </div>
@@ -458,7 +458,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="badge bg-info">{{ $event->participants_count ?? 0 }}</span>
+                                            <span class="badge bg-info text-light">{{ $event->participants_count ?? 0 }}</span>
                                         </td>
                                         <td>
                                             <small class="text-muted">{{ $event->data_evento ? $event->data_evento->format('d/m/Y') : 'Data não definida' }}</small>
@@ -484,7 +484,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0 text-primary">
+                        <h5 class="mb-0 text-info">
                             <i class="fas fa-coins me-2"></i>Resumo Financeiro por Categoria
                         </h5>
                         <small class="text-muted">Dados do período selecionado</small>
@@ -495,7 +495,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h6 class="mb-0 text-primary">
+                                        <h6 class="mb-0 text-info">
                                             <i class="fas fa-chart-bar me-2"></i>Receitas e Despesas por Categoria
                                         </h6>
                                     </div>

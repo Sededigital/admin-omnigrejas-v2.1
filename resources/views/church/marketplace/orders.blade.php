@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-shopping-cart me-2"></i>Gestão de Pedidos
                         </h1>
                         <p class="mb-0 text-muted">Gerencie os pedidos do marketplace da sua igreja</p>
@@ -19,8 +19,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-shopping-cart text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-shopping-cart text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total de Pedidos</div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="$refresh">
+                            <button class="btn bg-info text-light flex-fill" wire:click="$refresh">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -95,7 +95,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Pedidos
                     </h5>
                 </div>
@@ -186,7 +186,7 @@
                                     </span>
                                 </div>
                                 <div class="text-end">
-                                    <div class="fw-bold text-primary">{{ number_format(($order->produto->preco ?? 0) * $order->quantidade, 2, ',', '.') }} AOA</div>
+                                    <div class="fw-bold text-info">{{ number_format(($order->produto->preco ?? 0) * $order->quantidade, 2, ',', '.') }} AOA</div>
                                     <small class="text-muted">{{ $order->data_pedido->format('d/m/Y') }}</small>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                     <i class="fas fa-check me-1"></i>Marcar Pago
                                 </button>
                                 @elseif($order->status === 'pago')
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="atualizarStatus({{ $order->id }}, 'enviado')">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="atualizarStatus({{ $order->id }}, 'enviado')">
                                     <i class="fas fa-truck me-1"></i>Enviar
                                 </button>
                                 @elseif($order->status === 'enviado')

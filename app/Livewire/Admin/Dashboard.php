@@ -41,8 +41,8 @@ class Dashboard extends Component
     public $igreja;
 
     public function mount()
-    {   
-        
+    {
+
 
         $this->carregarIgreja();
         if ($this->igreja) {

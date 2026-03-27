@@ -299,7 +299,7 @@ class Events extends Component
     public function getStatusBadgeClass($status)
     {
         return match($status) {
-            'agendado' => 'primary',
+            'agendado' => '079aa2',
             'realizado' => 'success',
             'cancelado' => 'danger',
             default => 'secondary'

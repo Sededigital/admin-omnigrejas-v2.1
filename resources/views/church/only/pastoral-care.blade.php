@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-praying-hands me-2"></i>Cuidado Pastoral
                         </h1>
                         <p class="mb-0 text-muted">
@@ -13,7 +13,7 @@
                         </p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pastoralCareModal">
+                        <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pastoralCareModal">
                             <i class="fas fa-plus me-1"></i>Registrar Atendimento
                         </button>
                     </div>
@@ -84,7 +84,7 @@
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <div>
                                     <h6 class="mb-0">
-                                        <i class="fas fa-{{ $atendimento->tipo === 'aconselhamento' ? 'comments' : ($atendimento->tipo === 'visita' ? 'home' : ($atendimento->tipo === 'oracao' ? 'pray' : ($atendimento->tipo === 'encorajamento' ? 'heart' : 'question')) ) }} text-primary me-2"></i>
+                                        <i class="fas fa-{{ $atendimento->tipo === 'aconselhamento' ? 'comments' : ($atendimento->tipo === 'visita' ? 'home' : ($atendimento->tipo === 'oracao' ? 'pray' : ($atendimento->tipo === 'encorajamento' ? 'heart' : 'question')) ) }} text-info me-2"></i>
                                         {{ ucfirst($atendimento->tipo) }}
                                     </h6>
                                     <small class="text-muted">
@@ -109,14 +109,14 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <strong class="text-primary">
+                                    <strong class="text-info">
                                         <i class="fas fa-user me-1"></i>Membro:
                                     </strong>
                                     <p class="mb-2">{{ $atendimento->membro->user->name }}</p>
                                 </div>
 
                                 <div class="mb-3">
-                                    <strong class="text-primary">
+                                    <strong class="text-info">
                                         <i class="fas fa-user-tie me-1"></i>Pastor:
                                     </strong>
                                     <p class="mb-2">{{ $atendimento->pastor->name }}</p>
@@ -124,7 +124,7 @@
 
                                 @if($atendimento->descricao)
                                     <div class="mb-3">
-                                        <strong class="text-primary">
+                                        <strong class="text-info">
                                             <i class="fas fa-align-left me-1"></i>Descrição:
                                         </strong>
                                         <p class="mb-2">{{ Str::limit($atendimento->descricao, 100) }}</p>
@@ -132,7 +132,7 @@
                                 @endif
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <span class="badge bg-info">
+                                    <span class="badge bg-info text-light">
                                         <i class="fas fa-clock me-1"></i>
                                         {{ $atendimento->created_at->diffForHumans() }}
                                     </span>
@@ -159,7 +159,7 @@
                                     <i class="fas fa-times me-1"></i>Limpar Filtros
                                 </button>
                             @endif
-                            <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pastoralCareModal">
+                            <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#pastoralCareModal">
                                 <i class="fas fa-plus me-1"></i>Registrar Primeiro Atendimento
                             </button>
                         </div>

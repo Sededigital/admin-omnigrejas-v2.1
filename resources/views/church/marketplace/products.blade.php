@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-boxes me-2"></i>Gestão de Produtos
                         </h1>
                         <p class="mb-0 text-muted">Gerencie os produtos do marketplace da sua igreja</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#productModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#productModal">
                             <i class="fas fa-plus me-2"></i>Adicionar Produto
                         </button>
                     </div>
@@ -24,8 +24,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-boxes text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-boxes text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total de Produtos</div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="$refresh">
+                            <button class="btn bg-info text-light flex-fill" wire:click="$refresh">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -92,7 +92,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Produtos
                     </h5>
                 </div>
@@ -114,7 +114,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-avatar bg-primary text-white me-3">
+                                        <div class="user-avatar bg-info text-light text-white me-3">
                                             {{ strtoupper(substr($product->nome ?? 'P', 0, 2)) }}
                                         </div>
                                         <div>
@@ -175,7 +175,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between mb-3">
                                 <div class="d-flex align-items-center">
-                                    <div class="user-avatar bg-primary text-white me-3">
+                                    <div class="user-avatar bg-info text-light text-white me-3">
                                         {{ strtoupper(substr($product->nome ?? 'P', 0, 2)) }}
                                     </div>
                                     <div>
@@ -199,7 +199,7 @@
                                 <small class="text-muted">{{ $product->pedidos->count() }} pedidos</small>
                             </div>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal({{ $product->id }})" data-bs-toggle="modal" data-bs-target="#productModal">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal({{ $product->id }})" data-bs-toggle="modal" data-bs-target="#productModal">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
                                 <button class="btn btn-outline-danger btn-sm" wire:click="excluirProduct({{ $product->id }})"

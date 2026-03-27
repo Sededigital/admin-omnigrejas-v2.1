@@ -9,6 +9,11 @@ use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\UserCredentials;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use App\Services\MemberDeletionService;
 
 #[Title('Dashboard | Usuários')]
 #[Layout('components.layouts.app')]
@@ -33,7 +38,7 @@ class Users extends Component
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email',
         'phone' => 'nullable|string|max:20',
-        'role' => 'required|in:super_admin',
+        'role' => 'required|in:super_admin,root',
         'is_active' => 'boolean',
     ];
 
@@ -117,12 +122,36 @@ class Users extends Component
 
         if ($this->editingUser) {
             $this->editingUser->update($data);
-            session()->flash('success', 'Usuário atualizado com sucesso!');
+
+            $this->dispatch('toast', [
+                'type' => 'success',
+                'message' => 'Usuário atualizado com sucesso!'
+            ]);
         } else {
-            $data['password'] = bcrypt('password123'); // Senha padrão
+            // Gerar senha segura para o novo usuário
+            $senhaGerada = $this->gerarSenhaUsuario();
+
+            $data['password'] = bcrypt($senhaGerada);
             $data['created_by'] = Auth::id();
-            User::create($data);
-            session()->flash('success', 'Usuário criado com sucesso!');
+            $user = User::create($data);
+
+            // Enviar email com credenciais automaticamente
+            try {
+
+                Mail::to($user->email)->send(new UserCredentials($user, $senhaGerada));
+
+                $this->dispatch('toast', [
+                    'type' => 'success',
+                    'message' => 'Usuário criado com sucesso! Credenciais enviadas por email.'
+                ]);
+
+            } catch (\Exception $e) {
+                
+                $this->dispatch('toast', [
+                    'type' => 'warning',
+                    'message' => 'Usuário criado, mas houve erro no envio do email. Senha gerada: ' . $senhaGerada
+                ]);
+            }
         }
 
         $this->closeModal();
@@ -133,9 +162,33 @@ class Users extends Component
     {
         $user = User::find($userId);
         if ($user && $user->id !== Auth::id()) {
-            $user->delete();
-            session()->flash('success', 'Usuário excluído com sucesso!');
-            $this->dispatch('refreshUsers');
+            try {
+                if ($user->membros()->exists()) {
+                    // Usuário tem vínculo com igreja, usar service para exclusão completa
+                    $service = new MemberDeletionService();
+                    $member = $user->membros()->first(); // Assume um membro principal, ou pode loop se múltiplos
+                    $service->deleteMemberCompletely($user, $member, Auth::user());
+                } else {
+                    // Usuário sem vínculo, apenas deletar
+                    $user->delete();
+                }
+
+                $this->dispatch('toast', [
+                    'type' => 'success',
+                    'message' => 'Usuário excluído com sucesso!'
+                ]);
+                $this->dispatch('refreshUsers');
+            } catch (\Exception $e) {
+                Log::error('Erro ao excluir usuário', [
+                    'user_id' => $userId,
+                    'error' => $e->getMessage()
+                ]);
+
+                $this->dispatch('toast', [
+                    'type' => 'danger',
+                    'message' => 'Erro ao excluir usuário: ' . $e->getMessage()
+                ]);
+            }
         }
     }
 
@@ -144,8 +197,56 @@ class Users extends Component
         $user = User::find($userId);
         if ($user && $user->id !== Auth::id()) {
             $user->update(['is_active' => !$user->is_active]);
-            session()->flash('success', 'Status do usuário alterado com sucesso!');
+            $this->dispatch('toast', [
+                'type' => 'success',
+                'message' => 'Status do usuário alterado com sucesso!'
+            ]);
             $this->dispatch('refreshUsers');
+        }
+    }
+
+    /**
+     * Envia email com novas credenciais para o usuário
+     */
+    public function enviarCredenciais($userId)
+    {
+        $user = User::find($userId);
+
+        if (!$user) {
+            $this->dispatch('toast', [
+                'type' => 'danger',
+                'message' => 'Usuário não encontrado.'
+            ]);
+            return;
+        }
+
+        try {
+            // Gerar nova senha
+            $novaSenha = $this->gerarSenhaUsuario();
+
+            // Atualizar senha do usuário
+            $user->update([
+                'password' => Hash::make($novaSenha)
+            ]);
+
+            // Enviar email
+            Mail::to($user->email)->send(new UserCredentials($user, $novaSenha));
+
+            $this->dispatch('toast', [
+                'type' => 'success',
+                'message' => 'Novas credenciais enviadas com sucesso para ' . $user->email
+            ]);
+
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar credenciais', [
+                'user_id' => $userId,
+                'error' => $e->getMessage()
+            ]);
+
+            $this->dispatch('toast', [
+                'type' => 'danger',
+                'message' => 'Erro ao enviar credenciais: ' . $e->getMessage()
+            ]);
         }
     }
 
@@ -225,7 +326,7 @@ class Users extends Component
             'ministro' => 'success',
             'obreiro' => 'secondary',
             'diacono' => 'dark',
-            'membro' => 'primary',
+            'membro' => 'dark',
             'anonymous' => 'light',
             default => 'secondary'
         };
@@ -237,5 +338,24 @@ class Users extends Component
             'users' => $this->getUsers(),
             'stats' => $this->getUserStats(),
         ]);
+    }
+
+    /**
+     * Gera uma senha segura para o usuário
+     * Requisitos: mínimo 6 dígitos, sem caracteres especiais
+     * Opções: apenas números ou "admin" + números
+     */
+    private function gerarSenhaUsuario()
+    {
+        // 70% chance de gerar senha com "admin" + números
+        // 30% chance de gerar apenas números
+        if (rand(1, 10) <= 7) {
+            // Formato: admin + 3-4 números (total mínimo 9 caracteres)
+            $numeros = str_pad(rand(0, 9999), rand(3, 4), '0', STR_PAD_LEFT);
+            return 'admin' . $numeros;
+        } else {
+            // Apenas números (6-8 dígitos)
+            return str_pad(rand(100000, 99999999), rand(6, 8), '0', STR_PAD_LEFT);
+        }
     }
 }

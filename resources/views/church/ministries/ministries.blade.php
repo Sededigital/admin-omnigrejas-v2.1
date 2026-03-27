@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-md-7">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-church me-2"></i>Ministérios
                         </h1>
                         <p class="mb-0 text-muted">
@@ -90,7 +90,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="badge bg-info">{{ $ministerio->membros_count }}</span>
+                                                <span class="badge bg-info text-light">{{ $ministerio->membros_count }}</span>
                                             </td>
                                             <td>
                                                 @if($ministerio->ativo)
@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="mb-2">
                                             <i class="fas fa-users text-muted me-1"></i>
-                                            <span class="badge bg-info">{{ $ministerio->membros_count }} membros</span>
+                                            <span class="badge bg-info text-light">{{ $ministerio->membros_count }} membros</span>
                                         </div>
                                         @if($ministerio->descricao)
                                         <div class="mb-3">

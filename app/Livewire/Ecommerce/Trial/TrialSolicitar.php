@@ -85,7 +85,10 @@ class TrialSolicitar extends Component
     {
         // Validar termos
         if (!$this->aceitou_termos) {
-            $this->addError('aceitou_termos', 'Você deve aceitar os termos de uso.');
+            $this->dispatch('toast', [
+                'type' => 'danger',
+                'message' => 'Você deve aceitar os termos de uso.'
+            ]);
             return;
         }
 
@@ -95,7 +98,10 @@ class TrialSolicitar extends Component
             ->first();
 
         if ($pedidoPendente) {
-            $this->dispatch('solicitacao-pendente');
+            $this->dispatch('toast', [
+                'type' => 'warning',
+                'message' => 'Já existe um pedido pendente para este email.'
+            ]);
             return;
         }
 
@@ -105,14 +111,17 @@ class TrialSolicitar extends Component
             ->count();
 
         if ($pedidosAprovados >= 2) {
-            $this->dispatch('limite-atingido');
+            $this->dispatch('toast', [
+                'type' => 'warning',
+                'message' => 'Limite de trials atingido para este email.'
+            ]);
             return;
         }
 
-        // Validar todos os campos usando o método rules()
-        $this->validate();
-
         try {
+            // Validar todos os campos usando o método rules()
+            $this->validate();
+
             // Criar solicitação de trial (não cria o trial ainda)
             $trialRequest = TrialRequest::create([
                 'nome' => $this->nome,
@@ -158,8 +167,20 @@ class TrialSolicitar extends Component
                 'igreja' => $this->dados_trial['igreja']['nome']
             ]);
 
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            foreach ($e->errors() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $this->dispatch('toast', [
+                        'type' => 'danger',
+                        'message' => $message
+                    ]);
+                }
+            }
         } catch (\Exception $e) {
-            $this->addError('geral', 'Erro ao processar solicitação: ' . $e->getMessage());
+            $this->dispatch('toast', [
+                'type' => 'danger',
+                'message' => 'Erro ao processar solicitação: ' . $e->getMessage()
+            ]);
             Log::error('Erro ao criar solicitação de trial: ' . $e->getMessage());
         }
     }

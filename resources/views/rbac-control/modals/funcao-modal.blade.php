@@ -47,7 +47,7 @@
                                 @if($permissoesDisponiveis->count() > 0)
                                     @foreach($permissoesDisponiveis->groupBy('categoria.nome') as $categoriaNome => $permissoes)
                                         <div class="mb-3">
-                                            <h6 class="text-primary mb-2">{{ $categoriaNome }}</h6>
+                                            <h6 class="text-info mb-2">{{ $categoriaNome }}</h6>
                                             <div class="row">
                                                 @foreach($permissoes as $permissao)
                                                     <div class="col-md-6">

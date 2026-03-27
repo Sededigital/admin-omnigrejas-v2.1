@@ -303,7 +303,7 @@ class StandardCult extends Component
     {
         $cores = [
             0 => 'danger',    // Domingo
-            1 => 'primary',   // Segunda
+            1 => '079aa2',   // Segunda
             2 => 'success',   // Terça
             3 => 'info',      // Quarta
             4 => 'warning',   // Quinta

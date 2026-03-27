@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="distribuicaoGeograficaModalLabel">
-                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                    <i class="fas fa-map-marker-alt text-info me-2"></i>
                     <span>Detalhes da Distribuição Geográfica</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -19,15 +19,15 @@
                     <div class="nav nav-tabs border-bottom-0" id="geo-nav-tab" role="tablist">
                         <button class="nav-link active border-0 bg-transparent fw-semibold" id="geo-nav-overview-tab"
                                 data-bs-toggle="tab" data-bs-target="#geo-nav-overview" type="button" role="tab">
-                            <i class="fas fa-chart-pie text-primary me-1"></i>Visão Geral
+                            <i class="fas fa-chart-pie text-info me-1"></i>Visão Geral
                         </button>
                         <button class="nav-link border-0 bg-transparent fw-semibold" id="geo-nav-details-tab"
                                 data-bs-toggle="tab" data-bs-target="#geo-nav-details" type="button" role="tab">
-                            <i class="fas fa-list text-primary me-1"></i>Detalhes por Região
+                            <i class="fas fa-list text-info me-1"></i>Detalhes por Região
                         </button>
                         <button class="nav-link border-0 bg-transparent fw-semibold" id="geo-nav-insights-tab"
                                 data-bs-toggle="tab" data-bs-target="#geo-nav-insights" type="button" role="tab">
-                            <i class="fas fa-lightbulb text-primary me-1"></i>Insights
+                            <i class="fas fa-lightbulb text-info me-1"></i>Insights
                         </button>
                     </div>
                 </nav>
@@ -42,7 +42,7 @@
                             <div class="col-lg-8">
                                 <div class="card border-0 shadow-sm">
                                     <div class="card-body">
-                                        <h6 class="card-title text-primary mb-3">
+                                        <h6 class="card-title text-info mb-3">
                                             <i class="fas fa-chart-pie me-1"></i>Distribuição por Região
                                         </h6>
                                         <div wire:ignore style="height: 300px;">
@@ -56,13 +56,13 @@
                             <div class="col-lg-4">
                                 <div class="card border-0 shadow-sm mb-3">
                                     <div class="card-body">
-                                        <h6 class="text-primary mb-3">
+                                        <h6 class="text-info mb-3">
                                             <i class="fas fa-chart-bar me-1"></i>Estatísticas Gerais
                                         </h6>
                                         <div class="mb-2">
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <small class="text-muted">Total de Regiões</small>
-                                                <span class="badge bg-primary">{{ count($this->graficoDistribuicaoGeografica) }}</span>
+                                                <span class="badge bg-info text-light">{{ count($this->graficoDistribuicaoGeografica) }}</span>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <small class="text-muted">Total de Membros</small>
@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <small class="text-muted">Média por Região</small>
-                                                <span class="badge bg-info">{{ $this->estatisticasGeograficas['media_por_regiao'] ?? 0 }}</span>
+                                                <span class="badge bg-info text-light">{{ $this->estatisticasGeograficas['media_por_regiao'] ?? 0 }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
 
                                 <div class="card border-0 shadow-sm">
                                     <div class="card-body">
-                                        <h6 class="text-primary mb-3">
+                                        <h6 class="text-info mb-3">
                                             <i class="fas fa-users me-1"></i>Usuários Próximos
                                         </h6>
                                         <div class="mb-2">
@@ -88,7 +88,7 @@
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <small class="text-muted">Mesma Província</small>
-                                                <span class="badge bg-info">{{ $this->usuariosProximos['mesma_provincia'] ?? 0 }}</span>
+                                                <span class="badge bg-info text-light">{{ $this->usuariosProximos['mesma_provincia'] ?? 0 }}</span>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <small class="text-muted">Outras Regiões</small>
@@ -105,7 +105,7 @@
                     <div class="tab-pane fade" id="geo-nav-details" role="tabpanel">
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
-                                <h6 class="card-title text-primary mb-3">
+                                <h6 class="card-title text-info mb-3">
                                     <i class="fas fa-list me-1"></i>Detalhamento por Região
                                 </h6>
 
@@ -113,10 +113,10 @@
                                     <table class="table table-hover">
                                         <thead class="table-light">
                                             <tr>
-                                                <th><i class="fas fa-map-marker-alt text-primary me-1"></i>Região</th>
-                                                <th class="text-center"><i class="fas fa-users text-primary me-1"></i>Membros</th>
-                                                <th class="text-center"><i class="fas fa-percentage text-primary me-1"></i>Percentual</th>
-                                                <th class="text-center"><i class="fas fa-chart-line text-primary me-1"></i>Status</th>
+                                                <th><i class="fas fa-map-marker-alt text-info me-1"></i>Região</th>
+                                                <th class="text-center"><i class="fas fa-users text-info me-1"></i>Membros</th>
+                                                <th class="text-center"><i class="fas fa-percentage text-info me-1"></i>Percentual</th>
+                                                <th class="text-center"><i class="fas fa-chart-line text-info me-1"></i>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,10 +134,10 @@
                                                         <strong>{{ $regiao['localizacao'] }}</strong>
                                                     </td>
                                                     <td class="text-center">
-                                                        <span class="badge bg-primary">{{ $regiao['total'] }}</span>
+                                                        <span class="badge bg-info text-light">{{ $regiao['total'] }}</span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <span class="badge bg-info">{{ $percentual }}%</span>
+                                                        <span class="badge bg-info text-light">{{ $percentual }}%</span>
                                                     </td>
                                                     <td class="text-center">
                                                         <span class="badge bg-{{ $statusClass }}">{{ $statusText }}</span>
@@ -157,7 +157,7 @@
                             <div class="col-lg-6">
                                 <div class="card border-0 shadow-sm mb-3">
                                     <div class="card-body">
-                                        <h6 class="text-primary mb-3">
+                                        <h6 class="text-info mb-3">
                                             <i class="fas fa-lightbulb me-1"></i>Insights Estratégicos
                                         </h6>
                                         <div class="mb-3">
@@ -184,7 +184,7 @@
                             <div class="col-lg-6">
                                 <div class="card border-0 shadow-sm mb-3">
                                     <div class="card-body">
-                                        <h6 class="text-primary mb-3">
+                                        <h6 class="text-info mb-3">
                                             <i class="fas fa-chart-line me-1"></i>Recomendações
                                         </h6>
                                         <ul class="list-unstyled">
@@ -210,7 +210,7 @@
 
                                 <div class="card border-0 shadow-sm">
                                     <div class="card-body">
-                                        <h6 class="text-primary mb-3">
+                                        <h6 class="text-info mb-3">
                                             <i class="fas fa-calendar-alt me-1"></i>Próximas Ações
                                         </h6>
                                         <div class="d-grid gap-2">
@@ -237,7 +237,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Fechar
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn bg-info text-light">
                     <i class="fas fa-download me-1"></i>Exportar Relatório
                 </button>
             </div>

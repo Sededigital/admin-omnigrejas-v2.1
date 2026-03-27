@@ -15,7 +15,7 @@
 
 
             <h4 class="logo-title fw-bold">
-                <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
+                <span class="text-info">Omn</span><span class="text-info">Igrejas</span>
             </h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
@@ -50,7 +50,7 @@
                 </li>
 
 
-                <li><hr class="hr-horizontal"></li>
+   <li><hr class="hr-horizontal"></li>
                 <li class="nav-item static-item">
                     <a class="nav-link static-item disabled" href="#" tabindex="-1" >
                         <span class="default-icon">Gestão Organizacional</span>
@@ -75,7 +75,7 @@
 
                     <ul class="sub-nav collapse" id="sidebar-special" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ url('geral/list-users') }}" wire:navigate wire:current='active'>
+                            <a class="nav-link " href="{{ route('users.lisusers') }}" wire:navigate wire:current='active'>
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
                                         <g>
@@ -118,6 +118,35 @@
                 </li>
 
                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('admin/assignatures/subscribers') }}" wire:navigate wire:current="active">
+                        <i class="icon">
+                            <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.4" d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18C2 19.11 2.89 20 4 20H20C21.11 20 22 19.11 22 18V6C22 4.89 21.11 4 20 4ZM20 18H4V12H20V18ZM20 8H4V6H20V8Z" fill="currentColor"/>
+                                <path d="M16.5 13.5C17.33 13.5 18 12.83 18 12C18 11.17 17.33 10.5 16.5 10.5C15.67 10.5 15 11.17 15 12C15 12.83 15.67 13.5 16.5 13.5Z" fill="currentColor"/>
+                                <path d="M7.5 13.5C8.33 13.5 9 12.83 9 12C9 11.17 8.33 10.5 7.5 10.5C6.67 10.5 6 11.17 6 12C6 12.83 6.67 13.5 7.5 13.5Z" fill="currentColor"/>
+                                <path d="M12 13.5C12.83 13.5 13.5 12.83 13.5 12C13.5 11.17 12.83 10.5 12 10.5C11.17 10.5 10.5 11.17 10.5 12C10.5 12.83 11.17 13.5 12 13.5Z" fill="currentColor"/>
+                            </svg>
+                        </i>
+                         <i class="sidenav-mini-icon"> PA </i>
+                        <span class="item-name">Pedidos De Assinaturas</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('admin/assignatures/trial-requests') }}" wire:navigate wire:current="active">
+                        <i class="icon">
+                            <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.4" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                                <path d="M15.5 12H13V9.5C13 9.22 12.78 9 12.5 9H12C11.72 9 11.5 9.22 11.5 9.5V13C11.5 13.28 11.72 13.5 12 13.5H15.5C15.78 13.5 16 13.28 16 13C16 12.72 15.78 12.5 15.5 12Z" fill="currentColor"/>
+                                <path d="M8.5 12H6V9.5C6 9.22 5.78 9 5.5 9H5C4.72 9 4.5 9.22 4.5 9.5V13C4.5 13.28 4.72 13.5 5 13.5H8.5C8.78 13.5 9 13.28 9 13C9 12.72 8.78 12.5 8.5 12Z" fill="currentColor"/>
+                            </svg>
+                        </i>
+                         <i class="sidenav-mini-icon"> TR </i>
+                        <span class="item-name">Solicitações de Testes</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('admin/assignatures/assinaturas-historico') }}" wire:navigate wire:current="active">
                         <i class="icon">
                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -282,9 +311,68 @@
                                 <span class="item-name">Gerir notificações</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ url('admin/assignatures/alertas') }}" wire:navigate wire:current="active">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> A </i>
+                                <span class="item-name">Alertas SaaS</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ url('admin/assignatures/recursos-bloqueados') }}" wire:navigate wire:current="active">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> RB </i>
+                                <span class="item-name">Recursos Bloqueados</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ url('admin/assignatures/pacote-recursos') }}" wire:navigate wire:current="active">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> RP </i>
+                                <span class="item-name">Recursos de Pacotes</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ url('admin/assignatures/pacote-niveis') }}" wire:navigate wire:current="active">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> PN </i>
+                                <span class="item-name">Níveis dos Pacotes</span>
+                            </a>
+                        </li>
+
+
+
                     </ul>
                 </li>
-
+                
                 <li><hr class="hr-horizontal"></li>
 
                 <li class="nav-item">

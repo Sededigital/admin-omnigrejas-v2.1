@@ -1,10 +1,10 @@
 /* ---- CSS aprimorado e com novas cores ---- */
 :root {
-    --primary-blue: #0d6efd;
-    --dark-blue: #0b5ed7;
-    --ocean-blue: #0a73ba; /* Um azul mais para o oceano */
+    --primary-blue: #4de9f1;
+    --dark-blue: #4de9f1;
+    --ocean-blue: #4de9f1; /* Um azul mais para o oceano */
     --teal-accent: #0dcaf0; /* Um verde-água para acento */
-    --purple-gradient-end: #6610f2;
+    --purple-gradient-end: #4de9f1;
     --light-bg: #f8fafc;
     --card-hover-shadow: 0 0.8rem 2rem rgba(0,0,0,.18); /* Sombra mais intensa no hover */
 
@@ -22,7 +22,7 @@ body {
 }
 
 /* Hero Section Gradient - Agora com mais cores */
-.bg-gradient-hero {
+.bg-info {
     background: linear-gradient(135deg, var(--primary-blue), var(--ocean-blue), var(--teal-accent), var(--purple-gradient-end));
     background-size: 400% 400%; /* Para animação de degradê */
     animation: gradientAnimation 15s ease infinite;
@@ -48,7 +48,7 @@ body {
 }
 
 /* Botões com degradê mais elaborado */
-.btn-primary {
+.bg-info {
     background: linear-gradient(90deg, var(--primary-blue), var(--ocean-blue));
     border: none;
     position: relative;
@@ -59,14 +59,14 @@ body {
     transition: all 0.4s ease;
 }
 
-.btn-primary:hover {
+.bg-info:hover {
     transform: translateY(-2px); /* Efeito de elevação sutil */
     box-shadow: 0 0.3rem 0.8rem rgba(13, 110, 253, 0.4); /* Sombra com a cor primária */
     opacity: 1; /* Garante opacidade total no hover */
 }
 
 /* Efeito de brilho no hover do botão */
-.btn-primary::before {
+.bg-info::before {
     content: '';
     position: absolute;
     top: 0;
@@ -79,7 +79,7 @@ body {
     z-index: -1;
 }
 
-.btn-primary:hover::before {
+.bg-info:hover::before {
     left: 100%;
 }
 
@@ -162,11 +162,7 @@ body {
     transform: scaleY(1); /* Não inverte para a onda descer */
 }
 
-.cta-gradient {
-    background: linear-gradient(135deg, var(--ocean-blue), var(--teal-accent));
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-}
+
 
 /* Ícones maiores no hero */
 .hero-icon {

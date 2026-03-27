@@ -61,7 +61,7 @@
                         <div class="col-md-6">
                             <div class="border rounded p-3 h-100">
                                 <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                    <i class="fas fa-calendar-alt text-info me-2"></i>
                                     <h6 class="mb-0">Próximos Eventos</h6>
                                 </div>
                                 @if($proximosEventos->count() > 0)
@@ -131,7 +131,7 @@
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="text-center">
-                                <div class="fs-4 fw-bold text-primary">{{ $totalEventos }}</div>
+                                <div class="fs-4 fw-bold text-info">{{ $totalEventos }}</div>
                                 <small class="text-muted">Eventos</small>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="text-center p-2 border rounded">
-                                <i class="fas fa-book-open fs-3 text-primary mb-1"></i>
+                                <i class="fas fa-book-open fs-3 text-info mb-1"></i>
                                 <div class="fw-bold">{{ $cursosAtivos }}</div>
                                 <small class="text-muted">Cursos Ativos</small>
                             </div>
@@ -252,7 +252,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="border rounded p-3 {{ !$notificacao->lida ? 'border-primary' : '' }}">
                                 <div class="d-flex align-items-start">
-                                    <i class="fas fa-info-circle text-primary me-2 mt-1"></i>
+                                    <i class="fas fa-info-circle text-info me-2 mt-1"></i>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-1">{{ $notificacao->titulo }}</h6>
                                         <p class="mb-2 small text-muted">{{ Str::limit($notificacao->mensagem ?? '', 80) }}</p>
@@ -261,7 +261,7 @@
                                                 {{ \Carbon\Carbon::parse($notificacao->created_at)->diffForHumans() }}
                                             </small>
                                             @if(!$notificacao->lida)
-                                                <span class="badge bg-primary">Nova</span>
+                                                <span class="badge bg-info text-lightry">Nova</span>
                                             @endif
                                         </div>
                                         @if(!$notificacao->lida)

@@ -7,7 +7,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-chart-line me-2"></i>Relatórios Financeiros
                         </h1>
                         <p class="mb-0 text-muted">Dashboards e relatórios detalhados das finanças da igreja</p>
@@ -22,7 +22,7 @@
                                     <i class="fas fa-spinner fa-spin"></i>
                                 </span>
                             </button>
-                            <button class="btn btn-primary btn-sm" wire:click="exportExcel" wire:loading.attr="disabled" title="Exportar Excel">
+                            <button class="btn bg-info text-light btn-sm" wire:click="exportExcel" wire:loading.attr="disabled" title="Exportar Excel">
                                 <span wire:loading.remove wire:target="exportExcel">
                                     <i class="fas fa-file-excel"></i>
                                 </span>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill btn-apply d-inline-flex align-items-center justify-content-center" wire:click="applyFilters" wire:loading.attr="disabled">
+                            <button class="btn bg-info text-light flex-fill btn-apply d-inline-flex align-items-center justify-content-center" wire:click="applyFilters" wire:loading.attr="disabled">
                                 <span wire:loading.remove wire:target="applyFilters">
                                     <i class="fas fa-search me-1"></i>Aplicar Filtros
                                 </span>
@@ -141,8 +141,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-balance-scale text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ number_format($summary['saldo_liquido'] ?? 0, 2, ',', '.') }} AOA</div>
+                        <i class="fas fa-balance-scale text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ number_format($summary['saldo_liquido'] ?? 0, 2, ',', '.') }} AOA</div>
                         <div class="text-muted small">Saldo Líquido</div>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
             <div class="col-12 col-lg-6">
                 <div class="card chart-card">
                     <div class="card-header py-2">
-                        <h6 class="mb-0 text-primary fw-bold">
+                        <h6 class="mb-0 text-info fw-bold">
                             <i class="fas fa-chart-pie me-2"></i>Entradas vs Saídas
                         </h6>
                     </div>
@@ -178,7 +178,7 @@
             <div class="col-12 col-lg-6" wire:ignore.self>
                 <div class="card chart-card">
                     <div class="card-header py-2">
-                        <h6 class="mb-0 text-primary fw-bold">
+                        <h6 class="mb-0 text-info fw-bold">
                             <i class="fas fa-chart-bar me-2"></i>Por Categoria
                         </h6>
                     </div>
@@ -192,7 +192,7 @@
         <!-- Tabela de Movimentos por Categoria -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0 text-primary">
+                <h5 class="mb-0 text-info">
                     <i class="fas fa-list-ul me-2"></i>Movimentos por Categoria
                 </h5>
             </div>
@@ -225,7 +225,7 @@
                                 </td>
                                 <td>
                                     <div class="progress" style="height: 20px;">
-                                        <div class="progress-bar bg-primary" role="progressbar"
+                                        <div class="progress-bar bg-info text-light" role="progressbar"
                                              style="width: {{ $category['percentual'] }}%"
                                              aria-valuenow="{{ $category['percentual'] }}"
                                              aria-valuemin="0" aria-valuemax="100">
@@ -251,7 +251,7 @@
         <!-- Análise por Conta -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0 text-primary">
+                <h5 class="mb-0 text-info">
                     <i class="fas fa-university me-2"></i>Análise por Conta
                 </h5>
             </div>
@@ -313,7 +313,7 @@
         <!-- Export Options -->
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0 text-primary">
+                <h5 class="mb-0 text-info">
                     <i class="fas fa-download me-2"></i>Exportar Relatório
                 </h5>
             </div>
@@ -325,7 +325,7 @@
                         </button>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-primary w-100" wire:click="exportExcel">
+                        <button class="btn bg-info text-light w-100" wire:click="exportExcel">
                             <i class="fas fa-file-excel me-2"></i>Excel
                         </button>
                     </div>

@@ -37,8 +37,8 @@
             <div class="col-md-3">
                 <div class="card text-center border border-primary h-100">
                     <div class="card-body">
-                        <i class="fas fa-calendar-day text-primary display-6 mb-2"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['badges_hoje'] }}</div>
+                        <i class="fas fa-calendar-day text-info display-6 mb-2"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['badges_hoje'] }}</div>
                         <div class="text-muted small">Badges Hoje</div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                                                     @if($userBadges->usuario->profile_photo_path)
                                                         <img src="{{ asset('storage/' . $userBadges->usuario->profile_photo_path) }}" alt="Avatar" class="rounded-circle">
                                                     @else
-                                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                                        <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
                                                             <span class="fw-bold">{{ substr($userBadges->usuario->name, 0, 1) }}</span>
                                                         </div>
                                                     @endif
@@ -164,7 +164,7 @@
                                                 @endphp
                                                 @foreach(array_slice($badgesArray, 0, 3) as $badgeNome)
                                                     @if(!empty($badgeNome))
-                                                        <span class="badge bg-primary">{{ ucfirst($badgeNome) }}</span>
+                                                        <span class="badge bg-info text-light">{{ ucfirst($badgeNome) }}</span>
                                                     @endif
                                                 @endforeach
                                                 @if(count($badgesArray) > 3)
@@ -333,7 +333,7 @@
                                                     @if($userDetails['user']->photo_url)
                                                         <img src="{{ \Illuminate\Support\Facades\Storage::disk('supabase')->url($userDetails['user']->photo_url) }}" alt="Avatar" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
                                                     @else
-                                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                                        <div class="bg-info text-light text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 1.5rem;">
                                                             <span class="fw-bold">{{ substr($userDetails['user']->name, 0, 1) }}</span>
                                                         </div>
                                                     @endif

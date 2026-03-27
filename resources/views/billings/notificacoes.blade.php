@@ -10,7 +10,7 @@
                             <p>Gerencie as notificações relacionadas às assinaturas das igrejas</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#notificacaoModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#notificacaoModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Nova Notificação
                             </button>
@@ -201,7 +201,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="notificacaoModalLabel">
-                        <i class="fas fa-bell text-primary me-2"></i>
+                        <i class="fas fa-bell text-info me-2"></i>
                         <span id="modal-title">{{ $editingNotificacao ? 'Editar Notificação' : 'Nova Notificação' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -224,7 +224,7 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-file-signature text-primary me-1"></i>Assinatura *</label>
+                                    <label><i class="fas fa-file-signature text-info me-1"></i>Assinatura *</label>
                                     @error('assinatura_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -240,7 +240,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-tag text-primary me-1"></i>Tipo *</label>
+                                    <label><i class="fas fa-tag text-info me-1"></i>Tipo *</label>
                                     @error('tipo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -256,7 +256,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                    <label><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                     @error('status')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -268,7 +268,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('titulo') is-invalid @enderror"
                                            wire:model="titulo" placeholder="Título da notificação" required>
-                                    <label><i class="fas fa-heading text-primary me-1"></i>Título *</label>
+                                    <label><i class="fas fa-heading text-info me-1"></i>Título *</label>
                                     @error('titulo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -281,7 +281,7 @@
                                     <textarea class="form-control @error('mensagem') is-invalid @enderror"
                                               wire:model="mensagem" rows="4"
                                               placeholder="Mensagem da notificação"></textarea>
-                                    <label><i class="fas fa-comment text-primary me-1"></i>Mensagem</label>
+                                    <label><i class="fas fa-comment text-info me-1"></i>Mensagem</label>
                                     @error('mensagem')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -291,7 +291,7 @@
                             <!-- Status Visual -->
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingNotificacao ? 'Editando Notificação' : 'Nova Notificação' }}
@@ -307,7 +307,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveNotificacao" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveNotificacao" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveNotificacao">
                             <i class="fas fa-save me-1"></i>{{ $editingNotificacao ? 'Atualizar Notificação' : 'Salvar Notificação' }}
                         </span>

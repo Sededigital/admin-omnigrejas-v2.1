@@ -102,7 +102,7 @@
                                     </td>
                                     <td>
                                         @if($atribuicao->valido_ate)
-                                            <span class="badge bg-info">
+                                            <span class="badge bg-info text-light">
                                                 <i class="fas fa-calendar me-1"></i>
                                                 {{ $atribuicao->valido_ate->format('d/m/Y') }}
                                             </span>

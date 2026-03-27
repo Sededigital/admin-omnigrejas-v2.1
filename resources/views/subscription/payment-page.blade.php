@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -129,7 +129,7 @@
         <div class="col-lg-7 mb-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-edit me-2"></i> Detalhes do Pagamento
                     </h3>
 
@@ -152,7 +152,7 @@
                                         @endforeach
                                     </select>
                                     <div wire:loading wire:target="igrejaSelecionada" class="position-absolute top-50 end-0 translate-middle-y me-5">
-                                        <i class="fas fa-spinner fa-spin text-primary" role="status">
+                                        <i class="fas fa-spinner fa-spin text-info" role="status">
                                             <span class="visually-hidden">Carregando...</span>
                                         </i>
                                     </div>
@@ -198,7 +198,7 @@
                         <!-- Dados da Referência / Conta Bancária (Visível quando método requer referência) -->
                         @if($metodoPagamento && $metodosPagamento[$metodoPagamento]['requer_referencia'])
                             <div id="payment-details-{{ $metodoPagamento }}" class="alert alert-primary p-4 mb-4">
-                                <h5 class="fw-bold text-primary"><i class="fas fa-money-check-alt me-2"></i> Dados para {{ $metodosPagamento[$metodoPagamento]['nome'] }}</h5>
+                                <h5 class="fw-bold text-info"><i class="fas fa-money-check-alt me-2"></i> Dados para {{ $metodosPagamento[$metodoPagamento]['nome'] }}</h5>
                                 <p class="mb-1"><strong>Banco:</strong> BAI</p>
                                 <p class="mb-1"><strong>
                                     @if($metodosPagamento[$metodoPagamento]['nome'] == 'multicaixa_express')
@@ -220,7 +220,7 @@
                                 <input type="text" id="referencia" class="form-control bg-white text-dark" wire:model.live="referencia" value="{{ $referencia }}" readonly style="background-color: white !important; color: #212529 !important;">
                                 <div class="form-text">
                                     <i class="fas fa-info-circle me-1"></i>
-                                    Esta referência foi gerada automaticamente. Use-a na sua transferência bancária.
+                                    Esta referência foi gerada automaticamente. Salve caso for necessário..
                                 </div>
                                 @error('referencia')
                                     <div class="text-danger small mt-1">{{ $message }}</div>
@@ -234,7 +234,7 @@
                             <div class="position-relative">
                                 <input type="file" id="comprovativo" class="form-control @error('comprovativo') is-invalid @enderror" wire:model="comprovativo" accept="image/*, application/pdf" wire:loading.attr="disabled" wire:target="comprovativo">
                                 <div class="position-absolute top-50 end-0 translate-middle-y pe-3" wire:loading wire:target="comprovativo">
-                                    <i class="fas fa-spinner fa-spin text-primary" role="status" aria-hidden="true"></i>
+                                    <i class="fas fa-spinner fa-spin text-info" role="status" aria-hidden="true"></i>
                                     <span class="visually-hidden">Carregando...</span>
                                 </div>
                             </div>
@@ -249,7 +249,7 @@
                             @if($comprovativo)
                                 <div class="mt-3 p-3 bg-light rounded">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-file me-3 text-primary"></i>
+                                        <i class="fas fa-file me-3 text-info"></i>
                                         <div>
                                             <div class="fw-bold">{{ $comprovativo->getClientOriginalName() }}</div>
                                             <small class="text-muted">
@@ -273,7 +273,7 @@
 
                         <!-- Botão de Envio -->
                         <div class="d-grid mt-5">
-                            <button type="submit" class="btn btn-primary btn-glow"
+                            <button type="submit" class="btn bg-info text-light btn-glow"
                                     wire:loading.attr="disabled"
                                     wire:target="submitPagamento,comprovativo">
                                 <span wire:loading.remove wire:target="submitPagamento">

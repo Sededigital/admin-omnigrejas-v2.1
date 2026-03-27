@@ -1,6 +1,6 @@
 <div class="container-fluid py-1">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -41,7 +41,7 @@
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4 p-md-5">
                     <div class="text-center mb-5">
-                        <h2 class="section-header text-primary fw-bold display-5 mb-3">
+                        <h2 class="section-header text-info fw-bold display-5 mb-3">
                             <i class="fas fa-star me-3"></i>Igrejas em Destaque
                         </h2>
                         <p class="text-muted lead fs-5">Algumas das igrejas que fazem a diferença em Angola</p>
@@ -53,10 +53,10 @@
                             <div class="card church-card border-0 shadow-sm h-100">
                                 <div class="card-body p-4 text-center">
                                     <div class="church-logo mb-3">
-                                        <i class="fas fa-church fa-3x text-primary"></i>
+                                        <i class="fas fa-church fa-3x text-info"></i>
                                     </div>
                                     <h5 class="card-title fw-bold">Igreja Evangélica de Luanda</h5>
-                                    <p class="text-primary mb-2">Luanda</p>
+                                    <p class="text-info mb-2">Luanda</p>
                                     <p class="card-text small text-muted mb-3">Uma das maiores congregações da capital, com mais de 2.000 membros ativos.</p>
                                     <div class="church-stats">
                                         <div class="stat-item">
@@ -130,14 +130,14 @@
         <div class="col-lg-6 mb-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-chart-line me-2"></i> Por que as Igrejas Escolhem OMNIGREJAS?
                     </h3>
 
                     <div class="benefits-list">
                         <div class="benefit-item mb-3">
                             <div class="benefit-icon">
-                                <i class="fas fa-clock text-primary"></i>
+                                <i class="fas fa-clock text-info"></i>
                             </div>
                             <div class="benefit-content">
                                 <h6 class="fw-bold mb-1">Gestão Eficiente do Tempo</h6>
@@ -189,7 +189,7 @@
                     <div class="church-posts">
                         <div class="post-item mb-4">
                             <div class="post-header d-flex align-items-center mb-2">
-                                <i class="fas fa-church text-primary me-2"></i>
+                                <i class="fas fa-church text-info me-2"></i>
                                 <div>
                                     <strong class="small">Igreja Evangélica de Luanda</strong>
                                     <br>
@@ -256,7 +256,7 @@
     <div class="card shadow-sm border-0 mb-5">
         <div class="card-body p-4 p-md-5">
             <div class="text-center mb-4">
-                <h3 class="section-header text-primary fw-bold mb-3">
+                <h3 class="section-header text-info fw-bold mb-3">
                     <i class="fas fa-map-marked-alt me-2"></i> Nossa Presença em Angola
                 </h3>
                 <p class="text-muted">Igrejas parceiras em todo o território nacional</p>
@@ -275,12 +275,12 @@
 
                 <div class="col-lg-4">
                     <div class="provinces-list">
-                        <h5 class="fw-bold text-primary mb-3">Províncias com Igrejas Parceiras</h5>
+                        <h5 class="fw-bold text-info mb-3">Províncias com Igrejas Parceiras</h5>
 
                         <div class="province-item mb-2">
                             <i class="fas fa-map-marker-alt text-danger me-2"></i>
                             <span class="small">Luanda</span>
-                            <span class="badge bg-primary ms-auto">150+</span>
+                            <span class="badge bg-info text-light ms-auto">150+</span>
                         </div>
 
                         <div class="province-item mb-2">
@@ -298,7 +298,7 @@
                         <div class="province-item mb-2">
                             <i class="fas fa-map-marker-alt text-info me-2"></i>
                             <span class="small">Huíla</span>
-                            <span class="badge bg-info ms-auto">32</span>
+                            <span class="badge bg-info text-light ms-auto">32</span>
                         </div>
 
                         <div class="province-item">
@@ -312,7 +312,7 @@
     </div>
 
     <!-- CTA Final -->
-    <div class="card cta-gradient text-white border-0 shadow-lg">
+    <div class="card bg-info text-light text-white border-0 shadow-lg">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 Sua Igreja Também Pode Fazer Parte

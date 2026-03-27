@@ -5,14 +5,14 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-user me-2"></i>Meu Perfil
                         </h1>
                         <p class="mb-0 text-muted">Gerencie suas informações pessoais e configurações</p>
                     </div>
                     <div class="col-md-4 text-md-end">
                         <div class="d-flex justify-content-end gap-2">
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                            <button class="btn bg-info text-light btn-sm" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                                 <i class="fas fa-edit me-1"></i>Editar Perfil
                             </button>
                             <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
@@ -38,7 +38,7 @@
                              class="rounded-circle border border-3 border-primary"
                              style="width: 120px; height: 120px; object-fit: cover;">
                     @else
-                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                        <div class="bg-info text-light text-white rounded-circle d-inline-flex align-items-center justify-content-center"
                              style="width: 120px; height: 120px; font-size: 3rem;">
                             {{ strtoupper(substr($user->name, 0, 2)) }}
                         </div>
@@ -63,9 +63,9 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">
-                    <i class="fas fa-user text-primary me-2"></i>Informações do Perfil
+                    <i class="fas fa-user text-info me-2"></i>Informações do Perfil
                 </h5>
-                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                <button class="btn bg-info text-light btn-sm" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                     <i class="fas fa-edit me-1"></i>Editar Perfil
                 </button>
             </div>
@@ -95,7 +95,7 @@
                             <div class="col-md-6">
                                 <div class="border rounded p-3 h-100">
                                     <small class="text-muted d-block fw-semibold">Função</small>
-                                    <span class="badge bg-primary">{{ $user->getRoleLabel() }}</span>
+                                    <span class="badge bg-info text-light">{{ $user->getRoleLabel() }}</span>
                                 </div>
                             </div>
 
@@ -104,7 +104,7 @@
                             <div class="col-md-6">
                                 <div class="border rounded p-3 h-100">
                                     <small class="text-muted d-block fw-semibold">Cargo na Igreja</small>
-                                    <span class="badge bg-info">{{ ucfirst($cargo) }}</span>
+                                    <span class="badge bg-info text-light">{{ ucfirst($cargo) }}</span>
                                 </div>
                             </div>
                             @endif
@@ -168,7 +168,7 @@
                     <!-- Status da Conta -->
                     <div class="col-lg-4">
                         <div class="card">
-                            <div class="card-header bg-primary text-light">
+                            <div class="card-header bg-info text-light text-light">
                                 <h6 class="mb-4 text-light">
                                     <i class="fas fa-shield-alt me-2"></i>Status da Conta
                                 </h6>
@@ -222,7 +222,7 @@
                                 <!-- Membro desde -->
                                 <div class="d-flex align-items-center justify-content-between p-2 rounded bg-light">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-calendar-alt text-primary me-2 fs-5"></i>
+                                        <i class="fas fa-calendar-alt text-info me-2 fs-5"></i>
                                         <div>
                                             <small class="text-muted d-block mb-0">Registrado no sistema desde</small>
                                             <span class="fw-semibold">{{ $user->created_at->format('d/m/Y') }}</span>
@@ -272,7 +272,7 @@
          data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header bg-info text-light text-white">
                     <h5 class="modal-title" id="editProfileModalLabel">
                         <i class="fas fa-user-edit me-2"></i>Editar Perfil
                     </h5>
@@ -354,7 +354,7 @@
                                 </div>
                                 @else
                                 <div class="alert alert-light py-2 mb-3 border">
-                                    <i class="fas fa-user-edit text-primary me-2"></i>
+                                    <i class="fas fa-user-edit text-info me-2"></i>
                                     <small>Complete suas informações pessoais:</small>
                                 </div>
                                 @endif
@@ -444,7 +444,7 @@
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             <i class="fas fa-times me-1"></i>Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                        <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled">
                             <span wire:loading.remove>
                                 <i class="fas fa-save me-2"></i>Salvar Alterações
                             </span>
@@ -550,7 +550,7 @@
     <div class="modal fade" id="editChurchModal" tabindex="-1" aria-labelledby="editChurchModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-info text-white">
+                <div class="modal-header bg-info text-light text-white">
                     <h5 class="modal-title" id="editChurchModalLabel">
                         <i class="fas fa-church me-2"></i>Editar Dados da Igreja
                     </h5>
@@ -629,7 +629,7 @@
          data-bs-backdrop="static" data-bs-keyboard="false" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header bg-info text-light text-white">
                     <h5 class="modal-title" id="uploadPhotoModalLabel">
                         <i class="fas fa-camera me-2"></i>Alterar Foto de Perfil
                     </h5>
@@ -645,7 +645,7 @@
                                      class="rounded-circle border border-primary"
                                      style="width: 120px; height: 120px; object-fit: cover;">
                             @else
-                                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                                <div class="bg-info text-light text-white rounded-circle d-inline-flex align-items-center justify-content-center"
                                      style="width: 120px; height: 120px; font-size: 3rem;">
                                     {{ strtoupper(substr($user->name, 0, 2)) }}
                                 </div>
@@ -673,9 +673,9 @@
                     <!-- Especificações -->
                     <div class="alert alert-light border border-primary">
                         <div class="d-flex align-items-start">
-                            <i class="fas fa-info-circle text-primary me-3 mt-1"></i>
+                            <i class="fas fa-info-circle text-info me-3 mt-1"></i>
                             <div>
-                                <strong class="text-primary">Especificações da Foto:</strong>
+                                <strong class="text-info">Especificações da Foto:</strong>
                                 <ul class="mb-0 mt-2 small">
                                     <li><strong>Formatos aceitos:</strong> JPG, PNG, GIF</li>
                                     <li><strong>Tamanho máximo:</strong> 2MB</li>
@@ -691,7 +691,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="uploadPhoto" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="uploadPhoto" wire:loading.attr="disabled">
                         <span wire:loading.remove>
                             <i class="fas fa-upload me-2"></i>Fazer Upload
                         </span>

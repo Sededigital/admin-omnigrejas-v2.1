@@ -23,7 +23,7 @@
 
 
             <h4 class="logo-title fw-bold">
-                <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
+                <span class="text-info">Omn</span><span class="text-info">Igrejas</span>
             </h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">

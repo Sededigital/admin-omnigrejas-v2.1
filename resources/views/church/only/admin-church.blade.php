@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-building me-2"></i>Gestão de Igrejas
                         </h1>
                         <p class="mb-0 text-muted">Gerencie todas as igrejas da rede</p>
@@ -15,7 +15,7 @@
                             <a class="btn btn-outline-secondary btn-md" href="{{ route('admin.admin-church') }}"  wire:navigate >
                                 <i class="fas fa-cog me-2"></i>Gestão ADMIN
                             </a>
-                            <button class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#churchModal">
+                            <button class="btn bg-info text-light btn-md" data-bs-toggle="modal" data-bs-target="#churchModal">
                                 <i class="fas fa-plus-circle me-2"></i>Nova Igreja
                             </button>
                         </div>
@@ -29,8 +29,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-building text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $totalIgrejas }}</div>
+                        <i class="fas fa-building text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $totalIgrejas }}</div>
                         <div class="text-muted small">Total de Igrejas</div>
                     </div>
                 </div>
@@ -56,8 +56,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border-2 border-dashed metric-card" role="button" data-bs-toggle="modal" data-bs-target="#churchModal">
                     <div class="card-body">
-                        <i class="fas fa-plus-square text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h5 mb-1 text-primary">Adicionar</div>
+                        <i class="fas fa-plus-square text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h5 mb-1 text-info">Adicionar</div>
                         <div class="text-muted small">Nova Igreja</div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Igrejas
                     </h5>
                 </div>
@@ -255,7 +255,7 @@
                                     </div>
                                 </div>
                                 <div class="text-end">
-                                    <div class="fw-bold text-primary h5">{{ $igreja->membros_count }}</div>
+                                    <div class="fw-bold text-info h5">{{ $igreja->membros_count }}</div>
                                     <small class="text-muted">membros</small>
                                 </div>
                             </div>
@@ -273,7 +273,7 @@
                                 </small>
                             </div>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary btn-sm flex-fill" onclick="editIgreja('{{ $igreja->id }}')">
+                                <button class="btn bg-info text-light btn-sm flex-fill" onclick="editIgreja('{{ $igreja->id }}')">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
                                 <a href="{{ route('admin.admin-church', $igreja->id) }}" class="btn btn-outline-warning btn-sm" wire:navigate>
@@ -325,7 +325,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-primary mb-3">
+                            <h5 class="text-info mb-3">
                                 <i class="fas fa-history me-2"></i>Igrejas Recentes
                             </h5>
                             <div class="row g-2">
@@ -351,7 +351,7 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-primary mb-3">
+                            <h5 class="text-info mb-3">
                                 <i class="fas fa-users me-2"></i>Maiores Congregações
                             </h5>
                             <div class="row g-2">

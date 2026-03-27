@@ -9,7 +9,7 @@
                             <p>Gerencie as datas de eventos e agendas</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#pacoteModal">
+                            <button type="button" class="btn bg-info text-light"  data-bs-toggle="modal" data-bs-target="#pacoteModal">
                                 <i class="fas fa-plus me-2"></i>
                                 Novo calendário
                             </button>

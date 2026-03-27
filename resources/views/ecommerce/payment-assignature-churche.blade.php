@@ -1,6 +1,6 @@
 <div class="container-fluid py-1">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -137,7 +137,7 @@
                                         </small>
                                     </td>
                                     <td>
-                                        <span class="fw-bold text-primary">{{ $pagamento->getValorFormatado() }}</span>
+                                        <span class="fw-bold text-info">{{ $pagamento->getValorFormatado() }}</span>
                                     </td>
                                     <td>
                                         <span class="badge bg-light text-dark">
@@ -184,7 +184,7 @@
                     <i class="fas fa-receipt fa-4x text-muted mb-3"></i>
                     <h4 class="text-muted">Nenhum pagamento encontrado</h4>
                     <p class="text-muted">Você ainda não fez nenhum pagamento de assinatura para esta igreja.</p>
-                    <a href="{{ route('ecommerce.subscription.upgrade') }}" class="btn btn-primary">
+                    <a href="{{ route('ecommerce.subscription.upgrade') }}" class="btn bg-info text-light">
                         <i class="fas fa-plus me-2"></i>Fazer Assinatura
                     </a>
                 </div>
@@ -201,7 +201,7 @@
     // Função para ver detalhes do pagamento via SweetAlert2
     function verDetalhesPagamento(id, referencia, pacote, valor, metodo, status) {
         Swal.fire({
-            title: '<i class="fas fa-receipt text-primary me-2"></i>Detalhes do Pagamento',
+            title: '<i class="fas fa-receipt text-info me-2"></i>Detalhes do Pagamento',
             html: `
                 <div class="text-center">
                     <div class="card border-0 bg-light mb-0">
@@ -210,8 +210,8 @@
                             <div class="row mb-3">
                                 <div class="col-6">
                                     <div class="text-center">
-                                        <i class="fas fa-box text-primary fa-2x mb-2"></i>
-                                        <h6 class="text-primary fw-bold mb-1">Pacote</h6>
+                                        <i class="fas fa-box text-info fa-2x mb-2"></i>
+                                        <h6 class="text-info fw-bold mb-1">Pacote</h6>
                                         <p class="mb-0 fw-semibold">${pacote}</p>
                                     </div>
                                 </div>
@@ -275,7 +275,7 @@
     function verComprovativo(url, tipo) {
         // Sempre mostrar no SweetAlert2 para maior segurança
         Swal.fire({
-            title: '<i class="fas fa-file text-primary me-2"></i>Comprovativo',
+            title: '<i class="fas fa-file text-info me-2"></i>Comprovativo',
             html: `
                 <div class="text-center">
                     ${tipo.includes('pdf')

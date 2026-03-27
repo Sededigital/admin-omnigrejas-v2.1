@@ -10,7 +10,7 @@
                             <div class="col-lg-8 col-md-7">
                                 <div class="d-flex align-items-center">
                                     <div class="bg-light rounded-3 p-3 me-3">
-                                        <i class="fas fa-credit-card fa-2x text-primary"></i>
+                                        <i class="fas fa-credit-card fa-2x text-info"></i>
                                     </div>
                                     <div>
                                         <h3 class="text-dark mb-1 fw-semibold">Pedidos de Assinaturas</h3>
@@ -24,9 +24,9 @@
                                 <div class="d-flex justify-content-end align-items-center gap-3">
                                     <!-- Contador de Pendências -->
                                     <div class="text-center">
-                                        <div class="bg-primary bg-opacity-10 rounded-3 px-3 py-2 border">
-                                            <div class="text-primary fw-bold fs-5">{{ $pagamentosPendentes->count() }}</div>
-                                            <small class="text-primary fw-medium">Pendentes</small>
+                                        <div class="bg-info text-light bg-opacity-10 rounded-3 px-3 py-2 border">
+                                            <div class="text-info fw-bold fs-5">{{ $pagamentosPendentes->count() }}</div>
+                                            <small class="text-info fw-medium">Pendentes</small>
                                         </div>
                                     </div>
 
@@ -98,7 +98,7 @@
                                                         alt="Logo {{ $pagamento->igreja->nome }}"
                                                         style="width: 40px; height: 40px; object-fit: cover;">
                                                     @else
-                                                        <div class="user-avatar bg-primary text-white me-3">
+                                                        <div class="user-avatar bg-info text-light text-white me-3">
                                                             {{ strtoupper(substr($pagamento->igreja->nome ?? 'N', 0, 2)) }}
                                                         </div>
                                                     @endif
@@ -111,11 +111,11 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="badge bg-info">{{ $pagamento->pacote_nome }}</span>
+                                                <span class="badge bg-info text-light">{{ $pagamento->pacote_nome }}</span>
                                                 @if($pagamento->is_vitalicio)
                                                     <small class="text-success d-block">Vitalício</small>
                                                 @else
-                                                    <small class="text-primary d-block">{{ $pagamento->duracao_meses }} meses</small>
+                                                    <small class="text-info d-block">{{ $pagamento->duracao_meses }} meses</small>
                                                 @endif
                                             </td>
                                             <td>
@@ -251,7 +251,7 @@
                                 <div class="row g-2">
                                     <div class="col-md-6">
                                         <div class="d-flex align-items-center">
-                                            <i class="fas fa-church text-primary me-2"></i>
+                                            <i class="fas fa-church text-info me-2"></i>
                                             <div>
                                                 <small class="text-muted d-block">Igreja</small>
                                                 <strong class="text-dark">${data[0].igreja || 'N/A'}</strong>
@@ -363,7 +363,7 @@
                 if (data[0] && data[0].assinatura_atual) {
                     const assinatura = data[0].assinatura_atual;
                     const tipo = assinatura.tipo === 'trial' ? 'TRIAL ATIVO' : 'ASSINATURA ATIVA';
-                    const iconeCor = assinatura.tipo === 'trial' ? 'text-warning' : 'text-primary';
+                    const iconeCor = assinatura.tipo === 'trial' ? 'text-warning' : 'text-info';
                     const iconeInicioCor = assinatura.tipo === 'trial' ? 'text-warning' : 'text-success';
                     const iconeFimCor = assinatura.tipo === 'trial' ? 'text-warning' : 'text-danger';
                     const iconeDiasCor = assinatura.dias_restantes > 7 ? 'text-success' : assinatura.dias_restantes > 0 ? 'text-warning' : 'text-danger';
@@ -425,7 +425,7 @@
                                 <div class="row g-2">
                                     <div class="col-md-6">
                                         <div class="d-flex align-items-center">
-                                            <i class="fas fa-church text-primary me-2"></i>
+                                            <i class="fas fa-church text-info me-2"></i>
                                             <div>
                                                 <small class="text-muted d-block">Igreja</small>
                                                 <strong class="text-dark">${data[0].igreja || 'N/A'}</strong>
@@ -526,7 +526,7 @@
                     html: `
                         <div class="text-center">
                             <div class="mb-4">
-                                <i class="fas fa-spinner fa-spin fa-4x text-primary"></i>
+                                <i class="fas fa-spinner fa-spin fa-4x text-info"></i>
                             </div>
                             <p class="h5 fw-semibold text-body-emphasis mb-3">Processando aprovação do pagamento</p>
                             <p class="text-muted">Aguarde enquanto criamos a assinatura...</p>
@@ -672,7 +672,7 @@
                         cancelButtonText: 'Fechar',
                         customClass: {
                             popup: 'swal-wide-modal',
-                            confirmButton: 'btn btn-primary fw-bold m-2',
+                            confirmButton: 'btn bg-info text-light fw-bold m-2',
                             cancelButton: 'btn btn-secondary fw-bold m-2'
                         },
                         buttonsStyling: false,
@@ -717,7 +717,7 @@
                         html: `
                             <div class="text-center">
                                 <div class="mb-4">
-                                    <i class="fas fa-spinner fa-spin fa-4x text-primary"></i>
+                                    <i class="fas fa-spinner fa-spin fa-4x text-info"></i>
                                 </div>
                                 <p class="h5 fw-semibold text-body-emphasis mb-3">Preparando comprovativo para download</p>
                                 <p class="text-muted">Arquivo: ${nome}</p>

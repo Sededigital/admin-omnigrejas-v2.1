@@ -44,8 +44,8 @@
             <div class="col-md-3">
                 <div class="card text-center border-primary">
                     <div class="card-body">
-                        <i class="fas fa-users text-primary display-6 mb-2"></i>
-                        <div class="h4 mb-1 text-primary">{{ $igreja->membrosAtivos()->count() }}</div>
+                        <i class="fas fa-users text-info display-6 mb-2"></i>
+                        <div class="h4 mb-1 text-info">{{ $igreja->membrosAtivos()->count() }}</div>
                         <div class="text-muted small">Membros Ativos</div>
                     </div>
                 </div>

@@ -23,10 +23,7 @@
 
                               </div>
                               <!--logo End-->
-
-                              <h1 class="logo-title fw-bold">
-                                <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
-                                </h1>
+                            
                            </a>
                            <h2 class="mb-2 text-center">Entrar</h2>
                            <p class="text-center">Faça login para permanecer conectado</p>
@@ -61,7 +58,7 @@
                                  </div>
                               </div>
                               <div class="d-flex justify-content-center">
-                                <button id="login-button" class="btn btn-primary bg-primary border-0 d-flex align-items-center" type="submit" wire:loading.attr="disabled" wire:loading.class="disabled" @if($loginSuccessful) disabled @endif>
+                                <button id="login-button" class="btn bg-info text-light text-light border-0 d-flex align-items-center" type="submit" wire:loading.attr="disabled" wire:loading.class="disabled" @if($loginSuccessful) disabled @endif>
                                     <span wire:loading wire:target="login" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                                    Entrar
                                 </button>
@@ -84,9 +81,9 @@
 
                </div>
             </div>
-            <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden position-relative">
+            <div class="col-md-6 d-md-block d-none bg-info text-light p-0 mt-n1 vh-100 overflow-hidden position-relative">
                <img src="{{ asset('assets/images/auth/01.png') }}" class="img-fluid gradient-main animated-scaleX" alt="images">
-               <a href="{{ route('ecommerce.home') }}" class="btn btn-light position-absolute top-50 start-50 translate-middle fw-bold" style="z-index: 10;">E-commerce</a>
+               <a href="{{ route('ecommerce.home') }}" class="btn btn-info position-absolute top-50 start-50 translate-middle fw-bold" style="z-index: 10;">E-commerce</a>
             </div>
          </div>
       </section>

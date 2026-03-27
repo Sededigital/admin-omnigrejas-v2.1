@@ -43,7 +43,7 @@
         <img src="{{ asset('assets/images/error/500.png') }}" class="img-fluid mb-4 w-50" alt="">
         <h2 class="mb-0 mt-4 text-white">Oops! Erro Interno do Servidor.</h2>
         <p class="mt-2 text-white">Ocorreu um erro interno no servidor. Tente novamente mais tarde.</p>
-        <a class="btn bg-white text-primary d-inline-flex align-items-center" href="{{ url('/') }}">
+        <a class="btn bg-white text-info d-inline-flex align-items-center" href="{{ url('/') }}">
             <i class="fas fa-home me-2"></i>Voltar ao Dashboard
         </a>
     </div>

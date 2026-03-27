@@ -37,9 +37,9 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">
-            <i class="fas fa-key text-primary me-2"></i>Permissões
+            <i class="fas fa-key text-info me-2"></i>Permissões
         </h5>
-        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#permissaoModal" wire:click="abrirModalPermissao">
+        <button class="btn bg-info text-light btn-sm" data-bs-toggle="modal" data-bs-target="#permissaoModal" wire:click="abrirModalPermissao">
             <i class="fas fa-plus me-1"></i>Nova Permissão
         </button>
     </div>
@@ -72,7 +72,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <code class="text-primary">{{ $permissao->codigo }}</code>
+                                        <code class="text-info">{{ $permissao->codigo }}</code>
                                     </td>
                                     <td>
                                         <span class="badge bg-secondary">{{ $permissao->getCategoriaLabel() }}</span>
@@ -157,7 +157,7 @@
                             <i class="fas fa-times me-1"></i>Limpar Filtros
                         </button>
                     @endif
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#permissaoModal" wire:click="abrirModalPermissao">
+                    <button class="btn bg-info text-light" data-bs-toggle="modal" data-bs-target="#permissaoModal" wire:click="abrirModalPermissao">
                         <i class="fas fa-plus me-1"></i>Criar Primeira Permissão
                     </button>
                 </div>
@@ -174,7 +174,7 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between mb-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="user-avatar bg-primary text-white me-3">
+                                        <div class="user-avatar bg-info text-light text-white me-3">
                                             <i class="fas fa-key"></i>
                                         </div>
                                         <div>
@@ -196,7 +196,7 @@
                                 </div>
                                 <div class="mb-2">
                                     <i class="fas fa-code text-muted me-1"></i>
-                                    <code class="text-primary">{{ $permissao->codigo }}</code>
+                                    <code class="text-info">{{ $permissao->codigo }}</code>
                                 </div>
                                 <div class="mb-2">
                                     @php
@@ -224,7 +224,7 @@
                                 </div>
                                 @endif
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-primary btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#permissaoModal" wire:click="abrirModalPermissao({{ $permissao->id }})">
+                                    <button class="btn bg-info text-light btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#permissaoModal" wire:click="abrirModalPermissao({{ $permissao->id }})">
                                         <i class="fas fa-edit me-1"></i>Editar
                                     </button>
                                     <button class="btn btn-outline-danger btn-sm" wire:click="excluirPermissao({{ $permissao->id }})">

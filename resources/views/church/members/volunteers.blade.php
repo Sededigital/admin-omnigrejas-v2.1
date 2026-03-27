@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-hands-helping me-2"></i>Voluntários
                         </h1>
                         <p class="mb-0 text-muted">
@@ -13,7 +13,7 @@
                         </p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+                        <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#volunteerModal">
                             <i class="fas fa-plus me-1"></i>Adicionar Voluntário
                         </button>
                     </div>
@@ -69,7 +69,7 @@
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <div>
                                     <h6 class="mb-0">
-                                        <i class="fas fa-user text-primary me-2"></i>
+                                        <i class="fas fa-user text-info me-2"></i>
                                         {{ $voluntario->membro->user->name }}
                                     </h6>
                                     <small class="text-muted">
@@ -98,14 +98,14 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <strong class="text-primary">
+                                    <strong class="text-info">
                                         <i class="fas fa-star me-1"></i>Área de Interesse:
                                     </strong>
                                     <p class="mb-2">{{ $voluntario->area_interesse }}</p>
                                 </div>
 
                                 <div class="mb-3">
-                                    <strong class="text-primary">
+                                    <strong class="text-info">
                                         <i class="fas fa-clock me-1"></i>Disponibilidade:
                                     </strong>
                                     <p class="mb-2">{{ $voluntario->disponibilidade }}</p>
@@ -142,7 +142,7 @@
                                     <i class="fas fa-times me-1"></i>Limpar Filtros
                                 </button>
                             @endif
-                            <button class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#volunteerModal">
+                            <button class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#volunteerModal">
                                 <i class="fas fa-plus me-1"></i>Adicionar Primeiro Voluntário
                             </button>
                         </div>

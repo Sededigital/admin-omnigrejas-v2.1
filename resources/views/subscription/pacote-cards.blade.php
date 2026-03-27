@@ -1,4 +1,4 @@
-<div class="row g-4 mb-5"
+<div class="row g-4 mb-5 container-fluid justify-content-center"
 id="pricingCards">
 @foreach($pacotes as $pacote)
    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
@@ -30,14 +30,14 @@ id="pricingCards">
                    @elseif($pacote->nome === 'Ouro')
                        <i class="fas fa-star fa-4x" style="color: var(--gold);"></i>
                    @else
-                       <i class="fas fa-church fa-4x text-primary"></i>
+                       <i class="fas fa-church fa-4x text-info"></i>
                    @endif
                </div>
 
                <h4 class="card-title fw-bold mb-3 fs-3">{{ $pacote->nome }}</h4>
                <div class="mb-4">
                    <div class="h1 price-tag mb-2">
-                       <span class="gradient-text">{{ $pacote->getPrecoFormatado() }}</span>
+                       <span class="text-info">{{ $pacote->getPrecoFormatado() }}</span>
                        <small class="text-muted fs-6 ms-1">/mês</small>
                    </div>
                    @if($pacote->preco_vitalicio)
@@ -65,8 +65,8 @@ id="pricingCards">
                    @endforeach
                    @if($pacote->recursos->where('ativo', true)->count() > 4)
                        <div class="feature-item d-flex align-items-start">
-                           <i class="fas fa-plus text-primary feature-icon"></i>
-                           <span class="text-primary flex-grow-1" style="margin-left: 0.125rem;">E muito mais...</span>
+                           <i class="fas fa-plus text-info feature-icon"></i>
+                           <span class="text-info flex-grow-1" style="margin-left: 0.125rem;">E muito mais...</span>
                        </div>
                    @endif
                </div>

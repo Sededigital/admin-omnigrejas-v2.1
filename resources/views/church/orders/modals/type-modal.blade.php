@@ -67,7 +67,7 @@
                                 <button type="button" class="btn btn-secondary" wire:click="cancelTypeForm">
                                     <i class="fas fa-times me-1"></i>Cancelar
                                 </button>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn bg-info text-light">
                                     <i class="fas fa-save me-1"></i>
                                     @if($editingType)
                                         Atualizar Tipo
@@ -85,7 +85,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h6 class="mb-0">Tipos de Pedido da Igreja</h6>
                     @if(!$showTypeForm)
-                    <button class="btn btn-primary btn-sm" wire:click="showAddTypeForm">
+                    <button class="btn bg-info text-light btn-sm" wire:click="showAddTypeForm">
                         <i class="fas fa-plus me-1"></i>Novo Tipo
                     </button>
                     @endif
@@ -110,7 +110,7 @@
                                     <strong>{{ $type->nome }}</strong>
                                 </td>
                                 <td>
-                                    <span class="badge bg-info">{{ $type->categoria->nome ?? 'N/A' }}</span>
+                                    <span class="badge bg-info text-light">{{ $type->categoria->nome ?? 'N/A' }}</span>
                                 </td>
                                 <td>
                                     <small class="text-muted">{{ Str::limit($type->descricao ?? 'Sem descrição', 50) }}</small>
@@ -121,7 +121,7 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <span class="badge bg-primary">{{ $type->total_pedidos }}</span>
+                                    <span class="badge bg-info text-light">{{ $type->total_pedidos }}</span>
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group btn-group-sm">
@@ -147,7 +147,7 @@
                                     <i class="fas fa-tags text-muted display-4 mb-3"></i>
                                     <div class="text-muted">Nenhum tipo de pedido encontrado</div>
                                     @if(!$showTypeForm)
-                                    <button class="btn btn-primary mt-3" wire:click="showAddTypeForm">
+                                    <button class="btn bg-info text-light mt-3" wire:click="showAddTypeForm">
                                         <i class="fas fa-plus me-1"></i>Criar Primeiro Tipo
                                     </button>
                                     @endif

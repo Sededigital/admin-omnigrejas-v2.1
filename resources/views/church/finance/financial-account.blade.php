@@ -11,12 +11,12 @@
                         </div>
                         <div>
                             @if($activeTab === 'accounts')
-                                <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#accountModal">
+                                <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#accountModal">
                                     <i class="fas fa-plus me-2"></i>
                                     Nova Conta
                                 </button>
                             @elseif($activeTab === 'digitalChannels')
-                                <button type="button" class="btn btn-primary" wire:click="openDigitalModal" data-bs-toggle="modal" data-bs-target="#digitalChannelModal">
+                                <button type="button" class="btn bg-info text-light" wire:click="openDigitalModal" data-bs-toggle="modal" data-bs-target="#digitalChannelModal">
                                     <i class="fas fa-plus me-2"></i>
                                     Novo Canal Digital
                                 </button>
@@ -130,7 +130,7 @@
                                                     <td>{{ $account->titular }}</td>
                                                     <td>{{ $account->numero_conta }}</td>
                                                     <td>
-                                                        <span class="badge bg-info">{{ $account->moeda }}</span>
+                                                        <span class="badge bg-info text-light">{{ $account->moeda }}</span>
                                                     </td>
                                                     <td>
                                                         @if($account->ativa)
@@ -249,7 +249,7 @@
                                                     <td>{{ $channel->referencia }}</td>
                                                     <td>{{ $channel->titular }}</td>
                                                     <td>
-                                                        <span class="badge bg-info">{{ $channel->moeda }}</span>
+                                                        <span class="badge bg-info text-light">{{ $channel->moeda }}</span>
                                                     </td>
                                                     <td>
                                                         @if($channel->ativo)
@@ -413,7 +413,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="accountModalLabel">
-                        <i class="fas fa-university text-primary me-2"></i>
+                        <i class="fas fa-university text-info me-2"></i>
                         <span id="modal-title">{{ $editingAccount ? 'Editar Conta Bancária' : 'Nova Conta Bancária' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -425,7 +425,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('account_banco') is-invalid @enderror"
                                            wire:model="account_banco" placeholder="Nome do banco" required>
-                                    <label><i class="fas fa-building text-primary me-1"></i>Banco *</label>
+                                    <label><i class="fas fa-building text-info me-1"></i>Banco *</label>
                                     @error('account_banco')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -435,7 +435,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('account_titular') is-invalid @enderror"
                                            wire:model="account_titular" placeholder="Nome do titular" required>
-                                    <label><i class="fas fa-user text-primary me-1"></i>Titular *</label>
+                                    <label><i class="fas fa-user text-info me-1"></i>Titular *</label>
                                     @error('account_titular')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -445,7 +445,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('account_iban') is-invalid @enderror"
                                            wire:model="account_iban" placeholder="Código IBAN">
-                                    <label><i class="fas fa-hashtag text-primary me-1"></i>IBAN</label>
+                                    <label><i class="fas fa-hashtag text-info me-1"></i>IBAN</label>
                                     @error('account_iban')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -455,7 +455,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('account_swift') is-invalid @enderror"
                                            wire:model="account_swift" placeholder="Código SWIFT">
-                                    <label><i class="fas fa-code text-primary me-1"></i>SWIFT</label>
+                                    <label><i class="fas fa-code text-info me-1"></i>SWIFT</label>
                                     @error('account_swift')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -465,7 +465,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('account_numero_conta') is-invalid @enderror"
                                            wire:model="account_numero_conta" placeholder="Número da conta" required>
-                                    <label><i class="fas fa-credit-card text-primary me-1"></i>Número da Conta *</label>
+                                    <label><i class="fas fa-credit-card text-info me-1"></i>Número da Conta *</label>
                                     @error('account_numero_conta')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -480,7 +480,7 @@
                                         <option value="USD" {{ $account_moeda === 'USD' ? 'selected' : '' }}>USD - Dólar Americano</option>
                                         <option value="BRL" {{ $account_moeda === 'BRL' ? 'selected' : '' }}>BRL - Real Brasileiro</option>
                                     </select>
-                                    <label><i class="fas fa-dollar-sign text-primary me-1"></i>Moeda *</label>
+                                    <label><i class="fas fa-dollar-sign text-info me-1"></i>Moeda *</label>
                                     @error('account_moeda')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -491,7 +491,7 @@
                                     <textarea class="form-control @error('account_observacoes') is-invalid @enderror"
                                               wire:model="account_observacoes" rows="3"
                                               placeholder="Observações adicionais"></textarea>
-                                    <label><i class="fas fa-comment text-primary me-1"></i>Observações</label>
+                                    <label><i class="fas fa-comment text-info me-1"></i>Observações</label>
                                     @error('account_observacoes')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -502,7 +502,7 @@
                                     <input class="form-check-input @error('account_ativa') is-invalid @enderror"
                                            type="checkbox" wire:model="account_ativa" id="accountAtivaSwitch">
                                     <label class="form-check-label" for="accountAtivaSwitch">
-                                        <i class="fas fa-toggle-on text-primary me-1"></i>Conta Ativa
+                                        <i class="fas fa-toggle-on text-info me-1"></i>Conta Ativa
                                     </label>
                                     @error('account_ativa')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -511,7 +511,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingAccount ? 'Editando Conta Bancária' : 'Nova Conta Bancária' }}
@@ -525,7 +525,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveAccount" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveAccount" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveAccount">
                             <i class="fas fa-save me-1"></i>{{ $editingAccount ? 'Atualizar Conta' : 'Salvar Conta' }}
                         </span>
@@ -544,7 +544,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="digitalChannelModalLabel">
-                        <i class="fas fa-wallet text-primary me-2"></i>
+                        <i class="fas fa-wallet text-info me-2"></i>
                         <span id="modal-title">{{ $editingDigitalChannel ? 'Editar Canal Digital' : 'Novo Canal Digital' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -561,7 +561,7 @@
                                             <option value="{{ $key }}" {{ $digital_tipo === $key ? 'selected' : '' }}>{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-tags text-primary me-1"></i>Tipo *</label>
+                                    <label><i class="fas fa-tags text-info me-1"></i>Tipo *</label>
                                     @error('digital_tipo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -571,7 +571,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('digital_referencia') is-invalid @enderror"
                                            wire:model="digital_referencia" placeholder="Referência do canal" required>
-                                    <label><i class="fas fa-hashtag text-primary me-1"></i>Referência *</label>
+                                    <label><i class="fas fa-hashtag text-info me-1"></i>Referência *</label>
                                     @error('digital_referencia')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -581,7 +581,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('digital_titular') is-invalid @enderror"
                                            wire:model="digital_titular" placeholder="Nome do titular" required>
-                                    <label><i class="fas fa-user text-primary me-1"></i>Titular *</label>
+                                    <label><i class="fas fa-user text-info me-1"></i>Titular *</label>
                                     @error('digital_titular')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -596,7 +596,7 @@
                                         <option value="USD" {{ $digital_moeda === 'USD' ? 'selected' : '' }}>USD - Dólar Americano</option>
                                         <option value="BRL" {{ $digital_moeda === 'BRL' ? 'selected' : '' }}>BRL - Real Brasileiro</option>
                                     </select>
-                                    <label><i class="fas fa-dollar-sign text-primary me-1"></i>Moeda *</label>
+                                    <label><i class="fas fa-dollar-sign text-info me-1"></i>Moeda *</label>
                                     @error('digital_moeda')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -607,7 +607,7 @@
                                     <textarea class="form-control @error('digital_observacoes') is-invalid @enderror"
                                               wire:model="digital_observacoes" rows="3"
                                               placeholder="Observações adicionais"></textarea>
-                                    <label><i class="fas fa-comment text-primary me-1"></i>Observações</label>
+                                    <label><i class="fas fa-comment text-info me-1"></i>Observações</label>
                                     @error('digital_observacoes')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -618,7 +618,7 @@
                                     <input class="form-check-input @error('digital_ativo') is-invalid @enderror"
                                            type="checkbox" wire:model="digital_ativo" id="digitalChannelAtivoSwitch">
                                     <label class="form-check-label" for="digitalChannelAtivoSwitch">
-                                        <i class="fas fa-toggle-on text-primary me-1"></i>Canal Ativo
+                                        <i class="fas fa-toggle-on text-info me-1"></i>Canal Ativo
                                     </label>
                                     @error('digital_ativo')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -627,7 +627,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingDigitalChannel ? 'Editando Canal Digital' : 'Novo Canal Digital' }}
@@ -641,7 +641,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveDigitalChannel" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveDigitalChannel" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveDigitalChannel">
                             <i class="fas fa-save me-1"></i>{{ $editingDigitalChannel ? 'Atualizar Canal' : 'Salvar Canal' }}
                         </span>

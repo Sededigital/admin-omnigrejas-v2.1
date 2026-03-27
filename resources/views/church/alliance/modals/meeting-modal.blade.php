@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <!-- Header do Modal -->
-            <div class="modal-header bg-primary text-white border-bottom">
+            <div class="modal-header bg-info text-light text-white border-bottom">
                 <h5 class="modal-title fw-bold" id="meetingModalLabel">
                     <i class="fas fa-calendar-plus me-2"></i>
                     <span>{{ $isEditing ? 'Editar Reunião' : 'Agendar Nova Reunião' }}</span>
@@ -23,14 +23,14 @@
                                     data-bs-toggle="tab"
                                     data-bs-target="#meeting-nav-basic"
                                     type="button" role="tab">
-                                <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold"
                                     id="meeting-nav-details-tab"
                                     data-bs-toggle="tab"
                                     data-bs-target="#meeting-nav-details"
                                     type="button" role="tab">
-                                <i class="fas fa-cogs text-primary me-1"></i>Detalhes
+                                <i class="fas fa-cogs text-info me-1"></i>Detalhes
                             </button>
                         </div>
                     </nav>
@@ -46,7 +46,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password"  autocomplete="new-password"  class="form-control @error('titulo') is-invalid @enderror"
                                                wire:model="titulo" placeholder="Digite o título da reunião" required>
-                                        <label><i class="fas fa-heading text-primary me-1"></i>Título da Reunião *</label>
+                                        <label><i class="fas fa-heading text-info me-1"></i>Título da Reunião *</label>
                                         @error('titulo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -65,7 +65,7 @@
                                                autocomplete="off"
                                                readonly
                                                style="border: 2px solid #007bff; border-radius: 0.375rem; cursor: pointer;">
-                                        <label><i class="fas fa-calendar text-primary me-1"></i>Data *</label>
+                                        <label><i class="fas fa-calendar text-info me-1"></i>Data *</label>
                                         @error('data_agendamento')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -76,7 +76,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control @error('hora_inicio') is-invalid @enderror"
                                                wire:model="hora_inicio" required>
-                                        <label><i class="fas fa-clock text-primary me-1"></i>Início *</label>
+                                        <label><i class="fas fa-clock text-info me-1"></i>Início *</label>
                                         @error('hora_inicio')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -87,7 +87,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="time" class="form-control @error('hora_fim') is-invalid @enderror"
                                                wire:model="hora_fim">
-                                        <label><i class="fas fa-clock text-primary me-1"></i>Fim</label>
+                                        <label><i class="fas fa-clock text-info me-1"></i>Fim</label>
                                         @error('hora_fim')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -104,7 +104,7 @@
                                             <option value="acompanhamento">Acompanhamento</option>
                                             <option value="outro">Outro</option>
                                         </select>
-                                        <label><i class="fas fa-tag text-primary me-1"></i>Tipo *</label>
+                                        <label><i class="fas fa-tag text-info me-1"></i>Tipo *</label>
                                         @error('tipo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -120,7 +120,7 @@
                                             <option value="online">Online</option>
                                             <option value="hibrido">Híbrido</option>
                                         </select>
-                                        <label><i class="fas fa-globe text-primary me-1"></i>Modalidade *</label>
+                                        <label><i class="fas fa-globe text-info me-1"></i>Modalidade *</label>
                                         @error('modalidade')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -132,7 +132,7 @@
                                     <div class="form-floating mb-3" id="localField" style="display: {{ in_array($modalidade, ['presencial', 'hibrido']) ? 'block' : 'none' }}">
                                         <input type="text"  autocomplete="new-password"  autocomplete="new-password"  class="form-control @error('local') is-invalid @enderror"
                                                wire:model="local" placeholder="Digite o local da reunião">
-                                        <label><i class="fas fa-map-marker-alt text-primary me-1"></i>Local</label>
+                                        <label><i class="fas fa-map-marker-alt text-info me-1"></i>Local</label>
                                         @error('local')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -144,7 +144,7 @@
                                     <div class="form-floating mb-3" id="linkField" style="display: {{ in_array($modalidade, ['online', 'hibrido']) ? 'block' : 'none' }}">
                                         <input type="url" class="form-control @error('link_reuniao') is-invalid @enderror"
                                                wire:model="link_reuniao" placeholder="https://meet.google.com/...">
-                                        <label><i class="fas fa-link text-primary me-1"></i>Link da Reunião</label>
+                                        <label><i class="fas fa-link text-info me-1"></i>Link da Reunião</label>
                                         @error('link_reuniao')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -162,7 +162,7 @@
                                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                                   wire:model="descricao" rows="4"
                                                   placeholder="Descreva os objetivos e tópicos da reunião"></textarea>
-                                        <label><i class="fas fa-align-left text-primary me-1"></i>Descrição</label>
+                                        <label><i class="fas fa-align-left text-info me-1"></i>Descrição</label>
                                         @error('descricao')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -181,7 +181,7 @@
                                                         {{ $alianca['nome'] }}
                                                         @if($alianca['sigla']) ({{ $alianca['sigla'] }}) @endif
                                                         @if(isset($alianca['tipo']) && $alianca['tipo'] === 'criada')
-                                                            <span class="text-primary">★</span>
+                                                            <span class="text-info">★</span>
                                                         @else
                                                             <span class="text-muted">●</span>
                                                         @endif
@@ -191,7 +191,7 @@
                                                 <option value="" disabled>Nenhuma aliança disponível</option>
                                             @endif
                                         </select>
-                                        <label><i class="fas fa-handshake text-primary me-1"></i>Aliança *</label>
+                                        <label><i class="fas fa-handshake text-info me-1"></i>Aliança *</label>
                                         @error('aliancaSelecionada')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -217,7 +217,7 @@
                                                 @endforeach
                                             @endif
                                         </select>
-                                        <label><i class="fas fa-user-tie text-primary me-1"></i>Responsável</label>
+                                        <label><i class="fas fa-user-tie text-info me-1"></i>Responsável</label>
                                         @error('responsavel_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -238,7 +238,7 @@
                                                 @endforeach
                                             @endif
                                         </select>
-                                        <label><i class="fas fa-user text-primary me-1"></i>Convidado Especial</label>
+                                        <label><i class="fas fa-user text-info me-1"></i>Convidado Especial</label>
                                         @error('convidado_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -254,7 +254,7 @@
                                         <textarea class="form-control @error('observacoes') is-invalid @enderror"
                                                   wire:model="observacoes" rows="3"
                                                   placeholder="Observações adicionais"></textarea>
-                                        <label><i class="fas fa-sticky-note text-primary me-1"></i>Observações</label>
+                                        <label><i class="fas fa-sticky-note text-info me-1"></i>Observações</label>
                                         @error('observacoes')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -264,7 +264,7 @@
                                 <!-- Status Visual -->
                                 <div class="col-12">
                                     <div class="alert alert-light border">
-                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        <i class="fas fa-info-circle text-info me-2"></i>
                                         <strong>Status:</strong>
                                         <span class="text-muted">
                                             {{ $isEditing ? 'Editando Reunião' : 'Nova Reunião' }}
@@ -282,7 +282,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="salvarReuniao" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="salvarReuniao" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="salvarReuniao">
                         <i class="fas fa-save me-1"></i>{{ $isEditing ? 'Atualizar Reunião' : 'Agendar Reunião' }}
                     </span>

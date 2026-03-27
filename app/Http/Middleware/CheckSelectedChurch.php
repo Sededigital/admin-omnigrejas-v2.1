@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use App\Models\Igrejas\IgrejaMembro;
 
 class CheckSelectedChurch
@@ -20,10 +21,14 @@ class CheckSelectedChurch
 
         // Para usuários normais
         if ($user) {
-            $igrejas = IgrejaMembro::where('user_id', $user->id)
-                ->where('status', 'ativo')
-                ->with('igreja')
-                ->get();
+            // Usar cache para igrejas do usuário (5 minutos)
+            $cacheKey = "user_churches_{$user->id}";
+            $igrejas = Cache::remember($cacheKey, now()->addMinutes(5), function () use ($user) {
+                return IgrejaMembro::where('user_id', $user->id)
+                    ->where('status', 'ativo')
+                    ->with('igreja')
+                    ->get();
+            });
 
             // Se não tem igrejas ativas, redirecionar para dashboard apropriado com warning
             if ($igrejas->isEmpty()) {

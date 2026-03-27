@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-exchange-alt me-2"></i>Migração de Membros
                         </h1>
                         <p class="mb-0 text-muted">Transfira membros entre igrejas de forma organizada</p>
@@ -49,8 +49,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-users text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $members->total() }}</div>
+                        <i class="fas fa-users text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $members->total() }}</div>
                         <div class="text-muted small">Membros Elegíveis</div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
             <!-- Lista de Membros -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-users me-2"></i>Membros da Igreja
                     </h5>
                 </div>
@@ -148,7 +148,7 @@
                                                               alt="Foto {{ $member->user->name }}"
                                                               style="width: 40px; height: 40px; object-fit: cover;">
                                                     @else
-                                                        <div class="user-avatar bg-primary text-white me-3">
+                                                        <div class="user-avatar bg-info text-light text-white me-3">
                                                             {{ strtoupper(substr($member->user->name ?? 'N', 0, 2)) }}
                                                         </div>
                                                     @endif
@@ -167,7 +167,7 @@
                                             </td>
                                             <td>
                                                 @if($member->status === 'ativo')
-                                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#migrationModal" wire:click="openMigrationModal('{{ $member->id }}')">
+                                                    <button class="btn bg-info text-light btn-sm" data-bs-toggle="modal" data-bs-target="#migrationModal" wire:click="openMigrationModal('{{ $member->id }}')">
                                                         <i class="fas fa-exchange-alt me-1"></i>Migrar
                                                     </button>
                                                 @else
@@ -197,7 +197,7 @@
             <!-- Histórico de Migrações -->
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-history me-2"></i>Histórico de Migrações
                     </h5>
                     <button class="btn btn-success btn-sm" wire:click="printTransferStats" wire:loading.attr="disabled" wire:target="printTransferStats">
@@ -235,7 +235,7 @@
                                                     <i class="fas fa-arrow-right mx-2"></i>
                                                     <span class="badge bg-success">{{ $migration->igreja_destino_nome }}</span>
                                                 @else
-                                                    <span class="badge bg-info">Nova Adesão</span>
+                                                    <span class="badge bg-info text-light">Nova Adesão</span>
                                                     <i class="fas fa-arrow-right mx-2"></i>
                                                     <span class="badge bg-success">{{ $migration->igreja_destino_nome }}</span>
                                                 @endif
@@ -427,7 +427,7 @@
                                     style="min-height: 200px;"
                                     wire:loading
                                     wire:target="openMigrationModal">
-                                    <i class="fas fa-spinner fa-spin text-primary mb-3" style="font-size: 3rem;"></i>
+                                    <i class="fas fa-spinner fa-spin text-info mb-3" style="font-size: 3rem;"></i>
                                     <p class="text-muted">Carregando informações do membro...</p>
                                 </div>
                             @endif
@@ -436,14 +436,14 @@
                             style="min-height: 200px;"
                             wire:loading
                             wire:target="openMigrationModal">
-                            <i class="fas fa-spinner fa-spin text-primary mb-3" style="font-size: 3rem;"></i>
+                            <i class="fas fa-spinner fa-spin text-info mb-3" style="font-size: 3rem;"></i>
                             <p class="text-muted">Carregando informações do membro...</p>
                         </div>
                         @endif
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"  wire:target="migrateMember">
+                        <button type="submit" class="btn bg-info text-light" wire:loading.attr="disabled"  wire:target="migrateMember">
                             <span wire:loading.remove>
                                 <i class="fas fa-exchange-alt me-1"></i>Migrar Membro
                             </span>

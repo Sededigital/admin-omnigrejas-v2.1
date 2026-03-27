@@ -5,13 +5,13 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-church me-2"></i>Cultos Padrão
                         </h1>
                         <p class="mb-0 text-muted">Gerencie os cultos semanais fixos da igreja</p>
                     </div>
                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                        <button class="btn btn-primary btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#cultModal">
+                        <button class="btn bg-info text-light btn-md" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#cultModal">
                             <i class="fas fa-plus-circle me-2"></i>Criar Culto
                         </button>
                     </div>
@@ -24,8 +24,8 @@
             <div class="col-6 col-lg-3">
                 <div class="card text-center card-hover border border-primary metric-card">
                     <div class="card-body">
-                        <i class="fas fa-church text-primary display-6 mb-2 icon-interactive"></i>
-                        <div class="fw-bold h4 mb-1 text-primary">{{ $stats['total'] }}</div>
+                        <i class="fas fa-church text-info display-6 mb-2 icon-interactive"></i>
+                        <div class="fw-bold h4 mb-1 text-info">{{ $stats['total'] }}</div>
                         <div class="text-muted small">Total de Cultos</div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary flex-fill" wire:click="clearFilters">
+                            <button class="btn bg-info text-light flex-fill" wire:click="clearFilters">
                                 <i class="fas fa-filter me-1"></i>Limpar
                             </button>
                         </div>
@@ -95,7 +95,7 @@
         <div class="d-none d-lg-block">
             <div class="card">
                 <div class="card-header d-flex align-items-center mb-3">
-                    <h5 class="mb-0 text-primary">
+                    <h5 class="mb-0 text-info">
                         <i class="fas fa-list-ul me-2"></i>Lista de Cultos Padrão
                     </h5>
                 </div>
@@ -116,7 +116,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="cult-avatar bg-primary text-white me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">
+                                        <div class="cult-avatar bg-info text-light text-white me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">
                                             {{ strtoupper(substr($cult->titulo, 0, 2)) }}
                                         </div>
                                         <div>
@@ -200,7 +200,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between mb-3">
                                 <div class="d-flex align-items-center">
-                                    <div class="cult-avatar bg-primary text-white me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">
+                                    <div class="cult-avatar bg-info text-light text-white me-3 rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">
                                         {{ strtoupper(substr($cult->titulo, 0, 2)) }}
                                     </div>
                                     <div>
@@ -225,7 +225,7 @@
                                 <small class="text-muted">{{ Str::limit($cult->descricao, 60) }}</small>
                             </div>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary btn-sm flex-fill" wire:click="openModal('{{ $cult->id }}')" data-bs-toggle="modal" data-bs-target="#cultModal">
+                                <button class="btn bg-info text-light btn-sm flex-fill" wire:click="openModal('{{ $cult->id }}')" data-bs-toggle="modal" data-bs-target="#cultModal">
                                     <i class="fas fa-edit me-1"></i>Editar
                                 </button>
                                 <button class="btn btn-outline-danger btn-sm" wire:click="deleteCult('{{ $cult->id }}')"
@@ -275,7 +275,7 @@
                 <!-- Header do Modal -->
                 <div class="modal-header bg-light border-bottom">
                     <h5 class="modal-title fw-bold" id="cultModalLabel">
-                        <i class="fas fa-church text-primary me-2"></i>
+                        <i class="fas fa-church text-info me-2"></i>
                         <span id="modal-title">{{ $editingCult ? 'Editar Culto Padrão' : 'Criar Culto Padrão' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -291,7 +291,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('titulo') is-invalid @enderror"
                                            wire:model="titulo" placeholder="Nome do culto" required>
-                                    <label><i class="fas fa-heading text-primary me-1"></i>Título do Culto *</label>
+                                    <label><i class="fas fa-heading text-info me-1"></i>Título do Culto *</label>
                                     @error('titulo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -312,7 +312,7 @@
                                         <option value="5">Sexta-feira</option>
                                         <option value="6">Sábado</option>
                                     </select>
-                                    <label><i class="fas fa-calendar-week text-primary me-1"></i>Dia da Semana *</label>
+                                    <label><i class="fas fa-calendar-week text-info me-1"></i>Dia da Semana *</label>
                                     @error('dia_semana')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -324,7 +324,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="time" class="form-control @error('hora_inicio') is-invalid @enderror"
                                            wire:model="hora_inicio" required>
-                                    <label><i class="fas fa-clock text-primary me-1"></i>Hora de Início *</label>
+                                    <label><i class="fas fa-clock text-info me-1"></i>Hora de Início *</label>
                                     @error('hora_inicio')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -336,7 +336,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="time" class="form-control @error('hora_fim') is-invalid @enderror"
                                            wire:model="hora_fim">
-                                    <label><i class="fas fa-clock text-primary me-1"></i>Hora de Fim</label>
+                                    <label><i class="fas fa-clock text-info me-1"></i>Hora de Fim</label>
                                     @error('hora_fim')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -348,7 +348,7 @@
                                 <div class="form-check form-switch mb-3">
                                     <input class="form-check-input" type="checkbox" id="ativo" wire:model="ativo">
                                     <label class="form-check-label" for="ativo">
-                                        <i class="fas fa-toggle-on text-primary me-1"></i>Culto Ativo
+                                        <i class="fas fa-toggle-on text-info me-1"></i>Culto Ativo
                                     </label>
                                 </div>
                             </div>
@@ -359,7 +359,7 @@
                                     <textarea class="form-control @error('descricao') is-invalid @enderror"
                                               wire:model="descricao" rows="3"
                                               placeholder="Descrição do culto"></textarea>
-                                    <label><i class="fas fa-align-left text-primary me-1"></i>Descrição</label>
+                                    <label><i class="fas fa-align-left text-info me-1"></i>Descrição</label>
                                     @error('descricao')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -369,7 +369,7 @@
                             <!-- Status Visual -->
                             <div class="col-12">
                                 <div class="alert alert-light border">
-                                    <i class="fas fa-info-circle text-primary me-2"></i>
+                                    <i class="fas fa-info-circle text-info me-2"></i>
                                     <strong>Status:</strong>
                                     <span class="text-muted">
                                         {{ $editingCult ? 'Editando Culto Padrão' : 'Novo Culto Padrão' }}
@@ -385,7 +385,7 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" wire:click="saveCult" wire:loading.attr="disabled">
+                    <button type="button" class="btn bg-info text-light" wire:click="saveCult" wire:loading.attr="disabled">
                         <span wire:loading.remove wire:target="saveCult">
                             <i class="fas fa-save me-1"></i>{{ $editingCult ? 'Atualizar Culto' : 'Salvar Culto' }}
                         </span>

@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="h3 mb-1 text-primary">
+                        <h1 class="h3 mb-1 text-info">
                             <i class="fas fa-credit-card me-2"></i>Assinatura e Cobrança
                         </h1>
                         <p class="mb-0 text-muted">Gerencie sua assinatura e visualize informações de cobrança</p>
@@ -91,9 +91,9 @@
                                 <div class="row g-3 mb-4">
                                     <div class="col-6">
                                         <div class="d-flex align-items-center bg-light p-3 rounded">
-                                            <i class="fas fa-receipt text-primary fs-3 me-3"></i>
+                                            <i class="fas fa-receipt text-info fs-3 me-3"></i>
                                             <div>
-                                                <div class="fw-bold h5 mb-0 text-primary">{{ $estatisticas['total_pagamentos'] }}</div>
+                                                <div class="fw-bold h5 mb-0 text-info">{{ $estatisticas['total_pagamentos'] }}</div>
                                                 <div class="text-muted small">Total de Pagamentos</div>
                                             </div>
                                         </div>
@@ -191,7 +191,7 @@
                 <div class="card mb-4 shadow-sm border-0">
                     <!-- Novo cabeçalho: Fundo branco e acento de borda sutil -->
                     <div class="card-header bg-white border-bottom border-2 border-primary-subtle py-3">
-                        <h5 class="mb-0 fw-bold text-primary">
+                        <h5 class="mb-0 fw-bold text-info">
                             <i class="fas fa-shield-alt me-2"></i>Permissões do Pacote
                         </h5>
                     </div>
@@ -233,7 +233,7 @@
                         <!-- Rodapé para indicar que há mais registros (Exemplo de paginação/visualização completa) -->
                         @if($permissoesPacote->count() > 5)
                         <div class="card-footer text-center bg-light">
-                            <a href="#" class="text-primary fw-semibold" onclick="alert('Funcionalidade de Ver Todas as Permissões. Implemente a lógica de carregamento completo ou página separada.')">
+                            <a href="#" class="text-info fw-semibold" onclick="alert('Funcionalidade de Ver Todas as Permissões. Implemente a lógica de carregamento completo ou página separada.')">
                                 <i class="fas fa-arrow-alt-circle-down me-1"></i> Ver todas as {{ $permissoesPacote->count() }} permissões
                             </a>
                         </div>
@@ -306,19 +306,19 @@
                     <div class="card-body p-4">
                         <!-- NOVO CABEÇALHO INTEGRADO: Título com linha divisória sutil -->
                         <div class="d-flex align-items-center mb-3 pb-3 border-bottom border-primary-subtle">
-                            <i class="fas fa-bolt me-2 fs-5 text-primary"></i>
-                            <h5 class="mb-0 fw-bold text-primary">Ações Rápidas</h5>
+                            <i class="fas fa-bolt me-2 fs-5 text-info"></i>
+                            <h5 class="mb-0 fw-bold text-info">Ações Rápidas</h5>
                         </div>
                          <div class="row g-3">
                             <div class="col-6">
-                                <a href="#" wire:click.prevent="renovarAssinatura" class="action-tile bg-primary-subtle border-primary-dark text-primary-dark">
+                                <a href="#" wire:click.prevent="renovarAssinatura" class="action-tile bg-info text-light-subtle border-primary-dark text-info-dark">
                                     <i class="fas fa-sync-alt fa-2x mb-2"></i>
                                     <span class="d-block fw-bold">Renovar</span>
                                     <small>Estender prazo</small>
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="#" wire:click.prevent="atualizarMetodoPagamento" class="action-tile bg-info-subtle border-info-dark text-info-dark">
+                                <a href="#" wire:click.prevent="atualizarMetodoPagamento" class="action-tile bg-info text-light-subtle border-info-dark text-info-dark">
                                     <i class="fas fa-credit-card fa-2x mb-2"></i>
                                     <span class="d-block fw-bold">Pagamento</span>
                                     <small>Alterar método</small>
@@ -367,7 +367,7 @@
                                     <div class="flex-grow-1">
                                         <div class="fw-bold">{{ $alert->titulo }}</div>
                                         <small class="text-muted d-block">{{ $alert->mensagem }}</small>
-                                        <small class="text-primary fw-semibold">{{ $alert->created_at->diffForHumans() }}</small>
+                                        <small class="text-info fw-semibold">{{ $alert->created_at->diffForHumans() }}</small>
                                     </div>
                                     <button type="button" class="btn-close btn-sm ms-3" wire:click="marcarAlertaComoLido({{ $alert->id }})" aria-label="Fechar"></button>
                                 </div>
@@ -400,7 +400,7 @@
                 <i class="fas fa-exclamation-triangle text-warning display-3 mb-4"></i>
                 <h3 class="text-warning mb-3">Nenhuma Assinatura Ativa</h3>
                 <p class="text-muted fs-5 mb-4">Sua igreja não possui uma assinatura ativa no momento.</p>
-                <a class="btn btn-primary btn-lg" href="{{ route('ecommerce.subscription.upgrade', Auth::user()->getIgrejaId()) }}">
+                <a class="btn bg-info text-light btn-lg" href="{{ route('ecommerce.subscription.upgrade', Auth::user()->getIgrejaId()) }}">
                     <i class="fas fa-plus me-2"></i>Contratar Plano
                 </a>
             </div>

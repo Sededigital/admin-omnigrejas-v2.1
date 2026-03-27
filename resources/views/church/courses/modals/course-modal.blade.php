@@ -6,7 +6,7 @@
             <!-- Header do Modal -->
             <div class="modal-header bg-light border-bottom">
                 <h5 class="modal-title fw-bold" id="courseModalLabel">
-                    <i class="fas fa-graduation-cap text-primary me-2"></i>
+                    <i class="fas fa-graduation-cap text-info me-2"></i>
                     <span id="modal-title">{{ $editingCourse ? 'Editar Curso' : 'Cadastrar Novo Curso' }}</span>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -21,19 +21,19 @@
                         <div class="nav nav-tabs border-bottom-0" id="nav-tab" role="tablist">
                             <button class="nav-link active border-0 bg-transparent fw-semibold" id="nav-basic-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-basic" type="button" role="tab">
-                                <i class="fas fa-info-circle text-primary me-1"></i>Informações Básicas
+                                <i class="fas fa-info-circle text-info me-1"></i>Informações Básicas
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-details-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab">
-                                <i class="fas fa-cog text-primary me-1"></i>Configurações
+                                <i class="fas fa-cog text-info me-1"></i>Configurações
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-team-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-team" type="button" role="tab">
-                                <i class="fas fa-users text-primary me-1"></i>Equipe
+                                <i class="fas fa-users text-info me-1"></i>Equipe
                             </button>
                             <button class="nav-link border-0 bg-transparent fw-semibold" id="nav-advanced-tab"
                                     data-bs-toggle="tab" data-bs-target="#nav-advanced" type="button" role="tab">
-                                <i class="fas fa-sliders-h text-primary me-1"></i>Avançado
+                                <i class="fas fa-sliders-h text-info me-1"></i>Avançado
                             </button>
                         </div>
                     </nav>
@@ -49,7 +49,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="text"  autocomplete="new-password" class="form-control @error('nome') is-invalid @enderror"
                                                wire:model="nome" placeholder="Nome do curso" id="nome-input">
-                                        <label><i class="fas fa-tag text-primary me-1"></i>Nome do Curso *</label>
+                                        <label><i class="fas fa-tag text-info me-1"></i>Nome do Curso *</label>
                                         @error('nome')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -70,7 +70,7 @@
                                             <option value="jovens">Jovens</option>
                                             <option value="outro">Outro</option>
                                         </select>
-                                        <label><i class="fas fa-list text-primary me-1"></i>Tipo *</label>
+                                        <label><i class="fas fa-list text-info me-1"></i>Tipo *</label>
                                         @error('tipo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -87,7 +87,7 @@
                                             <option value="suspenso">Suspenso</option>
                                             <option value="cancelado">Cancelado</option>
                                         </select>
-                                        <label><i class="fas fa-toggle-on text-primary me-1"></i>Status *</label>
+                                        <label><i class="fas fa-toggle-on text-info me-1"></i>Status *</label>
                                         @error('status')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -99,7 +99,7 @@
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control @error('descricao') is-invalid @enderror"
                                                   wire:model="descricao" rows="3" placeholder="Descrição detalhada do curso"></textarea>
-                                        <label><i class="fas fa-align-left text-primary me-1"></i>Descrição</label>
+                                        <label><i class="fas fa-align-left text-info me-1"></i>Descrição</label>
                                         @error('descricao')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -111,7 +111,7 @@
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control @error('objetivo') is-invalid @enderror"
                                                   wire:model="objetivo" rows="2" placeholder="Objetivos do curso"></textarea>
-                                        <label><i class="fas fa-bullseye text-primary me-1"></i>Objetivos</label>
+                                        <label><i class="fas fa-bullseye text-info me-1"></i>Objetivos</label>
                                         @error('objetivo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -128,7 +128,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" min="1" class="form-control @error('carga_horaria_total') is-invalid @enderror"
                                                wire:model="carga_horaria_total" placeholder="0">
-                                        <label><i class="fas fa-clock text-primary me-1"></i>Carga Horária Total (horas)</label>
+                                        <label><i class="fas fa-clock text-info me-1"></i>Carga Horária Total (horas)</label>
                                         @error('carga_horaria_total')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -139,7 +139,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" min="1" class="form-control @error('duracao_semanas') is-invalid @enderror"
                                                wire:model="duracao_semanas" placeholder="0">
-                                        <label><i class="fas fa-calendar-alt text-primary me-1"></i>Duração (semanas)</label>
+                                        <label><i class="fas fa-calendar-alt text-info me-1"></i>Duração (semanas)</label>
                                         @error('duracao_semanas')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -151,7 +151,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="date" class="form-control @error('data_inicio') is-invalid @enderror"
                                                wire:model="data_inicio">
-                                        <label><i class="fas fa-calendar-plus text-primary me-1"></i>Data de Início</label>
+                                        <label><i class="fas fa-calendar-plus text-info me-1"></i>Data de Início</label>
                                         @error('data_inicio')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -162,7 +162,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="date" class="form-control @error('data_fim') is-invalid @enderror"
                                                wire:model="data_fim">
-                                        <label><i class="fas fa-calendar-check text-primary me-1"></i>Data de Fim</label>
+                                        <label><i class="fas fa-calendar-check text-info me-1"></i>Data de Fim</label>
                                         @error('data_fim')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -174,7 +174,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" min="1" class="form-control @error('vagas_maximo') is-invalid @enderror"
                                                wire:model="vagas_maximo" placeholder="0">
-                                        <label><i class="fas fa-users text-primary me-1"></i>Vagas Máximo</label>
+                                        <label><i class="fas fa-users text-info me-1"></i>Vagas Máximo</label>
                                         @error('vagas_maximo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -186,7 +186,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="number" min="0" max="100" class="form-control @error('frequencia_minima') is-invalid @enderror"
                                                wire:model="frequencia_minima" placeholder="75">
-                                        <label><i class="fas fa-percentage text-primary me-1"></i>Frequência Mínima (%)</label>
+                                        <label><i class="fas fa-percentage text-info me-1"></i>Frequência Mínima (%)</label>
                                         @error('frequencia_minima')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -210,7 +210,7 @@
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-user-graduate text-primary me-1"></i>Instrutor Principal</label>
+                                        <label><i class="fas fa-user-graduate text-info me-1"></i>Instrutor Principal</label>
                                         @error('instrutor_principal')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -229,7 +229,7 @@
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label><i class="fas fa-user-tie text-primary me-1"></i>Coordenador</label>
+                                        <label><i class="fas fa-user-tie text-info me-1"></i>Coordenador</label>
                                         @error('coordenador')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -244,7 +244,7 @@
                                 <!-- Certificado Obrigatório -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label"><i class="fas fa-certificate text-primary me-1"></i>Certificado Obrigatório</label>
+                                        <label class="form-label"><i class="fas fa-certificate text-info me-1"></i>Certificado Obrigatório</label>
                                         <div class="row g-2">
                                             <div class="col-6">
                                                 <div class="form-check">
@@ -270,7 +270,7 @@
                                 <div class="col-md-6">
                                     <div class="alert alert-light border h-100 d-flex align-items-center">
                                         <div>
-                                            <i class="fas fa-info-circle text-primary me-2"></i>
+                                            <i class="fas fa-info-circle text-info me-2"></i>
                                             <strong>Status:</strong><br>
                                             <span class="text-muted">
                                                 {{ $editingCourse ? 'Editando Curso' : 'Novo Curso' }}
@@ -298,7 +298,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancelar
                 </button>
-                <button type="button" class="btn btn-primary" wire:click="salvarCourse" wire:loading.attr="disabled">
+                <button type="button" class="btn bg-info text-light" wire:click="salvarCourse" wire:loading.attr="disabled">
                     <span wire:loading.remove wire:target="salvarCourse">
                         <i class="fas fa-save me-1"></i>{{ $editingCourse ? 'Atualizar Curso' : 'Salvar Curso' }}
                     </span>

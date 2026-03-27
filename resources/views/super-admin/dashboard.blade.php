@@ -217,7 +217,7 @@
                     <div class="header-title">
                         <h4 class="mb-2 card-title">Igrejas Mais Engajadas</h4>
                         <p class="mb-0">
-                            <svg class="me-2 text-primary icon-24" width="24" viewBox="0 0 24 24">
+                            <svg class="me-2 text-info icon-24" width="24" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
                             </svg>
                             <span>{{ count($enterpriseClients) }}</span> novas este mês
@@ -240,7 +240,7 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img class="rounded bg-primary-subtle img-fluid avatar-40 me-3" src="../assets/images/shapes/01.png" alt="profile">
+                                            <img class="rounded bg-info text-light-subtle img-fluid avatar-40 me-3" src="../assets/images/shapes/01.png" alt="profile">
                                             <h6>{{ $client->igreja->nome ?? 'Igreja' }}</h6>
                                         </div>
                                     </td>
@@ -254,8 +254,8 @@
                                         <div class="mb-2 d-flex align-items-center">
                                             <h6>{{ $client->percentual ?? rand(25,100) }}%</h6>
                                         </div>
-                                        <div class="shadow-none progress bg-primary-subtle w-100" style="height: 4px">
-                                            <div class="progress-bar bg-primary" data-toggle="progress-bar" role="progressbar" aria-valuenow="{{ $client->percentual ?? rand(25,100) }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $client->percentual ?? rand(25,100) }}%;"></div>
+                                        <div class="shadow-none progress bg-info text-light-subtle w-100" style="height: 4px">
+                                            <div class="progress-bar bg-info text-light" data-toggle="progress-bar" role="progressbar" aria-valuenow="{{ $client->percentual ?? rand(25,100) }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $client->percentual ?? rand(25,100) }}%;"></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -543,7 +543,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge bg-info">{{ $assinatura->pacote->nome ?? 'Pacote' }}</span>
+                                        <span class="badge bg-info text-light">{{ $assinatura->pacote->nome ?? 'Pacote' }}</span>
                                     </td>
                                     <td>
                                         <div>
@@ -560,7 +560,7 @@
                                         @elseif($diasRestantes <= 15)
                                             <span class="badge bg-warning">Atenção</span>
                                         @else
-                                            <span class="badge bg-info">Normal</span>
+                                            <span class="badge bg-info text-light">Normal</span>
                                         @endif
                                     </td>
                                 </tr>

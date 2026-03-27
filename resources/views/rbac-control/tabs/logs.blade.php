@@ -101,12 +101,12 @@
                                             @if(isset($log->detalhes['permissao_nome']))
                                                 <strong>Permissão:</strong> {{ $log->detalhes['permissao_nome'] }}
                                                 @if(isset($log->detalhes['permissao_codigo']))
-                                                    <br><code class="text-primary">{{ $log->detalhes['permissao_codigo'] }}</code>
+                                                    <br><code class="text-info">{{ $log->detalhes['permissao_codigo'] }}</code>
                                                 @endif
                                             @elseif(isset($log->detalhes['nome']))
                                                 <strong>{{ isset($log->detalhes['codigo']) ? 'Permissão' : 'Função' }}:</strong> {{ $log->detalhes['nome'] }}
                                                 @if(isset($log->detalhes['codigo']))
-                                                    <br><code class="text-primary">{{ $log->detalhes['codigo'] }}</code>
+                                                    <br><code class="text-info">{{ $log->detalhes['codigo'] }}</code>
                                                 @endif
                                             @elseif(isset($log->detalhes['motivo']))
                                                 <strong>Motivo:</strong> {{ $log->detalhes['motivo'] }}

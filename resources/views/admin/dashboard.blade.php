@@ -218,10 +218,10 @@
             <div class="card" data-aos="fade-up" data-aos-delay="1200" wire:ignore>
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">
-                        <i class="fas fa-map-marker-alt text-primary me-2"></i>Distribuição Geográfica dos Membros
+                        <i class="fas fa-map-marker-alt text-info me-2"></i>Distribuição Geográfica dos Membros
                     </h4>
                     <div class="d-flex align-items-center">
-                        <span class="badge bg-primary me-2">{{ count($this->graficoDistribuicaoGeografica) }} regiões</span>
+                        <span class="badge bg-info text-lightry me-2">{{ count($this->graficoDistribuicaoGeografica) }} regiões</span>
                         <span class="badge bg-success">{{ array_sum(array_column($this->graficoDistribuicaoGeografica, 'total')) }} membros mapeados</span>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
                         {{-- Informações Laterais --}}
                         <div class="col-lg-4">
                             <div class="border-start ps-4">
-                                <h6 class="text-primary mb-3">
+                                <h6 class="text-info mb-3">
                                     <i class="fas fa-users me-1"></i>Usuários Próximos da Igreja
                                 </h6>
 
@@ -247,7 +247,7 @@
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <small class="text-muted">Na mesma província</small>
-                                        <span class="badge bg-info">{{ $this->usuariosProximos['mesma_provincia'] ?? 0 }}</span>
+                                        <span class="badge bg-info text-light">{{ $this->usuariosProximos['mesma_provincia'] ?? 0 }}</span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <small class="text-muted">Em outras regiões</small>
@@ -258,7 +258,7 @@
                                 <hr>
 
                                 {{-- Top 3 regiões --}}
-                                <h6 class="text-primary mb-2">
+                                <h6 class="text-info mb-2">
                                     <i class="fas fa-trophy me-1"></i>Top 3 Regiões
                                 </h6>
                                 <div class="mb-3">
@@ -267,7 +267,7 @@
                                             <small class="text-truncate" style="max-width: 150px;" title="{{ $regiao['localizacao'] }}">
                                                 {{ Str::limit($regiao['localizacao'], 20) }}
                                             </small>
-                                            <span class="badge bg-primary">{{ $regiao['total'] }}</span>
+                                            <span class="badge bg-info text-lightry">{{ $regiao['total'] }}</span>
                                         </div>
                                     @endforeach
                                 </div>
@@ -275,7 +275,7 @@
                                 <hr>
 
                                 {{-- Estatísticas adicionais --}}
-                                <h6 class="text-primary mb-2">
+                                <h6 class="text-info mb-2">
                                     <i class="fas fa-chart-bar me-1"></i>Estatísticas
                                 </h6>
                                 <div class="mb-2">

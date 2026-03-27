@@ -48,7 +48,7 @@ BootstrapTheme.prototype.classes = {
     tableList: 'table',
     tableListHeading: 'table-active',
     buttonGroup: 'btn-group',
-    button: 'btn btn-primary',
+    button: 'btn bg-info',
     buttonActive: 'active',
     today: 'alert alert-info',
     popover: 'card card-primary',

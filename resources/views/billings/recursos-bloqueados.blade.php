@@ -10,7 +10,7 @@
                             <p>Gerencie recursos bloqueados manualmente para igrejas</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#bloqueioModal">
+                            <button type="button" class="btn bg-info text-light" wire:click="openModal" data-bs-toggle="modal" data-bs-target="#bloqueioModal">
                                 <i class="fas fa-ban me-2"></i>
                                 Bloquear Recurso
                             </button>
@@ -208,7 +208,7 @@
                                             <option value="{{ $igreja->id }}">{{ $igreja->nome }} ({{ $igreja->nif }})</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-church text-primary me-1"></i>Igreja *</label>
+                                    <label><i class="fas fa-church text-info me-1"></i>Igreja *</label>
                                     @error('igreja_id')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -225,7 +225,7 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                    <label><i class="fas fa-cogs text-primary me-1"></i>Recurso *</label>
+                                    <label><i class="fas fa-cogs text-info me-1"></i>Recurso *</label>
                                     @error('recurso_tipo')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -237,7 +237,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="text"  autocomplete="new-password" class="form-control @error('motivo_bloqueio') is-invalid @enderror"
                                            wire:model="motivo_bloqueio" placeholder="Motivo do bloqueio">
-                                    <label><i class="fas fa-exclamation-triangle text-primary me-1"></i>Motivo *</label>
+                                    <label><i class="fas fa-exclamation-triangle text-info me-1"></i>Motivo *</label>
                                     @error('motivo_bloqueio')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -249,7 +249,7 @@
                                 <div class="form-floating mb-3">
                                     <textarea class="form-control @error('observacoes') is-invalid @enderror"
                                               wire:model="observacoes" placeholder="Observações adicionais" rows="3"></textarea>
-                                    <label><i class="fas fa-sticky-note text-primary me-1"></i>Observações</label>
+                                    <label><i class="fas fa-sticky-note text-info me-1"></i>Observações</label>
                                     @error('observacoes')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

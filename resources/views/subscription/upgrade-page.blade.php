@@ -5,7 +5,7 @@
 <div class="container-fluid py-1">
 
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-0">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-0">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -101,7 +101,7 @@
 
     <!-- Header dos Pacotes -->
     <div class="pricing-header text-center position-relative">
-        <h2 class="fw-bold mb-3 gradient-text display-5">
+        <h2 class="fw-bold mb-3 text-info display-5">
             @if($modoFormatado === 'Nova Assinatura')
                 <i class="fas fa-rocket me-3"></i>Escolha Seu Primeiro Plano
             @elseif($modoFormatado === 'Renovar Assinatura')
@@ -113,7 +113,7 @@
 
         <p class="text-muted lead mb-4 fs-5">
             @if($pacoteAtual)
-                Seu plano atual: <strong class="text-primary">{{ $pacoteAtual->nome }}</strong> ({{ $pacoteAtual->getPrecoFormatado() }}/mês)
+                Seu plano atual: <strong class="text-info">{{ $pacoteAtual->nome }}</strong> ({{ $pacoteAtual->getPrecoFormatado() }}/mês)
             @else
                 Planos flexíveis para igrejas de todos os tamanhos
             @endif
@@ -139,6 +139,7 @@
         </div>
     </div>
 
+    
     <!-- Cards de Pacotes Dinâmicos -->
     <livewire:subscription.pacote-cards
         :pacotes="$pacotesDisponiveis"
@@ -282,7 +283,7 @@
     @endif
 
     <!-- CTA Final Dinâmico -->
-    <div class="card cta-gradient text-white border-0 shadow-lg mt-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mt-5">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 @if($modoFormatado === 'Nova Assinatura')

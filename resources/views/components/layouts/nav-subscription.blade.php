@@ -3,14 +3,14 @@
 
     $badgeClasses = match($role) {
         'root', 'super_admin' => 'badge bg-danger text-white',
-        'admin', 'pastor'     => 'badge bg-primary text-white',
+        'admin', 'pastor'     => 'badge bg-info text-light text-white',
         default               => 'badge bg-secondary text-white'
     };
 @endphp
 
 <nav class="nav navbar navbar-expand-xl bg-light iq-navbar">
     <div class="container-fluid navbar-inner custom-navbar-inner">
-      <button data-trigger="navbar_main" class="d-xl-none btn btn-primary rounded-pill p-1 pt-0" type="button">
+      <button data-trigger="navbar_main" class="d-xl-none btn bg-info text-light rounded-pill p-1 pt-0" type="button">
         <svg class="icon-20" width="20px" viewBox="0 0 24 24">
           <path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
         </svg>
@@ -34,7 +34,7 @@
             
             <!--logo End-->
             <h4 class="logo-title fw-bold">
-                <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
+                <span class="text-info">Omn</span><span class="text-info">Igrejas</span>
             </h4>
       </a>
       <!-- Horizontal Menu Start -->
@@ -56,7 +56,7 @@
                 
                 <!--logo End-->
                 <h4 class="logo-title fw-bold">
-                    <span class="text-primary">Omn</span><span class="text-success">Igrejas</span>
+                    <span class="text-info">Omn</span><span class="text-success">Igrejas</span>
                 </h4>
                </a>
                <button class="btn-close float-end"></button>
@@ -99,7 +99,7 @@
                 @endauth
                 
                @guest
-               <li class="nav-item"><a class="nav-link btn btn-primary text-light px-4 py-1 mt-1"
+               <li class="nav-item"><a class="nav-link btn bg-info text-light text-light border-2 px-4 py-1 mt-1"
                     href="{{ route('login') }}"> Entrar</a>
                 </li>
                @endguest

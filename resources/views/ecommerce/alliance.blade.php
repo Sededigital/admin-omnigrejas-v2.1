@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <!-- Hero Section -->
-    <div class="card bg-gradient-hero text-white border-0 shadow-lg mb-5">
+    <div class="card bg-info text-light text-white border-0 shadow-lg mb-5">
         <div class="card-body p-5">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -41,7 +41,7 @@
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4 p-md-5">
                     <div class="text-center mb-5">
-                        <h2 class="section-header text-primary fw-bold display-5 mb-3">
+                        <h2 class="section-header text-info fw-bold display-5 mb-3">
                             <i class="fas fa-users-cog me-3"></i>Tipos de Parceria
                         </h2>
                         <p class="text-muted lead fs-5">Escolha o modelo de parceria que melhor se adapta ao seu perfil</p>
@@ -53,10 +53,10 @@
                             <div class="card partnership-card border-0 shadow-sm h-100">
                                 <div class="card-body p-4 text-center">
                                     <div class="partnership-icon mb-3">
-                                        <i class="fas fa-store fa-3x text-primary"></i>
+                                        <i class="fas fa-store fa-3x text-info"></i>
                                     </div>
                                     <h5 class="card-title fw-bold">Revendedor Autorizado</h5>
-                                    <p class="text-primary mb-2">Comissão: 25%</p>
+                                    <p class="text-info mb-2">Comissão: 25%</p>
                                     <p class="card-text small text-muted mb-3">Venda planos OMNIGREJAS e ganhe comissão sobre cada venda realizada.</p>
 
                                     <div class="partnership-features">
@@ -145,7 +145,7 @@
         <div class="col-lg-6 mb-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body p-4 p-md-5">
-                    <h3 class="section-header text-primary fw-bold mb-4">
+                    <h3 class="section-header text-info fw-bold mb-4">
                         <i class="fas fa-star me-2"></i> Por que ser Parceiro OMNIGREJAS?
                     </h3>
 
@@ -162,7 +162,7 @@
 
                         <div class="benefit-item mb-3">
                             <div class="benefit-icon">
-                                <i class="fas fa-shield-alt text-primary"></i>
+                                <i class="fas fa-shield-alt text-info"></i>
                             </div>
                             <div class="benefit-content">
                                 <h6 class="fw-bold mb-1">Produto Comprovado</h6>
@@ -200,7 +200,7 @@
     <div class="card shadow-sm border-0 mb-5">
         <div class="card-body p-4 p-md-5">
             <div class="text-center mb-5">
-                <h2 class="section-header text-primary fw-bold display-5 mb-3">
+                <h2 class="section-header text-info fw-bold display-5 mb-3">
                     <i class="fas fa-file-signature me-3"></i>Junte-se a Nós
                 </h2>
                 <p class="text-muted lead fs-5">Preencha o formulário abaixo e comece sua jornada como parceiro</p>
@@ -267,14 +267,14 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="termos-parceria" required>
                                     <label class="form-check-label small" for="termos-parceria">
-                                        Concordo com os <a href="#" class="text-primary">termos e condições</a> do programa de parceria OMNIGREJAS.
+                                        Concordo com os <a href="#" class="text-info">termos e condições</a> do programa de parceria OMNIGREJAS.
                                     </label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="d-grid mt-4">
-                            <button type="submit" class="btn btn-primary btn-glow">
+                            <button type="submit" class="btn bg-info text-light btn-glow">
                                 <i class="fas fa-paper-plane me-2"></i> Enviar Candidatura
                             </button>
                         </div>
@@ -285,7 +285,7 @@
     </div>
 
     <!-- CTA Final -->
-    <div class="card cta-gradient text-white border-0 shadow-lg">
+    <div class="card bg-info text-light text-white border-0 shadow-lg">
         <div class="card-body p-5 text-center">
             <h3 class="fw-bold display-5 mb-3">
                 Comece Hoje Mesmo!
